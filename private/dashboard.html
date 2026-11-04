@@ -140,6 +140,27 @@ select{border:1px solid var(--line-2);border-radius:8px;background:var(--panel);
 .flow .st b{display:block;font-size:13px;margin-bottom:4px}
 @media (max-width:700px){.flow{grid-template-columns:1fr 1fr}}
 
+
+/* data sources */
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.src{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:10px;min-width:0}
+.src-top{display:flex;gap:10px;align-items:flex-start}
+.mono-badge{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-family:var(--font-mono);font-weight:500;font-size:13px;background:var(--accent-wash);color:var(--accent-ink);flex:none}
+.src-top b{font-size:14px;display:block}
+.src-top .sub{color:var(--muted);font-size:12px}
+.src-top .pill{margin-left:auto}
+.src-meta{font-size:12px;color:var(--ink-2);display:flex;gap:6px 12px;flex-wrap:wrap}
+.src-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0}
+.src-stats div{min-width:0}
+.src-stats dt{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.src-stats dd{margin:2px 0 0;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kchips{display:flex;flex-wrap:wrap;gap:6px}
+.kchips span{font-size:12px;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--ink-2)}
+.kchips b{color:var(--ink);font-weight:600}
+.spark{height:46px;position:relative}
+.spark-cap{font-size:11px;color:var(--muted);display:flex;justify-content:space-between}
+.demo-note{font-size:12.5px;color:var(--warn-ink);background:var(--warn-wash);border-radius:8px;padding:8px 12px}
+
 /* chat */
 aside.chat{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,96px));height:calc(100dvh - var(--hdr,96px) - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));
   border-left:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;min-width:0}
@@ -204,6 +225,7 @@ aside.chat{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,96p
     <button class="tab" role="tab" data-view="products" aria-selected="false" id="t-products">Product profitability</button>
     <button class="tab" role="tab" data-view="marketing" aria-selected="false" id="t-marketing">Marketing ROAS</button>
     <button class="tab" role="tab" data-view="cash" aria-selected="false" id="t-cash">13-week cash</button>
+    <button class="tab" role="tab" data-view="sources" aria-selected="false" id="t-sources">Data sources</button>
     <button class="tab" role="tab" data-view="quality" aria-selected="false" id="t-quality">Data quality</button>
   </nav>
 </div>
@@ -452,6 +474,17 @@ aside.chat{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,96p
       <div class="tbl-wrap"><table id="tAss"></table></div>
     </div>
   </div>
+</section>
+
+<!-- SOURCES -->
+<section class="view" id="v-sources" hidden>
+  <div class="section-title">
+    <div><h2>Data sources</h2><p>Every system that feeds the model: sync status, record counts, period covered and key figures, refreshed on each run.</p></div>
+    <button class="ghost ai" data-ask="Review the data sources: is any source stale, incomplete or out of period? Compare the latest record date and monthly record volumes of each source and flag anything unusual. Use data_sources and source_activity_monthly.">Check freshness</button>
+  </div>
+  <div class="demo-note">Demo: connections are simulated with synthetic extracts. Record counts, periods and dates are computed from the source files on every refresh.</div>
+  <div class="tiles" id="srcTiles"></div>
+  <div class="src-grid" id="srcGrid"></div>
 </section>
 
 <!-- QUALITY -->
@@ -934,19 +967,55 @@ $("#mkPeriod").addEventListener("click", e => { const b = e.target.closest("butt
 $("#prAsk").addEventListener("click", () => ask(`Analyze product profitability for ${periodName(pr.period)}${pr.cat ? " in " + pr.cat : ""} at ${pr.level === "supplier_id" ? "supplier" : pr.level} level, overhead allocated by ${pr.ovh === "rev" ? "net revenue" : "order lines"}. Which items earn the least after all costs, why (product cost, fulfillment, returns, marketing), and what should we do? Use product_pnl_monthly.`));
 $("#mkAsk").addEventListener("click", () => ask(`Review marketing ROAS for ${periodName(mk.period)}: which campaigns pay for themselves on POAS, how much the platforms overclaim vs store last-click, the trend vs break-even ROAS, and where to move budget. Use campaign_roas_monthly and marketing_efficiency_monthly.`));
 
+
+// ---------------------------------------------------------------- SOURCES
+function renderSources() {
+  const S = DS.data_sources.rows, A = DS.source_activity_monthly.rows;
+  const recs = sum(S.map(s => s.records)), mb = sum(S.map(s => s.size_mb));
+  const synced = S.filter(s => s.status === "Synced").length;
+  const when = iso => { const d = new Date(iso); return isNaN(d) ? iso : d.toLocaleString("en-US", { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }); };
+  const host = $("#srcTiles"); host.innerHTML = "";
+  [["Sources connected", `${synced} / ${S.length}`, el("span", { class: "up", text: "All synced" })],
+   ["Records ingested", (recs / 1e6).toFixed(2) + "M", `${sum(S.map(s => s.files))} files · ${mb.toFixed(0)} MB`],
+   ["Last sync", when(S[0].last_sync), "Data as of " + M.meta.cutoff],
+   ["Period covered", mLabel(S[0].period_from) + " – " + mLabel(S[0].period_to), "24 months of history"],
+   ["Reconciliation", `${M.meta.recon_pass} / ${M.meta.recon_total}`, el("span", { class: M.meta.recon_pass === M.meta.recon_total ? "up" : "down", text: M.meta.recon_pass === M.meta.recon_total ? "checks pass" : "checks failing" })]]
+    .forEach(([k, v, d]) => host.append(el("div", { class: "tile" }, el("div", { class: "k", text: k }), el("div", { class: "v num", style: "font-size:21px", text: v }), el("div", { class: "d" }, d))));
+  const g = $("#srcGrid"); g.innerHTML = "";
+  const per = DS.kpi_monthly.rows.map(r => r.period);
+  S.forEach((s, i) => {
+    const initials = s.name.replace(/[^A-Za-z0-9 ]/g, "").split(" ").filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase();
+    const sp = el("div", { class: "spark", id: "sp-" + s.source });
+    const card = el("div", { class: "src" },
+      el("div", { class: "src-top" }, el("span", { class: "mono-badge", text: initials }), el("div", {}, el("b", { text: s.name }), el("div", { class: "sub", text: s.description })),
+        el("span", { class: "pill ok" }, el("span", { class: "dot" }), s.status)),
+      el("div", { class: "src-meta" }, el("span", { text: s.connection }), el("span", { text: "Last sync " + when(s.last_sync) })),
+      el("dl", { class: "src-stats" },
+        el("div", {}, el("dt", { text: "Records" }), el("dd", { text: fmtN(s.records) })),
+        el("div", {}, el("dt", { text: "Tables" }), el("dd", { text: String(s.tables) })),
+        el("div", {}, el("dt", { text: "Latest" }), el("dd", { text: s.last_record_date ? new Date(s.last_record_date + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "—" }))),
+      el("div", { class: "kchips" }, s.key_stats.map(k => el("span", {}, k.label + " ", el("b", { text: k.value })))),
+      el("div", {}, el("div", { class: "spark-cap" }, el("span", { text: "Records per month" }), el("span", { text: mLabel(per[0]) + " – " + mLabel(per[per.length - 1]) })), sp));
+    g.append(card);
+    const vals = per.map(p => (A.find(a => a.source === s.source && a.period === p) || {}).records || 0);
+    mkChart(sp, { _fmt: "number", _label: s.name + " records per month", data: { labels: per.map(mLabel), datasets: [bar("Records", vals, css("--s1"), { maxBarThickness: 8, borderRadius: 2 })] },
+      options: { plugins: { tooltip: { enabled: true } }, scales: { x: { display: false }, y: { display: false, beginAtZero: true } }, layout: { padding: 0 } } }, "sp-" + s.source);
+  });
+}
+
 // ---------------------------------------------------------------- tabs, theme
 let current = "overview";
 function show(v) {
   current = v; document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.view === v)));
   document.querySelectorAll(".view").forEach(s => s.hidden = s.id !== "v-" + v);
-  ({ overview: renderOverview, bva: renderBva, products: renderProducts, marketing: renderMarketing, cash: renderCash, quality: renderQuality })[v]();
+  ({ overview: renderOverview, bva: renderBva, products: renderProducts, marketing: renderMarketing, cash: renderCash, sources: renderSources, quality: renderQuality })[v]();
   try { history.replaceState(null, "", "#" + v); } catch (e) {}
 }
 document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => show(t.dataset.view)));
 const rerender = () => { if (!M) return; chartTheme(); show(current); };
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", rerender);
 new MutationObserver(rerender).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-addEventListener("hashchange", () => { const h = location.hash.slice(1); if (["overview","bva","products","marketing","cash","quality"].includes(h) && h !== current) show(h); });
+addEventListener("hashchange", () => { const h = location.hash.slice(1); if (["overview","bva","products","marketing","cash","sources","quality"].includes(h) && h !== current) show(h); });
 const setHdr = () => document.documentElement.style.setProperty("--hdr", $("#top").offsetHeight + "px");
 addEventListener("resize", setHdr);
 
@@ -1183,7 +1252,7 @@ async function boot() {
   $("#bvaYear").append(...[...new Set(ALL_P().map(p => p.slice(0, 4)))].filter(y => ALL_P().filter(p => p.startsWith(y)).length >= 6).reverse().map(y => el("option", { value: y, text: "FY" + y })));
   $("#prCat").append(...[...new Set(DS.product_pnl_monthly.rows.map(r => r.category))].sort().map(c => el("option", { value: c, text: c })));
   chartTheme(); computeCash(); intro();
-  const h = (location.hash || "").slice(1); show(["overview", "bva", "products", "marketing", "cash", "quality"].includes(h) ? h : "overview"); setHdr();
+  const h = (location.hash || "").slice(1); show(["overview", "bva", "products", "marketing", "cash", "sources", "quality"].includes(h) ? h : "overview"); setHdr();
 }
 boot();
 })();

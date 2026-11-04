@@ -942,6 +942,85 @@ add_recon("Marketing", "Every paid-channel order maps to a known campaign", 0,
           int((~paid_ord.utm_campaign_id.isin(set(mcamp) | set(gcamp))).sum()), "shopify/orders.utm_campaign_id vs campaigns", unit="orders")
 
 
+# ---------------------------------------------------------------- data sources (connector status page)
+# Real statistics of every source extract; connection labels are illustrative (demo).
+def _rows(path):
+    with open(path, "rb") as fh:
+        return max(0, sum(1 for _ in fh) - 1)
+
+
+RUN_AT = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+SRC_META = {
+    "shopify": ("Shopify", "Storefront, orders, customers", "API connector"),
+    "shopify_payments": ("Shopify Payments", "Card processing and payouts", "API connector"),
+    "quickbooks": ("QuickBooks Online", "General ledger, bills, AP", "API connector"),
+    "bank": ("Operating bank account", "Bank statement feed", "Bank feed"),
+    "gusto": ("Gusto", "Payroll and employees", "API connector"),
+    "meta_ads": ("Meta Ads", "Facebook and Instagram campaigns", "API connector"),
+    "google_ads": ("Google Ads", "Search and Shopping campaigns", "API connector"),
+    "warehouse_3pl": ("3PL warehouse (WMS)", "Receipts, stock, dispatches, returns", "SFTP file drop"),
+    "purchasing": ("Procurement register", "Suppliers, POs, payment schedules", "SFTP file drop"),
+    "planning": ("Budget & contracts", "Approved budget, recurring obligations", "Spreadsheet upload"),
+    "finance": ("Treasury & debt", "Loans, tax remittances, distributions", "Spreadsheet upload"),
+}
+src_rows, src_act = [], []
+gl_month_lines = {}
+for f in sorted(glob.glob(os.path.join(SRC, "quickbooks/general_ledger/*.csv"))):
+    gl_month_lines[os.path.basename(f)[:7]] = _rows(f)
+
+
+def month_counts(series):
+    s = pd.Series(series).dropna().astype(str).str[:7]
+    return s[s.isin(PERIODS)].value_counts().to_dict()
+
+
+ACT_SRC = {
+    "shopify": month_counts(orders.created_at),
+    "shopify_payments": month_counts(bt.transaction_date),
+    "quickbooks": gl_month_lines,
+    "bank": month_counts(bank.posted_date),
+    "gusto": month_counts(rd("gusto/payroll_employee_details.csv").payroll_run_id.map(dict(zip(pr.payroll_run_id, pr.pay_period_end)))),
+    "meta_ads": month_counts(meta.date_start),
+    "google_ads": month_counts(goo.segments_date),
+    "warehouse_3pl": month_counts(mov.movement_date),
+    "purchasing": month_counts(pos.order_date),
+    "planning": month_counts(bud.period),
+    "finance": month_counts(pd.concat([rd("finance/term_loan_payments.csv").payment_date, stx.due_date, rd("finance/owner_distributions.csv").payment_date])),
+}
+L12_ = PERIODS[-12:]
+KEY = {
+    "shopify": [("Orders", f"{len(orders):,}"), ("Customers", f"{len(cust):,}"), ("Products", f"{len(prods)}"), ("Refunds", f"{len(refunds):,}")],
+    "shopify_payments": [("Transactions", f"{len(bt):,}"), ("Payouts", f"{len(payouts)}"), ("In transit", f"${TB[(LAST, '1010')]/100:,.0f}")],
+    "quickbooks": [("Ledger lines", f"{gl_lines:,}"), ("Accounts", f"{len(coa)}"), ("Bills", f"{len(bills):,}"), ("Open AP", f"${-TB[(LAST, '2000')]/100:,.0f}")],
+    "bank": [("Transactions", f"{len(bank):,}"), ("Closing balance", f"${bank_close/100:,.0f}"), ("Shopify deposits", f"{len(bank_shop):,}")],
+    "gusto": [("Active employees", f"{len(act_emp)}"), ("Employees on file", f"{len(emp)}"), ("Payroll runs", f"{len(pr)}")],
+    "meta_ads": [("Campaigns", f"{meta.campaign_id.nunique()}"), ("Spend L12M", f"${meta[meta.period.isin(L12_)].spend_c.sum()/100:,.0f}"), ("Impressions L12M", f"{meta[meta.period.isin(L12_)].impressions.sum()/1e6:,.1f}M")],
+    "google_ads": [("Campaigns", f"{goo.campaign_id.nunique()}"), ("Spend L12M", f"${goo[goo.period.isin(L12_)].spend_c.sum()/100:,.0f}"), ("Clicks L12M", f"{goo[goo.period.isin(L12_)].clicks.sum():,}")],
+    "warehouse_3pl": [("Dispatches", f"{len(ful):,}"), ("Stock movements", f"{len(mov):,}"), ("SKUs", f"{mei.sku.nunique()}"), ("Stock value", f"${TB[(LAST, '1200')]/100:,.0f}")],
+    "purchasing": [("Purchase orders", f"{len(pos)}"), ("Suppliers", f"{len(sup)}"), ("Open POs", f"{int((pos.status != 'received').sum())}"), ("Open commitments", f"${sched.out_c.sum()/100:,.0f}")],
+    "planning": [("Budget lines", f"{len(bud)}"), ("Budget versions", f"{bud.budget_version.nunique()}"), ("Contracts", f"{len(obl)}")],
+    "finance": [("Facilities", f"{len(dr_)}"), ("Loan principal", f"${tb_principal/100:,.0f}"), ("Tax remittances", f"{len(stx)}")],
+}
+LAST_DATE = {
+    "shopify": orders.created_at.max()[:10], "shopify_payments": bt.transaction_date.max()[:10], "quickbooks": CUTOFF.isoformat(),
+    "bank": bank.posted_date.max(), "gusto": pr[pr.check_date <= CUTOFF.isoformat()].check_date.max(), "meta_ads": meta.date_start.max(),
+    "google_ads": goo.segments_date.max(), "warehouse_3pl": mov.movement_date.max(), "purchasing": pos.order_date.max(),
+    "planning": bud.approved_date.max() if "approved_date" in bud.columns else "", "finance": rd("finance/term_loan_payments.csv").payment_date.max(),
+}
+for key, (name, what, method) in SRC_META.items():
+    files = sorted(glob.glob(os.path.join(SRC, key, "**", "*.csv"), recursive=True))
+    nrows = sum(_rows(f) for f in files)
+    nbytes = sum(os.path.getsize(f) for f in files)
+    tables = len({os.path.dirname(f) if "general_ledger" in f else f for f in files})
+    src_rows.append({"source": key, "name": name, "description": what, "connection": method, "status": "Synced",
+                     "last_sync": RUN_AT, "last_record_date": LAST_DATE.get(key) or "", "period_from": PERIODS[0], "period_to": LAST,
+                     "tables": tables, "files": len(files), "records": nrows, "size_mb": round(nbytes / 1e6, 1),
+                     "key_stats": [{"label": a, "value": b} for a, b in KEY[key]]})
+    for p in PERIODS:
+        src_act.append({"source": key, "period": p, "records": int(ACT_SRC[key].get(p, 0))})
+add_recon("Sources", "All 11 source systems delivered files", 11, sum(1 for r in src_rows if r["files"] > 0), "sources/*", unit="sources")
+
+
 # ---------------------------------------------------------------- assemble
 def ds(desc, grain, rows):
     cols = list(rows[0].keys()) if rows else []
@@ -977,6 +1056,8 @@ mart = {
         "allocation_rules": ds("How each P&L cost pool is assigned to SKUs.", "cost pool", alloc_rules),
         "campaign_roas_monthly": ds("Campaign performance by month: platform-reported conversions/value (Meta 7d click 1d view, Google data-driven; these overlap) vs storefront last-click orders and revenue from utm_campaign_id; POAS = attributed contribution after fulfillment / spend.", "period x campaign", roas_rows),
         "marketing_efficiency_monthly": ds("Company marketing efficiency by month: spend, MER, break-even ROAS (net revenue / contribution before marketing), platform ROAS, storefront ROAS, POAS, CAC.", "period", eff_rows),
+        "data_sources": ds("Status and statistics of every connected source system (records, tables, period, last record, key figures). Connection labels are illustrative in this demo.", "source", src_rows),
+        "source_activity_monthly": ds("Records per month in each source's main table.", "source x period", src_act),
         "reconciliations": ds("Automated reconciliation checks run on every refresh.", "check", recon),
     },
 }
