@@ -114,6 +114,7 @@ td.ind{padding-left:20px}
 #tCash tr.sub td:first-child{background:var(--panel-2)}
 td.click{cursor:pointer} td.click:hover{background:var(--accent-wash)}
 td.sel{outline:2px solid var(--accent);outline-offset:-2px}
+td.edited{box-shadow:inset 0 0 0 2px var(--s4);background:var(--warn-wash)}
 td.lowcash{background:var(--warn-wash);color:var(--warn-ink);font-weight:600}
 td.negcash{background:var(--crit-wash);color:var(--crit-ink);font-weight:700}
 .bar-cell{display:flex;align-items:center;gap:8px;justify-content:flex-end}
@@ -462,7 +463,21 @@ aside.chat{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,96p
     <div><h2>13-week cash forecast</h2><p id="cashIntro">Starts from bank cash at the cutoff. Known items come from documents and contracts; estimated items are driver-based. Click any amount to see the line items behind it.</p></div>
     <button class="ghost ai" data-ask="Walk me through the 13-week cash forecast in the current scenario: the low point, what drives it, whether we breach the $250k working-cash floor, and three actions management could take.">Explain forecast</button>
   </div>
-  <div class="card">
+  <div class="card" id="cvBar">
+    <div class="controls">
+      <label class="note" for="cvSel"><b>Version</b></label>
+      <select id="cvSel" aria-label="Forecast version" style="max-width:340px"></select>
+      <button class="ghost" id="cvEdit" type="button" aria-pressed="false">Edit</button>
+      <button class="ghost" id="cvAddLine" type="button" hidden>+ Add line</button>
+      <button class="ghost" id="cvSave" type="button">Save as version…</button>
+      <button class="ghost" id="cvDiscard" type="button" hidden>Discard changes</button>
+      <span class="note" style="margin-left:auto"><b>Compare with</b></span>
+      <select id="cvCmp" aria-label="Compare with" style="max-width:280px"></select>
+    </div>
+    <div class="note" id="cvMeta" style="margin-top:8px"></div>
+    <div class="drill" id="cvSavePanel" hidden></div>
+  </div>
+  <div class="card" id="cashSliders">
     <div class="controls" style="gap:18px">
       <div class="slider"><label for="scSales">Sales vs base <b id="scSalesV">0%</b></label><input id="scSales" type="range" min="-30" max="30" step="5" value="0"></div>
       <div class="slider"><label for="scAds">Ad spend vs base <b id="scAdsV">0%</b></label><input id="scAds" type="range" min="-50" max="30" step="5" value="0"></div>
@@ -476,7 +491,7 @@ aside.chat{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,96p
     <div class="card c7">
       <div class="card-head"><div><h3>Closing cash by week</h3><div class="sub">USD · dashed line is the $250k working-cash floor</div></div></div>
       <div class="chart" id="chCash"></div>
-      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Closing cash</span><span><i class="dash" style="border-color:var(--crit)"></i>$250k floor</span></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Closing cash</span><span><i class="dash" style="border-color:var(--crit)"></i>$250k floor</span><span id="cashLegCmp" hidden><i class="ln" style="background:var(--s2)"></i><span>Compare</span></span></div>
     </div>
     <div class="card c5">
       <div class="card-head"><div><h3>Inflows vs outflows</h3><div class="sub">Weekly, USD</div></div></div>
@@ -487,6 +502,12 @@ aside.chat{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,96p
       <div class="card-head"><div><h3>Weekly cash flow</h3><div class="sub">USD · weeks run Sunday to Saturday</div></div></div>
       <div class="tbl-wrap"><table id="tCash"></table></div>
       <div class="drill" id="drill" hidden></div>
+      <div class="drill" id="cvEditPanel" hidden></div>
+    </div>
+    <div class="card c12" id="cvCmpCard" hidden>
+      <div class="card-head"><div><h3 id="cvCmpTitle">Forecast vs actual</h3><div class="sub" id="cvCmpSub"></div></div>
+        <button class="ghost ai" id="cvCmpAsk" type="button">Explain differences</button></div>
+      <div id="cvCmpBody"></div>
     </div>
     <div class="card c12">
       <div class="card-head"><div><h3>Assumptions</h3><div class="sub">Used for estimated lines</div></div></div>
@@ -799,52 +820,218 @@ function computeCash() {
   const mi = closing.indexOf(Math.min(...closing)); window.__cashLow = { v: closing[mi], w: W[mi].label.split(" ").slice(1).join(" ") };
   return cashModel;
 }
+// ---- cash forecast versions: pick, edit (with comments), save, compare with actual or another version
+const cv = { baseId: "current", edit: false, adj: {}, custom: [], cmp: "none", saved: [], storage: null, sel: null, flash: "" };
+const wkLabel = (w, i) => { const a = new Date(w.start + "T00:00:00Z"), b = new Date(w.end + "T00:00:00Z"); const mo = d => d.toLocaleDateString("en-US", { month: "short", timeZone: "UTC" });
+  return `W${i + 1} ${mo(a)} ${a.getUTCDate()}-${a.getUTCMonth() === b.getUTCMonth() ? b.getUTCDate() : mo(b) + " " + b.getUTCDate()}`; };
+function cvVersions() {
+  const sys = DS.cash_versions.rows; const mp = new Map();
+  [...((DS.cash_saved_versions || {}).rows || []), ...cv.saved].forEach(v => mp.set(v.version_id, v));
+  return { current: sys[0], saved: [...mp.values()].sort((a, b) => (a.created_at < b.created_at ? 1 : -1)), backtests: sys.slice(1) };
+}
+function cvFind(id) { const V = cvVersions(); return id === "current" ? V.current : [...V.saved, ...V.backtests].find(v => v.version_id === id); }
+function matrixOf(id, withSliders) {
+  if (id === "current") { const m = withSliders ? computeCash() : null; if (m) return { id, W: m.W, opening: M.meta.opening_cash, lines: m.lines.map(l => ({ line: l.line, section: l.section, group: (l.items[0] || {}).group || l.line, wk: [...l.wk], items: l.items })) }; }
+  const v = cvFind(id);
+  return { id, W: v.weeks.map((w, i) => ({ ...w, week: i + 1, label: wkLabel(w, i) })), opening: v.opening_cash, lines: v.lines.map(l => ({ line: l.line, section: l.section, group: l.group || l.line, wk: [...l.amounts] })) };
+}
+function totals(b) {
+  const n = b.W.length, S = f => Array.from({ length: n }, (_, i) => sum(b.lines.filter(f).map(l => l.wk[i])));
+  b.net = S(() => true); b.inflow = S(l => l.section === "Inflows"); b.outflow = S(l => l.section !== "Inflows");
+  b.closing = []; let c = b.opening; b.net.forEach(x => { c += x; b.closing.push(c); }); b.openings = [b.opening, ...b.closing.slice(0, -1)]; return b;
+}
+function viewMatrix() {
+  const b = matrixOf(cv.baseId, true);
+  cv.custom.forEach(cu => { if (!b.lines.find(l => l.line === cu.line)) b.lines.push({ line: cu.line, section: cu.section, group: cu.line, wk: Array(b.W.length).fill(0), custom: true }); });
+  b.applied = 0;
+  for (const [k, a] of Object.entries(cv.adj)) { const [line, start] = k.split("|"); const L = b.lines.find(l => l.line === line); const i = b.W.findIndex(w => w.start === start);
+    if (L && i >= 0) { L.orig = L.orig || [...L.wk]; L.wk[i] = a.to; L.notes = L.notes || {}; L.notes[i] = a; b.applied++; } }
+  const order = { Inflows: 0, Outflows: 1, Financing: 2 }; b.lines.sort((x, y) => order[x.section] - order[y.section]);
+  return totals(b);
+}
+const nAdj = () => Object.keys(cv.adj).length + cv.custom.length;
+function cvFill() {
+  const V = cvVersions(); const sel = $("#cvSel"); sel.innerHTML = "";
+  const og = (label, arr) => { const g = el("optgroup", { label }); arr.forEach(([v, t]) => g.append(el("option", { value: v, text: t }))); sel.append(g); };
+  og("Current", [["current", V.current.name.replace("System forecast", "System forecast") + " (live)"]]);
+  if (V.saved.length) og("Saved versions", V.saved.map(v => [v.version_id, `${v.name} · ${v.author || ""}`]));
+  og("System forecasts, reconstructed (backtest)", V.backtests.map(v => [v.version_id, v.name.replace(" (backtest)", "")]));
+  sel.value = cv.baseId;
+  const cmp = $("#cvCmp"); cmp.innerHTML = "";
+  cmp.append(el("option", { value: "none", text: "Nothing" }), el("option", { value: "actual", text: "Actual (bank)" }));
+  const g2 = el("optgroup", { label: "Another version" });
+  [["current", "System forecast (live)"], ...V.saved.map(v => [v.version_id, v.name]), ...V.backtests.map(v => [v.version_id, v.name.replace(" (backtest)", "")])].filter(([v]) => v !== cv.baseId).forEach(([v, t]) => g2.append(el("option", { value: v, text: t })));
+  cmp.append(g2); cmp.value = [...cmp.options].some(o => o.value === cv.cmp) ? cv.cmp : "none"; cv.cmp = cmp.value;
+}
+function cvMetaText() {
+  const v = cvFind(cv.baseId); const when = iso => new Date(iso).toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "2-digit", minute: "2-digit" });
+  if (cv.baseId === "current") return `Built by the pipeline from data as of ${M.meta.cutoff}. Scenario sliders apply to this version.`;
+  if (v.kind === "backtest") return `Reconstructed: built only from data available on ${v.asof}. Use it to compare forecast with actual for the weeks that have passed.`;
+  return `Saved by ${v.author || "unknown"} · ${when(v.created_at)} · based on ${v.base_name || v.base_version_id || "system forecast"} · ${(v.adjustments || []).length} adjustment(s)` + (v.note ? ` · “${v.note}”` : "");
+}
 function renderCash() {
-  const m = computeCash(); const W = m.W;
+  cvFill();
+  const m = viewMatrix(); cashView = m; const W = m.W;
+  $("#cashSliders").hidden = cv.baseId !== "current";
   $("#scSalesV").textContent = (sc.sales > 0 ? "+" : "") + sc.sales + "%"; $("#scAdsV").textContent = (sc.ads > 0 ? "+" : "") + sc.ads + "%"; $("#scPoV").textContent = (sc.po > 0 ? "+" : "") + sc.po + "%";
+  $("#cvMeta").textContent = cvMetaText() + (nAdj() ? ` · ${nAdj()} unsaved change(s)` : "") + (cv.flash ? " · " + cv.flash : "");
+  $("#cvEdit").textContent = cv.edit ? "Done editing" : "Edit"; $("#cvEdit").setAttribute("aria-pressed", String(cv.edit));
+  $("#cvDiscard").hidden = !nAdj(); $("#cvAddLine").hidden = !cv.edit;
   const mi = m.closing.indexOf(Math.min(...m.closing)); const below = m.closing.filter(x => x < 250000).length;
-  const known = -sum(m.items.filter(i => i.amount < 0 && i.kind === "Known").map(i => i.amount)), allOut = -sum(m.items.filter(i => i.amount < 0).map(i => i.amount));
   const host = $("#cashTiles"); host.innerHTML = "";
-  [["Opening bank cash, " + M.meta.cutoff, fmt$(M.meta.opening_cash, true), "GL 1000 = bank statement"],
+  const asof = cv.baseId === "current" ? M.meta.cutoff : (cvFind(cv.baseId).asof || "");
+  [["Opening bank cash" + (asof ? ", " + asof : ""), fmt$(m.opening, true), cv.baseId === "current" ? "GL 1000 = bank statement" : "bank balance on that date"],
    ["Lowest closing week", fmt$(m.closing[mi], true), W[mi].label],
    ["Net cash flow, 13 weeks", fmt$(sum(m.net), true), "Closing " + fmt$(m.closing[m.closing.length - 1], true) + " · revolver $400k undrawn"],
-   ["Weeks below $250k floor", String(below) + " of 13", below ? el("span", { class: "down", text: "First: " + W[m.closing.findIndex(x => x < 250000)].label }) : el("span", { class: "up", text: "Floor holds" })],
-   ["Outflows backed by documents", fmtPct(known / allOut, 0), "Known vs estimated cash out"]]
+   ["Weeks below $250k floor", String(below) + " of " + W.length, below ? el("span", { class: "down", text: "First: " + W[m.closing.findIndex(x => x < 250000)].label }) : el("span", { class: "up", text: "Floor holds" })],
+   ["Manual changes", String(m.applied + cv.custom.length), nAdj() ? el("span", { class: "flat", text: "unsaved" }) : "in this view"]]
     .forEach(([k, v, d]) => host.append(el("div", { class: "tile" }, el("div", { class: "k", text: k }), el("div", { class: "v num", text: v }), el("div", { class: "d" }, d))));
   const labs = W.map(w => w.label.split(" ")[0]);
-  mkChart($("#chCash"), { _label: "Closing cash by week", data: { labels: W.map(w => w.label), datasets: [
-    line("$250k floor", W.map(() => 250000), css("--crit"), { borderDash: [5, 4], borderWidth: 1.5, pointHoverRadius: 0 }),
-    line("Closing cash", m.closing, css("--s1"), { fill: { target: "origin", above: alpha(css("--s1"), .10) }, pointRadius: 3, tension: .2 }) ] },
-    options: { scales: { x: { ticks: { callback: (v, i) => labs[i] } }, y: { beginAtZero: true } } } });
+  const C = cvCompare(m);
+  const ds = [line("$250k floor", W.map(() => 250000), css("--crit"), { borderDash: [5, 4], borderWidth: 1.5, pointHoverRadius: 0 }),
+    line("Closing cash", m.closing, css("--s1"), { fill: { target: "origin", above: alpha(css("--s1"), .10) }, pointRadius: 3, tension: .2 })];
+  if (C && C.idx.length) ds.push(line(C.label, W.map((_, i) => C.idx.includes(i) ? C.closing(i) : null), css("--s2"), { pointRadius: 3, tension: .2, spanGaps: false }));
+  mkChart($("#chCash"), { _label: "Closing cash by week", data: { labels: W.map(w => w.label), datasets: ds }, options: { scales: { x: { ticks: { callback: (v, i) => labs[i] } }, y: { beginAtZero: true } } } });
+  $("#cashLegCmp").hidden = !(C && C.idx.length); $("#cashLegCmp").lastChild.textContent = C ? C.label : "";
   mkChart($("#chFlows"), { _label: "Weekly inflows and outflows", data: { labels: W.map(w => w.label), datasets: [bar("Inflows", m.inflow, css("--s3")), bar("Outflows", m.outflow, css("--s2"))] },
     options: { scales: { x: { stacked: true, ticks: { callback: (v, i) => labs[i] } }, y: { stacked: true } } } });
   // table
   const t = $("#tCash"); t.innerHTML = "";
-  const hr = el("tr", {}, el("th", { text: "USD" }), W.map(w => el("th", { text: w.label.split(" ")[0], title: w.label })), el("th", { text: "13 wks" }));
+  const hr = el("tr", {}, el("th", { text: "USD" }), W.map(w => el("th", { text: w.label.split(" ")[0], title: w.label })), el("th", { text: W.length + " wks" }));
   const tb = el("tbody");
-  const rowOf = (name, vals, cls, line) => { const tr = el("tr", cls ? { class: cls } : {}); tr.append(el("td", { class: line ? "ind" : "", text: name }));
-    vals.forEach((v, i) => { const td = el("td", { text: Math.abs(v) < .5 ? "–" : fmt$(v) }); if (line && Math.abs(v) >= .5) { td.classList.add("click"); td.tabIndex = 0; td.onclick = td.onkeydown = e => { if (e.type === "keydown" && e.key !== "Enter") return; showDrill(line, i, td); }; }
+  const rowOf = (name, vals, cls, L) => { const tr = el("tr", cls ? { class: cls } : {}); tr.append(el("td", { class: L ? "ind" : "", text: name + (L && L.custom ? " (manual)" : "") }));
+    vals.forEach((v, i) => { const td = el("td", { text: Math.abs(v) < .5 ? "–" : fmt$(v) });
+      if (L) { const note = L.notes && L.notes[i];
+        if (note) { td.classList.add("edited"); td.title = `Was ${fmt$(note.from)} · ${note.comment}`; }
+        const can = cv.edit || (L.items && Math.abs(v) >= .5 && !note);
+        if (can) { td.classList.add("click"); td.tabIndex = 0; td.onclick = td.onkeydown = e => { if (e.type === "keydown" && e.key !== "Enter") return; cv.edit ? cvEditCell(L, i, td) : showDrill(L, i, td); }; } }
       if (cls === "total" && name === "Closing cash") td.classList.add(v < 0 ? "negcash" : v < 250000 ? "lowcash" : "x"); tr.append(td); });
-    if (name !== "Opening cash" && name !== "Closing cash") tr.append(el("td", { text: fmt$(sum(vals)) })); else tr.append(el("td", { text: name === "Opening cash" ? fmt$(vals[0]) : fmt$(vals[vals.length - 1]) }));
+    tr.append(el("td", { text: name === "Opening cash" ? fmt$(vals[0]) : name === "Closing cash" ? fmt$(vals[vals.length - 1]) : fmt$(sum(vals)) }));
     tb.append(tr); };
-  rowOf("Opening cash", m.opening, "sub");
+  rowOf("Opening cash", m.openings, "sub");
   for (const sec of ["Inflows", "Outflows", "Financing"]) {
     const ls = m.lines.filter(l => l.section === sec); if (!ls.length) continue;
-    const tr = el("tr", { class: "sec" }, el("td", { text: sec, colspan: String(W.length + 2) })); tb.append(tr);
+    tb.append(el("tr", { class: "sec" }, el("td", { text: sec, colspan: String(W.length + 2) })));
     ls.forEach(l => rowOf(l.line, l.wk, "", l));
   }
   rowOf("Net cash flow", m.net, "sub"); rowOf("Closing cash", m.closing, "total");
   t.append(el("thead", {}, hr), tb);
   table($("#tAss"), [{ h: "Assumption", k: "assumption" }, { h: "Value", f: r => typeof r.value === "number" ? (r.value > 1000 ? fmt$(r.value) : r.value.toFixed(3) + "x") : r.value }, { h: "Basis", k: "basis", cls: "l" }], DS.cash_assumptions.rows);
   $("#drill").hidden = true;
+  if (!cv.edit) $("#cvEditPanel").hidden = true;
+  cvRenderCompare(m, C);
 }
+let cashView = null;
 function showDrill(L, wi, td) {
   document.querySelectorAll("#tCash td.sel").forEach(x => x.classList.remove("sel")); td.classList.add("sel");
   const d = $("#drill"); d.hidden = false; d.innerHTML = "";
   const its = L.items.filter(i => i.week === wi + 1);
-  d.append(el("div", { class: "card-head" }, el("div", {}, el("h3", { text: `${L.line} · ${cashModel.W[wi].label}` }), el("div", { class: "sub", text: `${its.length} line item(s), total ${fmt$(sum(its.map(i => i.amount)))}` }))));
+  d.append(el("div", { class: "card-head" }, el("div", {}, el("h3", { text: `${L.line} · ${cashView.W[wi].label}` }), el("div", { class: "sub", text: `${its.length} line item(s), total ${fmt$(sum(its.map(i => i.amount)))}` }))));
   const tw = el("div", { class: "tbl-wrap" }); const tt = el("table"); tw.append(tt); d.append(tw);
   table(tt, [{ h: "Date", k: "date" }, { h: "Amount", f: r => fmt$(r.amount) }, { h: "Type", f: r => el("span", { class: "chip " + (r.kind === "Known" ? "known" : "est"), text: r.kind }) }, { h: "Basis", k: "basis", cls: "l" }, { h: "Source", f: r => el("span", { class: "mono muted", text: r.source }), cls: "l" }], its.slice(0, 60));
+}
+function cvEditCell(L, i, td) {
+  document.querySelectorAll("#tCash td.sel").forEach(x => x.classList.remove("sel")); td.classList.add("sel");
+  const w = cashView.W[i]; const key = `${L.line}|${w.start}`; const cur = cv.adj[key]; const base = L.orig ? L.orig[i] : L.wk[i];
+  const p = $("#cvEditPanel"); p.hidden = false; p.innerHTML = "";
+  const amt = el("input", { id: "cvAmt", type: "number", step: "100", value: String(Math.round(L.wk[i])), style: "width:140px" });
+  const com = el("input", { id: "cvCom", type: "text", maxlength: "160", placeholder: "Why? e.g. supplier agreed to pay later", value: cur ? cur.comment : "", style: "flex:1;min-width:200px" });
+  const msg = el("span", { class: "note" });
+  const apply = el("button", { class: "ghost", type: "button", text: "Apply", onclick: () => {
+    const v = Number(amt.value); if (!isFinite(v)) { msg.textContent = "Enter a number."; return; }
+    if (!com.value.trim()) { msg.textContent = "Add a short comment so others know why."; com.focus(); return; }
+    cv.adj[key] = { from: Math.round(base * 100) / 100, to: v, comment: com.value.trim(), at: new Date().toISOString() }; cv.flash = ""; renderCash(); } });
+  const reset = el("button", { class: "ghost", type: "button", text: "Undo this change", onclick: () => { delete cv.adj[key]; renderCash(); } });
+  p.append(el("div", { class: "card-head" }, el("div", {}, el("h3", { text: `${L.line} · ${w.label}` }), el("div", { class: "sub", text: `Forecast value ${fmt$(base)} · negative = cash out` }))),
+    el("div", { class: "controls" }, el("label", { for: "cvAmt", class: "note", text: "New amount, USD" }), amt, com, apply, cur ? reset : null, msg));
+  amt.focus(); amt.select();
+}
+function cvAddLineForm() {
+  const p = $("#cvEditPanel"); p.hidden = false; p.innerHTML = "";
+  const nm = el("input", { id: "cvLn", type: "text", maxlength: "60", placeholder: "e.g. Revolver draw, Warehouse racking capex", style: "flex:1;min-width:220px" });
+  const sec = el("select", { id: "cvLs" }, ["Inflows", "Outflows", "Financing"].map(s => el("option", { value: s, text: s })));
+  const msg = el("span", { class: "note" });
+  p.append(el("div", { class: "card-head" }, el("div", {}, el("h3", { text: "Add a manual line" }), el("div", { class: "sub", text: "Then click its cells to enter amounts with comments" }))),
+    el("div", { class: "controls" }, nm, sec, el("button", { class: "ghost", type: "button", text: "Add line", onclick: () => {
+      const n = nm.value.trim(); if (!n) { msg.textContent = "Name the line."; return; }
+      if (cashView.lines.some(l => l.line.toLowerCase() === n.toLowerCase())) { msg.textContent = "A line with that name exists."; return; }
+      cv.custom.push({ line: n, section: sec.value }); renderCash(); } }), msg));
+  nm.focus();
+}
+function cvCompare(m) {
+  if (cv.cmp === "none") return null;
+  if (cv.cmp === "actual") {
+    const by = new Map(); DS.cash_actual_weekly.rows.forEach(r => { let o = by.get(r.week_start); if (!o) { o = { g: {}, closing: r.closing_cash }; by.set(r.week_start, o); } o.g[r.group] = (o.g[r.group] || 0) + r.amount; });
+    const idx = m.W.map((w, i) => by.has(w.start) ? i : -1).filter(i => i >= 0);
+    return { kind: "actual", label: "Actual (bank)", idx, closing: i => by.get(m.W[i].start).closing, group: (g, i) => (by.get(m.W[i].start).g[g] || 0), groups: [...new Set(DS.cash_actual_weekly.rows.map(r => r.group).filter(g => g !== "None"))] };
+  }
+  const o = totals(matrixOf(cv.cmp, true)); const pos = m.W.map(w => o.W.findIndex(x => x.start === w.start));
+  const idx = pos.map((p, i) => p >= 0 ? i : -1).filter(i => i >= 0);
+  return { kind: "version", label: cvFind(cv.cmp).name.replace(" (backtest)", ""), idx, other: o, pos, closing: i => o.closing[pos[i]],
+    line: (ln, i) => { const L = o.lines.find(l => l.line === ln); return L ? L.wk[pos[i]] : 0; }, group: (g, i) => sum(o.lines.filter(l => l.group === g).map(l => l.wk[pos[i]])) };
+}
+function cvRenderCompare(m, C) {
+  const card = $("#cvCmpCard"); card.hidden = !C; if (!C) return;
+  const body = $("#cvCmpBody"); body.innerHTML = "";
+  $("#cvCmpTitle").textContent = C.kind === "actual" ? "Forecast vs actual" : "Version vs version";
+  $("#cvCmpSub").textContent = C.kind === "actual" ? "Actual = bank cash flows classified into the same lines. Variance = actual − forecast (positive is better for cash)." : `This view − “${C.label}”, for weeks both versions cover.`;
+  if (!C.idx.length) { body.append(el("p", { class: "note", text: C.kind === "actual" ? "No actuals yet for these weeks: they arrive with the next data refresh. Pick a reconstructed version (for example as of Sep 26) to see forecast vs actual." : "These versions have no weeks in common." })); return; }
+  const fGroup = (g, i) => sum(m.lines.filter(l => l.group === g).map(l => l.wk[i]));
+  const groups = C.kind === "actual" ? [...new Set([...m.lines.map(l => l.group), ...C.groups])] : null;
+  const rows = C.kind === "actual" ? groups.map(g => ({ name: g, f: C.idx.map(i => fGroup(g, i)), o: C.idx.map(i => C.group(g, i)) }))
+    : [...new Set([...m.lines.map(l => l.line), ...C.other.lines.map(l => l.line)])].map(ln => ({ name: ln, f: C.idx.map(i => { const L = m.lines.find(l => l.line === ln); return L ? L.wk[i] : 0; }), o: C.idx.map(i => C.line(ln, i)) }));
+  const last = C.idx[C.idx.length - 1]; const fc = m.closing[last], oc = C.closing(last);
+  const rec = rows.find(r => r.name === "Customer receipts");
+  const acc = rec ? 1 - sum(rec.f.map((f, k) => Math.abs(f - rec.o[k]))) / Math.max(1, sum(rec.o.map(Math.abs))) : null;
+  const dsgn = C.kind === "actual" ? 1 : -1; // actual: actual − forecast; versions: this − other
+  const big = [...rows].map(r => ({ n: r.name, v: dsgn * (sum(r.o) - sum(r.f)) })).sort((a, b) => Math.abs(b.v) - Math.abs(a.v))[0];
+  const tiles = el("div", { class: "tiles" });
+  [["Weeks compared", String(C.idx.length), `${m.W[C.idx[0]].label.split(" ").slice(1).join(" ")} – ${m.W[last].label.split(" ").slice(1).join(" ")}`],
+   [C.kind === "actual" ? "Closing cash: actual vs forecast" : "Closing cash difference", fmt$(dsgn * (oc - fc), true), `${C.kind === "actual" ? "actual " + fmt$(oc, true) + " vs forecast " + fmt$(fc, true) : "this " + fmt$(fc, true) + " vs other " + fmt$(oc, true)} at ${m.W[last].label.split(" ")[0]}`],
+   ...(C.kind === "actual" && acc != null ? [["Receipts forecast accuracy", fmtPct(acc, 0), "1 − sum of weekly errors / actual"]] : []),
+   ["Largest difference", fmt$(big.v, true), big.n]]
+    .forEach(([k, v, d]) => tiles.append(el("div", { class: "tile" }, el("div", { class: "k", text: k }), el("div", { class: "v num", style: "font-size:21px", text: v }), el("div", { class: "d", text: d }))));
+  body.append(tiles);
+  const tw = el("div", { class: "tbl-wrap", style: "margin-top:12px" }); const t = el("table"); tw.append(t); body.append(tw);
+  const sign = C.kind === "actual" ? 1 : -1; // actual: o - f ; version: f - o (this − other)
+  t.append(el("thead", {}, el("tr", {}, el("th", { text: C.kind === "actual" ? "Variance (actual − forecast)" : "Difference (this − other)" }), C.idx.map(i => el("th", { text: m.W[i].label.split(" ")[0], title: m.W[i].label })), el("th", { text: "Total" }))));
+  const tb = el("tbody");
+  const cell = (f, o) => { const v = sign > 0 ? o - f : f - o; const td = el("td", { text: Math.abs(v) < .5 ? "–" : (v > 0 ? "+" : "−") + fmt$(Math.abs(v)).replace("−", "") });
+    if (Math.abs(v) >= .5) td.className = v > 0 ? "up" : "down"; td.title = `${C.kind === "actual" ? "Forecast" : "This view"} ${fmt$(f)} · ${C.kind === "actual" ? "Actual" : "Other"} ${fmt$(o)}`; return td; };
+  rows.filter(r => r.f.some(x => Math.abs(x) >= .5) || r.o.some(x => Math.abs(x) >= .5)).forEach(r => tb.append(el("tr", {}, el("td", { class: "ind", text: r.name }), r.f.map((f, k) => cell(f, r.o[k])), cell(sum(r.f), sum(r.o)))));
+  const nf = C.idx.map(i => m.net[i]), no = C.idx.map((i, k) => sum(rows.map(r => r.o[k])));
+  tb.append(el("tr", { class: "sub" }, el("td", { text: "Net cash flow" }), nf.map((f, k) => cell(f, no[k])), cell(sum(nf), sum(no))));
+  tb.append(el("tr", { class: "total" }, el("td", { text: "Closing cash" }), C.idx.map(i => cell(m.closing[i], C.closing(i))), el("td", { text: "" })));
+  t.append(tb);
+}
+async function cvLoadSaved() {
+  if (IN_CLAUDE) return;
+  try { const r = await fetch("/api/versions?type=cash", { cache: "no-store" }); const j = await r.json(); cv.saved = j.versions || []; cv.storage = j.storage || null; cv.storageMsg = j.message || ""; } catch (e) { cv.storageMsg = "Couldn't load saved versions."; }
+  if (current === "cash") renderCash();
+}
+function cvOpenSave() {
+  const p = $("#cvSavePanel"); p.hidden = false; p.innerHTML = "";
+  if (IN_CLAUDE) { p.append(el("p", { class: "note", text: "Saving versions works on the website version of this dashboard, where versions are stored in the project's GitHub repository. Here you can view saved versions after the next data refresh." })); return; }
+  const nm = el("input", { id: "cvName", type: "text", maxlength: "80", placeholder: "e.g. W45 — CFO approved", style: "flex:1;min-width:220px" });
+  const note = el("input", { id: "cvNote", type: "text", maxlength: "200", placeholder: "Note (optional)", style: "flex:2;min-width:220px" });
+  const msg = el("span", { class: "note" });
+  const btn = el("button", { class: "send", type: "button", text: "Save version", onclick: async () => {
+    if (!nm.value.trim()) { msg.textContent = "Name the version."; nm.focus(); return; }
+    const m = viewMatrix(); const base = cvFind(cv.baseId);
+    const payload = { type: "cash", name: nm.value.trim(), note: note.value.trim(), base_version_id: base.version_id, base_name: base.name, asof: base.asof, opening_cash: m.opening,
+      weeks: m.W.map(w => ({ week: w.week, start: w.start, end: w.end })), lines: m.lines.map(l => ({ line: l.line, section: l.section, group: l.group, amounts: l.wk.map(x => Math.round(x * 100) / 100) })),
+      adjustments: Object.entries(cv.adj).map(([k, a]) => ({ line: k.split("|")[0], week_start: k.split("|")[1], ...a })), custom_lines: cv.custom,
+      scenario: cv.baseId === "current" ? { ...sc } : null, data_cutoff: M.meta.cutoff };
+    btn.disabled = true; msg.textContent = "Saving…";
+    try { const r = await fetch("/api/versions", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload) }); const j = await r.json();
+      if (!r.ok) throw new Error(j.error || "Save failed");
+      cv.saved.push(j.version); cv.baseId = j.version.version_id; cv.adj = {}; cv.custom = []; cv.edit = false; cv.flash = "Saved"; p.hidden = true; renderCash();
+    } catch (e) { msg.textContent = e.message; btn.disabled = false; }
+  } });
+  p.append(el("div", { class: "card-head" }, el("div", {}, el("h3", { text: "Save as a new version" }), el("div", { class: "sub", text: `${nAdj()} change(s) on top of “${cvFind(cv.baseId).name}”. Saved versions can't be changed; edits create a new version.` }))),
+    el("div", { class: "controls" }, nm, note, btn, el("button", { class: "ghost", type: "button", text: "Cancel", onclick: () => { p.hidden = true; } }), msg));
+  if (cv.storageMsg) p.append(el("p", { class: "note", text: cv.storageMsg }));
+  nm.focus();
 }
 
 // ---------------------------------------------------------------- QUALITY
@@ -1174,6 +1361,13 @@ $("#bvaAsk").addEventListener("click", () => { const { label } = bvaPeriods(); a
 // cash controls
 for (const [id, k] of [["#scSales", "sales"], ["#scAds", "ads"], ["#scPo", "po"]]) $(id).addEventListener("input", e => { sc[k] = +e.target.value; renderCash(); });
 $("#scDist").addEventListener("change", e => { sc.dist = e.target.checked; renderCash(); });
+$("#cvSel").addEventListener("change", e => { cv.baseId = e.target.value; cv.flash = ""; $("#cvSavePanel").hidden = true; renderCash(); });
+$("#cvCmp").addEventListener("change", e => { cv.cmp = e.target.value; renderCash(); });
+$("#cvEdit").addEventListener("click", () => { cv.edit = !cv.edit; renderCash(); });
+$("#cvAddLine").addEventListener("click", () => cvAddLineForm());
+$("#cvSave").addEventListener("click", () => cvOpenSave());
+$("#cvDiscard").addEventListener("click", () => { cv.adj = {}; cv.custom = []; renderCash(); });
+$("#cvCmpAsk").addEventListener("click", () => ask(`Explain the differences between the cash forecast version "${cvFind(cv.baseId).name}" and ${cv.cmp === "actual" ? "the actual bank cash flows" : '"' + (cvFind(cv.cmp) || {}).name + '"'} week by week: which lines drove the gap, which were timing vs real changes, and what this says about forecast accuracy. Use cash_versions, cash_saved_versions and cash_actual_weekly.`));
 $("#scReset").addEventListener("click", () => { Object.assign(sc, { sales: 0, ads: 0, po: 0, dist: true }); $("#scSales").value = 0; $("#scAds").value = 0; $("#scPo").value = 0; $("#scDist").checked = true; renderCash(); });
 
 // ---------------------------------------------------------------- AI analyst
@@ -1258,7 +1452,7 @@ function contextBlock() {
   return `COMPANY: ${M.meta.company} — DEMO COMPANY, SYNTHETIC DATA (never present as a real client). Online home-goods retailer, Chicago, 48 SKUs, 6 suppliers, one 3PL warehouse. USD.
 Data cutoff ${M.meta.cutoff}. Actual months ${M.meta.first_period}..${M.meta.last_period}. Forecast months ${M.meta.forecast_periods.join(", ")}. Reconciliation checks: ${M.meta.recon_pass}/${M.meta.recon_total} pass.
 ACCOUNTING RULES: revenue recognized at warehouse dispatch, net of discounts and returns, excl. sales tax. Payouts/bank deposits are not revenue. PO is not expense; COGS at dispatch. Meta/Google platform-attributed values overlap — never add them up as company sales. Owner distributions and loan principal are not P&L. Budget = approved original plan; Nov–Dec 2026 plan was drafted by Claude (plan extension) because none was approved in the data.
-USER IS VIEWING: tab "${current}"; P&L vs budget scope = ${bv.label}; cash scenario: sales ${sc.sales}%, ad spend ${sc.ads}%, new PO buying ${sc.po}%, owner distribution ${sc.dist ? "on" : "off"}.
+USER IS VIEWING: tab "${current}"; P&L vs budget scope = ${bv.label}; cash scenario: sales ${sc.sales}%, ad spend ${sc.ads}%, new PO buying ${sc.po}%, owner distribution ${sc.dist ? "on" : "off"}; cash version shown: "${(cvFind(cv.baseId) || {}).name}", compared with: ${cv.cmp === "none" ? "nothing" : cv.cmp === "actual" ? "actual bank flows" : (cvFind(cv.cmp) || {}).name}; unsaved manual changes: ${nAdj()}.
 
 MONTHLY P&L [period, NetRev act, NetRev bud, GrossProfit act, GP bud, ContributionMargin act, CM bud, EBITDA act, EBITDA bud, NetIncome act, NI bud]:
 ${JSON.stringify(pnlM)}
@@ -1276,6 +1470,7 @@ const RULES = () => `You are the AI financial analyst inside the Alder & Loom FP
 - Answer in the language the user writes in. Be concise: lead with the answer, then 2–5 bullets of drivers with numbers ($ rounded, % to 1 decimal). Plain text with **bold** and "-" bullets only; no markdown tables (use show_table).
 - End with one short line "Sources: <dataset names>".
 - Product profitability: use product_pnl_monthly (SKU x month, fully allocated, ties to the ledger); overhead has two bases (_rev, _lines) — say which one you use. Cost drivers are in allocation_rules.
+- Cash forecast versions: cash_versions (current system forecast + weekly system forecasts reconstructed as of earlier dates), cash_saved_versions (user versions with adjustments and comments), cash_actual_weekly (bank actuals by line group). Forecast vs actual = compare a version\'s weeks with cash_actual_weekly by group.
 - Marketing: distinguish platform ROAS (overlapping, self-reported), store last-click ROAS, POAS (profit per $ spend) and break-even ROAS. Use campaign_roas_monthly and marketing_efficiency_monthly.
 - This is a demo company with synthetic data; say so if the user asks about real-world facts.
 
@@ -1398,7 +1593,7 @@ async function boot() {
   $("#bvaMonth").append(...[...act].reverse().map(p => el("option", { value: p, text: mLabel(p) })));
   $("#bvaYear").append(...[...new Set(ALL_P().map(p => p.slice(0, 4)))].filter(y => ALL_P().filter(p => p.startsWith(y)).length >= 6).reverse().map(y => el("option", { value: y, text: "FY" + y })));
   $("#prCat").append(...[...new Set(DS.product_pnl_monthly.rows.map(r => r.category))].sort().map(c => el("option", { value: c, text: c })));
-  chartTheme(); computeCash(); intro();
+  chartTheme(); computeCash(); intro(); cvLoadSaved();
   const h = (location.hash || "").slice(1); show(["overview", "bva", "products", "marketing", "cash", "sources", "schedule", "quality"].includes(h) ? h : "overview"); setHdr();
 }
 boot();

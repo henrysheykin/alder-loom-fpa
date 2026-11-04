@@ -9,6 +9,8 @@ presented as a real client's results.
 - `pipeline/build_datamart.py` — builds `data/output/datamart.json` and `data/output/reconciliation_report.csv`
 - `private/datamart.json` — the data mart the site serves (copied from `data/output` only after checks pass)
 - `private/dashboard.html` — the dashboard page (same page as the Claude artifact)
+- `forecasts/cash/*.json` — user-saved forecast versions (immutable; never edit or delete, create new ones)
+- `config/data_schedule.json` — data collection and job schedule (Central Time); scheduled tasks follow it
 - `app/`, `middleware.ts`, `lib/` — Next.js site deployed by Vercel from `main`
 
 ## Data refresh procedure

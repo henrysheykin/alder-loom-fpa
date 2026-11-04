@@ -22,7 +22,7 @@ private/datamart.json  ──git push──►  GitHub  ──auto deploy──�
 - **P&L vs budget** — month / YTD / full-year outlook, variance table, EBITDA bridge, plan extension methodology
 - **Product profitability** — fully allocated P&L by category, SKU, supplier; overhead basis switch
 - **Marketing ROAS** — platform-claimed vs store last-click ROAS, POAS, break-even ROAS, CAC, campaign scorecard
-- **13-week cash** — weekly forecast with scenario sliders and drill-down to line items
+- **13-week cash** — weekly forecast with scenario sliders and drill-down; versions (edit cells with comments, add lines, save named versions to `forecasts/cash/`), forecast vs actual and version vs version
 - **Data quality** — reconciliation results and refresh flow
 
 ## Deploy on Vercel (one time, ~5 minutes)
@@ -35,9 +35,16 @@ private/datamart.json  ──git push──►  GitHub  ──auto deploy──�
    | `AUTH_SECRET` | random 32+ characters (`openssl rand -hex 32`) |
    | `ANTHROPIC_API_KEY` | key from console.anthropic.com (AI analyst) |
    | `CLAUDE_MODEL` | optional, default `claude-sonnet-5-5` |
+   | `GITHUB_TOKEN` | fine-grained token, this repository only, *Contents: Read and write* — lets the site save forecast versions |
+   | `GITHUB_REPO` | optional, default `henrysheykin/alder-loom-fpa` |
 3. **Deploy.** Every push to `main` redeploys automatically.
 
 Without `ANTHROPIC_API_KEY` the dashboards work and the AI analyst shows a "not configured" message.
+
+## Forecast versions
+- System versions are rebuilt by the pipeline: the live forecast plus weekly forecasts reconstructed as of earlier Saturdays (backtests), so forecast vs actual works on history.
+- Saved versions are JSON files in `forecasts/cash/` (one commit per save, immutable). `vercel.json` skips a redeploy when only `forecasts/` changed.
+- Each saved version keeps the full weekly table plus the list of adjustments (line, week, from, to, comment, author, time).
 
 ## Refresh the data
 ```

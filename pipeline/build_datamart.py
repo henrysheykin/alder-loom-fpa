@@ -727,6 +727,219 @@ for dd in dist_dates:
                   "basis": f"Quarterly: min($200k, cash above $250k floor); cash before = ${bal_before/100:,.0f}", "source": "finance/owner_distributions.csv (pattern)"})
 items.sort(key=lambda x: (x["date"], x["section"]))
 
+# ---------------------------------------------------------------- cash forecast as of any date (versions, backtests, forecast vs actual)
+LINE_GROUP = {
+    "Shopify payouts in transit": "Customer receipts", "Customer receipts (net of refunds and fees)": "Customer receipts",
+    "Supplier payments - open POs": "Supplier payments", "Supplier payments - new POs (not yet placed)": "Supplier payments",
+    "Payroll (net pay + taxes)": "Payroll", "Meta advertising": "Meta advertising", "Google advertising": "Google advertising",
+    "3PL fulfillment & storage": "3PL fulfillment & storage", "Rent, software, insurance, benefits, fees": "Rent, software, insurance, benefits, fees",
+    "Sales tax remittance": "Sales tax", "Term loan principal + interest": "Term loan", "Owner distribution (policy, discretionary)": "Owner distributions",
+}
+GROUP_SECTION = {"Customer receipts": "Inflows", "Term loan": "Financing", "Owner distributions": "Financing"}
+for it in items:
+    it["group"] = LINE_GROUP.get(it["line"], it["line"])
+
+alloc_df = rd("quickbooks/bill_payment_allocations.csv")
+alloc_df["amt"] = c(alloc_df.amount_applied)
+bills["total_c"] = c(bills.total_amount)
+loanp = rd("finance/term_loan_payments.csv")
+sched["amt_c"] = c(sched.amount)
+sched["paid_c"] = c(sched.amount_paid)
+pr["total_cash_c"] = c(pr.total_cash_debit)
+mon_end = lambda y, m: dt.date(y + (m == 12), m % 12 + 1, 1) - dt.timedelta(days=1)
+
+
+def months_between(a, b):
+    out, y, m = [], a.year, a.month
+    while dt.date(y, m, 1) <= b:
+        out.append(f"{y:04d}-{m:02d}")
+        m += 1
+        if m == 13: y, m = y + 1, 1
+    return out
+
+
+def build_cash(A):
+    """13-week cash forecast using only information available at the end of day A (a Saturday)."""
+    h0, h1 = A + dt.timedelta(days=1), A + dt.timedelta(days=91)
+    As = A.isoformat()
+    out = []
+
+    def add(d, line, cents, kind, driver=None):
+        if isinstance(d, str): d = D(d)
+        if d <= A: d = next_bday(A)
+        if d > h1 or cents == 0: return
+        out.append({"date": d.isoformat(), "week": (d - h0).days // 7 + 1, "line": line, "group": LINE_GROUP[line], "amount": usd(cents), "kind": kind, "driver": driver})
+
+    comp = [p for p in PERIODS if mon_end(int(p[:4]), int(p[5:])) <= A][-3:]
+    rt = lambda d, lines: ratio(sum(d(p, l) for p in comp for l in lines), sum(d(yago(p), l) for p in comp for l in lines))
+    g_sales = ratio(sum(cap_m.get(p, 0) for p in comp), sum(cap_m.get(yago(p), 0) for p in comp))
+    g_ref = ratio(sum(ref_amt_m.get(p, 0) for p in comp), sum(ref_amt_m.get(yago(p), 0) for p in comp))
+    g_cogs = rt(lambda p, l: ACT.get((p, l), 0), ["Merchandise COGS"])
+    opening = bank_open + int(bank[bank.posted_date <= As].amt.sum())
+    # processor balance at A
+    po_issued = payouts[payouts.issued_date <= As]
+    transit = po_issued[po_issued.estimated_bank_arrival_date > As]
+    for r in transit.itertuples(index=False):
+        add(r.estimated_bank_arrival_date, "Shopify payouts in transit", int(r.amt), "Known")
+    issued_ids = set(po_issued.payout_id)
+    unb = bt[(bt.transaction_date <= As) & ~bt.payout_id.isin(issued_ids)]
+    add(next_bday(A), "Shopify payouts in transit", int(unb.net_c.sum()), "Known")
+    # receipts from last-year analog
+    d = h0
+    while d <= h1:
+        ly = (d - dt.timedelta(days=364)).isoformat()
+        cap = ch_d.amt.get(ly, 0) * g_sales; n = ch_d.n.get(ly, 0) * g_sales; ref = rf_d.get(ly, 0) * g_ref
+        add(next_bday(d), "Customer receipts (net of refunds and fees)", int(round(cap + ref - cap * fee_pct - n * fee_fix)), "Estimated", "sales")
+        d += dt.timedelta(days=1)
+    # supplier PO schedules as of A
+    po_dates = dict(zip(pos.purchase_order_id, pos.order_date))
+    for r in sched.itertuples(index=False):
+        if po_dates.get(r.purchase_order_id, "9999") > As: continue
+        if isinstance(r.actual_payment_date, str) and r.actual_payment_date <= As: continue
+        amt = int(r.out_c) if (not isinstance(r.actual_payment_date, str) and r.paid_c > 0) else int(r.amt_c)
+        add(r.scheduled_payment_date, "Supplier payments - open POs", -amt, "Known")
+    ly0, ly1, lyc = (h0 - dt.timedelta(days=364)).isoformat(), (h1 - dt.timedelta(days=364)).isoformat(), (A - dt.timedelta(days=364)).isoformat()
+    for r in spay[(spay.payment_date >= ly0) & (spay.payment_date <= ly1) & (spay.order_date > lyc)].itertuples(index=False):
+        add(D(r.payment_date) + dt.timedelta(days=364), "Supplier payments - new POs (not yet placed)", -int(round(r.amt * g_cogs)), "Estimated", "purchasing")
+    # payroll: earned and unfunded at A, then future runs at salaries in force at A
+    for r in pr[(pr.pay_period_end <= As) & (pr.check_date > As)].itertuples(index=False):
+        add(r.check_date, "Payroll (net pay + taxes)", -int(r.total_cash_c), "Known")
+    active = emp[(emp.hire_date <= As) & (emp.termination_date.isna() | (emp.termination_date > As))].employee_id
+    sal = sh[sh.employee_id.isin(active) & (sh.effective_from <= As) & (sh.effective_to.isna() | (sh.effective_to >= As))]
+    run_g = int(round(c(sal.annual_salary).sum() / 24)); run_t = int(round(run_g * 0.081))
+    last_end = D(pr[pr.pay_period_end <= As].pay_period_end.max())
+    y_, m_ = last_end.year, last_end.month
+    for _ in range(8):
+        for a, b in [(1, 15), (16, None)]:
+            end = dt.date(y_, m_, b) if b else mon_end(y_, m_)
+            if end <= last_end: continue
+            add(next_bday(end), "Payroll (net pay + taxes)", -(run_g + run_t), "Known")
+        m_ += 1
+        if m_ == 13: y_, m_ = y_ + 1, 1
+    # operating bills open at A
+    applied = alloc_df[alloc_df.application_date <= As].groupby("bill_id").amt.sum()
+    ob_ = bills[(bills.purchase_order_id.isna()) & (bills.bill_date <= As)]
+    for r in ob_.itertuples(index=False):
+        bal = int(r.total_c) - int(applied.get(r.bill_id, 0))
+        if bal > 0: add(r.due_date, VLINE.get(r.vendor_id, "Rent, software, insurance, benefits, fees"), -bal, "Known")
+    # future monthly bills (ads, 3PL): months billed after A
+    for p in months_between(A, h1):
+        inv_d = mon_end(int(p[:4]), int(p[5:]))
+        if inv_d <= A: continue
+        for bill_df, line, glines, drv in [(mb, "Meta advertising", ["Meta advertising"], "ads"), (gb, "Google advertising", ["Google advertising"], "ads"),
+                                           (inv3, "3PL fulfillment & storage", ["Outbound fulfillment", "Warehouse storage", "Returns handling"], "sales")]:
+            lyrow = bill_df[bill_df.billing_period == yago(p)]
+            if lyrow.empty: continue
+            lag = (D(lyrow.due_date.iloc[0]) - D(lyrow.invoice_date.iloc[0])).days
+            amt = sum(int(round(ACT.get((yago(p), l), 0) * rt(lambda q, ll: ACT.get((q, ll), 0), [l]))) for l in glines)
+            add(inv_d + dt.timedelta(days=lag), line, -amt, "Estimated", drv)
+    # recurring contracts not yet billed at A
+    n_a = len(active)
+    for r in obl.itertuples(index=False):
+        if r.amount_basis not in ("fixed_amount", "fixed_plus_active_employee", "per_active_employee"): continue
+        base = int(c(pd.Series([r.amount_or_rate]))[0]); per = {"V-SAAS": 2200, "V-GUSTO": 1200}.get(r.vendor_or_source, 0)
+        amt = base * n_a if r.amount_basis == "per_active_employee" else base + per * n_a
+        day = D(r.next_due_date).day
+        billed = set(bills[(bills.vendor_id == r.vendor_or_source) & (bills.bill_date <= As)].due_date)
+        for p in months_between(A, h1):
+            due = dt.date(int(p[:4]), int(p[5:]), min(day, 28))
+            if due <= A or due.isoformat() in billed: continue
+            add(due, "Rent, software, insurance, benefits, fees", -amt, "Known")
+    # sales tax
+    for r in stx.itertuples(index=False):
+        pe = mon_end(int(r.collection_period[:4]), int(r.collection_period[5:]))
+        if pe <= A and (not isinstance(r.paid_date, str) or r.paid_date > As):
+            add(r.due_date, "Sales tax remittance", -int(r.amt), "Known")
+    for p in months_between(A, h1):
+        pe = mon_end(int(p[:4]), int(p[5:]))
+        if pe <= A: continue
+        lyrow = stx[stx.collection_period == yago(p)]
+        if lyrow.empty: continue
+        add(bday(dt.date(pe.year + (pe.month == 12), pe.month % 12 + 1, 20)), "Sales tax remittance", -int(round(lyrow.amt.iloc[0] * g_sales)), "Estimated", "sales")
+    # term loan
+    paid_l = loanp[loanp.payment_date <= As]
+    bal = int(c(paid_l.principal_balance_after).iloc[-1]) if len(paid_l) else tb_principal
+    nd = dt.date(A.year, A.month, 10)
+    if nd <= A: nd = dt.date(A.year + (A.month == 12), A.month % 12 + 1, 10)
+    while nd <= h1 and bal > 0:
+        add(nd, "Term loan principal + interest", -(tb_amort + int(round(bal * tb_rate / 12))), "Known")
+        bal -= tb_amort
+        nd = dt.date(nd.year + (nd.month == 12), nd.month % 12 + 1, 10)
+    # owner distribution policy
+    out.sort(key=lambda x: x["date"])
+    for yy in (A.year, A.year + 1):
+        for mm in (3, 6, 9, 12):
+            dd = dt.date(yy, mm, 25)
+            if not (h0 <= dd <= h1): continue
+            before = opening + sum(int(round(x["amount"] * 100)) for x in out if x["date"] < dd.isoformat())
+            add(dd, "Owner distribution (policy, discretionary)", -max(0, min(DIST_MAX, before - DIST_FLOOR)), "Policy", "distribution")
+    return opening, out, {"sales_growth": round(g_sales, 4), "refund_growth": round(g_ref, 4), "cogs_growth": round(g_cogs, 4)}
+
+
+def to_matrix(opening, its, A, name, kind):
+    h0 = A + dt.timedelta(days=1)
+    wk = [{"week": i + 1, "start": (h0 + dt.timedelta(days=7 * i)).isoformat(), "end": (h0 + dt.timedelta(days=7 * i + 6)).isoformat()} for i in range(13)]
+    lines = {}
+    for x in its:
+        L = lines.setdefault(x["line"], {"line": x["line"], "group": x["group"], "section": GROUP_SECTION.get(x["group"], "Outflows"), "amounts": [0.0] * 13})
+        L["amounts"][x["week"] - 1] = round(L["amounts"][x["week"] - 1] + x["amount"], 2)
+    return {"version_id": f"system-{A.isoformat()}", "name": name, "kind": kind, "asof": A.isoformat(), "opening_cash": usd(opening),
+            "weeks": wk, "lines": sorted(lines.values(), key=lambda l: (["Inflows", "Outflows", "Financing"].index(l["section"]), sum(l["amounts"])))}
+
+
+# check the generalized builder against the forecast published above
+op_c, its_c, _ = build_cash(CUTOFF)
+wk_old = pd.DataFrame(items).groupby("week").amount.sum().round(2)
+wk_new = pd.DataFrame(its_c).groupby("week").amount.sum().round(2)
+diff_c = int(round((wk_old - wk_new.reindex(wk_old.index).fillna(0)).abs().max() * 100))
+add_recon("Cash forecast", "As-of forecast engine reproduces the current forecast (max weekly difference)", 0, diff_c, "build_cash(cutoff) vs published forecast", tol=100)
+
+cash_versions = [to_matrix(op_c, its_c, CUTOFF, f"System forecast as of {CUTOFF:%b %d, %Y}", "system")]
+A = CUTOFF - dt.timedelta(days=7)
+while A >= CUTOFF - dt.timedelta(days=7 * 13):
+    op_b, its_b, _ = build_cash(A)
+    cash_versions.append(to_matrix(op_b, its_b, A, f"System forecast as of {A:%b %d, %Y} (backtest)", "backtest"))
+    A -= dt.timedelta(days=7)
+
+# actual cash by week and group from the bank statement
+bill_vendor = dict(zip(bills.bill_id, bills.vendor_id))
+def bank_group(r):
+    ref = r.bank_reference or ""
+    if ref.startswith("PAYOUT"): return "Customer receipts"
+    if ref.startswith("SPAY"): return "Supplier payments"
+    if ref.startswith("PAYDEBIT"): return "Payroll"
+    if ref.startswith("LOANPAY"): return "Term loan"
+    if ref.startswith("STAX"): return "Sales tax"
+    if ref.startswith("DIST"): return "Owner distributions"
+    if ref.startswith("BPAY"):
+        bid = (r.bank_description or "").split()[-1]
+        return {"V-META": "Meta advertising", "V-GOOGLE": "Google advertising", "V-3PL": "3PL fulfillment & storage"}.get(bill_vendor.get(bid), "Rent, software, insurance, benefits, fees")
+    return "Other"
+bank["group"] = [bank_group(r) for r in bank.itertuples(index=False)]
+add_recon("Cash forecast", "Every bank transaction maps to a forecast line", 0, int((bank.group == "Other").sum()), "bank statement references", unit="transactions")
+first_wk = CUTOFF - dt.timedelta(days=7 * 13 + 6)
+act_rows = []
+for i in range(13):
+    s_ = (CUTOFF - dt.timedelta(days=7 * (13 - i) - 1)); e_ = s_ + dt.timedelta(days=6)
+    wb = bank[(bank.posted_date >= s_.isoformat()) & (bank.posted_date <= e_.isoformat())]
+    open_b = bank_open + int(bank[bank.posted_date < s_.isoformat()].amt.sum())
+    for g_, v in wb.groupby("group").amt.sum().items():
+        act_rows.append({"week_start": s_.isoformat(), "week_end": e_.isoformat(), "group": g_, "amount": usd(v), "opening_cash": usd(open_b), "closing_cash": usd(open_b + int(wb.amt.sum()))})
+    if wb.empty:
+        act_rows.append({"week_start": s_.isoformat(), "week_end": e_.isoformat(), "group": "None", "amount": 0, "opening_cash": usd(open_b), "closing_cash": usd(open_b)})
+chk = sum(r["amount"] for r in act_rows)
+add_recon("Cash forecast", "Weekly actuals by line add up to the bank movement", int(bank[(bank.posted_date >= act_rows[0]["week_start"]) & (bank.posted_date <= CUTOFF.isoformat())].amt.sum()),
+          int(round(chk * 100)), "bank statement")
+
+# saved (user) versions committed to the repository: forecasts/cash/*.json
+saved_versions = []
+for f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "forecasts", "cash", "*.json"))):
+    try:
+        saved_versions.append(json.load(open(f)))
+    except Exception:
+        pass
+
+
 weeks_out = [{"week": i + 1, "start": a.isoformat(), "end": b.isoformat(), "label": f"W{i+1} {a.strftime('%b')} {a.day}-{b.day if a.month == b.month else b.strftime('%b ') + str(b.day)}"} for i, (a, b) in enumerate(WEEKS)]
 cash_assump = [
     {"assumption": "Sales growth vs last year (receipts, sales tax)", "value": round(sales_g, 4), "basis": f"Captured sales {T3[0]}..{T3[-1]} vs same months last year"},
@@ -1071,6 +1284,9 @@ mart = {
         "marketing_efficiency_monthly": ds("Company marketing efficiency by month: spend, MER, break-even ROAS (net revenue / contribution before marketing), platform ROAS, storefront ROAS, POAS, CAC.", "period", eff_rows),
         "data_sources": ds("Status and statistics of every connected source system (records, tables, period, last record, key figures). Connection labels are illustrative in this demo.", "source", src_rows),
         "source_activity_monthly": ds("Records per month in each source's main table.", "source x period", src_act),
+        "cash_versions": ds("Cash forecast versions as line x week matrices: the current system forecast and weekly system forecasts reconstructed as of earlier Saturdays (backtests), built only from data available at that date.", "version", cash_versions),
+        "cash_actual_weekly": ds("Actual bank cash flows by week (Sunday-Saturday) and forecast line group, with opening and closing bank cash.", "week x group", act_rows),
+        "cash_saved_versions": ds("User-saved cash forecast versions committed to the repository (forecasts/cash).", "version", saved_versions),
         "data_schedule": ds("Data collection and processing schedule (times in the company time zone). rule: daily | business_days | weekly | monthly_day | business_day_n | quarterly_before.", "source or job", sched_rows),
         "reconciliations": ds("Automated reconciliation checks run on every refresh.", "check", recon),
     },
