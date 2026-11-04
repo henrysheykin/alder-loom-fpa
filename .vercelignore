@@ -1,0 +1,5 @@
+data/
+pipeline/
+scripts/
+*.md
+!README.md

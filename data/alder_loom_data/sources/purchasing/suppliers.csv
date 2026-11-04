@@ -1,0 +1,7 @@
+﻿supplier_id,legal_name,country_code,category,primary_contact_email,currency,incoterm,standard_lead_days,default_case_pack
+SUP-001,Lotus Housewares Trading Co.,VN,Kitchen & Pantry,orders.sup-001@example.com,USD,DDP Chicago warehouse,48,6
+SUP-002,Blue Harbor Storage Supply Ltd.,CN,Home Storage,orders.sup-002@example.com,USD,DDP Chicago warehouse,56,6
+SUP-003,Anatolia Textile Wholesale AS,TR,Bath & Laundry,orders.sup-003@example.com,USD,DDP Chicago warehouse,42,6
+SUP-004,Porto Table Linen Distribution Lda.,PT,Table & Dining,orders.sup-004@example.com,USD,DDP Chicago warehouse,36,6
+SUP-005,Great Lakes Home Supply LLC,US,Entry & Office,orders.sup-005@example.com,USD,DDP Chicago warehouse,14,6
+SUP-006,Carolina Utility Goods LLC,US,Cleaning & Utility,orders.sup-006@example.com,USD,DDP Chicago warehouse,12,6

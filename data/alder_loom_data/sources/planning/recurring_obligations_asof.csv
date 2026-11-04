@@ -1,0 +1,11 @@
+﻿obligation_id,as_of_date,vendor_or_source,cost_category,cadence,amount_basis,amount_or_rate,currency,next_due_date,end_date,note
+OBL-01,2026-10-31,V-OFFICE,Office rent,monthly,fixed_amount,1850.00,USD,2026-11-02,,Office lease
+OBL-02,2026-10-31,V-SAAS,Software subscriptions,monthly,fixed_plus_active_employee,1540.00,USD,2026-11-03,,Add USD22 per active employee
+OBL-03,2026-10-31,V-GUSTO,Payroll subscription,monthly,fixed_plus_active_employee,60.00,USD,2026-11-03,,Add USD12 per active employee
+OBL-04,2026-10-31,V-INSURANCE,Insurance,monthly,fixed_amount,680.00,USD,2026-11-05,,Commercial package
+OBL-05,2026-10-31,V-ACCOUNTING,Professional fees,monthly,fixed_amount,1650.00,USD,2026-11-10,,Bookkeeping contract
+OBL-06,2026-10-31,V-HEALTH,Health benefits,monthly,per_active_employee,480.00,USD,2026-11-05,,Employer pays 100%; no employee deduction
+OBL-07,2026-10-31,GUSTO,Salaries,semi_monthly,salary_history,0.00,USD,2026-11-02,,0 is placeholder; use active salaries /24 plus illustrative 8.1% employer tax; earned payroll at cutoff is already payable
+OBL-08,2026-10-31,V-3PL,Outbound fulfillment,per_shipped_order,units_and_weight,0.00,USD,2026-11-16,,Use historical dispatch costs and active 16% carrier surcharge
+OBL-09,2026-10-31,V-META,Meta advertising,monthly,management_spend_plan,0.00,USD,2026-11-09,,No binding spend commitment beyond posted bills; choose forecast spend assumptions
+OBL-10,2026-10-31,V-GOOGLE,Google advertising,monthly,management_spend_plan,0.00,USD,2026-11-09,,No binding spend commitment beyond posted bills; choose forecast spend assumptions

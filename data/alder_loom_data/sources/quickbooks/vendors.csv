@@ -1,0 +1,16 @@
+﻿vendor_id,display_name,legal_name,vendor_type,currency,bank_counterparty_name
+SUP-001,Lotus Housewares,Lotus Housewares Trading Co.,merchandise_supplier,USD,LOTUSHOUSEWARESTRADINGCO.
+SUP-002,Blue Harbor Storage Supply Ltd.,Blue Harbor Storage Supply Ltd.,merchandise_supplier,USD,BLUEHARBORSTORAGESUPPLYLTD.
+SUP-003,Anatolia Textile Wholesale AS,Anatolia Textile Wholesale AS,merchandise_supplier,USD,ANATOLIATEXTILEWHOLESALEAS
+SUP-004,Porto Table Linen Distribution Lda.,Porto Table Linen Distribution Lda.,merchandise_supplier,USD,PORTOTABLELINENDISTRIBUTION
+SUP-005,Great Lakes Home Supply LLC,Great Lakes Home Supply LLC,merchandise_supplier,USD,GREATLAKESHOMESUPPLYLLC
+SUP-006,Carolina Utility Goods LLC,Carolina Utility Goods LLC,merchandise_supplier,USD,CAROLINAUTILITYGOODSLLC
+V-META,Meta Platforms,Meta Platforms Inc.,operating_vendor,USD,FACEBK*ALDERLOOM
+V-GOOGLE,Google Ads,Google LLC,operating_vendor,USD,GOOGLE ADS 9900012345
+V-3PL,Prairie Fulfillment,Prairie Fulfillment Services LLC,operating_vendor,USD,PRAIRIE FULFILL ACH
+V-OFFICE,West Loop Office,West Loop Offices LLC,operating_vendor,USD,WESTLOOP RENT
+V-SAAS,Commerce software subscriptions,Commerce Software Clearing LLC,operating_vendor,USD,SHOPIFY AND SAAS
+V-GUSTO,Gusto,Gusto Inc.,operating_vendor,USD,GUSTO SUBSCRIPTION
+V-INSURANCE,Lakefront Commercial Insurance,Lakefront Commercial Insurance LLC,operating_vendor,USD,LAKEFRONT INS
+V-ACCOUNTING,Ledger Oak Accounting,Ledger Oak Accounting LLC,operating_vendor,USD,LEDGEROAK ACH
+V-HEALTH,Midwest Health Benefits,Midwest Health Benefits LLC,operating_vendor,USD,MIDWEST HEALTH

@@ -1,0 +1,56 @@
+﻿from_table,from_column,to_table,to_column,cardinality,note
+shopify/orders.csv,customer_id,shopify/customers.csv,customer_id,many_to_one,
+shopify/order_line_items.csv,order_id,shopify/orders.csv,order_id,many_to_one,
+shopify/order_line_items.csv,variant_id,shopify/products.csv,variant_id,many_to_one,
+shopify/order_line_items.csv,sku,shopify/products.csv,sku,many_to_one,
+shopify/products.csv,supplier_id,purchasing/suppliers.csv,supplier_id,many_to_one,
+shopify/orders.csv,utm_campaign_id,meta_ads/campaigns.csv,campaign_id,many_to_one,Only source_channel=paid_social; blank is allowed
+shopify/orders.csv,utm_campaign_id,google_ads/campaigns.csv,campaign_id,many_to_one,Only source_channel=paid_search; blank is allowed
+shopify/order_transactions.csv,order_id,shopify/orders.csv,order_id,many_to_one,
+shopify/refunds.csv,order_id,shopify/orders.csv,order_id,many_to_one,
+shopify/refunds.csv,order_transaction_id,shopify/order_transactions.csv,transaction_id,one_to_one,
+shopify/refund_line_items.csv,refund_id,shopify/refunds.csv,refund_id,many_to_one,
+shopify/refund_line_items.csv,order_line_id,shopify/order_line_items.csv,order_line_id,many_to_one,
+shopify_payments/balance_transactions.csv,order_transaction_id,shopify/order_transactions.csv,transaction_id,one_to_one,
+shopify_payments/balance_transactions.csv,payout_id,shopify_payments/payouts.csv,payout_id,many_to_one,Blank means not assigned at cutoff
+shopify_payments/payouts.csv,bank_transaction_id,bank/operating_account_statement.csv,bank_transaction_id,one_to_one,Blank for in-transit payouts
+purchasing/suppliers.csv,supplier_id,quickbooks/vendors.csv,vendor_id,one_to_one,Supplier IDs are preserved in the accounting vendor master
+purchasing/supplier_terms_history.csv,supplier_id,purchasing/suppliers.csv,supplier_id,many_to_one,
+purchasing/supplier_catalog.csv,sku,shopify/products.csv,sku,many_to_one,
+purchasing/purchase_orders.csv,terms_id,purchasing/supplier_terms_history.csv,terms_id,many_to_one,"Effective contract version, not latest current terms"
+purchasing/purchase_orders.csv,supplier_id,purchasing/suppliers.csv,supplier_id,many_to_one,
+purchasing/purchase_order_lines.csv,purchase_order_id,purchasing/purchase_orders.csv,purchase_order_id,many_to_one,
+purchasing/payment_schedule.csv,purchase_order_id,purchasing/purchase_orders.csv,purchase_order_id,many_to_one,Cash commitment includes deposits and balances
+purchasing/supplier_payments.csv,payment_schedule_id,purchasing/payment_schedule.csv,payment_schedule_id,one_to_one,
+purchasing/supplier_payments.csv,bank_transaction_id,bank/operating_account_statement.csv,bank_transaction_id,one_to_one,
+purchasing/inbound_shipments.csv,purchase_order_id,purchasing/purchase_orders.csv,purchase_order_id,many_to_one,
+warehouse_3pl/goods_receipts.csv,purchase_order_id,purchasing/purchase_orders.csv,purchase_order_id,many_to_one,
+warehouse_3pl/goods_receipts.csv,inbound_shipment_id,purchasing/inbound_shipments.csv,inbound_shipment_id,one_to_one,
+warehouse_3pl/goods_receipts.csv,bill_id,quickbooks/bills.csv,bill_id,one_to_one,Supplier invoice recognized on actual receipt
+warehouse_3pl/goods_receipt_lines.csv,receipt_id,warehouse_3pl/goods_receipts.csv,receipt_id,many_to_one,
+warehouse_3pl/goods_receipt_lines.csv,purchase_order_line_id,purchasing/purchase_order_lines.csv,purchase_order_line_id,many_to_one,A split PO line can appear in two receipts
+warehouse_3pl/inventory_movements.csv,order_line_id,shopify/order_line_items.csv,order_line_id,many_to_one,Populated for dispatch and customer restock
+warehouse_3pl/inventory_movements.csv,receipt_line_id,warehouse_3pl/goods_receipt_lines.csv,receipt_line_id,one_to_one,For PURCHASE_RECEIPT movements
+warehouse_3pl/inventory_movements.csv,return_id,warehouse_3pl/customer_returns.csv,return_id,one_to_one,For accepted restocks only
+warehouse_3pl/fulfillments.csv,order_id,shopify/orders.csv,order_id,one_to_one,One dispatch per fulfilled order
+warehouse_3pl/customer_returns.csv,refund_line_id,shopify/refund_line_items.csv,refund_line_id,one_to_one,Refund and physical restock dates differ
+warehouse_3pl/monthly_invoices.csv,quickbooks_bill_id,quickbooks/bills.csv,bill_id,one_to_one,Do not expense fulfillment records and this invoice twice
+quickbooks/bills.csv,vendor_id,quickbooks/vendors.csv,vendor_id,many_to_one,
+quickbooks/bill_lines.csv,bill_id,quickbooks/bills.csv,bill_id,many_to_one,
+quickbooks/bill_lines.csv,receipt_line_id,warehouse_3pl/goods_receipt_lines.csv,receipt_line_id,many_to_one,Goods and inbound freight are separate bill lines
+quickbooks/bill_payment_allocations.csv,bill_id,quickbooks/bills.csv,bill_id,many_to_one,Some applications are non-cash advances
+quickbooks/bill_payment_allocations.csv,bank_transaction_id,bank/operating_account_statement.csv,bank_transaction_id,many_to_one,Only CASH_PAYMENT applications
+quickbooks/general_ledger.csv,account_code,quickbooks/chart_of_accounts.csv,account_code,many_to_one,Read all 24 monthly physical partitions
+gusto/salary_history.csv,employee_id,gusto/employees.csv,employee_id,many_to_one,Use effective dates
+gusto/payroll_employee_details.csv,employee_id,gusto/employees.csv,employee_id,many_to_one,
+gusto/payroll_employee_details.csv,payroll_run_id,gusto/payroll_runs.csv,payroll_run_id,many_to_one,
+gusto/payroll_bank_debits.csv,payroll_run_id,gusto/payroll_runs.csv,payroll_run_id,many_to_one,Two funding debits per funded payroll
+gusto/payroll_bank_debits.csv,bank_transaction_id,bank/operating_account_statement.csv,bank_transaction_id,one_to_one,
+meta_ads/daily_insights.csv,campaign_id,meta_ads/campaigns.csv,campaign_id,many_to_one,
+meta_ads/billing_statements.csv,quickbooks_bill_id,quickbooks/bills.csv,bill_id,one_to_one,Daily spend is the detail of this invoice
+google_ads/daily_campaign_metrics.csv,campaign_id,google_ads/campaigns.csv,campaign_id,many_to_one,
+google_ads/billing_statements.csv,quickbooks_bill_id,quickbooks/bills.csv,bill_id,one_to_one,Convert cost_micros to USD before comparison
+planning/approved_budget_monthly.csv,account_code,quickbooks/chart_of_accounts.csv,account_code,many_to_one,Period and account form an additive BVA bridge
+finance/term_loan_payments.csv,bank_transaction_id,bank/operating_account_statement.csv,bank_transaction_id,one_to_one,Principal and interest have different accounting treatment
+finance/owner_distributions.csv,bank_transaction_id,bank/operating_account_statement.csv,bank_transaction_id,one_to_one,"Financing/equity, not P&L expense"
+finance/sales_tax_remittances.csv,bank_transaction_id,bank/operating_account_statement.csv,bank_transaction_id,one_to_one,Blank means known unpaid obligation at cutoff

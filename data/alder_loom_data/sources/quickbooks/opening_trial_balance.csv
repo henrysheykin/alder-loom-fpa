@@ -1,0 +1,36 @@
+﻿as_of_date,account_code,account_name,debit,credit,currency
+2024-10-31,1000,Operating bank,420000.00,0.00,USD
+2024-10-31,1010,Shopify clearing and payouts in transit,0.00,0.00,USD
+2024-10-31,1200,Merchandise inventory including inbound freight,321516.66,0.00,USD
+2024-10-31,1300,Supplier advances,0.00,0.00,USD
+2024-10-31,1500,Office equipment and fitout,75000.00,0.00,USD
+2024-10-31,1510,Accumulated depreciation,0.00,15000.00,USD
+2024-10-31,2000,Accounts payable,0.00,0.00,USD
+2024-10-31,2100,Sales tax payable,0.00,0.00,USD
+2024-10-31,2110,Payroll funding payable,0.00,0.00,USD
+2024-10-31,2200,Paid unshipped customer orders,0.00,0.00,USD
+2024-10-31,2300,Term loan,0.00,180000.00,USD
+2024-10-31,2400,Working capital revolver,0.00,0.00,USD
+2024-10-31,3000,Opening member capital and retained earnings,0.00,621516.66,USD
+2024-10-31,3100,Member distributions,0.00,0.00,USD
+2024-10-31,4000,Gross product sales,0.00,0.00,USD
+2024-10-31,4050,Sales discounts,0.00,0.00,USD
+2024-10-31,4060,Merchandise returns,0.00,0.00,USD
+2024-10-31,4100,Customer shipping income net of refunds,0.00,0.00,USD
+2024-10-31,5000,Merchandise COGS net of restocked returns,0.00,0.00,USD
+2024-10-31,5010,Inventory damage and shrinkage,0.00,0.00,USD
+2024-10-31,6010,Payment processing fees,0.00,0.00,USD
+2024-10-31,6100,Meta advertising,0.00,0.00,USD
+2024-10-31,6110,Google advertising,0.00,0.00,USD
+2024-10-31,6200,Outbound fulfillment and carrier costs,0.00,0.00,USD
+2024-10-31,6210,Warehouse storage,0.00,0.00,USD
+2024-10-31,6220,Returns handling,0.00,0.00,USD
+2024-10-31,6300,Gross salaries,0.00,0.00,USD
+2024-10-31,6310,Employer payroll taxes,0.00,0.00,USD
+2024-10-31,6320,Employer health benefits,0.00,0.00,USD
+2024-10-31,6400,Office rent,0.00,0.00,USD
+2024-10-31,6500,Software and payroll subscriptions,0.00,0.00,USD
+2024-10-31,6600,Commercial insurance,0.00,0.00,USD
+2024-10-31,6700,Professional fees,0.00,0.00,USD
+2024-10-31,6800,Depreciation,0.00,0.00,USD
+2024-10-31,6900,Interest expense,0.00,0.00,USD

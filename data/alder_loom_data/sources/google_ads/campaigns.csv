@@ -1,0 +1,4 @@
+﻿campaign_id,campaign_name,advertising_channel_type,status,customer_id
+8800000001,Shopping | Core Catalog,SHOPPING,ENABLED,9900012345
+8800000002,Search | Non-brand Home Storage,SEARCH,ENABLED,9900012345
+8800000003,Search | Alder & Loom Brand,SEARCH,ENABLED,9900012345

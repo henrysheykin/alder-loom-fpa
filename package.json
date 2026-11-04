@@ -1,0 +1,22 @@
+{
+  "name": "alder-loom-fpa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Demo FP&A portal for a synthetic e-commerce company (Alder & Loom). Password login, dashboards, AI analyst.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "refresh": "python3 pipeline/build_datamart.py data/alder_loom_data data/output && cp data/output/datamart.json private/datamart.json"
+  },
+  "dependencies": {
+    "next": "15.5.28",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "@types/react": "19.1.12",
+    "typescript": "5.8.3"
+  }
+}

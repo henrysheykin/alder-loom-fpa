@@ -1,0 +1,536 @@
+﻿logical_table,column_name,data_type,unit,primary_key_component,empty_values_present,description,join_target,example
+shopify/products.csv,product_id,text,,False,False,Synthetic Shopify product identifier.,,8500000000001
+shopify/products.csv,variant_id,text,,True,False,Saleable Shopify variant identifier; one variant per SKU in this case.,,45000000000001
+shopify/products.csv,sku,text,,False,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-KIT-001
+shopify/products.csv,title,text,,False,False,Title.,,Bamboo Drawer Organizer
+shopify/products.csv,product_category,text,,False,False,Product category.,,Kitchen & Pantry
+shopify/products.csv,supplier_id,text,,False,False,Merchandise supplier identifier. Equal to its accounting vendor_id.,purchasing/suppliers.csv:supplier_id,SUP-001
+shopify/products.csv,status,text,,False,False,Status.,,active
+shopify/products.csv,base_retail_price,decimal,USD,False,False,Retail price at observation-window opening; later realized prices are in order lines.,,34.95
+shopify/products.csv,currency,text,,False,False,Currency.,,USD
+shopify/products.csv,unit_weight_kg,decimal,kg,False,False,Unit weight kg.,,0.473
+shopify/customers.csv,customer_id,text,,True,False,Synthetic Shopify customer identifier; keep as text.,,7800000000001
+shopify/customers.csv,created_date,date,ISO 8601,False,False,Created date.,,2024-02-05
+shopify/customers.csv,first_name,text,,False,False,First name.,,Avery
+shopify/customers.csv,last_name,text,,False,False,Last name.,,Morgan
+shopify/customers.csv,email,text,,False,False,Email.,,customer.0000001@example.com
+shopify/customers.csv,country_code,text,,False,False,Country code.,,US
+shopify/customers.csv,state_code,text,,False,False,State code.,,NY
+shopify/customers.csv,opening_customer,boolean,,False,False,True for a synthetic customer existing before the 24-month observation window.,,True
+shopify/orders.csv,order_id,text,,True,False,Shopify order identifier; keep as text.,,6200000000001
+shopify/orders.csv,order_name,text,,False,False,Order name.,,#AL1001
+shopify/orders.csv,created_at,datetime_utc,UTC,False,False,Created at.,,2024-11-01T16:00:00Z
+shopify/orders.csv,customer_id,text,,False,False,Synthetic Shopify customer identifier; keep as text.,shopify/customers.csv:customer_id,7800000006501
+shopify/orders.csv,currency,text,,False,False,Currency.,,USD
+shopify/orders.csv,financial_status,text,,False,False,"Snapshot status: paid, partially_refunded, refunded or voided.",,paid
+shopify/orders.csv,fulfillment_status,text,,False,False,"Snapshot state: fulfilled, unfulfilled or cancelled.",,fulfilled
+shopify/orders.csv,cancelled_at,datetime_utc,UTC,False,True,Cancelled at.,,2024-11-03T16:05:00Z
+shopify/orders.csv,cancel_reason,text,,False,True,Cancel reason.,,payment_authorization_failed
+shopify/orders.csv,source_channel,text,,False,False,Storefront last-non-direct marketing channel; not platform-reported attribution.,,paid_social
+shopify/orders.csv,utm_campaign_id,text,,False,True,Meta or Google campaign ID for paid channels; blank for other channels.,meta_ads/campaigns.csv:campaign_id [Only source_channel=paid_social; blank is allowed]; google_ads/campaigns.csv:campaign_id [Only source_channel=paid_search; blank is allowed],120990000000003
+shopify/orders.csv,gross_merchandise,decimal,USD,False,False,Original ordered product value before discounts; excludes customer shipping and tax.,,129.85
+shopify/orders.csv,discounts,decimal,USD,False,False,Positive original order discount; original orders are not rewritten for later refunds.,,19.47
+shopify/orders.csv,subtotal_net,decimal,USD,False,False,"gross_merchandise minus discounts, before shipping, tax and later refunds.",,110.38
+shopify/orders.csv,shipping_charged,decimal,USD,False,False,"Customer shipping charge on original order, not carrier cost.",,0.00
+shopify/orders.csv,total_tax,decimal,USD,False,False,Synthetic blended sales tax originally collected.,,6.76
+shopify/orders.csv,total_price,decimal,USD,False,False,Original product net plus shipping plus tax; voided orders have this quote but no capture.,,117.14
+shopify/orders.csv,total_refunded,decimal,USD,False,False,"All customer refunds actually paid by cutoff, including any shipping and tax refunds.",,0.00
+shopify/orders.csv,net_customer_payment,decimal,USD,False,False,Captured customer cash less refunds; zero for uncaptured voided orders.,,117.14
+shopify/orders.csv,expected_ship_date,date,ISO 8601,False,False,Expected ship date.,,2024-11-04
+shopify/orders.csv,fulfilled_date,date,ISO 8601,False,True,Fulfilled date.,,2024-11-04
+shopify/order_line_items.csv,order_line_id,text,,True,False,Original Shopify line-item identifier; the join key for fulfillment and returns.,,15000000000001
+shopify/order_line_items.csv,order_id,text,,False,False,Shopify order identifier; keep as text.,shopify/orders.csv:order_id,6200000000001
+shopify/order_line_items.csv,variant_id,text,,False,False,Saleable Shopify variant identifier; one variant per SKU in this case.,shopify/products.csv:variant_id,45000000000018
+shopify/order_line_items.csv,sku,text,,False,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",shopify/products.csv:sku,AL-BAT-002
+shopify/order_line_items.csv,quantity,integer,units/count,False,False,Quantity.,,2
+shopify/order_line_items.csv,unit_price,decimal,USD,False,False,Unit price.,,39.95
+shopify/order_line_items.csv,gross_line_amount,decimal,USD,False,False,quantity times unit_price before the line discount.,,79.90
+shopify/order_line_items.csv,discount_amount,decimal,USD,False,False,Positive original line discount.,,11.98
+shopify/order_line_items.csv,net_line_amount,decimal,USD,False,False,"Original line product revenue after discount, before tax and later refunds.",,67.92
+shopify/order_transactions.csv,transaction_id,text,,True,False,Successful storefront capture or refund identifier.,,OTX-0000001
+shopify/order_transactions.csv,order_id,text,,False,False,Shopify order identifier; keep as text.,shopify/orders.csv:order_id,6200000000001
+shopify/order_transactions.csv,processed_at,datetime_utc,UTC,False,False,Processed at.,,2024-11-01T16:00:00Z
+shopify/order_transactions.csv,kind,text,,False,False,Kind.,,sale
+shopify/order_transactions.csv,status,text,,False,False,Status.,,success
+shopify/order_transactions.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,117.14
+shopify/order_transactions.csv,currency,text,,False,False,Currency.,,USD
+shopify/order_transactions.csv,gateway,text,,False,False,Gateway.,,shopify_payments
+shopify/order_transactions.csv,refund_id,text,,False,True,Customer refund transaction group.,,REF-0000001
+shopify/refunds.csv,refund_id,text,,True,False,Customer refund transaction group.,,REF-0000001
+shopify/refunds.csv,order_id,text,,False,False,Shopify order identifier; keep as text.,shopify/orders.csv:order_id,6200000000138
+shopify/refunds.csv,processed_at,datetime_utc,UTC,False,False,Processed at.,,2024-11-07T18:00:00Z
+shopify/refunds.csv,currency,text,,False,False,Currency.,,USD
+shopify/refunds.csv,merchandise_refund,decimal,USD,False,False,"Discount-adjusted product value refunded, excluding shipping and tax.",,69.95
+shopify/refunds.csv,shipping_refund,decimal,USD,False,False,"Customer shipping charge refunded, excluding shipping-related tax.",,6.95
+shopify/refunds.csv,shipping_tax_refund,decimal,USD,False,False,Tax related to refunded customer shipping; a component of total header tax_refund.,,0.43
+shopify/refunds.csv,tax_refund,decimal,USD,False,False,Refunded tax. Header includes line tax plus shipping_tax_refund; refund lines contain merchandise tax only.,,4.71
+shopify/refunds.csv,total_refund,decimal,USD,False,False,merchandise_refund plus shipping_refund plus tax_refund; do not add shipping_tax_refund again.,,81.61
+shopify/refunds.csv,order_transaction_id,text,,False,False,Shopify sale/refund transaction matched to the processor movement.,shopify/order_transactions.csv:transaction_id,OTX-0000783
+shopify/refund_line_items.csv,refund_line_id,text,,True,False,One refunded order-line allocation.,,RFL-0000001
+shopify/refund_line_items.csv,refund_id,text,,False,False,Customer refund transaction group.,shopify/refunds.csv:refund_id,REF-0000001
+shopify/refund_line_items.csv,order_id,text,,False,False,Shopify order identifier; keep as text.,,6200000000138
+shopify/refund_line_items.csv,order_line_id,text,,False,False,Original Shopify line-item identifier; the join key for fulfillment and returns.,shopify/order_line_items.csv:order_line_id,15000000000247
+shopify/refund_line_items.csv,sku,text,,False,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-BAT-004
+shopify/refund_line_items.csv,quantity,integer,units/count,False,False,Quantity.,,1
+shopify/refund_line_items.csv,merchandise_refund,decimal,USD,False,False,"Discount-adjusted product value refunded, excluding shipping and tax.",,69.95
+shopify/refund_line_items.csv,tax_refund,decimal,USD,False,False,Refunded tax. Header includes line tax plus shipping_tax_refund; refund lines contain merchandise tax only.,,4.28
+shopify/storefront_daily_analytics.csv,analytics_date,date,ISO 8601,True,False,Analytics date.,,2024-11-01
+shopify/storefront_daily_analytics.csv,channel_group,text,,True,False,Channel group.,,paid_social
+shopify/storefront_daily_analytics.csv,sessions,integer,units/count,False,False,Sessions.,,1541
+shopify/storefront_daily_analytics.csv,add_to_cart_sessions,integer,units/count,False,False,Add to cart sessions.,,177
+shopify/storefront_daily_analytics.csv,checkout_sessions,integer,units/count,False,False,Checkout sessions.,,100
+shopify/storefront_daily_analytics.csv,paid_orders,integer,units/count,False,False,"Captured orders on this date/channel, including orders refunded at a later date.",,35
+shopify/storefront_daily_analytics.csv,cancelled_orders,integer,units/count,False,False,Cancelled orders.,,0
+shopify/storefront_daily_analytics.csv,booked_sales_ex_tax,decimal,USD,False,False,"Order-date captured product net plus shipping, excluding refunds, tax and voided orders.",,4468.16
+shopify/storefront_daily_analytics.csv,currency,text,,False,False,Currency.,,USD
+shopify/storefront_daily_analytics.csv,attribution_model,text,,False,False,Attribution model.,,last_non_direct_click
+shopify_payments/balance_transactions.csv,balance_transaction_id,text,,True,False,One processor charge/refund balance transaction.,,SPBT-0000001
+shopify_payments/balance_transactions.csv,transaction_date,date,ISO 8601,False,False,Transaction date.,,2024-11-01
+shopify_payments/balance_transactions.csv,available_date,date,ISO 8601,False,False,Modeled date processor funds become eligible for a settlement; can be after cutoff.,,2024-11-05
+shopify_payments/balance_transactions.csv,type,text,,False,False,Processor CHARGE has positive amount; REFUND has negative amount.,,CHARGE
+shopify_payments/balance_transactions.csv,order_id,text,,False,False,Shopify order identifier; keep as text.,,6200000000001
+shopify_payments/balance_transactions.csv,order_transaction_id,text,,False,False,Shopify sale/refund transaction matched to the processor movement.,shopify/order_transactions.csv:transaction_id,OTX-0000001
+shopify_payments/balance_transactions.csv,refund_id,text,,False,True,Customer refund transaction group.,,REF-0000001
+shopify_payments/balance_transactions.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,117.14
+shopify_payments/balance_transactions.csv,fee,decimal,USD,False,False,Nonnegative processor fee. Refund fees are zero in this dataset.,,3.70
+shopify_payments/balance_transactions.csv,net,decimal,USD,False,False,Signed processor amount less fee.,,113.44
+shopify_payments/balance_transactions.csv,currency,text,,False,False,Currency.,,USD
+shopify_payments/balance_transactions.csv,payout_id,text,,False,True,Shopify Payments batch settlement; many balance transactions feed one payout.,shopify_payments/payouts.csv:payout_id [Blank means not assigned at cutoff],PAYOUT-0000001
+shopify_payments/payouts.csv,payout_id,text,,True,False,Shopify Payments batch settlement; many balance transactions feed one payout.,,PAYOUT-0000001
+shopify_payments/payouts.csv,issued_date,date,ISO 8601,False,False,Issued date.,,2024-11-05
+shopify_payments/payouts.csv,estimated_bank_arrival_date,date,ISO 8601,False,False,Estimated bank arrival date.,,2024-11-06
+shopify_payments/payouts.csv,bank_arrival_date,date,ISO 8601,False,True,Bank arrival date.,,2024-11-06
+shopify_payments/payouts.csv,status,text,,False,False,Status.,,paid
+shopify_payments/payouts.csv,currency,text,,False,False,Currency.,,USD
+shopify_payments/payouts.csv,gross_charges,decimal,USD,False,False,Positive sum of captures in a payout batch.,,53715.51
+shopify_payments/payouts.csv,refunds,decimal,USD,False,False,Positive refund amount deducted in a payout batch.,,0.00
+shopify_payments/payouts.csv,fees,decimal,USD,False,False,Positive processor fees deducted in a payout batch.,,1683.95
+shopify_payments/payouts.csv,payout_amount,decimal,USD,False,False,gross_charges minus refunds minus fees.,,52031.56
+shopify_payments/payouts.csv,balance_transaction_count,integer,units/count,False,False,Balance transaction count.,,420
+shopify_payments/payouts.csv,bank_transaction_id,text,,False,True,Unique actual posted bank statement row.,bank/operating_account_statement.csv:bank_transaction_id [Blank for in-transit payouts],BNK-0000004
+purchasing/suppliers.csv,supplier_id,text,,True,False,Merchandise supplier identifier. Equal to its accounting vendor_id.,quickbooks/vendors.csv:vendor_id [Supplier IDs are preserved in the accounting vendor master],SUP-001
+purchasing/suppliers.csv,legal_name,text,,False,False,Legal name.,,Lotus Housewares Trading Co.
+purchasing/suppliers.csv,country_code,text,,False,False,Country code.,,VN
+purchasing/suppliers.csv,category,text,,False,False,Category.,,Kitchen & Pantry
+purchasing/suppliers.csv,primary_contact_email,text,,False,False,Primary contact email.,,orders.sup-001@example.com
+purchasing/suppliers.csv,currency,text,,False,False,Currency.,,USD
+purchasing/suppliers.csv,incoterm,text,,False,False,DDP Chicago warehouse: title and inventory recognition are modeled at warehouse receipt.,,DDP Chicago warehouse
+purchasing/suppliers.csv,standard_lead_days,integer,units/count,False,False,Standard lead days.,,48
+purchasing/suppliers.csv,default_case_pack,integer,units/count,False,False,Default case pack.,,6
+purchasing/supplier_terms_history.csv,terms_id,text,,True,False,Effective payment-terms version used when the PO was agreed.,,SUP-001-T01
+purchasing/supplier_terms_history.csv,supplier_id,text,,False,False,Merchandise supplier identifier. Equal to its accounting vendor_id.,purchasing/suppliers.csv:supplier_id,SUP-001
+purchasing/supplier_terms_history.csv,effective_from,date,ISO 8601,False,False,Effective from.,,2023-01-01
+purchasing/supplier_terms_history.csv,effective_to,date,ISO 8601,False,True,Effective to.,,2026-08-31
+purchasing/supplier_terms_history.csv,deposit_pct,decimal,fraction,False,False,"Contractual PO deposit as decimal fraction, e.g. 0.30 means 30%.",,0.3000
+purchasing/supplier_terms_history.csv,balance_basis,text,,False,False,before_arrival or after_receipt; use the PO-specific installment schedule for cash forecasting.,,before_arrival
+purchasing/supplier_terms_history.csv,balance_net_days,integer,units/count,False,False,Calendar days after the modeled first receipt; zero for pre-arrival terms.,,0
+purchasing/supplier_terms_history.csv,terms_description,text,,False,False,Terms description.,,30% deposit; balance 7 business days before expected receipt
+purchasing/supplier_catalog.csv,supplier_id,text,,True,False,Merchandise supplier identifier. Equal to its accounting vendor_id.,,SUP-001
+purchasing/supplier_catalog.csv,sku,text,,True,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",shopify/products.csv:sku,AL-KIT-001
+purchasing/supplier_catalog.csv,supplier_item_code,text,,False,False,Supplier item code.,,001-101
+purchasing/supplier_catalog.csv,starting_goods_unit_cost,decimal,USD,False,False,Catalog starting purchase price; actual later costs are on PO and receipt lines.,,12.41
+purchasing/supplier_catalog.csv,inbound_freight_pct,decimal,fraction,False,False,Starting per-unit inbound freight ratio; supplier cost is capitalized.,,0.1000
+purchasing/supplier_catalog.csv,minimum_order_units,integer,units/count,False,False,Minimum order units.,,12
+purchasing/supplier_catalog.csv,case_pack,integer,units/count,False,False,Case pack.,,6
+purchasing/supplier_catalog.csv,currency,text,,False,False,Currency.,,USD
+purchasing/purchase_orders.csv,purchase_order_id,text,,True,False,Procurement PO identifier; one PO may have two receipts and two installments.,,PO-0000001
+purchasing/purchase_orders.csv,supplier_id,text,,False,False,Merchandise supplier identifier. Equal to its accounting vendor_id.,purchasing/suppliers.csv:supplier_id,SUP-001
+purchasing/purchase_orders.csv,order_date,date,ISO 8601,False,False,Order date.,,2024-11-04
+purchasing/purchase_orders.csv,currency,text,,False,False,Currency.,,USD
+purchasing/purchase_orders.csv,terms_id,text,,False,False,Effective payment-terms version used when the PO was agreed.,"purchasing/supplier_terms_history.csv:terms_id [Effective contract version, not latest current terms]",SUP-001-T01
+purchasing/purchase_orders.csv,incoterm,text,,False,False,DDP Chicago warehouse: title and inventory recognition are modeled at warehouse receipt.,,DDP Chicago warehouse
+purchasing/purchase_orders.csv,warehouse_id,text,,False,False,Warehouse id.,,CHI-3PL-01
+purchasing/purchase_orders.csv,promised_delivery_date,date,ISO 8601,False,False,Promised delivery date.,,2024-12-22
+purchasing/purchase_orders.csv,revised_expected_final_delivery_date,date,ISO 8601,False,False,Revised expected final delivery date.,,2024-12-23
+purchasing/purchase_orders.csv,goods_amount,decimal,USD,False,False,PO merchandise cost before capitalized inbound freight.,,25000.38
+purchasing/purchase_orders.csv,inbound_freight_amount,decimal,USD,False,False,PO inbound freight allocation capitalized in inventory.,,2499.90
+purchasing/purchase_orders.csv,total_amount,decimal,USD,False,False,Document total in USD; includes inbound freight for a merchandise PO/bill.,,27500.28
+purchasing/purchase_orders.csv,deposit_pct,decimal,fraction,False,False,"Contractual PO deposit as decimal fraction, e.g. 0.30 means 30%.",,0.3000
+purchasing/purchase_orders.csv,balance_due_date,date,ISO 8601,False,False,Balance due date.,,2024-12-12
+purchasing/purchase_orders.csv,status,text,,False,False,Status.,,received
+purchasing/purchase_orders.csv,quantity_ordered,integer,units/count,False,False,Quantity ordered.,,1344
+purchasing/purchase_orders.csv,quantity_received,integer,units/count,False,False,Quantity received.,,1344
+purchasing/purchase_orders.csv,cash_paid,decimal,USD,False,False,Actual supplier cash paid against this PO by cutoff; may exceed received inventory.,,27500.28
+purchasing/purchase_orders.csv,supplier_advance_balance,decimal,USD,False,False,Paid cash not yet applied to received goods invoices; an asset rather than expense.,,0.00
+purchasing/purchase_orders.csv,procurement_reason,text,,False,False,Procurement reason.,,Reorder point / seasonal replenishment
+purchasing/purchase_order_lines.csv,purchase_order_line_id,text,,True,False,One SKU line on a procurement PO.,,POL-0000001
+purchasing/purchase_order_lines.csv,purchase_order_id,text,,False,False,Procurement PO identifier; one PO may have two receipts and two installments.,purchasing/purchase_orders.csv:purchase_order_id,PO-0000001
+purchasing/purchase_order_lines.csv,sku,text,,False,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-KIT-001
+purchasing/purchase_order_lines.csv,quantity_ordered,integer,units/count,False,False,Quantity ordered.,,156
+purchasing/purchase_order_lines.csv,quantity_received,integer,units/count,False,False,Quantity received.,,156
+purchasing/purchase_order_lines.csv,quantity_open,integer,units/count,False,False,Quantity open.,,0
+purchasing/purchase_order_lines.csv,goods_unit_cost,decimal,USD,False,False,"Supplier merchandise cost per unit, before inbound freight.",,12.41
+purchasing/purchase_order_lines.csv,inbound_freight_per_unit,decimal,USD,False,False,Per-unit inbound freight capitalized in landed inventory value.,,1.24
+purchasing/purchase_order_lines.csv,landed_unit_cost,decimal,USD,False,False,goods_unit_cost plus inbound_freight_per_unit.,,13.65
+purchasing/purchase_order_lines.csv,total_landed_amount,decimal,USD,False,False,Ordered units times landed_unit_cost.,,2129.40
+purchasing/purchase_order_lines.csv,expected_delivery_date,date,ISO 8601,False,False,Expected delivery date.,,2024-12-22
+purchasing/payment_schedule.csv,payment_schedule_id,text,,True,False,Contractual PO cash installment; paid and outstanding amounts are separate.,,PSCHED-0000001
+purchasing/payment_schedule.csv,purchase_order_id,text,,False,False,Procurement PO identifier; one PO may have two receipts and two installments.,purchasing/purchase_orders.csv:purchase_order_id [Cash commitment includes deposits and balances],PO-0000001
+purchasing/payment_schedule.csv,supplier_id,text,,False,False,Merchandise supplier identifier. Equal to its accounting vendor_id.,,SUP-001
+purchasing/payment_schedule.csv,installment,text,,False,False,Installment.,,DEPOSIT
+purchasing/payment_schedule.csv,due_date,date,ISO 8601,False,False,Due date.,,2024-11-06
+purchasing/payment_schedule.csv,scheduled_payment_date,date,ISO 8601,False,False,Scheduled payment date.,,2024-11-06
+purchasing/payment_schedule.csv,currency,text,,False,False,Currency.,,USD
+purchasing/payment_schedule.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,8250.08
+purchasing/payment_schedule.csv,amount_paid,decimal,USD,False,False,Actual cash paid on the installment.,,8250.08
+purchasing/payment_schedule.csv,outstanding_amount,decimal,USD,False,False,"Remaining cash commitment on the installment, irrespective of whether goods have arrived.",,0.00
+purchasing/payment_schedule.csv,status,text,,False,False,Status.,,paid
+purchasing/payment_schedule.csv,actual_payment_date,date,ISO 8601,False,True,Actual payment date.,,2024-11-06
+purchasing/payment_schedule.csv,supplier_payment_id,text,,False,True,Actual cash payment to a merchandise supplier.,,SPAY-0000001
+purchasing/payment_schedule.csv,bank_transaction_id,text,,False,True,Unique actual posted bank statement row.,,BNK-0000001
+purchasing/supplier_payments.csv,supplier_payment_id,text,,True,False,Actual cash payment to a merchandise supplier.,,SPAY-0000001
+purchasing/supplier_payments.csv,payment_schedule_id,text,,False,False,Contractual PO cash installment; paid and outstanding amounts are separate.,purchasing/payment_schedule.csv:payment_schedule_id,PSCHED-0000001
+purchasing/supplier_payments.csv,purchase_order_id,text,,False,False,Procurement PO identifier; one PO may have two receipts and two installments.,,PO-0000001
+purchasing/supplier_payments.csv,supplier_id,text,,False,False,Merchandise supplier identifier. Equal to its accounting vendor_id.,,SUP-001
+purchasing/supplier_payments.csv,payment_date,date,ISO 8601,False,False,Payment date.,,2024-11-06
+purchasing/supplier_payments.csv,currency,text,,False,False,Currency.,,USD
+purchasing/supplier_payments.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,8250.08
+purchasing/supplier_payments.csv,paid_to_existing_bills,decimal,USD,False,False,Portion of this supplier cash payment applied directly to open received-goods bills.,,0.00
+purchasing/supplier_payments.csv,paid_as_supplier_advance,decimal,USD,False,False,Portion of this payment held as an advance at its payment date; may be applied later.,,8250.08
+purchasing/supplier_payments.csv,bank_transaction_id,text,,False,False,Unique actual posted bank statement row.,bank/operating_account_statement.csv:bank_transaction_id,BNK-0000001
+purchasing/inbound_shipments.csv,inbound_shipment_id,text,,True,False,Supplier shipment identifier. A split PO has more than one shipment.,,INBOUND-0000001
+purchasing/inbound_shipments.csv,purchase_order_id,text,,False,False,Procurement PO identifier; one PO may have two receipts and two installments.,purchasing/purchase_orders.csv:purchase_order_id,PO-0000001
+purchasing/inbound_shipments.csv,shipment_part,integer,units/count,False,False,Shipment part.,,1
+purchasing/inbound_shipments.csv,warehouse_id,text,,False,False,Warehouse id.,,CHI-3PL-01
+purchasing/inbound_shipments.csv,expected_dispatch_date,date,ISO 8601,False,False,Expected dispatch date.,,2024-11-09
+purchasing/inbound_shipments.csv,actual_dispatch_date,date,ISO 8601,False,True,Actual dispatch date.,,2024-11-09
+purchasing/inbound_shipments.csv,original_expected_arrival_date,date,ISO 8601,False,False,Original expected arrival date.,,2024-12-22
+purchasing/inbound_shipments.csv,revised_expected_arrival_date,date,ISO 8601,False,False,Revised expected arrival date.,,2024-12-23
+purchasing/inbound_shipments.csv,actual_arrival_date,date,ISO 8601,False,True,Actual arrival date.,,2024-12-23
+purchasing/inbound_shipments.csv,status,text,,False,False,Status.,,received
+purchasing/inbound_shipments.csv,receipt_id,text,,False,True,"Actual warehouse receiving document, not a purchase commitment.",,RCV-0000001
+warehouse_3pl/opening_inventory.csv,as_of_date,date,ISO 8601,False,False,As of date.,,2024-10-31
+warehouse_3pl/opening_inventory.csv,warehouse_id,text,,True,False,Warehouse id.,,CHI-3PL-01
+warehouse_3pl/opening_inventory.csv,sku,text,,True,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-KIT-001
+warehouse_3pl/opening_inventory.csv,quantity_on_hand,integer,units/count,False,False,Quantity on hand.,,300
+warehouse_3pl/opening_inventory.csv,quantity_reserved,integer,units/count,False,False,Paid unshipped order units reserved; included in quantity_on_hand.,,0
+warehouse_3pl/opening_inventory.csv,landed_unit_cost,decimal,USD,False,False,goods_unit_cost plus inbound_freight_per_unit.,,13.65
+warehouse_3pl/opening_inventory.csv,inventory_value,decimal,USD,False,False,Inventory value.,,4095.00
+warehouse_3pl/goods_receipts.csv,receipt_id,text,,True,False,"Actual warehouse receiving document, not a purchase commitment.",,RCV-0000013
+warehouse_3pl/goods_receipts.csv,purchase_order_id,text,,False,False,Procurement PO identifier; one PO may have two receipts and two installments.,purchasing/purchase_orders.csv:purchase_order_id,PO-0000012
+warehouse_3pl/goods_receipts.csv,inbound_shipment_id,text,,False,False,Supplier shipment identifier. A split PO has more than one shipment.,purchasing/inbound_shipments.csv:inbound_shipment_id,INBOUND-0000013
+warehouse_3pl/goods_receipts.csv,supplier_id,text,,False,False,Merchandise supplier identifier. Equal to its accounting vendor_id.,,SUP-006
+warehouse_3pl/goods_receipts.csv,received_date,date,ISO 8601,False,False,Received date.,,2024-12-09
+warehouse_3pl/goods_receipts.csv,warehouse_id,text,,False,False,Warehouse id.,,CHI-3PL-01
+warehouse_3pl/goods_receipts.csv,bill_id,text,,False,False,Accounting vendor bill identifier.,quickbooks/bills.csv:bill_id [Supplier invoice recognized on actual receipt],BILL-0000010
+warehouse_3pl/goods_receipts.csv,total_units_received,integer,units/count,False,False,Total units received.,,480
+warehouse_3pl/goods_receipts.csv,total_landed_value,decimal,USD,False,False,Total landed value.,,10713.30
+warehouse_3pl/goods_receipt_lines.csv,receipt_line_id,text,,True,False,Receiving line used to trace capitalized inventory and supplier bill lines.,,RLINE-0000001
+warehouse_3pl/goods_receipt_lines.csv,receipt_id,text,,False,False,"Actual warehouse receiving document, not a purchase commitment.",warehouse_3pl/goods_receipts.csv:receipt_id,RCV-0000013
+warehouse_3pl/goods_receipt_lines.csv,purchase_order_line_id,text,,False,False,One SKU line on a procurement PO.,purchasing/purchase_order_lines.csv:purchase_order_line_id [A split PO line can appear in two receipts],POL-0000065
+warehouse_3pl/goods_receipt_lines.csv,sku,text,,False,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-UTL-001
+warehouse_3pl/goods_receipt_lines.csv,quantity_received,integer,units/count,False,False,Quantity received.,,174
+warehouse_3pl/goods_receipt_lines.csv,goods_unit_cost,decimal,USD,False,False,"Supplier merchandise cost per unit, before inbound freight.",,24.23
+warehouse_3pl/goods_receipt_lines.csv,inbound_freight_per_unit,decimal,USD,False,False,Per-unit inbound freight capitalized in landed inventory value.,,0.97
+warehouse_3pl/goods_receipt_lines.csv,landed_unit_cost,decimal,USD,False,False,goods_unit_cost plus inbound_freight_per_unit.,,25.20
+warehouse_3pl/goods_receipt_lines.csv,inventory_value_received,decimal,USD,False,False,Received units times landed_unit_cost.,,4384.80
+warehouse_3pl/inventory_movements.csv,movement_id,text,,True,False,Movement id.,,MOV-0000001
+warehouse_3pl/inventory_movements.csv,movement_date,date,ISO 8601,False,False,Movement date.,,2024-11-01
+warehouse_3pl/inventory_movements.csv,warehouse_id,text,,False,False,Warehouse id.,,CHI-3PL-01
+warehouse_3pl/inventory_movements.csv,sku,text,,False,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-DIN-002
+warehouse_3pl/inventory_movements.csv,movement_type,text,,False,False,Movement type.,,ORDER_FULFILLMENT
+warehouse_3pl/inventory_movements.csv,quantity_delta,integer,units/count,False,False,"Signed stock units: receipt/restock positive, dispatch/writeoff negative.",,-3
+warehouse_3pl/inventory_movements.csv,inventory_value_delta,decimal,USD,False,False,Signed USD inventory carrying-value change; follows quantity_delta.,,-52.68
+warehouse_3pl/inventory_movements.csv,quantity_after,integer,units/count,False,False,On-hand units immediately after this inventory movement.,,369
+warehouse_3pl/inventory_movements.csv,inventory_value_after,decimal,USD,False,False,USD stock carrying value after this event.,,6479.64
+warehouse_3pl/inventory_movements.csv,source_document_id,text,,False,False,"Source receipt, invoice, order or adjustment identifier; target depends on table/type.",,6200000000002
+warehouse_3pl/inventory_movements.csv,order_id,text,,False,True,Shopify order identifier; keep as text.,,6200000000002
+warehouse_3pl/inventory_movements.csv,order_line_id,text,,False,True,Original Shopify line-item identifier; the join key for fulfillment and returns.,shopify/order_line_items.csv:order_line_id [Populated for dispatch and customer restock],15000000000003
+warehouse_3pl/inventory_movements.csv,receipt_line_id,text,,False,True,Receiving line used to trace capitalized inventory and supplier bill lines.,warehouse_3pl/goods_receipt_lines.csv:receipt_line_id [For PURCHASE_RECEIPT movements],RLINE-0000001
+warehouse_3pl/inventory_movements.csv,return_id,text,,False,True,Physical return authorization; a refund and a warehouse receipt occur separately.,warehouse_3pl/customer_returns.csv:return_id [For accepted restocks only],RET-0000001
+warehouse_3pl/month_end_inventory.csv,snapshot_date,date,ISO 8601,True,False,Snapshot date.,,2024-11-30
+warehouse_3pl/month_end_inventory.csv,warehouse_id,text,,True,False,Warehouse id.,,CHI-3PL-01
+warehouse_3pl/month_end_inventory.csv,sku,text,,True,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-KIT-001
+warehouse_3pl/month_end_inventory.csv,quantity_on_hand,integer,units/count,False,False,Quantity on hand.,,131
+warehouse_3pl/month_end_inventory.csv,quantity_reserved,integer,units/count,False,False,Paid unshipped order units reserved; included in quantity_on_hand.,,22
+warehouse_3pl/month_end_inventory.csv,quantity_available,integer,units/count,False,False,quantity_on_hand minus quantity_reserved.,,109
+warehouse_3pl/month_end_inventory.csv,inventory_value,decimal,USD,False,False,Inventory value.,,1788.15
+warehouse_3pl/month_end_inventory.csv,weighted_average_unit_cost,decimal,USD,False,False,"Inventory carrying value divided by on-hand units, USD/unit, six decimals.",,13.650000
+warehouse_3pl/fulfillments.csv,fulfillment_id,text,,True,False,Fulfillment id.,,FUL-0000001
+warehouse_3pl/fulfillments.csv,order_id,text,,False,False,Shopify order identifier; keep as text.,shopify/orders.csv:order_id [One dispatch per fulfilled order],6200000000002
+warehouse_3pl/fulfillments.csv,warehouse_id,text,,False,False,Warehouse id.,,CHI-3PL-01
+warehouse_3pl/fulfillments.csv,fulfilled_date,date,ISO 8601,False,False,Fulfilled date.,,2024-11-01
+warehouse_3pl/fulfillments.csv,carrier,text,,False,False,Carrier.,,UPS
+warehouse_3pl/fulfillments.csv,tracking_number,text,,False,False,Tracking number.,,DEMO00000000000001
+warehouse_3pl/fulfillments.csv,units_shipped,integer,units/count,False,False,Units shipped.,,4
+warehouse_3pl/fulfillments.csv,shipping_weight_kg,decimal,kg,False,False,Shipping weight kg.,,5.152
+warehouse_3pl/fulfillments.csv,pick_pack_cost,decimal,USD,False,False,Pick pack cost.,,3.53
+warehouse_3pl/fulfillments.csv,carrier_label_cost,decimal,USD,False,False,"Actual modeled outbound carrier charge, not revenue charged to the customer.",,8.94
+warehouse_3pl/fulfillments.csv,total_fulfillment_cost,decimal,USD,False,False,pick_pack_cost plus carrier_label_cost; expense is billed by 3PL.,,12.47
+warehouse_3pl/fulfillments.csv,estimated_delivery_date,date,ISO 8601,False,False,Estimated delivery date.,,2024-11-07
+warehouse_3pl/fulfillments.csv,delivered_date,date,ISO 8601,False,True,Delivered date.,,2024-11-09
+warehouse_3pl/fulfillments.csv,delivery_status,text,,False,False,Delivery status.,,delivered
+warehouse_3pl/customer_returns.csv,return_id,text,,True,False,Physical return authorization; a refund and a warehouse receipt occur separately.,,RET-0000001
+warehouse_3pl/customer_returns.csv,refund_id,text,,False,False,Customer refund transaction group.,,REF-0000001
+warehouse_3pl/customer_returns.csv,refund_line_id,text,,False,False,One refunded order-line allocation.,shopify/refund_line_items.csv:refund_line_id [Refund and physical restock dates differ],RFL-0000001
+warehouse_3pl/customer_returns.csv,order_id,text,,False,False,Shopify order identifier; keep as text.,,6200000000138
+warehouse_3pl/customer_returns.csv,order_line_id,text,,False,False,Original Shopify line-item identifier; the join key for fulfillment and returns.,,15000000000247
+warehouse_3pl/customer_returns.csv,sku,text,,False,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-BAT-004
+warehouse_3pl/customer_returns.csv,quantity,integer,units/count,False,False,Quantity.,,1
+warehouse_3pl/customer_returns.csv,reason,text,,False,False,Reason.,,size_not_suitable
+warehouse_3pl/customer_returns.csv,return_requested_date,date,ISO 8601,False,False,Return requested date.,,2024-11-07
+warehouse_3pl/customer_returns.csv,expected_receipt_date,date,ISO 8601,False,False,Expected receipt date.,,2024-11-15
+warehouse_3pl/customer_returns.csv,actual_receipt_date,date,ISO 8601,False,True,Actual receipt date.,,2024-11-15
+warehouse_3pl/customer_returns.csv,disposition,text,,False,False,"restocked, scrapped, or pending_inspection. Scrap returns do not reverse original COGS.",,restocked
+warehouse_3pl/customer_returns.csv,restocked_quantity,integer,units/count,False,False,Returned units actually restored to sellable stock by cutoff.,,1
+warehouse_3pl/customer_returns.csv,original_issue_cost,decimal,USD,False,False,Original weighted-average carrying cost of the returned quantity.,,27.63
+warehouse_3pl/customer_returns.csv,inventory_value_reinstated,decimal,USD,False,False,Cost reinstated only on actual inspected and restockable warehouse receipt.,,27.63
+warehouse_3pl/customer_returns.csv,status,text,,False,False,Status.,,closed
+warehouse_3pl/stock_adjustments.csv,adjustment_id,text,,True,False,Adjustment id.,,ADJ-0000001
+warehouse_3pl/stock_adjustments.csv,adjustment_date,date,ISO 8601,False,False,Adjustment date.,,2024-11-22
+warehouse_3pl/stock_adjustments.csv,warehouse_id,text,,False,False,Warehouse id.,,CHI-3PL-01
+warehouse_3pl/stock_adjustments.csv,sku,text,,False,False,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-DIN-007
+warehouse_3pl/stock_adjustments.csv,quantity_removed,integer,units/count,False,False,Quantity removed.,,3
+warehouse_3pl/stock_adjustments.csv,inventory_cost_removed,decimal,USD,False,False,Inventory cost removed.,,67.62
+warehouse_3pl/stock_adjustments.csv,reason,text,,False,False,Reason.,,damaged_in_storage
+warehouse_3pl/stock_adjustments.csv,movement_id,text,,False,False,Movement id.,,MOV-0005346
+warehouse_3pl/monthly_invoices.csv,warehouse_invoice_id,text,,True,False,Warehouse invoice id.,,3PL-2024-11
+warehouse_3pl/monthly_invoices.csv,billing_period,year_month,YYYY-MM,False,False,Billing period.,,2024-11
+warehouse_3pl/monthly_invoices.csv,invoice_date,date,ISO 8601,False,False,Invoice date.,,2024-11-30
+warehouse_3pl/monthly_invoices.csv,due_date,date,ISO 8601,False,False,Due date.,,2024-12-16
+warehouse_3pl/monthly_invoices.csv,pick_pack_and_carrier_cost,decimal,USD,False,False,Pick pack and carrier cost.,,38983.44
+warehouse_3pl/monthly_invoices.csv,storage_cost,decimal,USD,False,False,Storage cost.,,2328.30
+warehouse_3pl/monthly_invoices.csv,returns_processing_cost,decimal,USD,False,False,Returns processing cost.,,123.50
+warehouse_3pl/monthly_invoices.csv,total_amount,decimal,USD,False,False,Document total in USD; includes inbound freight for a merchandise PO/bill.,,41435.24
+warehouse_3pl/monthly_invoices.csv,quickbooks_bill_id,text,,False,False,Quickbooks bill id.,quickbooks/bills.csv:bill_id [Do not expense fulfillment records and this invoice twice],BILL-0000003
+quickbooks/chart_of_accounts.csv,account_code,text,,True,False,Chart-of-accounts code; treat as text and join to chart_of_accounts.,,1000
+quickbooks/chart_of_accounts.csv,account_name,text,,False,False,Account name.,,Operating bank
+quickbooks/chart_of_accounts.csv,account_type,text,,False,False,Account type.,,Asset
+quickbooks/chart_of_accounts.csv,natural_balance,text,,False,False,Natural balance.,,Debit
+quickbooks/chart_of_accounts.csv,financial_statement,text,,False,False,Financial statement.,,Balance Sheet
+quickbooks/chart_of_accounts.csv,reporting_line,text,,False,False,Account-level reporting label; budget rows do not include duplicative subtotals.,,Cash
+quickbooks/vendors.csv,vendor_id,text,,True,False,"Accounting vendor identifier, including suppliers and operating-service vendors.",,SUP-001
+quickbooks/vendors.csv,display_name,text,,False,False,Display name.,,Lotus Housewares
+quickbooks/vendors.csv,legal_name,text,,False,False,Legal name.,,Lotus Housewares Trading Co.
+quickbooks/vendors.csv,vendor_type,text,,False,False,Vendor type.,,merchandise_supplier
+quickbooks/vendors.csv,currency,text,,False,False,Currency.,,USD
+quickbooks/vendors.csv,bank_counterparty_name,text,,False,False,Bank counterparty name.,,LOTUSHOUSEWARESTRADINGCO.
+quickbooks/opening_trial_balance.csv,as_of_date,date,ISO 8601,False,False,As of date.,,2024-10-31
+quickbooks/opening_trial_balance.csv,account_code,text,,True,False,Chart-of-accounts code; treat as text and join to chart_of_accounts.,,1000
+quickbooks/opening_trial_balance.csv,account_name,text,,False,False,Account name.,,Operating bank
+quickbooks/opening_trial_balance.csv,debit,decimal,USD,False,False,Nonnegative USD debit; a journal line has either debit or credit.,,420000.00
+quickbooks/opening_trial_balance.csv,credit,decimal,USD,False,False,Nonnegative USD credit.,,0.00
+quickbooks/opening_trial_balance.csv,currency,text,,False,False,Currency.,,USD
+quickbooks/general_ledger.csv,journal_id,text,,True,False,Balanced journal document identifier.,,JRN-0000001
+quickbooks/general_ledger.csv,line_number,integer,units/count,True,False,Integer position within a bill or journal.,,1
+quickbooks/general_ledger.csv,transaction_date,date,ISO 8601,False,False,Transaction date.,,2024-11-01
+quickbooks/general_ledger.csv,account_code,text,,False,False,Chart-of-accounts code; treat as text and join to chart_of_accounts.,quickbooks/chart_of_accounts.csv:account_code [Read all 24 monthly physical partitions],1010
+quickbooks/general_ledger.csv,debit,decimal,USD,False,False,Nonnegative USD debit; a journal line has either debit or credit.,,117.14
+quickbooks/general_ledger.csv,credit,decimal,USD,False,False,Nonnegative USD credit.,,0.00
+quickbooks/general_ledger.csv,currency,text,,False,False,Currency.,,USD
+quickbooks/general_ledger.csv,source_type,text,,False,False,Originating transaction family; use source_id together with this field.,,shopify_capture
+quickbooks/general_ledger.csv,source_id,text,,False,False,Originating document ID; the target depends on source_type.,,6200000000001
+quickbooks/general_ledger.csv,memo,text,,False,False,Readable accounting transaction explanation.,,Captured order; revenue deferred until dispatch
+quickbooks/bills.csv,bill_id,text,,True,False,Accounting vendor bill identifier.,,BILL-0000001
+quickbooks/bills.csv,vendor_id,text,,False,False,"Accounting vendor identifier, including suppliers and operating-service vendors.",quickbooks/vendors.csv:vendor_id,V-META
+quickbooks/bills.csv,vendor_invoice_number,text,,False,False,Vendor invoice number.,,INV-BILL-0000001
+quickbooks/bills.csv,bill_date,date,ISO 8601,False,False,Bill date.,,2024-11-30
+quickbooks/bills.csv,due_date,date,ISO 8601,False,False,Due date.,,2024-12-09
+quickbooks/bills.csv,currency,text,,False,False,Currency.,,USD
+quickbooks/bills.csv,total_amount,decimal,USD,False,False,Document total in USD; includes inbound freight for a merchandise PO/bill.,,38266.87
+quickbooks/bills.csv,amount_paid_or_applied,decimal,USD,False,False,Cash and previously paid supplier advances applied to the bill; not all are new cash.,,38266.87
+quickbooks/bills.csv,balance_due,decimal,USD,False,False,Unpaid accounting bill balance; may overlap PO installment commitments.,,0.00
+quickbooks/bills.csv,status,text,,False,False,Status.,,paid
+quickbooks/bills.csv,source_system,text,,False,False,Source process that produced an accounting bill.,,meta_ads
+quickbooks/bills.csv,source_document_id,text,,False,False,"Source receipt, invoice, order or adjustment identifier; target depends on table/type.",,META-2024-11
+quickbooks/bills.csv,purchase_order_id,text,,False,True,Procurement PO identifier; one PO may have two receipts and two installments.,,PO-0000012
+quickbooks/bill_lines.csv,bill_line_id,text,,True,False,One accounting bill line.,,BILL-0000001-L01
+quickbooks/bill_lines.csv,bill_id,text,,False,False,Accounting vendor bill identifier.,quickbooks/bills.csv:bill_id,BILL-0000001
+quickbooks/bill_lines.csv,line_number,integer,units/count,False,False,Integer position within a bill or journal.,,1
+quickbooks/bill_lines.csv,account_code,text,,False,False,Chart-of-accounts code; treat as text and join to chart_of_accounts.,,6100
+quickbooks/bill_lines.csv,description,text,,False,False,Description.,,Meta media spend 2024-11
+quickbooks/bill_lines.csv,sku,text,,False,True,"Merchant stock-keeping unit; consistent across shop, purchasing, warehouse and bill lines.",,AL-UTL-001
+quickbooks/bill_lines.csv,quantity,integer,units/count,False,True,Quantity.,,174
+quickbooks/bill_lines.csv,unit_price,decimal,USD,False,True,Unit price.,,24.23
+quickbooks/bill_lines.csv,line_amount,decimal,USD,False,False,Line amount.,,38266.87
+quickbooks/bill_lines.csv,service_period,year_month,YYYY-MM,False,False,Month whose expense is recognized; supplier goods are capitalized instead.,,2024-11
+quickbooks/bill_lines.csv,receipt_line_id,text,,False,True,Receiving line used to trace capitalized inventory and supplier bill lines.,warehouse_3pl/goods_receipt_lines.csv:receipt_line_id [Goods and inbound freight are separate bill lines],RLINE-0000001
+quickbooks/bill_payment_allocations.csv,allocation_id,text,,True,False,Allocation id.,,ALLOC-0000001
+quickbooks/bill_payment_allocations.csv,bill_id,text,,False,False,Accounting vendor bill identifier.,quickbooks/bills.csv:bill_id [Some applications are non-cash advances],BILL-0000004
+quickbooks/bill_payment_allocations.csv,application_date,date,ISO 8601,False,False,Application date.,,2024-12-02
+quickbooks/bill_payment_allocations.csv,application_type,text,,False,False,CASH_PAYMENT or SUPPLIER_ADVANCE_APPLICATION; only the former is a new cash movement.,,CASH_PAYMENT
+quickbooks/bill_payment_allocations.csv,payment_id,text,,False,False,Cash payment ID or PO ID for a non-cash supplier-advance application; check application_type.,,BPAY-0000001
+quickbooks/bill_payment_allocations.csv,amount_applied,decimal,USD,False,False,Positive reduction of the accounting bill balance.,,1850.00
+quickbooks/bill_payment_allocations.csv,bank_transaction_id,text,,False,True,Unique actual posted bank statement row.,bank/operating_account_statement.csv:bank_transaction_id [Only CASH_PAYMENT applications],BNK-0000035
+quickbooks/monthly_trial_balance.csv,period,year_month,YYYY-MM,True,False,Period.,,2024-11
+quickbooks/monthly_trial_balance.csv,account_code,text,,True,False,Chart-of-accounts code; treat as text and join to chart_of_accounts.,,1000
+quickbooks/monthly_trial_balance.csv,account_name,text,,False,False,Account name.,,Operating bank
+quickbooks/monthly_trial_balance.csv,opening_signed_balance,decimal,USD,False,False,Opening USD balance under debit-minus-credit convention.,,420000.00
+quickbooks/monthly_trial_balance.csv,period_debits,decimal,USD,False,False,"USD debits posted during this month, excluding prior opening balances.",,456351.52
+quickbooks/monthly_trial_balance.csv,period_credits,decimal,USD,False,False,USD credits posted during this month.,,101357.03
+quickbooks/monthly_trial_balance.csv,closing_signed_balance,decimal,USD,False,False,Closing USD balance under debit-minus-credit convention.,,774994.49
+quickbooks/monthly_trial_balance.csv,currency,text,,False,False,Currency.,,USD
+bank/operating_account_statement.csv,bank_transaction_id,text,,True,False,Unique actual posted bank statement row.,,BNK-0000001
+bank/operating_account_statement.csv,posted_date,date,ISO 8601,False,False,Posted date.,,2024-11-06
+bank/operating_account_statement.csv,bank_account_id,text,,False,False,Synthetic operating account identifier ending in 1042.,,BANK-OPERATING-1042
+bank/operating_account_statement.csv,direction,text,,False,False,"CREDIT is cash into the bank, DEBIT is cash out; amount is unsigned.",,DEBIT
+bank/operating_account_statement.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,8250.08
+bank/operating_account_statement.csv,currency,text,,False,False,Currency.,,USD
+bank/operating_account_statement.csv,counterparty_name,text,,False,False,Counterparty label from the synthetic bank statement.,,LOTUSHOUSEWARESTRADINGCO.
+bank/operating_account_statement.csv,bank_description,text,,False,False,Raw-style bank memo; aliases differ from supplier legal names.,,SUPPLIER LOTUSHOUSEWARESTRADING PO-0000001
+bank/operating_account_statement.csv,bank_reference,text,,False,False,"Payment or payout reference available for matching, not an accounting category.",,SPAY-0000001
+bank/operating_account_statement.csv,running_balance,decimal,USD,False,False,USD bank balance after this row; same-date row order matters.,,411749.92
+bank/account_opening_balance.csv,bank_account_id,text,,True,False,Synthetic operating account identifier ending in 1042.,,BANK-OPERATING-1042
+bank/account_opening_balance.csv,as_of_date,date,ISO 8601,False,False,As of date.,,2024-10-31
+bank/account_opening_balance.csv,currency,text,,False,False,Currency.,,USD
+bank/account_opening_balance.csv,opening_balance,decimal,USD,False,False,Opening balance.,,420000.00
+bank/account_opening_balance.csv,account_holder,text,,False,False,Account holder.,,Alder & Loom Commerce LLC
+bank/account_opening_balance.csv,bank_name,text,,False,False,Bank name.,,Prairie Business Bank (synthetic)
+gusto/employees.csv,employee_id,text,,True,False,Synthetic employee identifier; includes terminated employees.,,EMP-001
+gusto/employees.csv,first_name,text,,False,False,First name.,,Avery
+gusto/employees.csv,last_name,text,,False,False,Last name.,,Parker
+gusto/employees.csv,job_title,text,,False,False,Job title.,,General Manager
+gusto/employees.csv,department,text,,False,False,Department.,,Management
+gusto/employees.csv,hire_date,date,ISO 8601,False,False,Hire date.,,2023-03-01
+gusto/employees.csv,termination_date,date,ISO 8601,False,True,Termination date.,,2025-08-31
+gusto/employees.csv,employment_status,text,,False,False,Employment status.,,active
+gusto/employees.csv,pay_type,text,,False,False,Pay type.,,salary
+gusto/employees.csv,pay_frequency,text,,False,False,Pay frequency.,,semi_monthly
+gusto/employees.csv,currency,text,,False,False,Currency.,,USD
+gusto/salary_history.csv,salary_rate_id,text,,True,False,Salary rate id.,,SAL-0000001
+gusto/salary_history.csv,employee_id,text,,False,False,Synthetic employee identifier; includes terminated employees.,gusto/employees.csv:employee_id [Use effective dates],EMP-001
+gusto/salary_history.csv,effective_from,date,ISO 8601,False,False,Effective from.,,2023-03-01
+gusto/salary_history.csv,effective_to,date,ISO 8601,False,True,Effective to.,,2025-06-30
+gusto/salary_history.csv,annual_salary,decimal,USD,False,False,Effective annual gross USD salary; salary_history is authoritative.,,102000.00
+gusto/salary_history.csv,currency,text,,False,False,Currency.,,USD
+gusto/payroll_runs.csv,payroll_run_id,text,,True,False,"Semi-monthly payroll identifier; joins details, funding and GL.",,PAYRUN-0000001
+gusto/payroll_runs.csv,company_id,text,,False,False,Company id.,,GUSTO-DEMO-ALDER-001
+gusto/payroll_runs.csv,pay_period_start,date,ISO 8601,False,False,First calendar date in the earned salary half-month.,,2024-11-01
+gusto/payroll_runs.csv,pay_period_end,date,ISO 8601,False,False,Last calendar date in the earned salary half-month; GL expense recognition date.,,2024-11-15
+gusto/payroll_runs.csv,check_date,date,ISO 8601,False,False,Known payroll funding date; may follow the earned period and may be after cutoff.,,2024-11-18
+gusto/payroll_runs.csv,processed,boolean,,False,False,Payroll calculated/processed as of cutoff; does not mean bank funding already occurred.,,True
+gusto/payroll_runs.csv,employee_count,integer,units/count,False,False,Employee count.,,10
+gusto/payroll_runs.csv,gross_pay,decimal,USD,False,False,Earned salary before employee withholding.,,27750.00
+gusto/payroll_runs.csv,employee_tax_withheld,decimal,USD,False,False,"Illustrative employee withholding, not additional company expense.",,5589.77
+gusto/payroll_runs.csv,net_pay,decimal,USD,False,False,gross_pay minus employee_tax_withheld minus employee_deductions.,,22160.23
+gusto/payroll_runs.csv,employer_payroll_tax,decimal,USD,False,False,"Illustrative employer payroll tax, assumed at 8.1% of gross pay.",,2247.76
+gusto/payroll_runs.csv,total_cash_debit,decimal,USD,False,False,Gross payroll plus employer payroll tax; funded via net-pay and tax debits.,,29997.76
+gusto/payroll_runs.csv,currency,text,,False,False,Currency.,,USD
+gusto/payroll_employee_details.csv,payroll_detail_id,text,,True,False,Payroll detail id.,,PAYLINE-0000001
+gusto/payroll_employee_details.csv,payroll_run_id,text,,False,False,"Semi-monthly payroll identifier; joins details, funding and GL.",gusto/payroll_runs.csv:payroll_run_id,PAYRUN-0000001
+gusto/payroll_employee_details.csv,employee_id,text,,False,False,Synthetic employee identifier; includes terminated employees.,gusto/employees.csv:employee_id,EMP-001
+gusto/payroll_employee_details.csv,department,text,,False,False,Department.,,Management
+gusto/payroll_employee_details.csv,pay_period_start,date,ISO 8601,False,False,First calendar date in the earned salary half-month.,,2024-11-01
+gusto/payroll_employee_details.csv,pay_period_end,date,ISO 8601,False,False,Last calendar date in the earned salary half-month; GL expense recognition date.,,2024-11-15
+gusto/payroll_employee_details.csv,check_date,date,ISO 8601,False,False,Known payroll funding date; may follow the earned period and may be after cutoff.,,2024-11-18
+gusto/payroll_employee_details.csv,gross_pay,decimal,USD,False,False,Earned salary before employee withholding.,,4250.00
+gusto/payroll_employee_details.csv,employee_tax_withheld,decimal,USD,False,False,"Illustrative employee withholding, not additional company expense.",,804.37
+gusto/payroll_employee_details.csv,employee_deductions,decimal,USD,False,False,Zero in this case because health benefits are wholly employer-paid.,,0.00
+gusto/payroll_employee_details.csv,net_pay,decimal,USD,False,False,gross_pay minus employee_tax_withheld minus employee_deductions.,,3445.63
+gusto/payroll_employee_details.csv,employer_payroll_tax,decimal,USD,False,False,"Illustrative employer payroll tax, assumed at 8.1% of gross pay.",,344.25
+gusto/payroll_employee_details.csv,employer_total_cost,decimal,USD,False,False,gross_pay plus employer_payroll_tax; health benefits are billed separately.,,4594.25
+gusto/payroll_employee_details.csv,currency,text,,False,False,Currency.,,USD
+gusto/payroll_bank_debits.csv,payroll_debit_id,text,,True,False,Payroll debit id.,,PAYDEBIT-0000001
+gusto/payroll_bank_debits.csv,payroll_run_id,text,,False,False,"Semi-monthly payroll identifier; joins details, funding and GL.",gusto/payroll_runs.csv:payroll_run_id [Two funding debits per funded payroll],PAYRUN-0000001
+gusto/payroll_bank_debits.csv,debit_date,date,ISO 8601,False,False,Debit date.,,2024-11-18
+gusto/payroll_bank_debits.csv,debit_type,text,,False,False,NET_PAY or PAYROLL_TAX; both reference a real posted bank row.,,NET_PAY
+gusto/payroll_bank_debits.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,22160.23
+gusto/payroll_bank_debits.csv,currency,text,,False,False,Currency.,,USD
+gusto/payroll_bank_debits.csv,bank_transaction_id,text,,False,False,Unique actual posted bank statement row.,bank/operating_account_statement.csv:bank_transaction_id,BNK-0000016
+meta_ads/campaigns.csv,campaign_id,text,,True,False,Campaign id.,,120990000000001
+meta_ads/campaigns.csv,campaign_name,text,,False,False,Campaign name.,,Prospecting | Kitchen & Pantry
+meta_ads/campaigns.csv,objective,text,,False,False,Objective.,,OUTCOME_SALES
+meta_ads/campaigns.csv,publisher_platform,text,,False,False,Publisher platform.,,instagram
+meta_ads/campaigns.csv,status,text,,False,False,Status.,,ACTIVE
+meta_ads/campaigns.csv,account_id,text,,False,False,Account id.,,act_990000000001
+meta_ads/daily_insights.csv,date_start,date,ISO 8601,True,False,Date start.,,2024-11-01
+meta_ads/daily_insights.csv,date_stop,date,ISO 8601,False,False,Date stop.,,2024-11-01
+meta_ads/daily_insights.csv,account_id,text,,False,False,Account id.,,act_990000000001
+meta_ads/daily_insights.csv,campaign_id,text,,True,False,Campaign id.,meta_ads/campaigns.csv:campaign_id,120990000000001
+meta_ads/daily_insights.csv,publisher_platform,text,,False,False,Publisher platform.,,instagram
+meta_ads/daily_insights.csv,account_currency,text,,False,False,Account currency.,,USD
+meta_ads/daily_insights.csv,spend,decimal,USD,False,False,"USD Meta media spend, to the cent.",,333.76
+meta_ads/daily_insights.csv,impressions,integer,units/count,False,False,Impressions.,,21751
+meta_ads/daily_insights.csv,clicks,integer,units/count,False,False,Clicks.,,543
+meta_ads/daily_insights.csv,landing_page_views,integer,units/count,False,False,Landing page views.,,483
+meta_ads/daily_insights.csv,purchases,decimal,attributed conversions,False,False,Meta-attributed purchases under its attribution window; may overlap Google claims.,,14.99
+meta_ads/daily_insights.csv,purchase_conversion_value,decimal,USD,False,False,Meta-attributed USD purchase value; not authoritative accounting revenue.,,1748.82
+meta_ads/daily_insights.csv,attribution_setting,text,,False,False,Attribution setting.,,7d_click_1d_view
+meta_ads/billing_statements.csv,statement_id,text,,True,False,Statement id.,,META-2024-11
+meta_ads/billing_statements.csv,billing_period,year_month,YYYY-MM,False,False,Billing period.,,2024-11
+meta_ads/billing_statements.csv,invoice_date,date,ISO 8601,False,False,Invoice date.,,2024-11-30
+meta_ads/billing_statements.csv,due_date,date,ISO 8601,False,False,Due date.,,2024-12-09
+meta_ads/billing_statements.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,38266.87
+meta_ads/billing_statements.csv,currency,text,,False,False,Currency.,,USD
+meta_ads/billing_statements.csv,quickbooks_bill_id,text,,False,False,Quickbooks bill id.,quickbooks/bills.csv:bill_id [Daily spend is the detail of this invoice],BILL-0000001
+google_ads/campaigns.csv,campaign_id,text,,True,False,Campaign id.,,8800000001
+google_ads/campaigns.csv,campaign_name,text,,False,False,Campaign name.,,Shopping | Core Catalog
+google_ads/campaigns.csv,advertising_channel_type,text,,False,False,Advertising channel type.,,SHOPPING
+google_ads/campaigns.csv,status,text,,False,False,Status.,,ENABLED
+google_ads/campaigns.csv,customer_id,text,,False,False,Synthetic Shopify customer identifier; keep as text.,,9900012345
+google_ads/daily_campaign_metrics.csv,segments_date,date,ISO 8601,True,False,Segments date.,,2024-11-01
+google_ads/daily_campaign_metrics.csv,customer_id,text,,False,False,Synthetic Shopify customer identifier; keep as text.,,9900012345
+google_ads/daily_campaign_metrics.csv,campaign_id,text,,True,False,Campaign id.,google_ads/campaigns.csv:campaign_id,8800000001
+google_ads/daily_campaign_metrics.csv,currency_code,text,,False,False,Currency code.,,USD
+google_ads/daily_campaign_metrics.csv,metrics_cost_micros,integer,millionths of USD,False,False,"Google Ads spend in millionths of USD; divide by 1,000,000, not 100.",,597970000
+google_ads/daily_campaign_metrics.csv,metrics_impressions,integer,units/count,False,False,Metrics impressions.,,9415
+google_ads/daily_campaign_metrics.csv,metrics_clicks,integer,units/count,False,False,Metrics clicks.,,569
+google_ads/daily_campaign_metrics.csv,metrics_conversions,decimal,attributed conversions,False,False,Google-attributed conversions; fractional credit is allowed.,,19.44
+google_ads/daily_campaign_metrics.csv,metrics_conversions_value,decimal,USD,False,False,Google-attributed USD conversion value; not additive to Meta revenue.,,2265.03
+google_ads/daily_campaign_metrics.csv,conversion_attribution_model,text,,False,False,Conversion attribution model.,,data_driven
+google_ads/billing_statements.csv,statement_id,text,,True,False,Statement id.,,GOOGLE-2024-11
+google_ads/billing_statements.csv,billing_period,year_month,YYYY-MM,False,False,Billing period.,,2024-11
+google_ads/billing_statements.csv,invoice_date,date,ISO 8601,False,False,Invoice date.,,2024-11-30
+google_ads/billing_statements.csv,due_date,date,ISO 8601,False,False,Due date.,,2024-12-09
+google_ads/billing_statements.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,31282.58
+google_ads/billing_statements.csv,currency,text,,False,False,Currency.,,USD
+google_ads/billing_statements.csv,quickbooks_bill_id,text,,False,False,Quickbooks bill id.,quickbooks/bills.csv:bill_id [Convert cost_micros to USD before comparison],BILL-0000002
+planning/approved_budget_monthly.csv,period,year_month,YYYY-MM,True,False,Period.,,2024-11
+planning/approved_budget_monthly.csv,fiscal_year,integer,calendar year,False,False,Fiscal year.,,2024
+planning/approved_budget_monthly.csv,budget_version,text,,False,False,Original fiscal-year plan; never overwritten with actuals or a revised forecast.,,FY2024_ORIGINAL
+planning/approved_budget_monthly.csv,approved_date,date,ISO 8601,False,False,"Original budget approval date, strictly before the relevant budget period.",,2024-10-15
+planning/approved_budget_monthly.csv,reporting_line,text,,True,False,Account-level reporting label; budget rows do not include duplicative subtotals.,,Gross product sales
+planning/approved_budget_monthly.csv,account_code,text,,False,False,Chart-of-accounts code; treat as text and join to chart_of_accounts.,quickbooks/chart_of_accounts.csv:account_code [Period and account form an additive BVA bridge],4000
+planning/approved_budget_monthly.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,450258.60
+planning/approved_budget_monthly.csv,currency,text,,False,False,Currency.,,USD
+planning/approved_budget_monthly.csv,budget_basis,text,,False,False,Budget basis.,,Original driver-based plan; positive income and expense rows
+planning/recurring_obligations_asof.csv,obligation_id,text,,True,False,Obligation id.,,OBL-01
+planning/recurring_obligations_asof.csv,as_of_date,date,ISO 8601,False,False,As of date.,,2026-10-31
+planning/recurring_obligations_asof.csv,vendor_or_source,text,,False,False,Vendor or source.,,V-OFFICE
+planning/recurring_obligations_asof.csv,cost_category,text,,False,False,Cost category.,,Office rent
+planning/recurring_obligations_asof.csv,cadence,text,,False,False,Cadence.,,monthly
+planning/recurring_obligations_asof.csv,amount_basis,text,,False,False,"How to interpret recurring obligation amount_or_rate, including formulas rather than fixed cash.",,fixed_amount
+planning/recurring_obligations_asof.csv,amount_or_rate,decimal,fraction,False,False,"Contract input; zero under a formula/planning basis means use the stated driver, not zero cost.",,1850.00
+planning/recurring_obligations_asof.csv,currency,text,,False,False,Currency.,,USD
+planning/recurring_obligations_asof.csv,next_due_date,date,ISO 8601,False,False,Next due date.,,2026-11-02
+planning/recurring_obligations_asof.csv,end_date,date,ISO 8601,False,True,End date.,,
+planning/recurring_obligations_asof.csv,note,text,,False,False,Note.,,Office lease
+finance/credit_facility_activity.csv,activity_id,text,,True,True,Activity id.,,
+finance/credit_facility_activity.csv,facility_id,text,,False,True,Facility id.,,
+finance/credit_facility_activity.csv,activity_date,date,ISO 8601,False,True,Activity date.,,
+finance/credit_facility_activity.csv,activity_type,text,,False,True,Activity type.,,
+finance/credit_facility_activity.csv,principal_amount,decimal,USD,False,True,Principal amount.,,
+finance/credit_facility_activity.csv,principal_balance_after,decimal,USD,False,True,Principal after this actual financing activity.,,
+finance/credit_facility_activity.csv,bank_transaction_id,text,,False,True,Unique actual posted bank statement row.,,
+finance/debt_register_asof.csv,facility_id,text,,True,False,Facility id.,,TERM-001
+finance/debt_register_asof.csv,as_of_date,date,ISO 8601,False,False,As of date.,,2026-10-31
+finance/debt_register_asof.csv,lender,text,,False,False,Lender.,,Prairie Business Bank
+finance/debt_register_asof.csv,facility_type,text,,False,False,Facility type.,,amortizing_term_loan
+finance/debt_register_asof.csv,original_or_limit_amount,decimal,USD,False,False,"Original term-loan principal or approved revolver limit, depending on facility_type.",,180000.00
+finance/debt_register_asof.csv,principal_outstanding,decimal,USD,False,False,Outstanding loan or revolver principal at cutoff.,,120000.00
+finance/debt_register_asof.csv,annual_interest_rate,decimal,fraction,False,False,Synthetic contractual annual interest rate as a decimal fraction.,,0.0900
+finance/debt_register_asof.csv,monthly_principal_payment,decimal,USD,False,False,Monthly principal payment.,,2500.00
+finance/debt_register_asof.csv,next_payment_date,date,ISO 8601,False,False,Next payment date.,,2026-11-10
+finance/debt_register_asof.csv,maturity_date,date,ISO 8601,False,False,Maturity date.,,2030-10-10
+finance/debt_register_asof.csv,currency,text,,False,False,Currency.,,USD
+finance/term_loan_payments.csv,loan_payment_id,text,,True,False,Loan payment id.,,LOANPAY-0000001
+finance/term_loan_payments.csv,facility_id,text,,False,False,Facility id.,,TERM-001
+finance/term_loan_payments.csv,payment_date,date,ISO 8601,False,False,Payment date.,,2024-11-10
+finance/term_loan_payments.csv,principal_paid,decimal,USD,False,False,"Term loan principal cash repayment, excluded from P&L expense.",,2500.00
+finance/term_loan_payments.csv,interest_paid,decimal,USD,False,False,"Interest expense paid, separate from loan principal.",,1350.00
+finance/term_loan_payments.csv,total_payment,decimal,USD,False,False,Total payment.,,3850.00
+finance/term_loan_payments.csv,principal_balance_after,decimal,USD,False,False,Principal after this actual financing activity.,,177500.00
+finance/term_loan_payments.csv,bank_transaction_id,text,,False,False,Unique actual posted bank statement row.,bank/operating_account_statement.csv:bank_transaction_id [Principal and interest have different accounting treatment],BNK-0000007
+finance/term_loan_payments.csv,currency,text,,False,False,Currency.,,USD
+finance/owner_distributions.csv,distribution_id,text,,True,False,Distribution id.,,DIST-0000001
+finance/owner_distributions.csv,payment_date,date,ISO 8601,False,False,Payment date.,,2024-12-25
+finance/owner_distributions.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,200000.00
+finance/owner_distributions.csv,currency,text,,False,False,Currency.,,USD
+finance/owner_distributions.csv,bank_transaction_id,text,,False,False,Unique actual posted bank statement row.,"bank/operating_account_statement.csv:bank_transaction_id [Financing/equity, not P&L expense]",BNK-0000076
+finance/sales_tax_remittances.csv,remittance_id,text,,True,False,Remittance id.,,STAX-2024-11
+finance/sales_tax_remittances.csv,collection_period,year_month,YYYY-MM,False,False,Collection period.,,2024-11
+finance/sales_tax_remittances.csv,due_date,date,ISO 8601,False,False,Due date.,,2024-12-20
+finance/sales_tax_remittances.csv,amount,decimal,USD,False,False,USD value; sign semantics depend on the table and are specified in its grain/notes.,,32294.04
+finance/sales_tax_remittances.csv,currency,text,,False,False,Currency.,,USD
+finance/sales_tax_remittances.csv,paid_date,date,ISO 8601,False,True,Paid date.,,2024-12-20
+finance/sales_tax_remittances.csv,bank_transaction_id,text,,False,True,Unique actual posted bank statement row.,bank/operating_account_statement.csv:bank_transaction_id [Blank means known unpaid obligation at cutoff],BNK-0000071

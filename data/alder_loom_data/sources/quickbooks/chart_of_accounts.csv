@@ -1,0 +1,36 @@
+﻿account_code,account_name,account_type,natural_balance,financial_statement,reporting_line
+1000,Operating bank,Asset,Debit,Balance Sheet,Cash
+1010,Shopify clearing and payouts in transit,Asset,Debit,Balance Sheet,Processor clearing
+1200,Merchandise inventory including inbound freight,Asset,Debit,Balance Sheet,Inventory
+1300,Supplier advances,Asset,Debit,Balance Sheet,Supplier advances
+1500,Office equipment and fitout,Asset,Debit,Balance Sheet,Fixed assets
+1510,Accumulated depreciation,Contra asset,Credit,Balance Sheet,Accumulated depreciation
+2000,Accounts payable,Liability,Credit,Balance Sheet,Accounts payable
+2100,Sales tax payable,Liability,Credit,Balance Sheet,Sales tax payable
+2110,Payroll funding payable,Liability,Credit,Balance Sheet,Payroll payable
+2200,Paid unshipped customer orders,Liability,Credit,Balance Sheet,Customer deposits
+2300,Term loan,Liability,Credit,Balance Sheet,Term debt
+2400,Working capital revolver,Liability,Credit,Balance Sheet,Credit facility
+3000,Opening member capital and retained earnings,Equity,Credit,Balance Sheet,Opening equity
+3100,Member distributions,Contra equity,Debit,Balance Sheet,Owner distributions
+4000,Gross product sales,Income,Credit,P&L,Gross product sales
+4050,Sales discounts,Contra income,Debit,P&L,Sales discounts
+4060,Merchandise returns,Contra income,Debit,P&L,Merchandise returns
+4100,Customer shipping income net of refunds,Income,Credit,P&L,Shipping income
+5000,Merchandise COGS net of restocked returns,Cost of sales,Debit,P&L,Merchandise COGS
+5010,Inventory damage and shrinkage,Cost of sales,Debit,P&L,Inventory writeoffs
+6010,Payment processing fees,Expense,Debit,P&L,Merchant fees
+6100,Meta advertising,Expense,Debit,P&L,Meta advertising
+6110,Google advertising,Expense,Debit,P&L,Google advertising
+6200,Outbound fulfillment and carrier costs,Expense,Debit,P&L,Outbound fulfillment
+6210,Warehouse storage,Expense,Debit,P&L,Warehouse storage
+6220,Returns handling,Expense,Debit,P&L,Returns handling
+6300,Gross salaries,Expense,Debit,P&L,Salaries
+6310,Employer payroll taxes,Expense,Debit,P&L,Employer payroll taxes
+6320,Employer health benefits,Expense,Debit,P&L,Health benefits
+6400,Office rent,Expense,Debit,P&L,Office rent
+6500,Software and payroll subscriptions,Expense,Debit,P&L,Software subscriptions
+6600,Commercial insurance,Expense,Debit,P&L,Insurance
+6700,Professional fees,Expense,Debit,P&L,Professional fees
+6800,Depreciation,Expense,Debit,P&L,Depreciation
+6900,Interest expense,Expense,Debit,P&L,Interest

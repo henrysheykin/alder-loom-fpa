@@ -1,0 +1,8 @@
+﻿terms_id,supplier_id,effective_from,effective_to,deposit_pct,balance_basis,balance_net_days,terms_description
+SUP-001-T01,SUP-001,2023-01-01,2026-08-31,0.3000,before_arrival,0,30% deposit; balance 7 business days before expected receipt
+SUP-001-T02,SUP-001,2026-09-01,,0.5000,before_arrival,0,50% deposit; balance 7 business days before expected receipt
+SUP-002-T01,SUP-002,2023-01-01,,0.3000,after_receipt,15,30% deposit; balance net 15 after first receipt
+SUP-003-T01,SUP-003,2023-01-01,,0.3000,after_receipt,15,30% deposit; balance net 15 after first receipt
+SUP-004-T01,SUP-004,2023-01-01,,0.2000,after_receipt,30,20% deposit; balance net 30 after first receipt
+SUP-005-T01,SUP-005,2023-01-01,,0.0000,after_receipt,30,0% deposit; balance net 30 after first receipt
+SUP-006-T01,SUP-006,2023-01-01,,0.0000,after_receipt,30,0% deposit; balance net 30 after first receipt

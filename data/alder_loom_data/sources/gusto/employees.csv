@@ -1,0 +1,18 @@
+﻿employee_id,first_name,last_name,job_title,department,hire_date,termination_date,employment_status,pay_type,pay_frequency,currency
+EMP-001,Avery,Parker,General Manager,Management,2023-03-01,,active,salary,semi_monthly,USD
+EMP-002,Jordan,Reed,Operations Manager,Operations,2023-05-01,,active,salary,semi_monthly,USD
+EMP-003,Morgan,Bennett,Finance and Administration Lead,Finance,2023-09-01,,active,salary,semi_monthly,USD
+EMP-004,Taylor,Clarke,Performance Marketing Manager,Marketing,2023-10-01,,active,salary,semi_monthly,USD
+EMP-005,Casey,Hayes,Merchandising Manager,Merchandising,2024-01-01,,active,salary,semi_monthly,USD
+EMP-006,Alex,Brooks,Customer Service Specialist,Customer Service,2024-02-01,2025-08-31,terminated,salary,semi_monthly,USD
+EMP-007,Sam,Walsh,Customer Service Specialist,Customer Service,2024-04-01,,active,salary,semi_monthly,USD
+EMP-008,Jamie,Sullivan,E-commerce Coordinator,Operations,2024-05-01,,active,salary,semi_monthly,USD
+EMP-009,Riley,Porter,Content and Email Specialist,Marketing,2024-07-01,,active,salary,semi_monthly,USD
+EMP-010,Cameron,Ellis,Supply Chain Coordinator,Operations,2024-09-01,2026-03-31,terminated,salary,semi_monthly,USD
+EMP-011,Nina,Gray,Customer Service Specialist,Customer Service,2025-03-01,,active,salary,semi_monthly,USD
+EMP-012,Maya,Patel,Marketplace Analyst,Merchandising,2025-03-01,,active,salary,semi_monthly,USD
+EMP-013,Lucas,Kim,Customer Service Specialist,Customer Service,2025-09-01,,active,salary,semi_monthly,USD
+EMP-014,Emma,Hayward,Procurement Analyst,Operations,2025-09-01,,active,salary,semi_monthly,USD
+EMP-015,Noah,Bennett,Supply Chain Coordinator,Operations,2026-04-01,,active,salary,semi_monthly,USD
+EMP-016,Olivia,Reed,Marketing Analyst,Marketing,2026-04-01,,active,salary,semi_monthly,USD
+EMP-017,Drew,Clarke,Customer Experience Lead,Customer Service,2026-07-01,,active,salary,semi_monthly,USD

@@ -1,0 +1,505 @@
+﻿period,fiscal_year,budget_version,approved_date,reporting_line,account_code,amount,currency,budget_basis
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Gross product sales,4000,450258.60,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Sales discounts,4050,58533.62,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Merchandise returns,4060,9009.67,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Shipping income,4100,7223.40,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Merchandise COGS,5000,139691.09,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Inventory writeoffs,5010,389.94,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Merchant fees,6010,12867.98,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Meta advertising,6100,44063.07,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Google advertising,6110,32364.91,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Outbound fulfillment,6200,35515.05,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Returns handling,6220,560.82,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Salaries,6300,50000.00,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Employer payroll taxes,6310,4050.00,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Health benefits,6320,4800.00,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Software subscriptions,6500,1940.00,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2024-11,2024,FY2024_ORIGINAL,2024-10-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Gross product sales,4000,444199.80,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Sales discounts,4050,57745.97,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Merchandise returns,4060,8888.44,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Shipping income,4100,7126.20,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Merchandise COGS,5000,137811.37,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Inventory writeoffs,5010,384.69,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Merchant fees,6010,12694.82,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Meta advertising,6100,43470.15,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Google advertising,6110,31929.40,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Outbound fulfillment,6200,35037.15,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Returns handling,6220,553.27,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Salaries,6300,50000.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Employer payroll taxes,6310,4050.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Health benefits,6320,4800.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Software subscriptions,6500,1940.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2024-12,2024,FY2024_ORIGINAL,2024-10-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,245942.40,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,15986.26,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,5288.99,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,3945.60,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,82003.51,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,228.61,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,7544.22,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,25833.24,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,18974.86,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,19399.20,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,306.33,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,50000.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,4050.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,4800.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,1940.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-01,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,219687.60,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,14279.69,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,4724.38,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,3524.40,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,73249.49,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,204.21,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,6738.86,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,23075.50,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,16949.26,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,17328.30,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,273.63,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,50000.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,4050.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,4800.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,1940.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-02,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,285324.60,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,18546.10,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,6135.91,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,4577.40,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,95134.55,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,265.22,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,8752.26,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,29969.86,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,22013.26,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,22505.55,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,355.38,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,60000.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,4860.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,5760.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2008.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-03,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,289588.20,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,18823.23,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,6227.59,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,4645.80,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,96556.14,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,269.18,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,8883.04,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,30417.70,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,22342.20,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,22841.85,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,360.69,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,60000.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,4860.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,5760.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2008.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-04,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,323360.40,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,21018.43,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,6953.87,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,5187.60,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,107816.66,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,300.58,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,9919.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,33965.05,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,24947.78,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,25505.70,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,402.76,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,60000.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,4860.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,5760.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2008.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-05,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,307540.20,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,19990.11,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,6613.65,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,4933.80,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,102541.80,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,285.87,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,9433.72,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,32303.34,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,23727.23,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,24257.85,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,383.05,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,60000.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,4860.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,5760.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2008.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-06,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,328858.20,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,21375.78,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,7072.10,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,5275.80,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,109649.77,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,305.69,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,10087.64,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,34542.53,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,25371.95,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,25939.35,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,409.61,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,60000.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,4860.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,5760.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2008.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-07,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,354215.40,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,23024.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,7617.40,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,5682.60,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,118104.51,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,329.26,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,10865.47,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,37206.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,27328.30,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,27939.45,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,441.19,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,60000.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,4860.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,5760.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2008.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-08,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,371269.80,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,24132.54,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,7984.16,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,5956.20,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,123790.88,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,345.11,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,11388.61,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,38997.35,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,28644.07,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,29284.65,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,462.43,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,65000.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,5265.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,6240.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2042.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-09,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,427818.60,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,27808.21,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,9200.24,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,6863.40,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,142645.70,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,397.67,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,13123.23,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,44937.11,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,33006.90,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,33745.05,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,532.87,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,65000.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,5265.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,6240.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2042.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-10,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,531267.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,69064.71,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,10630.65,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,8523.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,164823.65,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,460.09,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,15183.12,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,51990.69,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,38187.86,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,41904.75,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,661.72,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,65000.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,5265.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,6240.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2042.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-11,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Gross product sales,4000,522964.20,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Sales discounts,4050,67985.35,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Merchandise returns,4060,10464.51,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Shipping income,4100,8389.80,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Merchandise COGS,5000,162247.73,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Inventory writeoffs,5010,452.90,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Merchant fees,6010,14945.84,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Meta advertising,6100,51178.17,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Google advertising,6110,37591.04,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Outbound fulfillment,6200,41249.85,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Returns handling,6220,651.37,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Salaries,6300,65000.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Employer payroll taxes,6310,5265.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Health benefits,6320,6240.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Software subscriptions,6500,2042.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2025-12,2025,FY2025_ORIGINAL,2024-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,288915.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,18779.48,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,6213.12,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,4635.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,96331.68,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,268.56,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,8862.39,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,30346.99,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,22290.26,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,22788.75,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,359.86,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,66950.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,5422.95,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,6240.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2042.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-01,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,257499.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,16737.44,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,5537.52,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,4131.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,85856.77,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,239.36,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,7898.72,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,27047.12,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,19866.47,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,20310.75,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,320.73,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,66950.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,5422.95,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,6240.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2042.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-02,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,333795.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,21696.68,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,7178.26,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,5355.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,111295.82,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,310.28,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,10239.08,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,35061.08,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,25752.83,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,26328.75,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,415.76,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,66950.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,5422.95,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,6240.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2042.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-03,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,338170.80,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,21981.10,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,7272.36,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,5425.20,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,112754.83,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,314.34,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,10373.30,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,35520.71,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,26090.43,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,26673.90,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,421.21,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,77250.00,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,6257.25,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,7200.00,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2110.00,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-04,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,376879.80,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,24497.19,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,8104.80,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,6046.20,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,125661.40,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,350.32,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,11560.69,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,39586.61,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,29076.89,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,29727.15,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,469.42,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,77250.00,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,6257.25,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,7200.00,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2110.00,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-05,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,357693.60,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,23250.08,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,7692.20,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,5738.40,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,119264.23,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,332.49,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,10972.16,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,37571.34,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,27596.65,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,28213.80,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,445.52,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,77250.00,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,6257.25,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,7200.00,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2110.00,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-06,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,381816.60,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,24818.08,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,8210.97,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,6125.40,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,127307.46,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,354.91,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,11712.13,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,40105.16,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,29457.77,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,30116.55,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,475.57,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,77250.00,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,6257.25,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,7200.00,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2110.00,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-07,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,410427.60,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,26677.79,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,8826.25,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,6584.40,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,136847.10,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,381.51,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,12589.76,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,43110.40,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,31665.16,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,32373.30,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,511.21,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,77250.00,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,6257.25,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,7200.00,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2110.00,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-08,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,429389.40,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,27910.31,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,9234.02,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,6888.60,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,143169.45,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,399.13,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,13171.41,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,45102.10,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,33128.09,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,33868.95,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,534.82,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,77250.00,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,6257.25,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,7200.00,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2110.00,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-09,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Gross product sales,4000,493904.40,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Sales discounts,4050,32103.79,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Merchandise returns,4060,10621.41,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Shipping income,4100,7923.60,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Merchandise COGS,5000,164680.41,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Inventory writeoffs,5010,459.10,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Merchant fees,6010,15150.39,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Meta advertising,6100,51878.62,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Google advertising,6110,38105.53,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Outbound fulfillment,6200,38957.70,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Warehouse storage,6210,3200.00,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Returns handling,6220,615.18,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Salaries,6300,77250.00,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Employer payroll taxes,6310,6257.25,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Health benefits,6320,7200.00,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Office rent,6400,1850.00,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Software subscriptions,6500,2110.00,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Insurance,6600,680.00,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Professional fees,6700,1650.00,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Depreciation,6800,1250.00,USD,Original driver-based plan; positive income and expense rows
+2026-10,2026,FY2026_ORIGINAL,2025-12-15,Interest,6900,1000.00,USD,Original driver-based plan; positive income and expense rows
