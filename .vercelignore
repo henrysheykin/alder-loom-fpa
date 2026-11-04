@@ -1,5 +1,6 @@
-data/
-pipeline/
-scripts/
-*.md
-!README.md
+# anchored to the repo root so that app/api/data is NOT excluded
+/data/
+/pipeline/
+/scripts/
+/SCHEDULED_TASKS.md
+/CLAUDE.md
