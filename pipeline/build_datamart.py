@@ -1021,6 +1021,19 @@ for key, (name, what, method) in SRC_META.items():
 add_recon("Sources", "All 11 source systems delivered files", 11, sum(1 for r in src_rows if r["files"] > 0), "sources/*", unit="sources")
 
 
+
+# ---------------------------------------------------------------- data collection schedule (config/data_schedule.json)
+SCHED_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "config", "data_schedule.json")
+sched_rows, sched_meta = [], {}
+if os.path.exists(SCHED_PATH):
+    cfg = json.load(open(SCHED_PATH))
+    sched_meta = {"timezone": cfg.get("timezone"), "timezone_label": cfg.get("timezone_label")}
+    for r in cfg.get("sources", []):
+        nm = SRC_META.get(r["source"], (r["source"], "", ""))
+        sched_rows.append({"kind": "Source sync", "name": nm[0], "source": r["source"], "connection": nm[2], **{k: v for k, v in r.items() if k != "source"}})
+    for r in cfg.get("jobs", []):
+        sched_rows.append({"kind": "Processing job", "name": r["job"], "source": "", "connection": "Claude scheduled task", **{k: v for k, v in r.items() if k != "job"}})
+
 # ---------------------------------------------------------------- assemble
 def ds(desc, grain, rows):
     cols = list(rows[0].keys()) if rows else []
@@ -1033,7 +1046,7 @@ summary_ok = sum(1 for r in recon if r["status"] == "PASS")
 mart = {
     "meta": {"company": "Alder & Loom Commerce LLC", "synthetic": True, "label": "Demo company / Synthetic data", "currency": "USD",
              "cutoff": CUTOFF.isoformat(), "first_period": PERIODS[0], "last_period": LAST, "fiscal_year": FY,
-             "forecast_periods": FY_REST, "generated_at": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+             "forecast_periods": FY_REST, "schedule_tz": sched_meta.get("timezone"), "schedule_tz_label": sched_meta.get("timezone_label"), "generated_at": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
              "source_rows_gl": gl_lines, "opening_cash": usd(TB[(LAST, "1000")]),
              "recon_pass": summary_ok, "recon_total": len(recon),
              "pnl_lines": [{"line": l, "section": s, "sign": g} for l, s, g in PNL],
@@ -1058,6 +1071,7 @@ mart = {
         "marketing_efficiency_monthly": ds("Company marketing efficiency by month: spend, MER, break-even ROAS (net revenue / contribution before marketing), platform ROAS, storefront ROAS, POAS, CAC.", "period", eff_rows),
         "data_sources": ds("Status and statistics of every connected source system (records, tables, period, last record, key figures). Connection labels are illustrative in this demo.", "source", src_rows),
         "source_activity_monthly": ds("Records per month in each source's main table.", "source x period", src_act),
+        "data_schedule": ds("Data collection and processing schedule (times in the company time zone). rule: daily | business_days | weekly | monthly_day | business_day_n | quarterly_before.", "source or job", sched_rows),
         "reconciliations": ds("Automated reconciliation checks run on every refresh.", "check", recon),
     },
 }

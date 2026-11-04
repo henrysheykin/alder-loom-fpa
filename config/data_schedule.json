@@ -1,0 +1,27 @@
+{
+  "timezone": "America/Chicago",
+  "timezone_label": "Central Time (Chicago)",
+  "note": "Single source of truth for data collection and processing times. Scheduled Claude tasks use the same times.",
+  "sources": [
+    {"source": "shopify", "rule": "daily", "time": "05:30", "minutes": 8, "frequency": "Daily", "lag": "Previous day complete", "updates": "Orders, order lines, refunds, customers, products, storefront analytics"},
+    {"source": "shopify_payments", "rule": "daily", "time": "05:35", "minutes": 5, "frequency": "Daily", "lag": "Previous day; payouts settle next business day", "updates": "Charges, refunds, fees, payouts"},
+    {"source": "bank", "rule": "business_days", "time": "05:40", "minutes": 4, "frequency": "Business days", "lag": "Previous business day posted", "updates": "Posted bank transactions and balances"},
+    {"source": "meta_ads", "rule": "daily", "time": "05:45", "minutes": 6, "frequency": "Daily", "lag": "Re-pulls last 7 days (attribution window)", "updates": "Campaign insights, spend, conversions; monthly billing"},
+    {"source": "google_ads", "rule": "daily", "time": "05:50", "minutes": 6, "frequency": "Daily", "lag": "Re-pulls last 30 days (conversion restatements)", "updates": "Campaign metrics, cost, conversions; monthly billing"},
+    {"source": "warehouse_3pl", "rule": "daily", "time": "06:00", "minutes": 7, "frequency": "Daily (SFTP drop at 05:00)", "lag": "Previous day complete", "updates": "Dispatches, receipts, stock movements, returns, adjustments; invoice on the 1st"},
+    {"source": "purchasing", "rule": "daily", "time": "06:05", "minutes": 4, "frequency": "Daily", "lag": "Current", "updates": "POs, payment schedules, inbound shipments, supplier terms"},
+    {"source": "quickbooks", "rule": "daily", "time": "06:10", "minutes": 12, "frequency": "Daily", "lag": "Previous day; month closes on business day 3", "updates": "General ledger, bills, bill payments, trial balance"},
+    {"source": "gusto", "rule": "daily", "time": "06:15", "minutes": 3, "frequency": "Daily; payroll on check dates", "lag": "Payroll posted on check date", "updates": "Employees, salaries, payroll runs, funding debits"},
+    {"source": "finance", "rule": "monthly_day", "day": 11, "time": "06:20", "minutes": 3, "frequency": "Monthly (11th) and on change", "lag": "After loan payment on the 10th", "updates": "Debt register, loan payments, tax remittances, distributions"},
+    {"source": "planning", "rule": "business_day_n", "n": 4, "time": "08:00", "minutes": 3, "frequency": "Monthly (business day 4) and on change", "lag": "Approved versions only", "updates": "Approved budget, recurring contracts"}
+  ],
+  "jobs": [
+    {"job": "Build model and run reconciliations", "rule": "daily", "time": "06:40", "minutes": 10, "output": "Data mart and 34 checks; stops on any failure", "depends": "All daily sources"},
+    {"job": "Publish site and Claude dashboard", "rule": "daily", "time": "06:55", "minutes": 3, "output": "Vercel redeploy, artifact republish", "depends": "All checks pass"},
+    {"job": "13-week cash forecast", "rule": "weekly", "weekday": 1, "time": "07:10", "minutes": 8, "output": "System version, carried-forward adjustments, forecast vs actual", "depends": "Bank, Shopify Payments, purchasing, QuickBooks"},
+    {"job": "Weekly KPI digest", "rule": "weekly", "weekday": 1, "time": "07:40", "minutes": 4, "output": "Digest to phone / email", "depends": "Published data"},
+    {"job": "Alerts scan", "rule": "daily", "time": "12:10", "minutes": 3, "output": "Message only when something is found", "depends": "Published data"},
+    {"job": "Month-end close pack and rolling P&L forecast", "rule": "business_day_n", "n": 4, "time": "08:30", "minutes": 20, "output": "BvA commentary, forecast version, management deck draft", "depends": "QuickBooks month closed"},
+    {"job": "Owner distribution check", "rule": "quarterly_before", "months": [3, 6, 9, 12], "day": 25, "business_days_before": 3, "time": "09:00", "minutes": 5, "output": "Recommendation under the $250k floor policy", "depends": "13-week cash forecast"}
+  ]
+}
