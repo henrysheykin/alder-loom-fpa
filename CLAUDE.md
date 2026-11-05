@@ -1,6 +1,6 @@
 # Instructions for Claude (scheduled and interactive runs)
 
-This repository is a **demo** FP&A portal for a fictional company, Alder & Loom Commerce LLC. All data is synthetic.
+This repository is a **demo** FP&A portal for a fictional company, ABC Inc. (raw source files use the placeholder name "Alder & Loom"; the pipeline renames it to ABC Inc. on output). All data is synthetic.
 Every output (dashboard, message, deck) must keep the label "Demo company / Synthetic data" and must never be
 presented as a real client's results.
 

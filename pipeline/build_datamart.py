@@ -1,5 +1,5 @@
 """
-Alder & Loom Commerce (DEMO COMPANY / SYNTHETIC DATA) - FP&A data mart builder.
+ABC Inc. (DEMO COMPANY / SYNTHETIC DATA) - FP&A data mart builder.
 
 Reads the raw source extracts in <data_root>/sources, normalizes them, runs
 reconciliations and writes one compact JSON data mart for the dashboard:
@@ -1257,7 +1257,7 @@ assumptions = [{"area": "Plan extension", "line": l, "basis": plan_basis[l]} for
               [{"area": "Latest estimate", "line": l, "basis": le_basis[l]} for l in LINES]
 summary_ok = sum(1 for r in recon if r["status"] == "PASS")
 mart = {
-    "meta": {"company": "Alder & Loom Commerce LLC", "synthetic": True, "label": "Demo company / Synthetic data", "currency": "USD",
+    "meta": {"company": "ABC Inc.", "synthetic": True, "label": "Demo company / Synthetic data", "currency": "USD",
              "cutoff": CUTOFF.isoformat(), "first_period": PERIODS[0], "last_period": LAST, "fiscal_year": FY,
              "forecast_periods": FY_REST, "schedule_tz": sched_meta.get("timezone"), "schedule_tz_label": sched_meta.get("timezone_label"), "generated_at": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
              "source_rows_gl": gl_lines, "opening_cash": usd(TB[(LAST, "1000")]),
@@ -1291,8 +1291,12 @@ mart = {
         "reconciliations": ds("Automated reconciliation checks run on every refresh.", "check", recon),
     },
 }
+# display name: the raw extracts use the placeholder brand "Alder & Loom"; outputs show the demo name instead
+DISPLAY_NAME = "ABC Inc."
+txt = json.dumps(mart, separators=(",", ":"), default=lambda o: int(o) if isinstance(o, (np.integer,)) else float(o))
+txt = txt.replace("Alder & Loom Commerce LLC", DISPLAY_NAME).replace("Alder & Loom", "ABC")
 with open(os.path.join(OUT, "datamart.json"), "w") as f:
-    json.dump(mart, f, separators=(",", ":"), default=lambda o: int(o) if isinstance(o, (np.integer,)) else float(o))
+    f.write(txt)
 pd.DataFrame(recon).to_csv(os.path.join(OUT, "reconciliation_report.csv"), index=False)
 print(f"cutoff {CUTOFF}  periods {PERIODS[0]}..{LAST}  recon {summary_ok}/{len(recon)} PASS")
 for r in recon:

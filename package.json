@@ -2,7 +2,7 @@
   "name": "alder-loom-fpa",
   "private": true,
   "version": "1.0.0",
-  "description": "Demo FP&A portal for a synthetic e-commerce company (Alder & Loom). Password login, dashboards, AI analyst.",
+  "description": "Demo FP&A portal for a synthetic e-commerce company (ABC Inc.). Password login, dashboards, AI analyst.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

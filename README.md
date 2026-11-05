@@ -1,6 +1,6 @@
-# Alder & Loom FP&A Studio
+# ABC Inc. FP&A Studio
 
-**Demo company · synthetic data.** Alder & Loom Commerce LLC is fictional; every figure is generated for demonstration.
+**Demo company · synthetic data.** ABC Inc. is fictional (the raw source files use the placeholder name "Alder & Loom"; the pipeline renames it on output); every figure is generated for demonstration.
 
 A password-protected finance portal for a mid-size e-commerce business: six dashboards over 11 source systems,
 an AI analyst that answers questions and draws charts, and a data pipeline that rebuilds everything from raw

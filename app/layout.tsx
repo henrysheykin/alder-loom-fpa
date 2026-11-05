@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Alder & Loom FP&A Studio",
+  title: "ABC Inc. FP&A Studio",
   description: "Demo FP&A portal for a fictional company. Synthetic data.",
   robots: { index: false, follow: false },
 };

@@ -1,4 +1,4 @@
-<title>Alder &amp; Loom FP&amp;A Studio</title>
+<title>ABC Inc. FP&amp;A Studio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -229,7 +229,7 @@ aside.chat{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,96p
 
 <div class="top" id="top">
   <div class="top-row">
-    <div class="brand"><b>Alder &amp; Loom</b><span>FP&amp;A Studio</span></div>
+    <div class="brand"><b>ABC Inc.</b><span>FP&amp;A Studio</span></div>
     <span class="demo">Demo company · Synthetic data</span>
     <div class="meta">
       <span class="pill" id="asof">Data as of —</span>
@@ -572,7 +572,7 @@ aside.chat{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,96p
     <div class="tbl-wrap"><table id="tDq"></table></div>
   </div>
 </section>
-<div class="foot">Alder &amp; Loom Commerce LLC is a fictional company. All figures are synthetic and generated for demonstration. Not results from a real client.</div>
+<div class="foot">ABC Inc. is a fictional company. All figures are synthetic and generated for demonstration. Not results from a real client.</div>
 </main>
 
 <aside class="chat" id="chat" aria-label="AI analyst">
@@ -1434,7 +1434,7 @@ function md(text) { // tiny, safe markdown: escape first
 function addMsg(role, content) { const m = el("div", { class: "msg " + role }); if (typeof content === "string") m.textContent = content; else if (content) m.append(content); msgs.append(m); msgs.scrollTop = msgs.scrollHeight; return m; }
 function intro() {
   const box = el("div", { class: "msg bot" });
-  box.innerHTML = md("Ask me anything about Alder & Loom's numbers. I read the same data as the dashboards, show my sources and can draw a new chart or table on request.");
+  box.innerHTML = md("Ask me anything about ABC Inc.'s numbers. I read the same data as the dashboards, show my sources and can draw a new chart or table on request.");
   const sg = el("div", { class: "sugg" });
   ["Why did EBITDA margin fall in H2 2026?", "Will cash drop below $250k, and when?", "Which campaigns lose money after product and fulfillment costs?", "Which 5 SKUs earn the least fully loaded profit, and why?", "Chart store ROAS vs break-even ROAS by month"].forEach(s => sg.append(el("button", { type: "button", text: s, onclick: () => ask(s) })));
   box.append(sg); msgs.append(box);
@@ -1464,7 +1464,7 @@ ${JSON.stringify(K)}
 DATASETS you can query with query_data (columns listed):
 ${datasetCatalog().map(d => `- ${d.name} (${d.rows} rows; grain ${d.grain}): ${d.columns.join(", ")}. ${d.description}`).join("\n")}`;
 }
-const RULES = () => `You are the AI financial analyst inside the Alder & Loom FP&A Studio dashboard. Answer the user's question using ONLY the data below and the page tools.
+const RULES = () => `You are the AI financial analyst inside the ABC Inc. FP&A Studio dashboard. Answer the user's question using ONLY the data below and the page tools.
 - Use the context tables when they already answer; call query_data or get_pnl for anything more detailed. Never invent numbers. Do arithmetic carefully; prefer get_pnl for P&L sums.
 - When a visual helps (trends, comparisons, mixes) or the user asks for a chart/graph/report, call show_chart (or show_table for a table) with the exact numbers. One axis per chart: do not mix dollars and percentages in one chart.
 - Answer in the language the user writes in. Be concise: lead with the answer, then 2–5 bullets of drivers with numbers ($ rounded, % to 1 decimal). Plain text with **bold** and "-" bullets only; no markdown tables (use show_table).
