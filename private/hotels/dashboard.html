@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ABC Hotels FP&amp;A Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f4f5f2; --panel:#fdfdfb; --panel-2:#f0f2ee; --ink:#121513; --ink-2:#4b514c; --muted:#80867f; --line:#e1e4de; --line-2:#cfd3cb;
+  --accent:#2a78d6; --accent-ink:#1c5cab; --accent-wash:#e6effa;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#6250d6; --s8:#e34948;
+  --good:#0ca30c; --good-ink:#006300; --warn:#fab219; --warn-ink:#8a5a00; --crit:#d03b3b; --crit-ink:#b12f2f;
+  --good-wash:#e5f4e3; --crit-wash:#fbe9e7; --warn-wash:#fdf3dc;
+  --grid:#e6e8e2; --axis:#c3c6bd;
+  --font-ui:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r:10px; color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e100f; --panel:#171918; --panel-2:#1e211f; --ink:#eef0ec; --ink-2:#c3c7c0; --muted:#8b9089; --line:#2a2d2b; --line-2:#3a3e3b;
+  --accent:#3987e5; --accent-ink:#86b6ef; --accent-wash:#16263a;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
+  --good-ink:#2fbf2f; --warn-ink:#fab219; --crit-ink:#ef7474; --good-wash:#14261a; --crit-wash:#2e1817; --warn-wash:#2c2410;
+  --grid:#262927; --axis:#3a3e3b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e100f; --panel:#171918; --panel-2:#1e211f; --ink:#eef0ec; --ink-2:#c3c7c0; --muted:#8b9089; --line:#2a2d2b; --line-2:#3a3e3b;
+  --accent:#3987e5; --accent-ink:#86b6ef; --accent-wash:#16263a;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300; --s7:#9085e9; --s8:#e66767;
+  --good-ink:#2fbf2f; --warn-ink:#fab219; --crit-ink:#ef7474; --good-wash:#14261a; --crit-wash:#2e1817; --warn-wash:#2c2410;
+  --grid:#262927; --axis:#3a3e3b; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-ui);font-size:14px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--panel)}
+button,select,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+[hidden]{display:none!important}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--font-mono)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--panel);border-bottom:1px solid var(--line);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.top-row{display:flex;align-items:center;gap:14px;padding-block:12px 10px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:10px;min-width:0}
+.brand b{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.brand span{color:var(--muted);font-size:13px}
+.demo{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;
+  border:1px dashed var(--warn-ink);color:var(--warn-ink);background:var(--warn-wash);white-space:nowrap}
+.meta{margin-left:auto;display:flex;gap:10px;align-items:center;color:var(--ink-2);font-size:12.5px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line);white-space:nowrap}
+.pill.ok{background:var(--good-wash);border-color:transparent;color:var(--good-ink)}
+.pill.bad{background:var(--crit-wash);border-color:transparent;color:var(--crit-ink)}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block}
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-bottom:-1px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{border:0;background:none;padding:9px 12px 11px;color:var(--ink-2);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;font-weight:500}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.askbtn{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:999px;padding:6px 12px;font-weight:600;cursor:pointer;display:none}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 400px;align-items:start}
+main{min-width:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:16px;padding-block:18px 48px}
+.view{display:grid;gap:16px}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.c12{grid-column:span 12}.c8{grid-column:span 8}.c7{grid-column:span 7}.c6{grid-column:span 6}.c5{grid-column:span 5}.c4{grid-column:span 4}
+@media (max-width:1180px){.layout{grid-template-columns:minmax(0,1fr)} main{padding-right:max(16px,env(safe-area-inset-right,0px))} .askbtn{display:inline-flex}}
+@media (max-width:900px){.c8,.c7,.c6,.c5,.c4{grid-column:span 12}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;min-width:0}
+.card h3{margin:0;font-size:14.5px;font-weight:600;letter-spacing:-.005em}
+.card .sub{color:var(--muted);font-size:12.5px;margin-top:2px}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.ghost{border:1px solid var(--line-2);background:transparent;border-radius:8px;padding:5px 10px;cursor:pointer;font-size:12.5px;color:var(--ink-2)}
+.ghost:hover{background:var(--panel-2);color:var(--ink)}
+.ghost.ai{border-color:var(--accent);color:var(--accent-ink)}
+.ghost.ai::before{content:"✦ "}
+.section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.section-title h2{margin:0;font-size:20px;letter-spacing:-.015em;text-wrap:balance}
+.section-title p{margin:2px 0 0;color:var(--ink-2);max-width:78ch}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:13px 14px;min-width:0}
+.tile .k{color:var(--ink-2);font-size:12.5px}
+.tile .v{font-size:23px;font-weight:600;letter-spacing:-.02em;margin-top:3px;white-space:nowrap}
+.tile .d{font-size:12.5px;margin-top:3px;color:var(--ink-2)}
+.up{color:var(--good-ink)} .down{color:var(--crit-ink)} .flat{color:var(--ink-2)}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;padding:1px 7px;border-radius:999px;white-space:nowrap}
+.chip.fav{background:var(--good-wash);color:var(--good-ink)} .chip.unf{background:var(--crit-wash);color:var(--crit-ink)} .chip.neu{background:var(--panel-2);color:var(--ink-2)}
+.chip.known{background:var(--accent-wash);color:var(--accent-ink)} .chip.est{background:var(--warn-wash);color:var(--warn-ink)}
+.chart{position:relative;height:260px;width:100%}
+.chart.tall{height:300px}
+.chart.short{height:200px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.legend i.ln{height:2px;border-radius:2px;vertical-align:3px}
+.legend i.dash{height:0;border-top:2px dashed;border-radius:0;vertical-align:3px;background:none!important}
+.tbl-wrap{overflow-x:auto;margin-inline:-4px}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{padding:6px 6px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;border-bottom:1px solid var(--line)}
+th{font-weight:500;color:var(--muted);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;background:var(--panel);position:sticky;top:0}
+th:first-child,td:first-child{text-align:left}
+td.l,th.l{text-align:left} td.wrap{white-space:normal;min-width:150px;text-align:left}
+tr.sec td{color:var(--muted);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;padding-top:14px;border-bottom:0}
+tr.sub td{font-weight:600;background:var(--panel-2)}
+tr.total td{font-weight:700;border-top:1.5px solid var(--line-2)}
+td.ind{padding-left:20px}
+#tCash td:first-child,#tCash th:first-child{position:sticky;left:0;background:var(--panel);z-index:1}
+#tCash tr.sub td:first-child{background:var(--panel-2)}
+td.click{cursor:pointer} td.click:hover{background:var(--accent-wash)}
+td.sel{outline:2px solid var(--accent);outline-offset:-2px}
+td.lowcash{background:var(--warn-wash);color:var(--warn-ink);font-weight:600}
+tr.pick{cursor:pointer} tr.pick:hover td{background:var(--panel-2)} tr.picked td{background:var(--accent-wash)}
+.heat td.h{min-width:46px;text-align:center;font-size:11.5px}
+.bar-cell{display:flex;align-items:center;gap:8px;justify-content:flex-end}
+.bar-cell span.b{height:6px;border-radius:3px;background:var(--s1);display:inline-block}
+.muted{color:var(--muted)}
+.note{color:var(--ink-2);font-size:12.5px}
+details summary{cursor:pointer;color:var(--accent-ink);font-size:13px}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:9px;padding:2px;background:var(--panel)}
+.seg button{border:0;background:none;padding:5px 11px;border-radius:7px;cursor:pointer;color:var(--ink-2);font-weight:500}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--panel)}
+select{border:1px solid var(--line-2);border-radius:8px;background:var(--panel);padding:5px 8px}
+.slider{display:grid;gap:4px;min-width:180px;flex:1}
+.slider label{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-2)}
+.slider input{width:100%;accent-color:var(--accent)}
+.toggle{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2)}
+.drill{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.flow .st{border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:var(--panel-2);font-size:12.5px;min-width:0}
+.flow .st b{display:block;font-size:13px;margin-bottom:4px}
+@media (max-width:700px){.flow{grid-template-columns:1fr 1fr}}
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.src{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:10px;min-width:0}
+.src-top{display:flex;gap:10px;align-items:flex-start}
+.mono-badge{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;background:var(--accent-wash);color:var(--accent-ink);flex:none}
+.sicon{width:20px;height:20px}
+.src-top b{font-size:14px;display:block}
+.src-top .sub{color:var(--muted);font-size:12px}
+.src-top .pill{margin-left:auto}
+.src-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0}
+.src-stats dt{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.src-stats dd{margin:2px 0 0;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.spark{height:46px;position:relative}
+.spark-cap{font-size:11px;color:var(--muted);display:flex;justify-content:space-between}
+.demo-note{font-size:12.5px;color:var(--warn-ink);background:var(--warn-wash);border-radius:8px;padding:8px 12px}
+.story{border-left:3px solid var(--accent);padding:6px 10px;background:var(--accent-wash);border-radius:0 8px 8px 0;font-size:12.5px;color:var(--ink-2)}
+.story b{color:var(--ink)}
+aside.chat{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,96px));height:calc(100dvh - var(--hdr,96px) - env(safe-area-inset-top,0px));
+  border-left:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;min-width:0}
+@media (max-width:1180px){
+  aside.chat{position:fixed;top:auto;right:0;bottom:0;left:0;height:min(86dvh,760px);border-left:0;border-top:1px solid var(--line);border-radius:14px 14px 0 0;
+    z-index:40;transform:translateY(105%);transition:transform .25s ease;box-shadow:0 -10px 40px rgba(0,0,0,.18);padding-bottom:env(safe-area-inset-bottom,0px)}
+  aside.chat.open{transform:none}}
+@media (prefers-reduced-motion:reduce){aside.chat{transition:none}}
+.chat-head{padding:14px 16px 10px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:10px}
+.chat-head h3{margin:0;font-size:15px}
+.chat-head p{margin:2px 0 0;color:var(--muted);font-size:12px}
+.chat-head .x{margin-left:auto;display:none}
+@media (max-width:1180px){.chat-head .x{display:inline-flex}}
+.msgs{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:12px;min-height:0}
+.msg{max-width:100%;min-width:0}
+.msg.user{align-self:flex-end;background:var(--accent);color:#fff;padding:8px 12px;border-radius:12px 12px 3px 12px;max-width:88%;white-space:pre-wrap}
+.msg.bot{color:var(--ink);font-size:13.5px}
+.msg.bot p{margin:0 0 8px}.msg.bot ul,.msg.bot ol{margin:0 0 8px;padding-left:18px}.msg.bot li{margin:2px 0}
+.msg.bot code{font-family:var(--font-mono);font-size:12px;background:var(--panel-2);padding:1px 4px;border-radius:4px}
+.msg .src{color:var(--muted);font-size:11.5px;margin-top:4px}
+.msg .tool{font-family:var(--font-mono);font-size:11px;color:var(--muted);padding:3px 0}
+.msg .card{padding:12px;margin:6px 0}
+.msg .chart{height:220px}
+.thinking{color:var(--muted);font-size:12.5px;display:flex;align-items:center;gap:8px}
+.thinking::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 1s infinite alternate}
+@keyframes pulse{from{opacity:.25}to{opacity:1}}
+.sugg{display:flex;flex-wrap:wrap;gap:6px}
+.sugg button{border:1px solid var(--line-2);background:var(--panel);border-radius:999px;padding:5px 10px;cursor:pointer;font-size:12.5px;text-align:left;color:var(--ink-2)}
+.sugg button:hover{border-color:var(--accent);color:var(--ink)}
+.composer{border-top:1px solid var(--line);padding:10px 12px 12px;display:grid;gap:6px}
+.composer form{display:flex;gap:8px;align-items:flex-end}
+.composer textarea{flex:1;resize:none;border:1px solid var(--line-2);border-radius:10px;padding:8px 10px;background:var(--bg);min-height:40px;max-height:140px}
+.send{border:0;background:var(--accent);color:#fff;border-radius:10px;padding:9px 14px;font-weight:600;cursor:pointer}
+.hint{font-size:11.5px;color:var(--muted)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:35;display:none}
+.scrim.show{display:block}
+@media (min-width:1181px){.scrim{display:none!important}}
+.foot{color:var(--muted);font-size:12px;padding-top:8px}
+.err{color:var(--crit-ink)}
+</style>
+</head>
+<body>
+<div class="top" id="top">
+  <div class="top-row">
+    <div class="brand"><b>ABC Hotels</b><span>FP&amp;A Studio</span></div>
+    <span class="demo">Demo company · Synthetic data</span>
+    <div class="meta">
+      <span class="pill" id="asof">Data as of —</span>
+      <span class="pill" id="reconPill"><span class="dot"></span><span>Checks —</span></span>
+      <button class="askbtn" id="askOpen" type="button">✦ Ask AI</button>
+      <a class="pill" id="signout" href="/api/logout" hidden style="color:inherit;text-decoration:none">Sign out</a>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Dashboards">
+    <button class="tab" role="tab" data-view="overview" aria-selected="true">Company overview</button>
+    <button class="tab" role="tab" data-view="month" aria-selected="false">Month review</button>
+    <button class="tab" role="tab" data-view="bva" aria-selected="false">P&amp;L vs budget</button>
+    <button class="tab" role="tab" data-view="props" aria-selected="false">Properties</button>
+    <button class="tab" role="tab" data-view="chan" aria-selected="false">Channels &amp; marketing</button>
+    <button class="tab" role="tab" data-view="corp" aria-selected="false">Corporate accounts</button>
+    <button class="tab" role="tab" data-view="hk" aria-selected="false">Housekeeping &amp; labor</button>
+    <button class="tab" role="tab" data-view="cash" aria-selected="false">13-week cash</button>
+    <button class="tab" role="tab" data-view="sources" aria-selected="false">Data sources</button>
+    <button class="tab" role="tab" data-view="quality" aria-selected="false">Data quality</button>
+  </nav>
+</div>
+
+<div class="layout">
+<main id="main">
+
+<!-- OVERVIEW -->
+<section class="view" id="v-overview">
+  <div class="section-title">
+    <div><h2>Company overview</h2><p>Three North Carolina properties run by one operator: Raleigh select-service hotel (60 rooms), Wilmington coastal hotel (52 rooms) and Durham aparthotel (44 apartments), plus a shared corporate office. FY2026 = Nov 2025 – Oct 2026. Revenue is earned when the night or service is consumed, net of discounts and credits, excluding lodging tax.</p></div>
+    <button class="ghost ai" data-ask="Give me a 5-bullet executive summary of ABC Hotels for FY2026: revenue vs last year and budget, occupancy vs ADR, channel mix and OTA cost, EBITDA by property, and cash. Use numbers and property IDs.">Summarize</button>
+  </div>
+  <div class="tiles" id="ovTiles"></div>
+  <div class="grid">
+    <div class="card c8">
+      <div class="card-head"><div><h3>Total revenue by month</h3><div class="sub">By property vs original budget, USD</div></div>
+        <button class="ghost ai" data-ask="Explain the monthly revenue trend by property vs budget over 24 months. Separate occupancy from rate and name the months that drove the gap.">Explain</button></div>
+      <div class="chart" id="chRev"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Raleigh RAL</span><span><i style="background:var(--s3)"></i>Wilmington WIL</span><span><i style="background:var(--s4)"></i>Durham DUR</span><span><i class="dash" style="border-color:var(--ink-2)"></i>Budget</span></div>
+    </div>
+    <div class="card c4">
+      <div class="card-head"><div><h3>Occupancy and ADR</h3><div class="sub">Company, sold occupancy (left) · ADR in tooltip</div></div></div>
+      <div class="chart" id="chOccAdr"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Sold occupancy</span><span><i class="dash" style="border-color:var(--s1)"></i>Budget occupancy</span></div>
+    </div>
+    <div class="card c6">
+      <div class="card-head"><div><h3>Bank cash, corporate AR and payables</h3><div class="sub">Month-end, USD</div></div></div>
+      <div class="chart short" id="chWc"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Bank cash</span><span><i class="ln" style="background:var(--s4)"></i>Corporate AR</span><span><i class="ln" style="background:var(--s2)"></i>Vendor AP</span><span><i class="ln" style="background:var(--s7)"></i>Guest deposits</span></div>
+    </div>
+    <div class="card c6">
+      <div class="card-head"><div><h3>OTA share of sold nights</h3><div class="sub">Booking-style agency + Expedia-style merchant, by property</div></div></div>
+      <div class="chart short" id="chOtaOv"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Raleigh</span><span><i class="ln" style="background:var(--s3)"></i>Wilmington</span><span><i class="ln" style="background:var(--s4)"></i>Durham</span></div>
+    </div>
+    <div class="card c12">
+      <div class="card-head"><div><h3>Properties, FY2026</h3><div class="sub">EBITDA before and after the CORP cost allocation (60:52:44 by keys). Company EBITDA is the same either way.</div></div></div>
+      <div class="tbl-wrap"><table id="tOvP"></table></div>
+    </div>
+    <div class="card c12"><div class="card-head"><div><h3>What stands out</h3><div class="sub">Computed from the data on each build</div></div></div>
+      <div id="ovStories" style="display:grid;gap:8px"></div></div>
+  </div>
+</section>
+
+<!-- MONTH -->
+<section class="view" id="v-month" hidden>
+  <div class="section-title">
+    <div><h2>Month review</h2><p>One month against its original budget and the same month last year, by property.</p></div>
+    <button class="ghost ai" id="monAsk">Explain this month</button>
+  </div>
+  <div class="card"><div class="controls"><select id="monSel" aria-label="Month"></select><span class="note" id="monLabel"></span></div></div>
+  <div class="tiles" id="monTiles"></div>
+  <div class="grid">
+    <div class="card c12"><div class="card-head"><div><h3>By property</h3><div class="sub" id="monSub"></div></div></div>
+      <div class="tbl-wrap"><table id="tMon"></table></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Total revenue: actual, budget, last year</h3><div class="sub">USD</div></div></div>
+      <div class="chart" id="chMon"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Actual</span><span><i style="background:var(--muted)"></i>Budget</span><span><i style="background:var(--s4)"></i>Same month last year</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>EBITDA bridge</h3><div class="sub">Company, budget to actual</div></div></div>
+      <div class="chart" id="chMonBr"></div>
+      <div class="legend"><span><i style="background:var(--good)"></i>Favorable</span><span><i style="background:var(--crit)"></i>Unfavorable</span><span><i style="background:var(--muted)"></i>Total</span></div></div>
+  </div>
+</section>
+
+<!-- BVA -->
+<section class="view" id="v-bva" hidden>
+  <div class="section-title">
+    <div><h2>P&amp;L vs budget</h2><p>QuickBooks activity against the original budget approved on 15 Oct 2024 (not revised). Revenue and expenses are shown as positive amounts; discounts and credits reduce revenue.</p></div>
+    <button class="ghost ai" id="bvaAsk">Explain variances</button>
+  </div>
+  <div class="card"><div class="controls">
+    <div class="seg" role="group" aria-label="Scope" id="bvaScope">
+      <button type="button" data-s="month" aria-pressed="false">Month</button>
+      <button type="button" data-s="quarter" aria-pressed="false">Quarter</button>
+      <button type="button" data-s="fy" aria-pressed="true">Fiscal year</button>
+    </div>
+    <select id="bvaSel" aria-label="Period"></select>
+    <select id="bvaEnt" aria-label="Entity"><option value="COMPANY">Company</option><option value="RAL">Raleigh RAL</option><option value="WIL">Wilmington WIL</option><option value="DUR">Durham DUR</option><option value="CORP">Corporate CORP</option></select>
+    <label class="toggle"><input type="checkbox" id="bvaAlloc"> After CORP allocation</label>
+    <span class="note" id="bvaLabel"></span>
+  </div></div>
+  <div class="tiles" id="bvaTiles"></div>
+  <div class="grid">
+    <div class="card c8"><div class="card-head"><div><h3>Income statement</h3><div class="sub" id="bvaSub"></div></div></div>
+      <div class="tbl-wrap"><table id="tPnl"></table></div></div>
+    <div class="card c4"><div class="card-head"><div><h3>EBITDA bridge</h3><div class="sub">Budget to actual, profit impact</div></div></div>
+      <div class="chart tall" id="chBridge"></div>
+      <div class="legend"><span><i style="background:var(--good)"></i>Favorable</span><span><i style="background:var(--crit)"></i>Unfavorable</span><span><i style="background:var(--muted)"></i>Total</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Total revenue: actual vs budget</h3><div class="sub">Monthly, USD</div></div></div>
+      <div class="chart" id="chBvaRev"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Actual</span><span><i class="dash" style="border-color:var(--ink-2)"></i>Budget</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>EBITDA: actual vs budget</h3><div class="sub">Monthly, USD</div></div></div>
+      <div class="chart" id="chBvaEb"></div>
+      <div class="legend"><span><i style="background:var(--s3)"></i>Actual</span><span><i class="dash" style="border-color:var(--ink-2)"></i>Budget</span></div></div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="view" id="v-props" hidden>
+  <div class="section-title">
+    <div><h2>Properties</h2><p>Sold occupancy = sold nights / available nights (physical less out-of-order and out-of-service). ADR = net room revenue / sold nights. RevPAR = net room revenue / available nights. Complimentary and house-use nights are not sold.</p></div>
+    <button class="ghost ai" data-ask="Compare RAL, WIL and DUR in FY2026 vs FY2025 and vs budget: occupancy, ADR, RevPAR, closures and EBITDA margin. Which property needs attention and why?">Compare</button>
+  </div>
+  <div class="card"><div class="controls">
+    <div class="seg" role="group" aria-label="Period" id="prPeriod">
+      <button type="button" data-p="fy26" aria-pressed="true">FY2026</button>
+      <button type="button" data-p="l3" aria-pressed="false">Last 3 months</button>
+      <button type="button" data-p="fy25" aria-pressed="false">FY2025</button>
+    </div><span class="note" id="prLabel"></span></div></div>
+  <div class="grid">
+    <div class="card c12"><div class="card-head"><div><h3>Rooms KPIs and profit</h3><div class="sub" id="prSub"></div></div></div>
+      <div class="tbl-wrap"><table id="tPr"></table></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Sold occupancy</h3><div class="sub">Monthly by property</div></div></div>
+      <div class="chart" id="chPrOcc"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Raleigh</span><span><i class="ln" style="background:var(--s3)"></i>Wilmington</span><span><i class="ln" style="background:var(--s4)"></i>Durham</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>ADR</h3><div class="sub">USD per sold night</div></div></div>
+      <div class="chart" id="chPrAdr"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Raleigh</span><span><i class="ln" style="background:var(--s3)"></i>Wilmington</span><span><i class="ln" style="background:var(--s4)"></i>Durham</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>RevPAR vs budget</h3><div class="sub">USD per available night; dashed = budget</div></div></div>
+      <div class="chart" id="chPrRp"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Raleigh</span><span><i class="ln" style="background:var(--s3)"></i>Wilmington</span><span><i class="ln" style="background:var(--s4)"></i>Durham</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Rooms closed</h3><div class="sub">Out-of-order + out-of-service room-nights by month</div></div></div>
+      <div class="chart" id="chPrCl"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Raleigh</span><span><i style="background:var(--s3)"></i>Wilmington</span><span><i style="background:var(--s4)"></i>Durham</span></div></div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section class="view" id="v-chan" hidden>
+  <div class="section-title">
+    <div><h2>Channels &amp; marketing</h2><p>Booking-style agency guests pay the hotel and the hotel owes commission; Expedia-style merchant revenue is recognized gross with commission as an expense. Own Meta/Google spend is one expense; platform-attributed bookings overlap and are not company revenue.</p></div>
+    <button class="ghost ai" data-ask="How did the channel mix change in FY2026 vs FY2025, what did it cost in OTA commissions per sold night, and is own advertising paying back through direct bookings?">Explain</button>
+  </div>
+  <div class="card"><div class="controls">
+    <select id="chEnt" aria-label="Property"><option value="ALL">All properties</option><option value="RAL">Raleigh RAL</option><option value="WIL">Wilmington WIL</option><option value="DUR">Durham DUR</option></select>
+    <span class="note">FY2026 vs FY2025</span></div></div>
+  <div class="tiles" id="chTiles"></div>
+  <div class="grid">
+    <div class="card c7"><div class="card-head"><div><h3>Sold nights by channel</h3><div class="sub">Share of sold nights, monthly</div></div></div>
+      <div class="chart" id="chMix"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Direct</span><span><i style="background:var(--s2)"></i>Booking-style agency</span><span><i style="background:var(--s7)"></i>Expedia-style merchant</span><span><i style="background:var(--s3)"></i>Corporate</span></div></div>
+    <div class="card c5"><div class="card-head"><div><h3>OTA commission per sold night</h3><div class="sub">All OTA commission / company sold nights, USD</div></div></div>
+      <div class="chart" id="chCpn"></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>Channel economics</h3><div class="sub">Net ADR after commission = (net room revenue − room commission) / sold nights. Cancellation and no-show rates by scheduled arrival.</div></div></div>
+      <div class="tbl-wrap"><table id="tCh"></table></div></div>
+    <div class="card c7"><div class="card-head"><div><h3>Own advertising and website bookings</h3><div class="sub">Monthly spend (bars) and website confirmed reservations (line, right axis in tooltip)</div></div></div>
+      <div class="chart" id="chAds"></div>
+      <div class="legend"><span><i style="background:var(--s7)"></i>Ad spend</span><span><i class="ln" style="background:var(--s1)"></i>Website bookings</span></div></div>
+    <div class="card c5"><div class="card-head"><div><h3>Advertising, FY2026</h3><div class="sub">Platform-reported; attribution overlaps</div></div></div>
+      <div class="tbl-wrap"><table id="tAds"></table></div></div>
+  </div>
+</section>
+
+<!-- CORPORATE -->
+<section class="view" id="v-corp" hidden>
+  <div class="section-title">
+    <div><h2>Corporate accounts</h2><p>Corporate stays are invoiced at month end for nights actually consumed; the invoice moves earned revenue to receivables and is not new revenue. Some invoices are paid in two parts (65% / 35%); two clients pay 20% advances.</p></div>
+    <button class="ghost ai" data-ask="Review corporate receivables at cutoff: aging, which clients and invoices are open or late, how payment speed changed in 2026, and the cash impact over the next 13 weeks.">Explain</button>
+  </div>
+  <div class="tiles" id="coTiles"></div>
+  <div class="grid">
+    <div class="card c7"><div class="card-head"><div><h3>Corporate AR at month end</h3><div class="sub">GL 1100 invoiced AR by property, USD</div></div></div>
+      <div class="chart" id="chCoAr"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Raleigh</span><span><i style="background:var(--s3)"></i>Wilmington</span><span><i style="background:var(--s4)"></i>Durham</span></div></div>
+    <div class="card c5"><div class="card-head"><div><h3>Days to pay by invoice month</h3><div class="sub">Fully paid invoices, last payment − invoice date</div></div></div>
+      <div class="chart" id="chCoDays"></div>
+      <div class="legend" id="coDaysLeg"></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>Clients</h3><div class="sub">FY2026 activity and open balance at cutoff</div></div></div>
+      <div class="tbl-wrap"><table id="tCo"></table></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>Open invoices at 31 Oct 2026</h3><div class="sub">Click a client row above to filter</div></div></div>
+      <div class="tbl-wrap"><table id="tCoInv"></table></div></div>
+  </div>
+</section>
+
+<!-- HOUSEKEEPING -->
+<section class="view" id="v-hk" hidden>
+  <div class="section-title">
+    <div><h2>Housekeeping &amp; labor</h2><p>Housekeeping cost = housekeeper gross pay + agency housekeepers + laundry + consumables (employer taxes and benefits excluded). Task and time logs explain the same payroll and bills; they are not added again.</p></div>
+    <button class="ghost ai" data-ask="Analyze housekeeping cost per occupied night by property, the summer 2026 agency and overtime spike at WIL, and labor hours vs occupancy. What should managers change?">Explain</button>
+  </div>
+  <div class="tiles" id="hkTiles"></div>
+  <div class="grid">
+    <div class="card c6"><div class="card-head"><div><h3>Housekeeping cost per occupied night</h3><div class="sub">Monthly by property, USD</div></div></div>
+      <div class="chart" id="chHkPon"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Raleigh</span><span><i class="ln" style="background:var(--s3)"></i>Wilmington</span><span><i class="ln" style="background:var(--s4)"></i>Durham</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Overtime and agency</h3><div class="sub">Overtime hours (bars) by property; agency housekeeping cost in table below</div></div></div>
+      <div class="chart" id="chHkOt"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Raleigh</span><span><i style="background:var(--s3)"></i>Wilmington</span><span><i style="background:var(--s4)"></i>Durham</span></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>By property</h3><div class="sub">FY2026 vs FY2025</div></div></div>
+      <div class="tbl-wrap"><table id="tHk"></table></div></div>
+  </div>
+</section>
+
+<!-- CASH -->
+<section class="view" id="v-cash" hidden>
+  <div class="section-title">
+    <div><h2>13-week cash forecast</h2><p id="cashIntro"></p></div>
+    <button class="ghost ai" data-ask="Walk me through the 13-week cash forecast in the current scenario: the low point and what drives it, known vs estimated items, corporate collections, payroll and the capex PO, and headroom above the cash floor.">Explain</button>
+  </div>
+  <div class="card"><div class="controls" style="gap:18px">
+    <div class="slider"><label for="scDem">New bookings, % of base assumption <b id="scDemV">100%</b></label><input id="scDem" type="range" min="0" max="150" step="10" value="100"></div>
+    <div class="slider"><label for="scPay">Future payroll, % of plan <b id="scPayV">100%</b></label><input id="scPay" type="range" min="90" max="115" step="1" value="100"></div>
+    <label class="toggle">Corporate collections <select id="scDelay"><option value="0" selected>On expected dates</option><option value="14">+14 days late</option><option value="30">+30 days late</option><option value="60">+60 days late</option></select></label>
+    <label class="toggle"><input type="checkbox" id="scCo1"> CO-001 stops paying</label>
+    <label class="toggle">Cash floor <select id="scFloor"><option value="1000000">$1.0M</option><option value="1500000">$1.5M</option><option value="2000000" selected>$2.0M</option><option value="2500000">$2.5M</option></select></label>
+    <button class="ghost" id="scReset" type="button">Reset</button>
+  </div></div>
+  <div class="tiles" id="cashTiles"></div>
+  <div class="grid">
+    <div class="card c7"><div class="card-head"><div><h3>Closing cash by week</h3><div class="sub" id="cashChSub">USD</div></div></div>
+      <div class="chart" id="chCash"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Closing cash</span><span><i class="dash" style="border-color:var(--crit)"></i>Cash floor</span></div></div>
+    <div class="card c5"><div class="card-head"><div><h3>Inflows by basis</h3><div class="sub">Weekly, USD: known balances, booked stays, estimates</div></div></div>
+      <div class="chart" id="chFlows"></div>
+      <div class="legend"><span><i style="background:var(--s3)"></i>Known</span><span><i style="background:var(--s1)"></i>Booked</span><span><i style="background:var(--s4)"></i>Estimate</span><span><i style="background:var(--s2)"></i>Outflows</span></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>Weekly cash flow</h3><div class="sub">USD · click any amount for its line items and source IDs</div></div></div>
+      <div class="tbl-wrap"><table id="tCash"></table></div>
+      <div class="drill" id="drill" hidden></div></div>
+    <div class="card c7"><div class="card-head"><div><h3>On the books at cutoff</h3><div class="sub">Future sold nights already booked vs capacity; last year = final actual for that month (not pace)</div></div></div>
+      <div class="tbl-wrap"><table id="tOtb"></table></div></div>
+    <div class="card c5"><div class="card-head"><div><h3>Forecast rules</h3><div class="sub">Each obligation enters the forecast once</div></div></div>
+      <ul id="cashRules" class="note" style="margin:0;padding-left:18px;display:grid;gap:4px"></ul></div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="view" id="v-sources" hidden>
+  <div class="section-title">
+    <div><h2>Data sources</h2><p>Every simulated system that feeds the model, with table, file and record counts.</p></div>
+  </div>
+  <div class="demo-note">Demo: connections are simulated with synthetic extracts that model a hotel PMS, room availability, night audit, channel manager and OTAs, payment gateway, corporate billing, housekeeping operations, payroll, procurement, fixed assets and debt, ad platforms, QuickBooks, the bank and planning files.</div>
+  <div class="tiles" id="srcTiles"></div>
+  <div class="src-grid" id="srcGrid"></div>
+</section>
+
+<!-- QUALITY -->
+<section class="view" id="v-quality" hidden>
+  <div class="section-title">
+    <div><h2>Data quality and reconciliations</h2><p>Every build re-reads the raw extracts, rebuilds the model in integer cents and runs these checks. The dashboard is published only when all pass.</p></div>
+  </div>
+  <div class="tiles" id="dqTiles"></div>
+  <div class="card"><div class="card-head"><div><h3>How a refresh works</h3></div></div>
+    <div class="flow">
+      <div class="st"><b>1 · New extracts</b>CSV exports from the PMS, night audit, channel manager, gateway, corporate billing, operations, payroll, ledger, bank, ads and planning.</div>
+      <div class="st"><b>2 · Build the model</b>Monthly partitions are joined, IDs typed as text and money kept in cents. Revenue follows consumed nights; bookings, invoices and payouts are never counted as extra sales.</div>
+      <div class="st"><b>3 · Reconcile</b>An independent verifier checks the package, and 47 metrics × 24 months × 4 scopes match the control totals to the cent.</div>
+      <div class="st"><b>4 · Publish</b>The dashboard updates at the same link and the AI analyst answers from the refreshed data.</div>
+    </div></div>
+  <div class="card"><div class="card-head"><div><h3>Reconciliation checks</h3><div class="sub" id="dqSub"></div></div></div>
+    <div class="tbl-wrap"><table id="tDq"></table></div></div>
+</section>
+<div class="foot">ABC Hotels is a fictional company. All figures are synthetic and generated for demonstration. Not results from a real client.</div>
+</main>
+
+<aside class="chat" id="chat" aria-label="AI analyst">
+  <div class="chat-head">
+    <div><h3>✦ AI analyst</h3><p>Answers from this dashboard's data and can draw new charts and tables.</p></div>
+    <button class="ghost x" id="askClose" type="button">Close</button>
+  </div>
+  <div class="msgs" id="msgs" aria-live="polite"></div>
+  <div class="composer">
+    <form id="chatForm">
+      <textarea id="q" rows="1" placeholder="Ask about occupancy, ADR, channels, budget, receivables, cash…" aria-label="Your question"></textarea>
+      <button class="send" id="sendBtn" type="submit">Ask</button>
+    </form>
+    <div class="hint">Answers in the language you write in.</div>
+  </div>
+</aside>
+</div>
+<div class="scrim" id="scrim"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+
+(() => {
+"use strict";
+let M = null, DS = {};
+const $ = s => document.querySelector(s);
+const el = (t, a = {}, ...kids) => { const e = document.createElement(t); for (const [k, v] of Object.entries(a)) { if (k === "class") e.className = v; else if (k === "text") e.textContent = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else if (v != null) e.setAttribute(k, v); } kids.flat().forEach(k => k != null && k !== "" && e.append(k)); return e; };
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const sum = a => a.reduce((s, x) => s + (+x || 0), 0);
+const fmt$ = (v, compact) => { if (v == null || isNaN(v)) return "—"; const a = Math.abs(v); const s = v < 0 ? "−" : "";
+  if (compact) { if (a >= 1e6) return s + "$" + (a / 1e6).toFixed(2) + "M"; if (a >= 1e3) return s + "$" + (a / 1e3).toFixed(a >= 1e5 ? 0 : 1) + "k"; return s + "$" + a.toFixed(0); }
+  return s + "$" + a.toLocaleString("en-US", { maximumFractionDigits: 0 }); };
+const fmtPct = (v, d = 1) => v == null || isNaN(v) || !isFinite(v) ? "—" : (v * 100).toFixed(d) + "%";
+const fmtN = v => v == null || isNaN(v) ? "—" : Math.round(v).toLocaleString("en-US");
+const fmtR = v => v == null || isNaN(v) || !isFinite(v) ? "—" : "$" + v.toFixed(2);
+const MN = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const mLabel = p => { const [y, m] = p.split("-"); return MN[+m - 1] + " " + y.slice(2); };
+
+// ---------------------------------------------------------------- charts
+const charts = {};
+function chartTheme() { Chart.defaults.font.family = css("--font-ui"); Chart.defaults.font.size = 11.5; Chart.defaults.color = css("--muted"); Chart.defaults.borderColor = css("--grid"); }
+const deepMerge = (a, b) => { for (const [k, v] of Object.entries(b)) { if (v && typeof v === "object" && !Array.isArray(v) && typeof v !== "function" && a[k] && typeof a[k] === "object") deepMerge(a[k], v); else a[k] = v; } return a; };
+function mkChart(host, cfg, key) {
+  if (typeof Chart === "undefined") { host.textContent = "Charts could not load."; return null; }
+  const k = key || host.id; if (charts[k]) { charts[k].destroy(); delete charts[k]; }
+  host.innerHTML = ""; const cv = el("canvas", { role: "img", "aria-label": cfg._label || "chart" }); host.append(cv);
+  const f = cfg._fmt || "usd";
+  const tick = v => f === "pct" ? (v * 100).toFixed(0) + "%" : f === "number" ? fmtN(v) : f === "rate" ? "$" + Math.round(v) : fmt$(v, true);
+  const tip = v => v == null ? "—" : f === "pct" ? fmtPct(v) : f === "number" ? fmtN(v) : f === "rate" ? "$" + v.toFixed(2) : fmt$(v);
+  const base = { responsive: true, maintainAspectRatio: false, animation: matchMedia("(prefers-reduced-motion: reduce)").matches ? false : { duration: 300 },
+    interaction: { mode: "index", intersect: false },
+    plugins: { legend: { display: false }, tooltip: { backgroundColor: css("--panel"), titleColor: css("--ink"), bodyColor: css("--ink-2"), borderColor: css("--line-2"), borderWidth: 1, padding: 10, boxPadding: 4, usePointStyle: true,
+      callbacks: { label: c => { const raw = c.raw; const val = Array.isArray(raw) ? raw[1] - raw[0] : (raw && typeof raw === "object" ? raw.y : raw); const tf = c.dataset._tip || tip; return ` ${c.dataset.label}: ${tf(val)}`; } } } },
+    scales: { x: { grid: { display: false }, border: { color: css("--axis") }, ticks: { maxRotation: 0, autoSkipPadding: 10 } },
+              y: { grid: { color: css("--grid") }, border: { display: false }, ticks: { callback: tick, maxTicksLimit: 6 }, stacked: !!cfg._stacked } } };
+  cfg.options = deepMerge(base, cfg.options || {});
+  if (cfg.options.indexAxis === "y") { cfg.options.scales.y.ticks.callback = function (v) { return this.getLabelForValue(v); }; cfg.options.scales.y.ticks.autoSkip = false; cfg.options.scales.x.ticks.callback = tick; cfg.options.scales.x.grid = { color: css("--grid") }; cfg.options.scales.y.grid = { display: false }; }
+  if (cfg._stacked) cfg.options.scales.x.stacked = true;
+  const ch = new Chart(cv, cfg); charts[k] = ch; return ch;
+}
+const bar = (label, data, color, extra = {}) => Object.assign({ type: "bar", label, data, backgroundColor: color, borderRadius: 4, borderSkipped: "start", maxBarThickness: 26, categoryPercentage: .75, barPercentage: .9 }, extra);
+const line = (label, data, color, extra = {}) => Object.assign({ type: "line", label, data, borderColor: color, backgroundColor: color, borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .25 }, extra);
+const alpha = (hex, a) => { const h = hex.replace("#", ""); const n = parseInt(h.length === 3 ? h.split("").map(x => x + x).join("") : h, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
+
+// ---------------------------------------------------------------- tables
+function table(tbl, cols, rows) {
+  tbl.innerHTML = "";
+  const thead = el("thead", {}, el("tr", {}, cols.map(c => el("th", { text: c.h, class: c.cls && c.cls.includes("l") ? "l" : "" }))));
+  const tb = el("tbody");
+  rows.forEach(r => { const tr = el("tr", r._cls ? { class: r._cls } : {});
+    cols.forEach(c => { const v = typeof c.f === "function" ? c.f(r) : r[c.k]; const td = el("td", { class: c.cls || "" }); if (v instanceof Node) td.append(v); else td.textContent = v ?? "—"; tr.append(td); }); tb.append(tr); });
+  tbl.append(thead, tb); return tb;
+}
+const chg = (v, good = 1, kind = "pct") => { if (v == null || isNaN(v) || !isFinite(v)) return el("span", { class: "muted", text: "—" });
+  const cls = Math.abs(v) < 1e-9 ? "flat" : (v * good > 0 ? "up" : "down");
+  const t = kind === "pts" ? (v > 0 ? "+" : "") + (v * 100).toFixed(1) + " pts" : kind === "abs" ? (v > 0 ? "+" : "") + v : (v > 0 ? "+" : "") + (v * 100).toFixed(1) + "%";
+  return el("span", { class: cls, text: t }); };
+const tiles = (host, arr, small) => { host.innerHTML = ""; arr.forEach(([k, v, d]) => host.append(el("div", { class: "tile" }, el("div", { class: "k", text: k }), el("div", { class: "v num", style: small ? "font-size:21px" : null, text: v }), el("div", { class: "d" }, d || "")))); };
+const seg = (id, key, state, fn) => $(id).addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; state[key] = b.dataset[Object.keys(b.dataset)[0]]; [...$(id).children].forEach(x => x.setAttribute("aria-pressed", String(x === b))); fn(); });
+
+// ---------------------------------------------------------------- hotel helpers
+const PROPS = ["RAL", "WIL", "DUR"];
+const NM = { COMPANY: "Company", RAL: "Raleigh", WIL: "Wilmington", DUR: "Durham", CORP: "Corporate" };
+const PCOL = { RAL: "--s1", WIL: "--s3", DUR: "--s4" };
+const CHS = ["DIRECT", "BOOKING", "EXPEDIA", "CORPORATE"];
+const CCOL = { DIRECT: "--s1", BOOKING: "--s2", EXPEDIA: "--s7", CORPORATE: "--s3" };
+const CNM = { DIRECT: "Direct", BOOKING: "Booking-style agency", EXPEDIA: "Expedia-style merchant", CORPORATE: "Corporate", INTERNAL: "Comp & house use" };
+const KEYS = { RAL: 60, WIL: 52, DUR: 44 };
+const fullName = e => (M.meta.properties || {})[e] || NM[e];
+const KP = e => DS.kpi_monthly.rows.filter(r => r.entity === e);
+const P = () => KP("COMPANY").map(r => r.period);
+const PER = { l12: () => P().slice(-12), l3: () => P().slice(-3), fy25: () => P().slice(0, 12), fy26: () => P().slice(12) };
+const PNAME = { l12: "Last 12 months", l3: "Last 3 months (Aug–Oct 2026)", fy25: "FY2025 (Nov 24 – Oct 25)", fy26: "FY2026 (Nov 25 – Oct 26)" };
+const NUMK = ["physical_nights", "available_nights", "sold_nights", "complimentary_nights", "house_use_nights", "occupied_nights", "out_of_order_nights", "out_of_service_nights",
+  "net_room_revenue", "ancillary_revenue", "fee_revenue", "total_revenue", "ota_commission", "room_ota_commission", "processing_fees", "own_advertising", "labor", "gross_payroll",
+  "housekeeping_cost", "rent", "utilities", "maintenance", "opex", "ebitda", "shared_allocated", "ebitda_after_shared", "depreciation", "interest", "net_income",
+  "budget_total_revenue", "budget_ebitda", "budget_net_room_revenue", "budget_sold_nights", "budget_available_nights", "budget_net_income",
+  "hk_tasks", "hk_departures", "hk_stayovers", "hk_approved_minutes", "agency_minutes", "agency_worker_days", "agency_cost", "laundry_cost", "consumables_cost",
+  "paid_hours", "overtime_hours", "hk_paid_hours", "hk_overtime_hours", "web_sessions", "web_searches", "web_checkouts", "web_bookings",
+  "direct_sold_nights", "agency_sold_nights", "merchant_sold_nights", "corporate_sold_nights", "arrivals_scheduled", "cancelled", "no_shows"];
+function agg(e, periods) {
+  const ps = new Set(periods), o = {}; NUMK.forEach(k => o[k] = 0);
+  for (const r of DS.kpi_monthly.rows) if (r.entity === e && ps.has(r.period)) NUMK.forEach(k => o[k] += +r[k] || 0);
+  const tr = o.total_revenue, s = o.sold_nights;
+  return Object.assign(o, { occ: o.available_nights ? s / o.available_nights : null, adr: s ? o.net_room_revenue / s : null, revpar: o.available_nights ? o.net_room_revenue / o.available_nights : null,
+    b_occ: o.budget_available_nights ? o.budget_sold_nights / o.budget_available_nights : null, b_adr: o.budget_sold_nights ? o.budget_net_room_revenue / o.budget_sold_nights : null,
+    b_revpar: o.budget_available_nights ? o.budget_net_room_revenue / o.budget_available_nights : null,
+    margin: tr ? o.ebitda / tr : null, margin_after: tr ? o.ebitda_after_shared / tr : null, vs_bud: o.budget_total_revenue ? tr / o.budget_total_revenue - 1 : null,
+    ota_share: s ? (o.agency_sold_nights + o.merchant_sold_nights) / s : null, comm_per_night: s ? o.ota_commission / s : null, net_adr: s ? (o.net_room_revenue - o.room_ota_commission) / s : null,
+    hk_pon: o.occupied_nights ? o.housekeeping_cost / o.occupied_nights : null, closed: o.out_of_order_nights + o.out_of_service_nights,
+    cxl_rate: o.arrivals_scheduled ? o.cancelled / o.arrivals_scheduled : null, ns_rate: o.arrivals_scheduled ? o.no_shows / o.arrivals_scheduled : null,
+    ot_share: o.paid_hours ? o.overtime_hours / o.paid_hours : null, anc_per_night: o.occupied_nights ? o.ancillary_revenue / o.occupied_nights : null });
+}
+const kv = (e, p, k) => { const r = DS.kpi_monthly.rows.find(x => x.entity === e && x.period === p); return r ? r[k] : null; };
+const ratio = (e, p, a, b) => { const x = kv(e, p, a), y = kv(e, p, b); return y ? x / y : null; };
+const yago = p => { const [y, m] = p.split("-"); return (+y - 1) + "-" + m; };
+const sgn$ = v => (v >= 0 ? "+" : "−") + fmt$(Math.abs(v));
+const varSpan = (v, good = 1, compact) => el("span", { class: Math.abs(v) < .5 ? "flat" : v * good > 0 ? "up" : "down", text: (v >= 0 ? "+" : "−") + fmt$(Math.abs(v), compact) });
+const occChip = v => el("span", { class: "chip " + (v < .5 ? "unf" : v < .62 ? "est" : "neu"), text: fmtPct(v) });
+
+// ---------------------------------------------------------------- P&L engine
+const GROUPS = [["Revenue", "Revenue", 1], ["Distribution", "Distribution & payment processing", -1], ["Marketing", "Own advertising", -1], ["Housekeeping", "Housekeeping", -1],
+  ["Labor", "Other property labor", -1], ["Operating", "Operating costs", -1], ["Rent & property", "Rent, insurance & property", -1], ["Corporate", "Corporate (CORP)", -1],
+  ["Shared", "Allocated CORP costs", -1], ["Depreciation", "Depreciation", -1], ["Interest", "Interest", -1]];
+const OPEX = ["Distribution", "Marketing", "Housekeeping", "Labor", "Operating", "Rent & property", "Corporate", "Shared"];
+function pnlFor(periods, e = "COMPANY", basis = "actual", withAlloc = false) {
+  const ps = new Set(periods), v = {}, g = {};
+  for (const r of DS.pnl_monthly.rows) if (r.entity === e && ps.has(r.period)) { v[r.account_id] = (v[r.account_id] || 0) + r[basis]; g[r.group] = (g[r.group] || 0) + r[basis]; }
+  if (withAlloc && PROPS.includes(e)) {
+    // actual: the analytical allocation bridge; budget: CORP budget opex by the same 60:52:44 key driver
+    let a = 0;
+    if (basis === "actual") { for (const r of DS.pnl_monthly.rows) if (r.entity === e && ps.has(r.period)) a += r.allocated_shared || 0; }
+    else { let c = 0; for (const r of DS.pnl_monthly.rows) if (r.entity === "CORP" && ps.has(r.period) && !["Depreciation", "Interest"].includes(r.group)) c += r.budget; a = c * KEYS[e] / 156; }
+    v.SHARED = a; g.Shared = a;
+  }
+  const G = k => g[k] || 0;
+  const rev = G("Revenue"), opex = sum(OPEX.map(G)), ebitda = rev - opex;
+  return Object.assign(v, { "Total revenue": rev, "Rooms revenue": (v["4000"] || 0) + (v["4010"] || 0) + (v["4020"] || 0), "EBITDA": ebitda, "Net income": ebitda - G("Depreciation") - G("Interest"), _g: g });
+}
+const ACC = () => { const m = { SHARED: { line: "Allocated CORP costs (60:52:44 keys)", group: "Shared" } }; DS.pnl_monthly.rows.forEach(r => m[r.account_id] = { line: r.line, group: r.group }); return m; };
+function bridgeChart(host, A, B) {
+  const g = (X, ks) => sum(ks.map(k => X._g[k] || 0));
+  const steps = [["Rooms", A["Rooms revenue"] - B["Rooms revenue"]], [["Anc.", "& fees"], (A["Total revenue"] - A["Rooms revenue"]) - (B["Total revenue"] - B["Rooms revenue"])],
+    [["OTA,", "ads"], -(g(A, ["Distribution", "Marketing"]) - g(B, ["Distribution", "Marketing"]))],
+    ["HK", -(g(A, ["Housekeeping"]) - g(B, ["Housekeeping"]))], [["Labor,", "opex"], -(g(A, ["Labor", "Operating"]) - g(B, ["Labor", "Operating"]))],
+    ["Rent", -(g(A, ["Rent & property"]) - g(B, ["Rent & property"]))], ["Corp", -(g(A, ["Corporate", "Shared"]) - g(B, ["Corporate", "Shared"]))]];
+  let run = B.EBITDA; const labels = ["Budget"], data = [[0, run]], colors = [css("--muted")];
+  steps.forEach(([s, v]) => { labels.push(s); data.push([run, run + v]); colors.push(v >= 0 ? css("--good") : css("--crit")); run += v; });
+  labels.push("Actual"); data.push([0, A.EBITDA]); colors.push(css("--muted"));
+  const lo = Math.min(0, ...data.flat());
+  mkChart(host, { _label: "EBITDA bridge", type: "bar", data: { labels, datasets: [{ label: "Impact", data, backgroundColor: colors, borderRadius: 4, borderSkipped: false, maxBarThickness: 34 }] },
+    options: { interaction: { mode: "nearest", intersect: true }, plugins: { tooltip: { callbacks: { label: c => { const [a, b] = c.raw; const i = c.dataIndex; return i === 0 || i === labels.length - 1 ? " " + fmt$(b) : " " + sgn$(b - a); } } } },
+      scales: { x: { ticks: { autoSkip: false, maxRotation: 0, font: { size: 10 } } }, y: { min: lo < 0 ? undefined : 0 } } } });
+}
+
+// ---------------------------------------------------------------- OVERVIEW
+function renderOverview() {
+  const A = agg("COMPANY", PER.fy26()), B = agg("COMPANY", PER.fy25()); const per = P(), lab = per.map(mLabel); const K = KP("COMPANY"), last = K[K.length - 1];
+  const low = cashLow();
+  tiles($("#ovTiles"), [
+    ["Total revenue, FY2026", fmt$(A.total_revenue, true), [chg(A.total_revenue / B.total_revenue - 1), " YoY · ", el("span", { class: A.vs_bud >= 0 ? "up" : "down", text: (A.vs_bud >= 0 ? "+" : "") + fmtPct(A.vs_bud) + " vs budget" })]],
+    ["EBITDA, FY2026", fmt$(A.ebitda, true), [fmtPct(A.margin) + " margin · ", varSpan(A.ebitda - A.budget_ebitda, 1, true), " vs budget"]],
+    ["Sold occupancy", fmtPct(A.occ), [chg(A.occ - B.occ, 1, "pts"), " vs FY2025"]],
+    ["ADR", fmtR(A.adr), [chg(A.adr / B.adr - 1), " vs FY2025"]],
+    ["RevPAR", fmtR(A.revpar), [chg(A.revpar / B.revpar - 1), " vs FY2025"]],
+    ["OTA share of nights", fmtPct(A.ota_share), [chg(A.ota_share - B.ota_share, -1, "pts"), " vs FY2025"]],
+    ["Bank cash, Oct 26", fmt$(last.bank, true), ["13-week low ", el("b", { text: fmt$(low.v, true) }), " (" + low.w + ")"]],
+  ]);
+  mkChart($("#chRev"), { _stacked: true, _label: "Total revenue by property", data: { labels: lab, datasets: [
+    line("Budget", per.map(p => kv("COMPANY", p, "budget_total_revenue")), css("--ink-2"), { borderDash: [5, 4], borderWidth: 1.5, order: 0, stack: "b" }),
+    ...PROPS.map(e => bar(NM[e] + " " + e, per.map(p => kv(e, p, "total_revenue")), css(PCOL[e]), { order: 1, borderRadius: 0 }))] }, options: { scales: { y: { stacked: true } } } });
+  mkChart($("#chOccAdr"), { _fmt: "pct", _label: "Occupancy", data: { labels: lab, datasets: [line("Sold occupancy", per.map(p => ratio("COMPANY", p, "sold_nights", "available_nights")), css("--s1")),
+    line("Budget occupancy", per.map(p => ratio("COMPANY", p, "budget_sold_nights", "budget_available_nights")), css("--s1"), { borderDash: [5, 4], borderWidth: 1.5 }),
+    line("ADR", per.map(p => kv("COMPANY", p, "adr")), "transparent", { _tip: v => "$" + (+v).toFixed(2), yAxisID: "y2", pointHoverRadius: 0 })] },
+    options: { scales: { y2: { display: false } } } });
+  mkChart($("#chWc"), { _label: "Balances", data: { labels: lab, datasets: [line("Bank cash", K.map(r => r.bank), css("--s1")), line("Corporate AR", K.map(r => r.corporate_ar), css("--s4")),
+    line("Vendor AP", K.map(r => r.vendor_ap), css("--s2")), line("Guest deposits", K.map(r => r.guest_deposits), css("--s7"))] } });
+  mkChart($("#chOtaOv"), { _fmt: "pct", _label: "OTA share", data: { labels: lab, datasets: PROPS.map(e => line(NM[e], per.map(p => { const r = DS.kpi_monthly.rows.find(x => x.entity === e && x.period === p); return r.sold_nights ? (r.agency_sold_nights + r.merchant_sold_nights) / r.sold_nights : null; }), css(PCOL[e]))) } });
+  const rows = [...PROPS, "CORP", "COMPANY"].map(e => { const a = agg(e, PER.fy26()), b = agg(e, PER.fy25()); return { e, a, b, _cls: e === "COMPANY" ? "total" : "" }; });
+  table($("#tOvP"), [
+    { h: "Property", cls: "l", f: r => el("span", {}, el("span", { class: "mono muted", text: r.e === "COMPANY" ? "" : r.e + " " }), r.e === "COMPANY" ? "Company" : fullName(r.e)) },
+    { h: "Revenue", f: r => fmt$(r.a.total_revenue, true) }, { h: "YoY", f: r => r.b.total_revenue ? chg(r.a.total_revenue / r.b.total_revenue - 1) : "—" },
+    { h: "vs budget", f: r => r.a.budget_total_revenue ? chg(r.a.vs_bud) : "—" },
+    { h: "Occupancy", f: r => r.a.available_nights ? occChip(r.a.occ) : "—" }, { h: "ADR", f: r => r.a.sold_nights ? fmtR(r.a.adr) : "—" }, { h: "RevPAR", f: r => r.a.available_nights ? fmtR(r.a.revpar) : "—" },
+    { h: "EBITDA before CORP", f: r => fmt$(r.a.ebitda, true) }, { h: "Margin", f: r => r.a.total_revenue ? fmtPct(r.a.margin) : "—" },
+    { h: "EBITDA after CORP", f: r => r.e === "CORP" ? fmt$(0) : fmt$(r.a.ebitda_after_shared, true) }, { h: "Margin after", f: r => r.a.total_revenue ? fmtPct(r.a.margin_after) : "—" },
+    { h: "vs budget", f: r => varSpan(r.a.ebitda - r.a.budget_ebitda, 1, true) }], rows);
+  const box = $("#ovStories"); box.innerHTML = "";
+  DS.stories.rows.forEach(s => box.append(el("div", { class: "story" }, el("b", { text: s.id + " · " }), s.story)));
+}
+
+// ---------------------------------------------------------------- MONTH
+const mon = { p: null };
+function renderMonth() {
+  const all = P(); if (!mon.p) mon.p = all[all.length - 1];
+  const s = $("#monSel"); if (!s.options.length) { [...all].reverse().forEach(p => s.append(el("option", { value: p, text: mLabel(p).replace(" ", " 20") }))); }
+  s.value = mon.p; const p = mon.p, ly = yago(p), hasLy = all.includes(ly);
+  $("#monLabel").textContent = hasLy ? "vs budget and " + mLabel(ly) : "vs budget (no prior-year month in the data)";
+  $("#monSub").textContent = mLabel(p) + " · USD";
+  const C = agg("COMPANY", [p]), L = hasLy ? agg("COMPANY", [ly]) : null;
+  tiles($("#monTiles"), [
+    ["Total revenue", fmt$(C.total_revenue, true), [el("span", { class: C.vs_bud >= 0 ? "up" : "down", text: (C.vs_bud >= 0 ? "+" : "") + fmtPct(C.vs_bud) + " vs budget" }), ...(L ? [" · ", chg(C.total_revenue / L.total_revenue - 1), " YoY"] : [])]],
+    ["EBITDA", fmt$(C.ebitda, true), ["Budget " + fmt$(C.budget_ebitda, true) + " · ", varSpan(C.ebitda - C.budget_ebitda, 1, true)]],
+    ["Sold occupancy", fmtPct(C.occ), ["budget " + fmtPct(C.b_occ) + (L ? " · " : ""), ...(L ? [chg(C.occ - L.occ, 1, "pts"), " YoY"] : [])]],
+    ["ADR", fmtR(C.adr), ["budget " + fmtR(C.b_adr) + (L ? " · " : ""), ...(L ? [chg(C.adr / L.adr - 1), " YoY"] : [])]],
+    ["RevPAR", fmtR(C.revpar), L ? [chg(C.revpar / L.revpar - 1), " YoY"] : ""],
+    ["Housekeeping / occ. night", fmtR(C.hk_pon), L ? [chg(C.hk_pon / L.hk_pon - 1, -1), " YoY"] : ""]]);
+  const rows = [...PROPS, "CORP", "COMPANY"].map(e => { const a = agg(e, [p]), b = hasLy ? agg(e, [ly]) : null; return { e, a, b, _cls: e === "COMPANY" ? "total" : "" }; });
+  table($("#tMon"), [
+    { h: "Property", cls: "l", f: r => r.e === "COMPANY" ? "Company" : NM[r.e] + " (" + r.e + ")" },
+    { h: "Revenue", f: r => fmt$(r.a.total_revenue) }, { h: "Budget", f: r => fmt$(r.a.budget_total_revenue) }, { h: "vs budget", f: r => r.a.budget_total_revenue ? chg(r.a.vs_bud) : "—" },
+    { h: "YoY", f: r => r.b && r.b.total_revenue ? chg(r.a.total_revenue / r.b.total_revenue - 1) : "—" },
+    { h: "Occupancy", f: r => r.a.available_nights ? fmtPct(r.a.occ) : "—" }, { h: "Budget occ.", f: r => r.a.budget_available_nights ? fmtPct(r.a.b_occ) : "—" },
+    { h: "ADR", f: r => r.a.sold_nights ? fmtR(r.a.adr) : "—" }, { h: "Budget ADR", f: r => r.a.budget_sold_nights ? fmtR(r.a.b_adr) : "—" },
+    { h: "EBITDA", f: r => fmt$(r.a.ebitda) }, { h: "Budget EBITDA", f: r => fmt$(r.a.budget_ebitda) }, { h: "Closed nights", f: r => r.a.available_nights ? fmtN(r.a.closed) : "—" }], rows);
+  mkChart($("#chMon"), { _label: "Revenue by property", data: { labels: PROPS.map(e => NM[e]), datasets: [bar("Actual", PROPS.map(e => kv(e, p, "total_revenue")), css("--s1")),
+    bar("Budget", PROPS.map(e => kv(e, p, "budget_total_revenue")), css("--muted")), ...(hasLy ? [bar("Same month last year", PROPS.map(e => kv(e, ly, "total_revenue")), css("--s4"))] : [])] } });
+  bridgeChart($("#chMonBr"), pnlFor([p]), pnlFor([p], "COMPANY", "budget"));
+}
+
+// ---------------------------------------------------------------- BVA
+const bva = { scope: "fy", sel: "FY2026", ent: "COMPANY", alloc: false };
+function bvaPeriods() {
+  const all = P();
+  if (bva.scope === "month") return { periods: [bva.sel], label: mLabel(bva.sel) };
+  if (bva.scope === "quarter") { const i = all.indexOf(bva.sel); const ps = all.slice(i, i + 3); return { periods: ps, label: `Fiscal quarter ${mLabel(ps[0])} – ${mLabel(ps[2])}` }; }
+  const ps = bva.sel === "FY2025" ? all.slice(0, 12) : all.slice(12); return { periods: ps, label: `${bva.sel} (${mLabel(ps[0])} – ${mLabel(ps[11])})` };
+}
+function fillBvaSel() {
+  const s = $("#bvaSel"); s.innerHTML = ""; const all = P();
+  const opts = bva.scope === "month" ? [...all].reverse().map(p => [p, mLabel(p)]) : bva.scope === "quarter" ? [0, 3, 6, 9, 12, 15, 18, 21].reverse().map(i => [all[i], `Q${(i % 12) / 3 + 1} ${i < 12 ? "FY2025" : "FY2026"} · ${mLabel(all[i])}–${mLabel(all[i + 2])}`]) : [["FY2026", "FY2026"], ["FY2025", "FY2025"]];
+  opts.forEach(([v, t]) => s.append(el("option", { value: v, text: t }))); if (!opts.some(o => o[0] === bva.sel)) bva.sel = opts[0][0]; s.value = bva.sel;
+}
+function renderBva() {
+  fillBvaSel(); $("#bvaEnt").value = bva.ent; $("#bvaAlloc").checked = bva.alloc; $("#bvaAlloc").disabled = !PROPS.includes(bva.ent);
+  const { periods, label } = bvaPeriods(), e = bva.ent, wa = bva.alloc && PROPS.includes(e); $("#bvaLabel").textContent = label;
+  $("#bvaSub").textContent = (e === "COMPANY" ? "Company" : fullName(e)) + " · " + label + " · USD" + (wa ? " · after CORP allocation" : PROPS.includes(e) ? " · before CORP allocation" : "");
+  const A = pnlFor(periods, e, "actual", wa), B = pnlFor(periods, e, "budget", wa), N = ACC();
+  tiles($("#bvaTiles"), [["Total revenue", 1], ["Rooms revenue", 1], ["EBITDA", 1], ["Net income", 1]].map(([k, sg]) => { const a = A[k], b = B[k], v = a - b;
+    return [k, fmt$(a, true), ["Budget " + fmt$(b, true) + " · ", el("span", { class: Math.abs(v) < .5 ? "flat" : v * sg > 0 ? "up" : "down", text: sgn$(v) + (b ? " (" + (v / Math.abs(b) * 100).toFixed(1) + "%)" : "") })]]; }));
+  const tr = A["Total revenue"], rows = [];
+  const mk = (name, a, b, sign, cls) => ({ name, a, b, v: a - b, fav: (a - b) * sign, vp: b ? (a - b) / Math.abs(b) : null, _cls: cls });
+  const accs = Object.keys(N).sort();
+  const SUB = { Revenue: "Total revenue", Shared: "EBITDA", Corporate: "EBITDA", Interest: "Net income" };
+  for (const [grp, title, sign] of GROUPS) {
+    const ga = accs.filter(a => N[a].group === grp && ((A[a] || 0) || (B[a] || 0))); if (!ga.length) continue;
+    rows.push({ name: title, _cls: "sec" }); ga.forEach(a => rows.push(mk(N[a].line, A[a] || 0, B[a] || 0, a === "4010" || a === "4020" ? 1 : sign, "")));
+    if (grp === "Revenue") rows.push(mk("Total revenue", A["Total revenue"], B["Total revenue"], 1, "sub"));
+    if ((grp === "Corporate" && !wa) || (grp === "Shared")) rows.push(mk("EBITDA", A.EBITDA, B.EBITDA, 1, "sub"));
+    if (grp === "Interest") rows.push(mk("Net income", A["Net income"], B["Net income"], 1, "total"));
+  }
+  if (!rows.some(r => r.name === "EBITDA")) { const i = rows.findIndex(r => r.name === "Depreciation"); rows.splice(i < 0 ? rows.length : i, 0, mk("EBITDA", A.EBITDA, B.EBITDA, 1, "sub")); }
+  if (!rows.some(r => r.name === "Net income")) rows.push(mk("Net income", A["Net income"], B["Net income"], 1, "total"));
+  const tb = table($("#tPnl"), [{ h: "Line", k: "name" }, { h: "Actual", f: r => r._cls === "sec" ? "" : fmt$(r.a) }, { h: "Budget", f: r => r._cls === "sec" ? "" : fmt$(r.b) },
+    { h: "Var $", f: r => r._cls === "sec" ? "" : el("span", { class: Math.abs(r.v) < .5 ? "flat" : r.fav > 0 ? "up" : "down", text: sgn$(r.v) }) },
+    { h: "Var %", f: r => r._cls === "sec" || r.vp == null ? "" : (r.vp >= 0 ? "+" : "") + (r.vp * 100).toFixed(1) + "%" }, { h: "% rev", f: r => r._cls === "sec" || !tr ? "" : fmtPct(r.a / tr) },
+    { h: "", f: r => r._cls === "sec" || Math.abs(r.v) < .5 ? "" : el("span", { class: "chip " + (r.fav > 0 ? "fav" : "unf"), text: r.fav > 0 ? "Fav" : "Unfav" }) }], rows);
+  [...tb.children].forEach((tr2, i) => { const r = rows[i]; if (r._cls === "sec") { tr2.firstChild.colSpan = 7; while (tr2.children.length > 1) tr2.lastChild.remove(); } else if (!r._cls) tr2.firstChild.classList.add("ind"); });
+  bridgeChart($("#chBridge"), A, B);
+  const all = P();
+  for (const [id, k, col] of [["#chBvaRev", "Total revenue", "--s1"], ["#chBvaEb", "EBITDA", "--s3"]]) {
+    const c = css(col);
+    mkChart($(id), { _label: k, data: { labels: all.map(mLabel), datasets: [line("Budget", all.map(p => pnlFor([p], e, "budget", wa)[k]), css("--ink-2"), { borderDash: [5, 4], borderWidth: 1.5, order: 0 }),
+      bar("Actual", all.map(p => pnlFor([p], e, "actual", wa)[k]), all.map(p => periods.includes(p) ? c : alpha(c, .35)), { order: 1 })] } });
+  }
+}
+
+// ---------------------------------------------------------------- PROPERTIES
+const pr = { period: "fy26" };
+function renderProps() {
+  const ps = PER[pr.period](), prev = pr.period === "fy26" ? PER.fy25() : pr.period === "l3" ? ps.map(yago) : null;
+  $("#prLabel").textContent = PNAME[pr.period] + (prev ? " · change vs " + (pr.period === "fy26" ? "FY2025" : "same months last year") : "");
+  $("#prSub").textContent = PNAME[pr.period] + " · EBITDA before CORP allocation";
+  const rows = [...PROPS, "COMPANY"].map(e => ({ e, a: agg(e, ps), b: prev ? agg(e, prev) : null, _cls: e === "COMPANY" ? "total" : "" }));
+  table($("#tPr"), [
+    { h: "Property", cls: "l", f: r => r.e === "COMPANY" ? "Company (incl. CORP)" : NM[r.e] + " (" + r.e + ") · " + KEYS[r.e] + " keys" },
+    { h: "Available", f: r => fmtN(r.a.available_nights) }, { h: "Closed", f: r => fmtN(r.a.closed) }, { h: "Sold", f: r => fmtN(r.a.sold_nights) },
+    { h: "Occupancy", f: r => occChip(r.a.occ) }, { h: "Chg", f: r => r.b ? chg(r.a.occ - r.b.occ, 1, "pts") : "—" }, { h: "vs budget", f: r => r.a.b_occ ? chg(r.a.occ - r.a.b_occ, 1, "pts") : "—" },
+    { h: "ADR", f: r => fmtR(r.a.adr) }, { h: "Chg", f: r => r.b ? chg(r.a.adr / r.b.adr - 1) : "—" }, { h: "RevPAR", f: r => fmtR(r.a.revpar) }, { h: "Chg", f: r => r.b ? chg(r.a.revpar / r.b.revpar - 1) : "—" },
+    { h: "Ancillary / occ. night", f: r => fmtR(r.a.anc_per_night) }, { h: "Revenue", f: r => fmt$(r.a.total_revenue) }, { h: "EBITDA", f: r => fmt$(r.a.ebitda) },
+    { h: "Margin", f: r => el("span", { class: "chip " + (r.a.margin < .2 ? "unf" : r.a.margin < .3 ? "est" : "neu"), text: fmtPct(r.a.margin) }) }], rows);
+  const per = P(), lab = per.map(mLabel);
+  mkChart($("#chPrOcc"), { _fmt: "pct", _label: "Occupancy", data: { labels: lab, datasets: PROPS.map(e => line(NM[e], per.map(p => ratio(e, p, "sold_nights", "available_nights")), css(PCOL[e]))) } });
+  mkChart($("#chPrAdr"), { _fmt: "rate", _label: "ADR", data: { labels: lab, datasets: PROPS.map(e => line(NM[e], per.map(p => kv(e, p, "adr")), css(PCOL[e]))) } });
+  mkChart($("#chPrRp"), { _fmt: "rate", _label: "RevPAR", data: { labels: lab, datasets: [...PROPS.map(e => line(NM[e], per.map(p => kv(e, p, "revpar")), css(PCOL[e]))),
+    ...PROPS.map(e => line(NM[e] + " budget", per.map(p => ratio(e, p, "budget_net_room_revenue", "budget_available_nights")), css(PCOL[e]), { borderDash: [4, 4], borderWidth: 1.2 }))] } });
+  mkChart($("#chPrCl"), { _fmt: "number", _stacked: true, _label: "Closed room-nights", data: { labels: lab, datasets: PROPS.map(e => bar(NM[e], per.map(p => kv(e, p, "out_of_order_nights") + kv(e, p, "out_of_service_nights")), css(PCOL[e]), { borderRadius: 0 })) } });
+}
+
+// ---------------------------------------------------------------- CHANNELS
+const chs = { ent: "ALL" };
+function chAgg(periods, ent) {
+  const ps = new Set(periods), o = {};
+  for (const r of DS.channel_monthly.rows) { if (!ps.has(r.period) || (ent !== "ALL" && r.property_id !== ent)) continue;
+    const x = o[r.channel] ||= { ch: r.channel, sold: 0, room: 0, anc: 0, fees: 0, comm: 0, rcomm: 0, arr: 0, cxl: 0, ns: 0 };
+    x.sold += r.sold_nights; x.room += r.net_room_revenue_usd; x.anc += r.ancillary_usd; x.fees += r.fees_usd; x.comm += r.commission_usd; x.rcomm += r.room_commission_usd; x.arr += r.arrivals_scheduled; x.cxl += r.cancelled; x.ns += r.no_shows; }
+  return o;
+}
+function renderChan() {
+  const ent = chs.ent, e = ent === "ALL" ? "COMPANY" : ent, per = P(), lab = per.map(mLabel);
+  const A = agg(e, PER.fy26()), B = agg(e, PER.fy25());
+  const dirA = A.direct_sold_nights / A.sold_nights, dirB = B.direct_sold_nights / B.sold_nights;
+  tiles($("#chTiles"), [["OTA share of sold nights", fmtPct(A.ota_share), [chg(A.ota_share - B.ota_share, -1, "pts"), " vs FY2025"]],
+    ["Direct share", fmtPct(dirA), [chg(dirA - dirB, 1, "pts"), " vs FY2025"]],
+    ["OTA commission, FY2026", fmt$(A.ota_commission, true), [chg(A.ota_commission / B.ota_commission - 1, -1), " vs FY2025"]],
+    ["Commission per sold night", fmtR(A.comm_per_night), ["FY2025 " + fmtR(B.comm_per_night)]],
+    ["Own advertising, FY2026", fmt$(A.own_advertising, true), [fmtPct(A.own_advertising / A.total_revenue, 2) + " of revenue"]],
+    ["Cancellation rate", fmtPct(A.cxl_rate), ["no-show " + fmtPct(A.ns_rate) + " · by arrival"]]]);
+  const mix = CHS.map(c => ({ c, v: per.map(p => { const r = DS.kpi_monthly.rows.find(x => x.entity === e && x.period === p); const k = { DIRECT: "direct_sold_nights", BOOKING: "agency_sold_nights", EXPEDIA: "merchant_sold_nights", CORPORATE: "corporate_sold_nights" }[c]; return r.sold_nights ? r[k] / r.sold_nights : 0; }) }));
+  mkChart($("#chMix"), { _fmt: "pct", _stacked: true, _label: "Channel mix", data: { labels: lab, datasets: mix.map(m => bar(CNM[m.c], m.v, css(CCOL[m.c]), { borderRadius: 0 })) }, options: { scales: { y: { max: 1 } } } });
+  mkChart($("#chCpn"), { _fmt: "rate", _label: "Commission per sold night", data: { labels: lab, datasets: [bar("Commission per sold night", per.map(p => ratio(e, p, "ota_commission", "sold_nights")), css("--s2"))] } });
+  const a26 = chAgg(PER.fy26(), ent), a25 = chAgg(PER.fy25(), ent), tot26 = sum(Object.values(a26).map(x => x.sold));
+  const rows = CHS.map(c => ({ c, a: a26[c] || {}, b: a25[c] || {} }));
+  table($("#tCh"), [{ h: "Channel", cls: "l", f: r => CNM[r.c] }, { h: "Sold nights", f: r => fmtN(r.a.sold) }, { h: "Share", f: r => fmtPct(r.a.sold / tot26) },
+    { h: "Nights chg", f: r => r.b.sold ? chg(r.a.sold / r.b.sold - 1) : "—" }, { h: "Net room rev.", f: r => fmt$(r.a.room) }, { h: "ADR", f: r => fmtR(r.a.room / r.a.sold) },
+    { h: "Room commission", f: r => fmt$(r.a.rcomm) }, { h: "Net ADR after comm.", f: r => fmtR((r.a.room - r.a.rcomm) / r.a.sold) }, { h: "FY25 net ADR", f: r => fmtR((r.b.room - r.b.rcomm) / r.b.sold) },
+    { h: "Ancillary / night", f: r => fmtR(r.a.anc / r.a.sold) }, { h: "Cancel %", f: r => fmtPct(r.a.cxl / r.a.arr) }, { h: "No-show %", f: r => fmtPct(r.a.ns / r.a.arr) }], rows);
+  mkChart($("#chAds"), { _label: "Ad spend", data: { labels: lab, datasets: [bar("Ad spend", per.map(p => kv(e, p, "own_advertising")), css("--s7")),
+    line("Website bookings", per.map(p => kv(e, p, "web_bookings")), css("--s1"), { yAxisID: "y2", _tip: v => fmtN(v) })] }, options: { scales: { y2: { position: "right", grid: { display: false }, ticks: { callback: v => fmtN(v) } } } } });
+  const f2 = new Set(PER.fy26()), ad = {};
+  for (const r of DS.ads_monthly.rows) if (f2.has(r.period) && (ent === "ALL" || r.property_id === ent)) { const o = ad[r.platform] ||= { pl: r.platform, sp: 0, cl: 0, bk: 0, v: 0 }; o.sp += r.spend_usd; o.cl += r.clicks; o.bk += r.attributed_bookings; o.v += r.attributed_value_usd; }
+  table($("#tAds"), [{ h: "Platform", cls: "l", f: r => r.pl === "META" ? "Meta" : r.pl === "GOOGLE" ? "Google" : r.pl }, { h: "Spend", f: r => fmt$(r.sp) }, { h: "Clicks", f: r => fmtN(r.cl) },
+    { h: "Attr. bookings", f: r => fmtN(r.bk) }, { h: "Attr. value", f: r => fmt$(r.v) }, { h: "ROAS", f: r => (r.v / r.sp).toFixed(2) + "x" }], Object.values(ad));
+}
+
+// ---------------------------------------------------------------- CORPORATE
+const co = { sel: null };
+function renderCorp() {
+  const inv = DS.corporate_invoices.rows, open = inv.filter(r => r.open_ar_usd > 0), per = P(), lab = per.map(mLabel), last = KP("COMPANY").slice(-1)[0];
+  const bucket = b => sum(open.filter(r => r.aging_bucket === b).map(r => r.open_ar_usd));
+  const f26 = new Set(PER.fy26()), cm = DS.corporate_monthly.rows;
+  const inv26 = sum(cm.filter(r => f26.has(r.period)).map(r => r.invoiced_usd));
+  const co1 = sum(open.filter(r => r.company_id === "CO-001").map(r => r.open_ar_usd));
+  tiles($("#coTiles"), [["Open corporate AR", fmt$(last.corporate_ar, true), [open.length + " open invoices"]], ["Current (not yet due)", fmt$(bucket("current"), true), [fmtPct(bucket("current") / last.corporate_ar) + " of open AR"]],
+    ["1–30 days past due", fmt$(bucket("1_30"), true), [el("span", { class: "chip unf", text: "late" })]], ["CO-001 open", fmt$(co1, true), [fmtPct(co1 / last.corporate_ar) + " of open AR · 45-day terms"]],
+    ["Invoiced, FY2026", fmt$(inv26, true), ["month-end invoices for consumed nights"]], ["Corporate advances held", fmt$(last.corporate_deposits, true), ["applied to future invoices, not new cash"]]]);
+  mkChart($("#chCoAr"), { _stacked: true, _label: "Corporate AR", data: { labels: lab, datasets: PROPS.map(e => bar(NM[e], per.map(p => kv(e, p, "corporate_ar")), css(PCOL[e]), { borderRadius: 0 })) } });
+  const cl = DS.corporate_clients.rows.map(r => r.company_id), pal = ["--s1", "--s2", "--s3", "--s4", "--s7", "--s5"];
+  mkChart($("#chCoDays"), { _fmt: "number", _label: "Days to pay", data: { labels: lab, datasets: cl.map((c, i) => line(c, per.map(p => { const r = cm.find(x => x.period === p && x.company_id === c); return r ? r.avg_days_to_pay : null; }), css(pal[i]), { spanGaps: true, pointRadius: 2 })) } });
+  const lg = $("#coDaysLeg"); lg.innerHTML = ""; cl.forEach((c, i) => lg.append(el("span", {}, el("i", { class: "ln", style: `background:var(${pal[i]})` }), c)));
+  const rows = DS.corporate_clients.rows.map(c => { const r26 = cm.filter(r => r.company_id === c.company_id && f26.has(r.period)); const op = open.filter(r => r.company_id === c.company_id);
+    const paid = r26.filter(r => r.avg_days_to_pay != null); const pn = sum(paid.map(r => r.paid_invoices));
+    return { c, inv: sum(r26.map(r => r.invoiced_usd)), rec: sum(r26.map(r => r.receipts_usd)), nights: sum(r26.map(r => r.sold_nights)), room: sum(r26.map(r => r.net_room_revenue_usd)),
+      dtp: pn ? sum(paid.map(r => r.avg_days_to_pay * r.paid_invoices)) / pn : null, late: pn ? sum(paid.map(r => r.avg_days_late * r.paid_invoices)) / pn : null, open: sum(op.map(r => r.open_ar_usd)), n: op.length, maxd: Math.max(0, ...op.map(r => r.days_past_due)),
+      _cls: "pick" + (co.sel === c.company_id ? " picked" : "") }; });
+  const tb = table($("#tCo"), [{ h: "Client", cls: "l", f: r => el("span", {}, el("span", { class: "mono muted", text: r.c.company_id + " " }), r.c.client) }, { h: "Terms", f: r => r.c.payment_terms_days + " days" },
+    { h: "Sold nights", f: r => fmtN(r.nights) }, { h: "ADR", f: r => r.nights ? fmtR(r.room / r.nights) : "—" }, { h: "Invoiced FY26", f: r => fmt$(r.inv) }, { h: "Received FY26", f: r => fmt$(r.rec) },
+    { h: "Avg days to pay", f: r => r.dtp == null ? "—" : r.dtp.toFixed(0) }, { h: "Avg days late", f: r => r.late == null ? "—" : r.late.toFixed(0) },
+    { h: "Open AR", f: r => fmt$(r.open) }, { h: "Open inv.", f: r => String(r.n) }, { h: "Max days past due", f: r => r.n ? el("span", { class: "chip " + (r.maxd > 0 ? "unf" : "neu"), text: String(r.maxd) }) : "—" },
+    { h: "Credit limit", f: r => fmt$(r.c.credit_limit_usd) }], rows);
+  [...tb.children].forEach((tr, i) => tr.addEventListener("click", () => { co.sel = co.sel === rows[i].c.company_id ? null : rows[i].c.company_id; renderCorp(); }));
+  const shown = open.filter(r => !co.sel || r.company_id === co.sel).sort((a, b) => b.days_past_due - a.days_past_due || b.open_ar_usd - a.open_ar_usd);
+  table($("#tCoInv"), [{ h: "Invoice", k: "invoice_id", cls: "l mono" }, { h: "Client", k: "company_id", cls: "l" }, { h: "Property", k: "property_id", cls: "l" }, { h: "Service month", k: "service_month", cls: "l" },
+    { h: "Due", k: "due_date", cls: "l" }, { h: "Total", f: r => fmt$(r.total_usd) }, { h: "Prepaid", f: r => fmt$(r.prepayment_applied_usd) }, { h: "Paid", f: r => fmt$(r.cash_applied_usd) }, { h: "Open", f: r => fmt$(r.open_ar_usd) },
+    { h: "Days past due", f: r => el("span", { class: "chip " + (r.days_past_due > 0 ? "unf" : "neu"), text: String(r.days_past_due) }) }, { h: "Expected cash", k: "expected_collection_date", cls: "l" }], shown);
+}
+
+// ---------------------------------------------------------------- HOUSEKEEPING
+function renderHk() {
+  const A = agg("COMPANY", PER.fy26()), B = agg("COMPANY", PER.fy25()); const per = P(), lab = per.map(mLabel);
+  const pk = DS.kpi_monthly.rows.filter(r => PROPS.includes(r.entity)).reduce((a, b) => b.overtime_hours > a.overtime_hours ? b : a);
+  tiles($("#hkTiles"), [["Housekeeping cost, FY2026", fmt$(A.housekeeping_cost, true), [fmtPct(A.housekeeping_cost / A.total_revenue) + " of revenue · ", chg(A.housekeeping_cost / B.housekeeping_cost - 1, -1)]],
+    ["Per occupied night", fmtR(A.hk_pon), ["FY2025 " + fmtR(B.hk_pon)]], ["Cleaning tasks", fmtN(A.hk_tasks), [fmtN(A.hk_departures) + " departures · " + fmtN(A.hk_stayovers) + " stayovers"]],
+    ["Agency housekeeping", fmt$(A.agency_cost, true), [fmtN(A.agency_worker_days) + " worker-days · FY2025 " + fmt$(B.agency_cost, true)]],
+    ["Overtime share", fmtPct(A.ot_share, 2), [fmtN(A.overtime_hours) + " OT hours"]], ["Peak overtime month", fmtN(pk.overtime_hours) + " h", [NM[pk.entity] + " · " + mLabel(pk.period)]]]);
+  mkChart($("#chHkPon"), { _fmt: "rate", _label: "HK cost per occupied night", data: { labels: lab, datasets: PROPS.map(e => line(NM[e], per.map(p => ratio(e, p, "housekeeping_cost", "occupied_nights")), css(PCOL[e]))) } });
+  mkChart($("#chHkOt"), { _fmt: "number", _label: "Overtime hours", data: { labels: lab, datasets: PROPS.map(e => bar(NM[e], per.map(p => kv(e, p, "overtime_hours")), css(PCOL[e]))) } });
+  const rows = [...PROPS, "COMPANY"].map(e => ({ e, a: agg(e, PER.fy26()), b: agg(e, PER.fy25()), _cls: e === "COMPANY" ? "total" : "" }));
+  table($("#tHk"), [{ h: "Property", cls: "l", f: r => r.e === "COMPANY" ? "Company (incl. CORP)" : NM[r.e] + " (" + r.e + ")" },
+    { h: "HK cost", f: r => fmt$(r.a.housekeeping_cost) }, { h: "Per occ. night", f: r => fmtR(r.a.hk_pon) }, { h: "Chg", f: r => chg(r.a.hk_pon / r.b.hk_pon - 1, -1) },
+    { h: "Laundry", f: r => fmt$(r.a.laundry_cost) }, { h: "Consumables", f: r => fmt$(r.a.consumables_cost) }, { h: "Agency", f: r => fmt$(r.a.agency_cost) },
+    { h: "Tasks", f: r => fmtN(r.a.hk_tasks) }, { h: "Min / task", f: r => r.a.hk_tasks ? (r.a.hk_approved_minutes / r.a.hk_tasks).toFixed(1) : "—" },
+    { h: "Paid hours", f: r => fmtN(r.a.paid_hours) }, { h: "OT h", f: r => fmtN(r.a.overtime_hours) }, { h: "OT h FY25", f: r => fmtN(r.b.overtime_hours) },
+    { h: "Labor % rev", f: r => r.a.total_revenue ? fmtPct(r.a.labor / r.a.total_revenue) : "—" }], rows);
+}
+
+// ---------------------------------------------------------------- 13-WEEK CASH
+const sc = { dem: 100, pay: 100, delay: 0, co1: false, floor: 2000000 };
+const WEEK0 = Date.UTC(2026, 10, 1), DAY = 864e5;
+const wkDate = (w, add = 0) => { const d = new Date(WEEK0 + (w * 7 + add) * DAY); return MN[d.getUTCMonth()] + " " + d.getUTCDate(); };
+const CATS = [["settlements", "Gateway & OTA settlements in transit", 1], ["corporate", "Corporate AR collections", 1], ["booked", "Booked stays: guest & OTA receipts", 1], ["new", "New bookings (forecast)", 1],
+  ["payroll", "Payroll funding", -1], ["vendors", "Vendors, rent & contracts", -1], ["variable", "Utilities, maintenance & variable", -1], ["tax", "Lodging tax & OTA commissions", -1],
+  ["debt", "Debt service", -1], ["capex", "Capex PO & security returns", -1]];
+const INC = new Set(CATS.filter(c => c[2] > 0).map(c => c[0]));
+let cashModel = null;
+function computeCash(s = sc) {
+  const W = [...Array(13).keys()], flows = W.map(() => { const f = {}; CATS.forEach(([k]) => f[k] = 0); f.basis = { KNOWN: 0, BOOKED: 0, ESTIMATE: 0, CONTRACT: 0 }; return f; }), items = {};
+  let pushed = 0, excluded = 0;
+  for (const r of DS.cash_schedule_13w.rows) {
+    let amt = r.amount_usd, w = r.week_index, date = r.expected_cash_date;
+    if (r.commitment_type.startsWith("NEW_")) amt *= s.dem / 100;
+    if (r.commitment_type === "FUTURE_PAYROLL") amt *= s.pay / 100;
+    if (r.category === "corporate") {
+      if (s.co1 && r.company_id === "CO-001") { excluded += amt; continue; }
+      if (s.delay) { const d = new Date(Date.parse(date + "T00:00:00Z") + s.delay * DAY); date = d.toISOString().slice(0, 10); w = Math.floor((d - WEEK0) / (7 * DAY)); if (w > 12) { pushed += amt; continue; } }
+    }
+    if (!amt) continue;
+    flows[w][r.category] += amt; if (INC.has(r.category)) flows[w].basis[r.basis] += amt;
+    (items[w + r.category] ||= []).push(Object.assign({}, r, { amt, date }));
+  }
+  let cash = M.meta.opening_cash; const closing = [], inflow = [], outflow = [];
+  flows.forEach(f => { const i = sum(CATS.filter(c => c[2] > 0).map(c => f[c[0]])), o = sum(CATS.filter(c => c[2] < 0).map(c => f[c[0]])); inflow.push(i); outflow.push(o); cash += i - o; closing.push(cash); });
+  return { W, flows, items, closing, inflow, outflow, pushed, excluded, lab: W.map(w => wkDate(w)) };
+}
+function cashLow() { const c = computeCash({ dem: 100, pay: 100, delay: 0, co1: false }); let i = 0; c.closing.forEach((v, j) => { if (v < c.closing[i]) i = j; }); return { v: c.closing[i], w: "week of " + c.lab[i] }; }
+let drillSel = null;
+function renderCash() {
+  const c = cashModel = computeCash(), T = DS.cash_schedule_13w.rows;
+  $("#scDemV").textContent = sc.dem + "%"; $("#scPayV").textContent = sc.pay + "%";
+  $("#cashIntro").textContent = `Opening operating bank ${fmt$(M.meta.opening_cash)} on 31 Oct 2026. Weeks run Sunday–Saturday from 1 Nov 2026 to 30 Jan 2027. Known balances and booked stays come from the source systems with their IDs; new bookings, future payroll and utilities are estimates (assumption version ${M.meta.assumption_version}).`;
+  let lo = 0; c.closing.forEach((v, j) => { if (v < c.closing[lo]) lo = j; });
+  const below = c.closing.filter(v => v < sc.floor).length, est = sum(c.flows.map(f => f.basis.ESTIMATE)), tin = sum(c.inflow);
+  tiles($("#cashTiles"), [["Opening bank, 31 Oct", fmt$(M.meta.opening_cash, true), "one operating account"],
+    ["Lowest week-end", fmt$(c.closing[lo], true), ["week of " + c.lab[lo] + " · ", el("span", { class: c.closing[lo] >= sc.floor ? "up" : "down", text: sgn$(c.closing[lo] - sc.floor) + " vs floor" })]],
+    ["Closing, 30 Jan 2027", fmt$(c.closing[12], true), [chg(c.closing[12] / M.meta.opening_cash - 1), " vs opening"]],
+    ["Weeks under floor", String(below), ["floor " + fmt$(sc.floor, true) + " (demo assumption)"]],
+    ["Estimated inflows", fmtPct(est / tin), [fmt$(est, true) + " of " + fmt$(tin, true) + " is new-booking estimate"]],
+    ["Corporate cash moved out", fmt$(c.pushed + c.excluded, true), [sc.co1 ? "CO-001 unpaid" : sc.delay ? "+" + sc.delay + " days delay" : "base case"]]], true);
+  $("#cashChSub").textContent = "USD · dashed line is the " + fmt$(sc.floor, true) + " cash floor";
+  mkChart($("#chCash"), { _label: "Closing cash", data: { labels: c.lab, datasets: [line("Cash floor", c.W.map(() => sc.floor), css("--crit"), { borderDash: [5, 4], borderWidth: 1.5 }),
+    line("Closing cash", c.closing, css("--s1"), { pointRadius: 3 })] }, options: { scales: { y: { min: 0 } } } });
+  mkChart($("#chFlows"), { _stacked: true, _label: "Flows", data: { labels: c.lab, datasets: [bar("Known", c.flows.map(f => f.basis.KNOWN + f.basis.CONTRACT), css("--s3"), { borderRadius: 0, stack: "in" }),
+    bar("Booked", c.flows.map(f => f.basis.BOOKED), css("--s1"), { borderRadius: 0, stack: "in" }), bar("Estimate", c.flows.map(f => f.basis.ESTIMATE), css("--s4"), { stack: "in" }),
+    bar("Outflows", c.outflow.map(v => -v), css("--s2"), { stack: "out" })] } });
+  const t = $("#tCash"); t.innerHTML = "";
+  t.append(el("thead", {}, el("tr", {}, el("th", { text: "USD" }), c.W.map(w => el("th", { text: "W" + (w + 1) + " · " + c.lab[w] })), el("th", { text: "13 weeks" }))));
+  const tb = el("tbody"); const row = (name, vals, cls, key) => { const tr = el("tr", cls ? { class: cls } : {}); tr.append(el("td", { text: name }));
+    vals.forEach((v, w) => { const td = el("td", { text: v == null ? "" : fmt$(v) }); if (key && v) { td.className = "click" + (drillSel === w + key ? " sel" : ""); td.onclick = () => { drillSel = w + key; renderCash(); }; }
+      if (cls === "total" && v != null && v < sc.floor) td.className = "lowcash"; tr.append(td); });
+    if (cls !== "total" && name !== "Opening cash") tr.append(el("td", { text: fmt$(sum(vals)) })); else tr.append(el("td")); tb.append(tr); };
+  row("Opening cash", c.W.map(w => w ? c.closing[w - 1] : M.meta.opening_cash), "sub");
+  CATS.forEach(([k, n, sg]) => row((sg > 0 ? "+ " : "− ") + n, c.flows.map(f => f[k]), "", k));
+  row("Net cash flow", c.W.map(w => c.inflow[w] - c.outflow[w]), "sub");
+  row("Closing cash", c.closing, "total"); t.append(tb);
+  if (drillSel) { const w = parseInt(drillSel), k = drillSel.replace(/^\d+/, ""); drill(w, k); } else $("#drill").hidden = true;
+  const ul = $("#cashRules"); ul.innerHTML = ""; [...M.meta.cash_rules, M.meta.cash_floor_note, `Items dated after 30 Jan 2027 (${fmt$(M.meta.beyond_horizon_usd, true)}, mostly corporate collections) stay outside the window.`].forEach(s => ul.append(el("li", { text: s })));
+  const O = DS.on_the_books.rows;
+  table($("#tOtb"), [{ h: "Month", f: r => mLabel(r.period), cls: "l" }, { h: "Property", f: r => NM[r.property_id] + " (" + r.property_id + ")", cls: "l" }, { h: "Available", f: r => fmtN(r.available_nights) },
+    { h: "OTB sold", f: r => fmtN(r.otb_sold_nights) }, { h: "OTB occ.", f: r => fmtPct(r.otb_occupancy) }, { h: "Corporate", f: r => fmtN(r.otb_corporate) }, { h: "OTB room rev.", f: r => fmt$(r.otb_room_revenue_usd) },
+    { h: "LY final occ.", f: r => fmtPct(r.ly_occupancy) }, { h: "LY ADR", f: r => fmtR(r.ly_adr) }], [...O].sort((a, b) => a.period.localeCompare(b.period) || PROPS.indexOf(a.property_id) - PROPS.indexOf(b.property_id)));
+}
+function drill(w, k) {
+  const c = cashModel, box = $("#drill"); box.hidden = false; box.innerHTML = "";
+  const its = (c.items[w + k] || []).slice().sort((a, b) => b.amt - a.amt);
+  const name = CATS.find(x => x[0] === k)[1];
+  box.append(el("div", { class: "card-head" }, el("div", {}, el("h3", { text: `${name} · week ${w + 1} (${wkDate(w)} – ${wkDate(w, 6)})` }), el("div", { class: "sub", text: fmt$(c.flows[w][k]) + " in this week · " + its.length + " lines" })),
+    el("button", { class: "ghost", type: "button", text: "Close", onclick: () => { drillSel = null; box.hidden = true; renderCash(); } })));
+  const BAS = { KNOWN: ["known", "Known"], CONTRACT: ["known", "Contract"], BOOKED: ["neu", "Booked"], ESTIMATE: ["est", "Estimate"] };
+  table(box.appendChild(el("div", { class: "tbl-wrap" })).appendChild(el("table")), [{ h: "Line", k: "id", cls: "l mono" }, { h: "Date", k: "date", cls: "l" }, { h: "Prop.", k: "property_id", cls: "l" },
+    { h: "Type", f: r => r.commitment_type.replace(/_/g, " ").toLowerCase(), cls: "wrap" }, { h: "Source", k: "source", cls: "l" }, { h: "Source ID", k: "source_id", cls: "l mono" },
+    { h: "Basis", f: r => el("span", { class: "chip " + BAS[r.basis][0], text: BAS[r.basis][1] }) }, { h: "Amount", f: r => fmt$(r.amt) }], its.slice(0, 80));
+  if (its.length > 80) box.append(el("div", { class: "note", text: `Showing the 80 largest of ${its.length} lines.` }));
+}
+
+// ---------------------------------------------------------------- SOURCES & QUALITY
+function renderSources() {
+  const S = DS.data_sources.rows;
+  tiles($("#srcTiles"), [["Source systems", String(S.length), "simulated"], ["Tables", fmtN(M.meta.source_tables), "logical tables"], ["Files", fmtN(M.meta.source_files), "CSV files incl. monthly partitions"],
+    ["Records", fmtN(M.meta.source_rows), "Nov 2024 – Oct 2026 + on-the-books"], ["Data as of", M.meta.cutoff, "snapshot date"]]);
+  const g = $("#srcGrid"); g.innerHTML = "";
+  [...S].sort((a, b) => b.records - a.records).forEach(s => g.append(el("div", { class: "src" },
+    el("div", { class: "src-top" }, el("span", { class: "mono-badge", "aria-hidden": "true", text: s.name.slice(0, 1) }), el("div", {}, el("b", { text: s.name }), el("div", { class: "sub", text: s.source })), el("span", { class: "pill ok" }, el("span", { class: "dot" }), s.status)),
+    el("dl", { class: "src-stats" }, el("div", {}, el("dt", { text: "Records" }), el("dd", { text: fmtN(s.records) })), el("div", {}, el("dt", { text: "Tables" }), el("dd", { text: String(s.tables) })), el("div", {}, el("dt", { text: "Files" }), el("dd", { text: String(s.files) }))),
+    el("div", { class: "note", text: s.usage }))));
+}
+function renderQuality() {
+  const R = DS.reconciliations.rows, pass = R.filter(r => r.status === "PASS").length;
+  tiles($("#dqTiles"), [["Checks passed", `${pass} / ${R.length}`, pass === R.length ? el("span", { class: "up", text: "All tie out to the cent" }) : el("span", { class: "down", text: (R.length - pass) + " need attention" })],
+    ["Control totals", "47 × 96", "metrics × month-scope pairs"], ["Source rows read", fmtN(M.meta.source_rows), M.meta.source_files + " CSV files"],
+    ["Model built", M.meta.generated_at.slice(0, 16).replace("T", " ") + " UTC", "cutoff " + M.meta.cutoff]]);
+  $("#dqSub").textContent = "Money checks in integer cents, zero tolerance; room-nights exact.";
+  table($("#tDq"), [{ h: "Status", f: r => el("span", { class: "chip " + (r.status === "PASS" ? "fav" : "unf"), text: r.status === "PASS" ? "✓ Pass" : "✕ Fail" }) }, { h: "Area", k: "area", cls: "l" }, { h: "Check", k: "check", cls: "wrap" }, { h: "Detail", k: "detail", cls: "wrap" }], R);
+}
+
+// ---------------------------------------------------------------- tabs
+let current = "overview";
+const VIEWS = { overview: renderOverview, month: renderMonth, bva: renderBva, props: renderProps, chan: renderChan, corp: renderCorp, hk: renderHk, cash: renderCash, sources: renderSources, quality: renderQuality };
+function show(v) { current = v; document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.view === v))); document.querySelectorAll(".view").forEach(s => s.hidden = s.id !== "v-" + v); VIEWS[v](); try { history.replaceState(null, "", "#" + v); } catch (e) {} }
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => show(t.dataset.view)));
+const rerender = () => { if (!M) return; chartTheme(); show(current); };
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", rerender);
+new MutationObserver(rerender).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+addEventListener("hashchange", () => { const h = location.hash.slice(1); if (VIEWS[h] && h !== current) show(h); });
+const setHdr = () => document.documentElement.style.setProperty("--hdr", $("#top").offsetHeight + "px"); addEventListener("resize", setHdr);
+$("#monSel").addEventListener("change", e => { mon.p = e.target.value; renderMonth(); });
+$("#monAsk").addEventListener("click", () => ask(`Explain ${mLabel(mon.p)} for ABC Hotels: revenue and EBITDA vs budget and vs the same month last year, by property. Separate occupancy, ADR and closures, and rank the drivers.`));
+seg("#bvaScope", "scope", bva, () => { bva.sel = null; renderBva(); }); $("#bvaSel").addEventListener("change", e => { bva.sel = e.target.value; renderBva(); });
+$("#bvaEnt").addEventListener("change", e => { bva.ent = e.target.value; renderBva(); });
+$("#bvaAlloc").addEventListener("change", e => { bva.alloc = e.target.checked; renderBva(); });
+$("#bvaAsk").addEventListener("click", () => { const { label, periods } = bvaPeriods(); ask(`Explain the main P&L variances vs budget for ${bva.ent === "COMPANY" ? "the company" : bva.ent}${bva.alloc ? " after CORP allocation" : ""} in ${label} (months ${periods.join(", ")}). Rank the drivers by EBITDA impact.`); });
+seg("#prPeriod", "period", pr, renderProps);
+$("#chEnt").addEventListener("change", e => { chs.ent = e.target.value; renderChan(); });
+$("#scDem").addEventListener("input", e => { sc.dem = +e.target.value; renderCash(); });
+$("#scPay").addEventListener("input", e => { sc.pay = +e.target.value; renderCash(); });
+$("#scDelay").addEventListener("change", e => { sc.delay = +e.target.value; renderCash(); });
+$("#scCo1").addEventListener("change", e => { sc.co1 = e.target.checked; renderCash(); });
+$("#scFloor").addEventListener("change", e => { sc.floor = +e.target.value; renderCash(); });
+$("#scReset").addEventListener("click", () => { Object.assign(sc, { dem: 100, pay: 100, delay: 0, co1: false, floor: M.meta.cash_floor }); $("#scDem").value = 100; $("#scPay").value = 100; $("#scDelay").value = 0; $("#scCo1").checked = false; $("#scFloor").value = M.meta.cash_floor; drillSel = null; renderCash(); });
+
+// ---------------------------------------------------------------- AI analyst
+const chatEl = $("#chat"), msgs = $("#msgs"), qEl = $("#q"), sendBtn = $("#sendBtn");
+let samplePromise = null, sampleFn = null, toolsOk = false, busy = false, ctl = null; const turns = [];
+const IN_CLAUDE = !!(window.claude && window.claude.use);
+function apiSample() {
+  const fn = async (input, opts = {}) => {
+    const ms = input.map(m => ({ role: m.role, content: m.content })); let system;
+    if (ms.length > 1 && ms[0].role === "user" && ms[1].role === "assistant" && String(ms[0].content).startsWith("You are the AI financial analyst")) { system = ms[0].content; ms.splice(0, 2); }
+    const tools = (opts.tools || []).map(t => ({ name: t.name, description: t.description, input_schema: t.inputSchema || { type: "object", properties: {} } }));
+    let text = "";
+    try {
+      for (let round = 0; round < 8; round++) {
+        const r = await fetch("/api/chat", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ system, messages: ms, tools: round < 7 ? tools : [], company: "abc-hotels" }), signal: opts.signal });
+        const j = await r.json().catch(() => ({})); if (!r.ok) throw { code: j.code || "error", message: j.error || ("HTTP " + r.status), text };
+        const blocks = j.content || []; const t = blocks.filter(b => b.type === "text").map(b => b.text).join("");
+        if (t) { text += (text ? "\n\n" : "") + t; opts.onText && opts.onText({ text }); }
+        const uses = blocks.filter(b => b.type === "tool_use");
+        if (!uses.length || j.stop_reason !== "tool_use") { if (!text) throw { code: "empty_completion" }; return { text, truncated: j.stop_reason === "max_tokens" }; }
+        ms.push({ role: "assistant", content: blocks }); const results = [];
+        for (const u of uses) { const tool = (opts.tools || []).find(x => x.name === u.name); let content, is_error = false;
+          try { if (!tool) throw new Error("Unknown tool " + u.name); const out = await tool.execute(u.input || {}); content = typeof out === "string" ? out : JSON.stringify(out); } catch (e) { content = "Error: " + (e && e.message || e); is_error = true; }
+          results.push({ type: "tool_result", tool_use_id: u.id, content, is_error }); }
+        ms.push({ role: "user", content: results });
+      }
+      return { text, truncated: true };
+    } catch (e) { if (e && e.name === "AbortError") throw { code: "cancelled", text }; throw e; }
+  };
+  fn.limits = async () => ({ maxPromptBytes: 500000, tools: { maxCount: 16 } }); return fn;
+}
+function openChat() { chatEl.classList.add("open"); $("#scrim").classList.add("show"); setTimeout(() => qEl.focus(), 50); }
+function closeChat() { chatEl.classList.remove("open"); $("#scrim").classList.remove("show"); }
+$("#askOpen").onclick = openChat; $("#askClose").onclick = closeChat; $("#scrim").onclick = closeChat;
+document.addEventListener("click", e => { const b = e.target.closest("[data-ask]"); if (b) ask(b.dataset.ask); });
+qEl.addEventListener("input", () => { qEl.style.height = "auto"; qEl.style.height = Math.min(140, qEl.scrollHeight) + "px"; });
+qEl.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("#chatForm").requestSubmit(); } });
+$("#chatForm").addEventListener("submit", e => { e.preventDefault(); if (busy) { ctl?.abort(); return; } const t = qEl.value.trim(); if (t) { qEl.value = ""; qEl.style.height = "auto"; ask(t); } });
+function md(text) {
+  const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const inline = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`([^`]+)`/g, "<code>$1</code>");
+  const out = []; let list = null;
+  text.replace(/```chart[\s\S]*?```/g, "").split(/\n/).forEach(raw => { const l = raw.trimEnd(); const ul = l.match(/^\s*[-•*]\s+(.*)/), ol = l.match(/^\s*\d+[.)]\s+(.*)/), h = l.match(/^#{1,4}\s+(.*)/);
+    if (ul || ol) { const tag = ul ? "ul" : "ol"; if (!list || list.tag !== tag) { if (list) out.push(`</${list.tag}>`); list = { tag }; out.push(`<${tag}>`); } out.push("<li>" + inline((ul || ol)[1]) + "</li>"); return; }
+    if (list) { out.push(`</${list.tag}>`); list = null; } if (h) out.push("<p><b>" + inline(h[1]) + "</b></p>"); else if (l.trim()) out.push("<p>" + inline(l) + "</p>"); });
+  if (list) out.push(`</${list.tag}>`); return out.join("");
+}
+function addMsg(role, content) { const m = el("div", { class: "msg " + role }); if (typeof content === "string") m.textContent = content; else if (content) m.append(content); msgs.append(m); msgs.scrollTop = msgs.scrollHeight; return m; }
+function intro() {
+  const box = el("div", { class: "msg bot" }); box.innerHTML = md("Ask me anything about ABC Hotels' numbers. I read the same data as the dashboards, cite property IDs (RAL, WIL, DUR, CORP) and source IDs, and can draw a new chart or table on request.");
+  const sg = el("div", { class: "sugg" });
+  ["Why is FY2026 EBITDA below budget when ADR is up?", "Which property needs attention, and why?", "What did the shift to OTAs cost us in 2026?", "Which corporate invoices are late, and what is the cash impact?", "What is the cash low point in the next 13 weeks?", "Chart RevPAR by property by month"].forEach(s => sg.append(el("button", { type: "button", text: s, onclick: () => ask(s) })));
+  box.append(sg); msgs.append(box);
+}
+function contextBlock() {
+  const ents = ["COMPANY", ...PROPS, "CORP"];
+  const km = DS.kpi_monthly.rows.filter(r => ents.includes(r.entity)).map(r => [r.period, r.entity, Math.round(r.total_revenue), Math.round(r.budget_total_revenue), r.sold_nights, r.available_nights,
+    r.adr, Math.round(r.ebitda), Math.round(r.budget_ebitda), Math.round(r.ebitda_after_shared), Math.round(r.ota_commission), r.agency_sold_nights + r.merchant_sold_nights, Math.round(r.housekeeping_cost), r.out_of_order_nights + r.out_of_service_nights]);
+  const cm = cashModel || computeCash();
+  const cw = cm.W.map(i => [cm.lab[i], Math.round(cm.inflow[i]), Math.round(cm.outflow[i]), Math.round(cm.closing[i])]);
+  return `COMPANY: ${M.meta.company} — DEMO COMPANY, SYNTHETIC DATA (never present as a real client). ${M.meta.business}. ${M.meta.hq}. USD. ${M.meta.fiscal_year_note}.
+Properties: ${PROPS.map(e => e + " = " + fullName(e) + ", " + KEYS[e] + " keys").join("; ")}; CORP = shared corporate office (no revenue), allocated 60:52:44 by keys for analysis only.
+Corporate clients are shown by ID (CO-001..CO-006) with neutral names. Data cutoff ${M.meta.cutoff}. Actual months ${M.meta.first_period}..${M.meta.last_period}. Reconciliation checks: ${M.meta.recon_pass}/${M.meta.recon_total} pass.
+ACCOUNTING RULES: Revenue is earned per consumed night/service (folio service date), net of discounts (4010) and service credits (4020), excluding lodging tax; total revenue = net room + ancillary (parking, breakfast, cleaning, late checkout) + cancellation/no-show fees. Bookings and on-the-books nights are NOT revenue. Corporate invoices reclassify earned AR and never add revenue. Guest prepayments are liabilities until the night is consumed; security deposits are refundable liabilities. Gateway payouts and OTA net settlements are cash timing, not sales. Booking-style agency: guest pays hotel gross, hotel owes 15% commission. Expedia-style merchant: gross revenue recognized, 18% commission is an expense, OTA remits tax. Own Meta/Google spend = one expense; platform-attributed booking values overlap and are not company revenue. Housekeeping/time logs re-describe payroll and bills already in the GL. Sold occupancy = sold / available (physical − out-of-order − out-of-service); ADR = net room revenue / sold nights; RevPAR = net room revenue / available. Always compute ratios from summed numerators and denominators. EBITDA excludes depreciation (5600) and interest (5700); property EBITDA before shared excludes CORP costs; company EBITDA is the same before/after allocation. Budget = original, approved 2024-10-15, never revised; it kept full capacity during the WIL refurbishment.
+CASH: ${M.meta.cash_rules.join(" ")} ${M.meta.cash_floor_note}
+KNOWN STORIES: ${DS.stories.rows.map(s => s.id + ": " + s.story).join(" | ")}
+USER IS VIEWING tab "${current}"; month review ${mon.p || M.meta.last_period}; P&L scope ${bvaPeriods().label} for ${bva.ent}${bva.alloc ? " after CORP allocation" : ""}; cash scenario: new bookings ${sc.dem}%, payroll ${sc.pay}%, corporate delay ${sc.delay} days, CO-001 unpaid ${sc.co1}, floor ${sc.floor}.
+MONTHLY KPIs [period, entity, total_revenue, budget_total_revenue, sold_nights, available_nights, adr, ebitda, budget_ebitda, ebitda_after_shared, ota_commission, ota_sold_nights, housekeeping_cost, closed_room_nights]:
+${JSON.stringify(km)}
+13-WEEK CASH (current scenario; weeks Sun–Sat from 2026-11-01) [week, inflows, outflows, closing]: opening ${M.meta.opening_cash}; ${JSON.stringify(cw)}
+DATASETS you can query with query_data:
+${Object.entries(DS).map(([k, v]) => `- ${k} (${v.rows.length} rows; grain ${v.grain}): ${v.columns.join(", ")}. ${v.description}`).join("\n")}`;
+}
+const RULES = () => `You are the AI financial analyst inside the ABC Hotels FP&A Studio dashboard. Answer using ONLY the data below and the page tools.
+- Use the context tables when they already answer; call query_data or get_pnl for detail. Never invent numbers. Do arithmetic carefully and compute ratios from totals.
+- Cite property IDs (RAL, WIL, DUR, CORP), client IDs (CO-…), invoice or cash-line IDs and months (YYYY-MM) when relevant.
+- When a visual helps or the user asks for a chart, call show_chart (or show_table) with exact numbers. One unit per chart: never mix dollars and percentages.
+- Answer in the language the user writes in. Lead with the answer, then 2–5 bullets with numbers ($ rounded, % to 1 decimal). Plain text with **bold** and "-" bullets; no markdown tables (use show_table).
+- End with one short line "Sources: <dataset names>".
+- This is a demo company with synthetic data; say so if asked about real-world facts.
+${contextBlock()}`;
+function applyQuery(inp) {
+  const ds = DS[String(inp.dataset || "")]; if (!ds) throw new Error("Unknown dataset. Use one of: " + Object.keys(DS).join(", "));
+  let rows = ds.rows;
+  for (const f of (Array.isArray(inp.filters) ? inp.filters : [])) { const col = String(f.column), op = String(f.op || "="), v = f.value;
+    if (!ds.columns.includes(col)) throw new Error(`Unknown column ${col} in ${inp.dataset}`);
+    rows = rows.filter(r => { const x = r[col]; switch (op) { case "=": return String(x) === String(v); case "!=": return String(x) !== String(v); case ">": return x > v; case ">=": return x >= v; case "<": return x < v; case "<=": return x <= v;
+      case "in": return (Array.isArray(v) ? v : [v]).map(String).includes(String(x)); case "contains": return String(x).toLowerCase().includes(String(v).toLowerCase()); case "startswith": return String(x).startsWith(String(v)); default: throw new Error("Bad op " + op); } }); }
+  const gb = Array.isArray(inp.group_by) ? inp.group_by.map(String) : [], mt = Array.isArray(inp.metrics) ? inp.metrics : [];
+  if (gb.length || mt.length) { const groups = new Map(); rows.forEach(r => { const key = JSON.stringify(gb.map(g => r[g])); if (!groups.has(key)) groups.set(key, []); groups.get(key).push(r); });
+    rows = [...groups.entries()].map(([k, rs]) => { const o = {}; gb.forEach((g, i) => o[g] = JSON.parse(k)[i]);
+      mt.forEach(m => { const col = String(m.column || ""), agg2 = String(m.agg || "sum"), as = String(m.as || `${agg2}_${col}`); const vals = rs.map(r => r[col]).filter(v => v != null && !isNaN(v)).map(Number);
+        o[as] = agg2 === "count" ? rs.length : agg2 === "avg" ? (vals.length ? sum(vals) / vals.length : null) : agg2 === "min" ? Math.min(...vals) : agg2 === "max" ? Math.max(...vals) : Math.round(sum(vals) * 100) / 100; }); return o; }); }
+  if (Array.isArray(inp.columns) && inp.columns.length && !gb.length && !mt.length) rows = rows.map(r => Object.fromEntries(inp.columns.map(c => [c, r[c]])));
+  for (const s of [...(Array.isArray(inp.sort) ? inp.sort : [])].reverse()) { const c = String(s.column), d = s.desc ? -1 : 1; rows = [...rows].sort((a, b) => (a[c] > b[c] ? 1 : a[c] < b[c] ? -1 : 0) * d); }
+  const lim = Math.min(Number(inp.limit) || 120, 200), total = rows.length; let out = { row_count: total, truncated: total > lim, rows: rows.slice(0, lim) };
+  while (JSON.stringify(out).length > 30000 && out.rows.length > 5) out = { ...out, truncated: true, rows: out.rows.slice(0, Math.floor(out.rows.length * .7)) };
+  return out;
+}
+function renderChatChart(inp, host) {
+  const type = String(inp.type || "bar"), labels = (Array.isArray(inp.labels) ? inp.labels : []).map(String), series = (Array.isArray(inp.series) ? inp.series : []).slice(0, 8);
+  if (!labels.length || !series.length) throw new Error("show_chart needs labels and at least one series");
+  const pal = ["--s1", "--s2", "--s3", "--s4", "--s5", "--s6", "--s7", "--s8"].map(css);
+  const card = el("div", { class: "card" }, el("h3", { text: String(inp.title || "Chart") }), inp.subtitle ? el("div", { class: "sub", text: String(inp.subtitle) }) : null);
+  const ch = el("div", { class: "chart", id: "cc" + Math.random().toString(36).slice(2) }); card.append(ch); const isH = type === "horizontal_bar";
+  const ds = series.map((s, i) => { const kind = s.kind || (type === "line" ? "line" : "bar"); const data = (s.data || []).map(Number); return kind === "line" ? line(String(s.name), data, pal[i], { pointRadius: labels.length < 16 ? 3 : 0 }) : bar(String(s.name), data, pal[i]); });
+  if (series.length > 1) card.append(el("div", { class: "legend" }, series.map((s, i) => el("span", {}, el("i", { style: `background:${pal[i]}` }), String(s.name)))));
+  if (inp.note) card.append(el("div", { class: "src", text: String(inp.note) }));
+  host.append(card); msgs.scrollTop = msgs.scrollHeight;
+  mkChart(ch, { _fmt: inp.value_format === "x" ? "number" : (inp.value_format || "usd"), _stacked: type === "stacked_bar", _label: String(inp.title || "chart"), data: { labels, datasets: ds }, options: isH ? { indexAxis: "y" } : {} }, ch.id);
+}
+function renderChatTable(inp, host) {
+  const cols = (Array.isArray(inp.columns) ? inp.columns : []).map(String), rows = (Array.isArray(inp.rows) ? inp.rows : []).slice(0, 60);
+  const card = el("div", { class: "card" }, el("h3", { text: String(inp.title || "Table") })); const tw = el("div", { class: "tbl-wrap" }); const t = el("table"); tw.append(t); card.append(tw);
+  t.append(el("thead", {}, el("tr", {}, cols.map(c => el("th", { text: c })))), el("tbody", {}, rows.map(r => el("tr", {}, (Array.isArray(r) ? r : cols.map(c => r[c])).map(v => el("td", { text: typeof v === "number" ? (Math.abs(v) >= 1000 ? v.toLocaleString("en-US", { maximumFractionDigits: 0 }) : String(Math.round(v * 1000) / 1000)) : String(v ?? "") }))))));
+  host.append(card); msgs.scrollTop = msgs.scrollHeight;
+}
+function makeTools(host, log) {
+  return [
+    { name: "query_data", description: "Filter, group and aggregate one dataset from the dashboard data mart. Returns {row_count, truncated, rows}.",
+      inputSchema: { type: "object", properties: { dataset: { type: "string" }, filters: { type: "array", items: { type: "object", properties: { column: { type: "string" }, op: { type: "string", enum: ["=", "!=", ">", ">=", "<", "<=", "in", "contains", "startswith"] }, value: {} }, required: ["column", "op", "value"] } },
+        group_by: { type: "array", items: { type: "string" } }, metrics: { type: "array", items: { type: "object", properties: { column: { type: "string" }, agg: { type: "string", enum: ["sum", "avg", "min", "max", "count"] }, as: { type: "string" } } } },
+        columns: { type: "array", items: { type: "string" } }, sort: { type: "array", items: { type: "object", properties: { column: { type: "string" }, desc: { type: "boolean" } } } }, limit: { type: "number" } }, required: ["dataset"] },
+      execute: inp => { log("Querying " + inp.dataset); return applyQuery(inp); } },
+    { name: "get_pnl", description: "Exact P&L for a set of months (YYYY-MM) and one entity (COMPANY, RAL, WIL, DUR, CORP): every GL account plus subtotals (Total revenue, Rooms revenue, EBITDA, Net income), actual vs original budget with variances. Set after_allocation=true for a property to include its share of CORP costs (budget CORP allocated by the same 60:52:44 keys).",
+      inputSchema: { type: "object", properties: { periods: { type: "array", items: { type: "string" } }, entity: { type: "string", enum: ["COMPANY", "RAL", "WIL", "DUR", "CORP"] }, after_allocation: { type: "boolean" } }, required: ["periods"] },
+      execute: inp => { const ps = (inp.periods || []).map(String), e = String(inp.entity || "COMPANY"), wa = !!inp.after_allocation; log("P&L " + e + " " + (ps.length > 2 ? ps[0] + "…" + ps[ps.length - 1] : ps.join(", "))); const a = pnlFor(ps, e, "actual", wa), b = pnlFor(ps, e, "budget", wa), N = ACC();
+        return Object.keys(a).filter(k => k !== "_g").map(k => ({ line: N[k] ? `${k} ${N[k].line}` : k, actual: Math.round(a[k] * 100) / 100, budget: Math.round((b[k] || 0) * 100) / 100, variance: Math.round((a[k] - (b[k] || 0)) * 100) / 100 })); } },
+    { name: "show_chart", description: "Draw a chart in the chat. type: line | bar | stacked_bar | horizontal_bar. labels = x categories; series = [{name, data:[numbers], kind?: 'line'|'bar'}]. value_format: usd | pct (0.25 = 25%) | number | rate (USD per night). All series share one axis.",
+      inputSchema: { type: "object", properties: { type: { type: "string", enum: ["line", "bar", "stacked_bar", "horizontal_bar"] }, title: { type: "string" }, subtitle: { type: "string" }, labels: { type: "array", items: { type: "string" } },
+        series: { type: "array", items: { type: "object", properties: { name: { type: "string" }, data: { type: "array", items: { type: "number" } }, kind: { type: "string", enum: ["line", "bar"] } }, required: ["name", "data"] } }, value_format: { type: "string", enum: ["usd", "pct", "number", "rate"] }, note: { type: "string" } }, required: ["type", "title", "labels", "series"] },
+      execute: inp => { renderChatChart(inp, host); log("Chart: " + inp.title); return "Chart displayed to the user."; } },
+    { name: "show_table", description: "Show a small table (max 60 rows) in the chat. columns = header names; rows = arrays of cell values in column order.",
+      inputSchema: { type: "object", properties: { title: { type: "string" }, columns: { type: "array", items: { type: "string" } }, rows: { type: "array", items: { type: "array" } } }, required: ["title", "columns", "rows"] },
+      execute: inp => { renderChatTable(inp, host); log("Table: " + inp.title); return "Table displayed to the user."; } } ];
+}
+const ERR = { not_granted: "Claude access was not allowed for this page. You can allow it from the page's permissions menu.", rate_limited: "Claude is busy or a usage limit was reached. Try again in a moment.", prompt_too_large: "That question pulled in too much data. Try a narrower question.", no_api_key: "The AI analyst isn't configured on this site yet.", cancelled: "Stopped." };
+async function ask(text) {
+  if (!M || busy) return; if (innerWidth <= 1180) openChat(); addMsg("user", text);
+  const box = addMsg("bot", null), toolLog = el("div"), ch = el("div"), body = el("div"), think = el("div", { class: "thinking", text: "Thinking…" }); box.append(toolLog, think, ch, body);
+  if (!sampleFn) { if (!samplePromise) samplePromise = IN_CLAUDE ? window.claude.use("sample") : Promise.resolve(apiSample()); try { sampleFn = await samplePromise; } catch (e) { sampleFn = null; }
+    if (sampleFn) { try { const lim = await sampleFn.limits(); toolsOk = !!lim?.tools; } catch (e) { toolsOk = false; } } }
+  if (!sampleFn) { think.remove(); body.innerHTML = md("The AI analyst needs Claude access, which this view doesn't provide. Open the dashboard in Claude while signed in to ask questions."); return; }
+  busy = true; sendBtn.textContent = "Stop"; ctl = new AbortController();
+  const log = t => { toolLog.append(el("div", { class: "tool", text: "▸ " + t })); msgs.scrollTop = msgs.scrollHeight; };
+  turns.push({ role: "user", content: text });
+  const input = [{ role: "user", content: RULES() }, { role: "assistant", content: "Understood. I will answer from this data and use the tools when needed." }, ...turns.slice(-10)];
+  try {
+    const opts = { signal: ctl.signal, onText: ({ text }) => { think.remove(); body.innerHTML = md(text); msgs.scrollTop = msgs.scrollHeight; } };
+    if (toolsOk) opts.tools = makeTools(ch, log);
+    const res = await sampleFn(input, opts); think.remove(); body.innerHTML = md(res.text);
+    [...res.text.matchAll(/```chart\s*([\s\S]*?)```/g)].forEach(b => { try { renderChatChart(JSON.parse(b[1]), ch); } catch (e) {} });
+    if (res.truncated) body.append(el("div", { class: "src", text: "Answer cut short. Ask for less at a time." }));
+    turns.push({ role: "assistant", content: res.text + [...ch.querySelectorAll("h3")].map(h => ` [shown: ${h.textContent}]`).join("") });
+  } catch (e) { think.remove(); turns.pop(); if (e && e.text) body.innerHTML = md(e.text); body.append(el("div", { class: "src err", text: ERR[e?.code] || ("Couldn't get an answer (" + (e?.code || e?.message || "error") + ").") })); }
+  finally { busy = false; sendBtn.textContent = "Ask"; ctl = null; }
+}
+
+// ---------------------------------------------------------------- boot
+async function boot() {
+  const onSite = !IN_CLAUDE && location.pathname.startsWith("/hotels");
+  setHdr(); if (onSite) $("#signout").hidden = false;
+  try { const r = await fetch(onSite ? "/api/data/hotels" : "datamart.json", { cache: "no-store" }); if (r.status === 401) { location.href = "/login"; return; } M = await r.json(); }
+  catch (e) { $("#main").prepend(el("div", { class: "card err", text: "Data file could not be loaded." })); return; }
+  DS = M.datasets; sc.floor = M.meta.cash_floor || 2000000; $("#scFloor").value = sc.floor;
+  $("#asof").textContent = "Data as of " + M.meta.cutoff;
+  const rp = $("#reconPill"); rp.className = "pill " + (M.meta.recon_pass === M.meta.recon_total ? "ok" : "bad"); rp.lastChild.textContent = `${M.meta.recon_pass}/${M.meta.recon_total} checks pass`; rp.style.cursor = "pointer"; rp.onclick = () => show("quality");
+  chartTheme(); intro();
+  const h = (location.hash || "").slice(1); show(VIEWS[h] ? h : "overview"); setHdr();
+}
+boot();
+})();
+</script>
+</body>
+</html>

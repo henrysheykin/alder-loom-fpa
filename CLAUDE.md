@@ -12,7 +12,7 @@ presented as a real client's results.
 - `forecasts/cash/*.json` — user-saved forecast versions (immutable; never edit or delete, create new ones)
 - `config/data_schedule.json` — data collection and job schedule (Central Time); scheduled tasks follow it
 - `app/`, `middleware.ts`, `lib/` — Next.js site deployed by Vercel from `main`
-- Links are separate per company on one domain: ABC Inc. at `/ecommerce` (alias of `/dashboard`), ABC Agency at `/agency`, ABC SaaS at `/saas`, ABC Restaurants at `/restaurants`. Do not merge them into one page.
+- Links are separate per company on one domain: ABC Inc. at `/ecommerce` (alias of `/dashboard`), ABC Agency at `/agency`, ABC SaaS at `/saas`, ABC Restaurants at `/restaurants`, ABC Hotels at `/hotels`. Do not merge them into one page.
 
 ## Second company: ABC Agency (marketing agency)
 Raw source files use the placeholder name "Signal Harbor Performance"; the pipeline renames it to **ABC Agency** on output. Same demo/synthetic rules apply.
@@ -40,6 +40,16 @@ Raw source files use the placeholder name "Cedar & Skillet Hospitality"; the pip
 - Refresh: `npm run refresh:restaurants`; then the same rule: any FAIL → stop and report; all PASS → commit, push.
 - Commentary rules: net revenue = POS sales less discounts, comps, refunds; excludes sales tax and tips. DoorDash/Uber Eats orders are already in POS sales — never add marketplace sales to POS sales. Meta and Google attributed revenue overlaps. Prime cost = COGS + labor. Cite restaurant IDs (R01–R03, HQ).
 - Demo assumptions shown on the page: sales tax due 2026-11-20; $500k cash floor.
+
+## Fifth company: ABC Hotels (hotel operator)
+Raw source files use the placeholder name "Juniper Quay Hospitality"; the pipeline renames it to **ABC Hotels** on output (properties "ABC Raleigh Station", "ABC Cape Landing (Wilmington)", "ABC Durham Residences"; corporate clients shown as "Corporate client 1–6" by ID; vendor names are not shown). Same demo/synthetic rules apply.
+- Properties RAL (60 keys), WIL (52), DUR (44) plus shared CORP; 24 months Nov 2024–Oct 2026, cutoff 2026-10-31, FY Nov–Oct.
+- `data/abc_hotels_data/` — docs, metadata, validation control totals and the package verifier are in git. The 138 MB `sources/` folder (14 simulated systems, 95 tables, 235 CSVs, 1.4M rows) is git-ignored: unpack `juniper_quay_hotels_24m_full.zip` and copy `juniper_quay_data/sources` there before a refresh.
+- `pipeline/hotels/build_datamart.py` (stdlib, integer cents) → `data/output/hotels/datamart.json` + `reconciliation_report.csv`: 71 checks (package verifier, 47 metrics × 24 months × COMPANY/RAL/WIL/DUR vs `validation/monthly_control_totals.csv`, GL/TB, bank, AR/AP, channels, cash inputs). Exits with an error and writes no datamart if a check fails.
+- `private/hotels/dashboard.html`, `private/hotels/datamart.json` — served at `/hotels` and `/api/data/hotels`.
+- Refresh: `npm run refresh:hotels`; any FAIL → stop and report; all PASS → commit, push.
+- Commentary rules: revenue = consumed nights and services by service date, net of discounts/credits, excluding lodging tax. On-the-books bookings, corporate invoices, gateway payouts and OTA net settlements are not revenue. Agency (Booking-style) commission is owed by the hotel; merchant (Expedia-style) revenue is gross with commission as expense. Sold occupancy uses available nights (physical − OOO − OOS); compute ADR/RevPAR from totals. COMPANY already includes CORP; CORP allocation (60:52:44 keys) is analytical and zero-sum. Cite property IDs (RAL, WIL, DUR, CORP), client IDs (CO-…) and cash-line IDs.
+- 13-week cash: opening = operating bank only; known balances from subledgers once; on-the-books stays net of held deposits; new bookings only fill capacity left after OTB (assumption version FC-2026-10-31-BASE). Demo assumption on the page: $2.0M cash floor.
 
 ## Data refresh procedure (ABC Inc.)
 1. `pip install pandas --break-system-packages -q` if pandas is missing.

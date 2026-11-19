@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "files_checked": 274,
+  "failures": 0,
+  "scope": "all deliverable files except package manifest and this integrity report; source hashes also independently checked",
+  "money_validation_failed_conditions": 0
+}

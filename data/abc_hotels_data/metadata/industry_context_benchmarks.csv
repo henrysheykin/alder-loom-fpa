@@ -1,0 +1,4 @@
+﻿benchmark_id,source_id,geography,period,metric,value,unit,report_date,retrieved_date,usage
+US-2025-occupancy,SRC-US2025,United States all hotels,2025,occupancy,0.623,ratio,2026-01-20,2026-11-19,"external context only, not synthetic company actuals"
+US-2025-adr,SRC-US2025,United States all hotels,2025,adr,160.54,USD per sold room-night,2026-01-20,2026-11-19,"external context only, not synthetic company actuals"
+US-2025-revpar,SRC-US2025,United States all hotels,2025,revpar,100.02,USD per available room-night,2026-01-20,2026-11-19,"external context only, not synthetic company actuals"

@@ -9,3 +9,5 @@ __pycache__/
 .DS_Store
 # ABC Restaurants raw extracts (578 MB, 736 CSVs): keep outside git; unpack cedar_skillet_complete.zip here to refresh
 data/abc_restaurants_data/sources/
+# ABC Hotels raw extracts (138 MB, 235 CSVs): keep outside git; unpack juniper_quay_hotels_24m_full.zip (folder juniper_quay_data) here to refresh
+data/abc_hotels_data/sources/

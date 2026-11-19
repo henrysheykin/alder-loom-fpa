@@ -1,0 +1,13 @@
+{
+  "test": "one-cent saved folio mutation with refreshed manifest",
+  "status": "PASS",
+  "corrupted_copy_exit_code": 1,
+  "mutation_cents": 1,
+  "manifest_was_refreshed": true,
+  "economic_failures_detected": [
+    "Folio gross less discounts equals net",
+    "Folio header equals saved charge lines"
+  ],
+  "pristine_source_unchanged": true,
+  "dirty_fixture_in_deliverables": false
+}

@@ -1,0 +1,15 @@
+﻿source_system,system_style,description_en,logical_tables,row_count,native_api_schema_claim
+pms,PMS / Mews-style,"Principal room reservations, masters, actual stay nights; custom synthetic flat extracts.",13,236603,False
+availability,Room availability and closures,Physical room/date ledger; additive capacity; OOO/OOS separate.,2,114048,False
+night_audit,Night audit / folios,Signed actual service charges and tax liabilities. Not checkout-date recognition.,3,125459,False
+channel_manager,Channel manager / OTA,"Booking-style agency, Expedia-style merchant, gross-to-net settlements and commissions.",7,40068,False
+payments,Direct gateway / deposits,"Captures/refunds, liability applications, gateway clearing/transit, refundable security.",6,95656,False
+corporate_billing,Corporate/group billing,"Companies/contracts, block allotments, earned invoices, partial receipts, advances.",9,42914,False
+operations,Housekeeping / maintenance,"Approved labor, laundry, consumables, agency and maintenance source detail.",7,111587,False
+procurement,Procurement / vendors,"POs, acceptance receipts and commitments; operating supplies expensed on receipt.",5,1095,False
+gusto,Gusto-style staff/payroll,"Effective rates, schedules, approved actual minutes, weekly overtime, earned/funded payroll.",7,36529,False
+fixed_assets_finance,Assets / treasury,"Opening asset pools, capex, depreciation, debt, hotel tax remittances, member distributions.",6,230,False
+marketing,Own Meta/Google / booking CRM,"Daily ad cost, billing, overlapping platform-attributed booking values, direct funnel.",4,6720,False
+quickbooks,QuickBooks-style accounting,"COA, opening TB, GL, vendor AP, monthly TB. Authoritative financial actuals.",9,574820,False
+bank,Operating bank statement,"One consolidated USD account, actual posted cash and month-end balances.",2,5285,False
+planning,Approved budget / cutoff planning,Original pre-period budget; OTB future nights and explicit cash forecasting inputs. No future actuals.,15,8323,False

@@ -1,0 +1,10 @@
+{
+  "check_groups": 189,
+  "evaluated_conditions": 27426571,
+  "failed_conditions": 0,
+  "failed_groups": 0,
+  "money_tolerance_cents": 0,
+  "room_night_tolerance": 0,
+  "ratio_identity_tolerance": "0.00000001",
+  "verifier": "independent saved-CSV reader; no generator imports"
+}

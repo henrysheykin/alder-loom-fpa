@@ -1,0 +1,3412 @@
+{
+  "quickbooks/chart_of_accounts": {
+    "grain": "One GL account",
+    "primary_key": [
+      "account_code"
+    ],
+    "fields": [
+      "account_code",
+      "account_name",
+      "account_type",
+      "report_group",
+      "normal_sign",
+      "currency"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "account_code": "string",
+      "account_name": "string",
+      "account_type": "string",
+      "report_group": "string",
+      "normal_sign": "string",
+      "currency": "string"
+    },
+    "physical_files": [
+      "sources/quickbooks/chart_of_accounts.csv"
+    ],
+    "row_count": 50
+  },
+  "pms/legal_entities": {
+    "grain": "One principal operating legal entity",
+    "primary_key": [
+      "entity_id"
+    ],
+    "fields": [
+      "entity_id",
+      "legal_name",
+      "brand_name",
+      "country_code",
+      "state_code",
+      "tax_model",
+      "principal_operator",
+      "contact_email"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "entity_id": "string",
+      "legal_name": "string",
+      "brand_name": "string",
+      "country_code": "string",
+      "state_code": "string",
+      "tax_model": "string",
+      "principal_operator": "boolean",
+      "contact_email": "string"
+    },
+    "physical_files": [
+      "sources/pms/legal_entities.csv"
+    ],
+    "row_count": 1
+  },
+  "pms/properties": {
+    "grain": "One physical property; CORP is not a property",
+    "primary_key": [
+      "property_id"
+    ],
+    "fields": [
+      "property_id",
+      "entity_id",
+      "property_name",
+      "city",
+      "state_code",
+      "country_code",
+      "time_zone",
+      "property_category",
+      "tenure",
+      "physical_keys",
+      "opened_date",
+      "active_from",
+      "active_through",
+      "currency"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "property_id": "string",
+      "entity_id": "string",
+      "property_name": "string",
+      "city": "string",
+      "state_code": "string",
+      "country_code": "string",
+      "time_zone": "string",
+      "property_category": "string",
+      "tenure": "string",
+      "physical_keys": "integer",
+      "opened_date": "date",
+      "active_from": "date",
+      "active_through": "date",
+      "currency": "string"
+    },
+    "physical_files": [
+      "sources/pms/properties.csv"
+    ],
+    "row_count": 3
+  },
+  "pms/room_types": {
+    "grain": "One property-specific room category",
+    "primary_key": [
+      "room_type_id"
+    ],
+    "fields": [
+      "room_type_id",
+      "property_id",
+      "type_name",
+      "keys",
+      "max_guests",
+      "has_kitchen",
+      "rate_multiplier"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "room_type_id": "string",
+      "property_id": "string",
+      "type_name": "string",
+      "keys": "integer",
+      "max_guests": "integer",
+      "has_kitchen": "boolean",
+      "rate_multiplier": "decimal"
+    },
+    "physical_files": [
+      "sources/pms/room_types.csv"
+    ],
+    "row_count": 9
+  },
+  "pms/rooms": {
+    "grain": "One room/apartment physical key",
+    "primary_key": [
+      "room_id"
+    ],
+    "fields": [
+      "room_id",
+      "property_id",
+      "room_type_id",
+      "room_number",
+      "floor_number",
+      "active_from",
+      "active_through",
+      "accessible"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "room_id": "string",
+      "property_id": "string",
+      "room_type_id": "string",
+      "room_number": "string",
+      "floor_number": "integer",
+      "active_from": "date",
+      "active_through": "date",
+      "accessible": "boolean"
+    },
+    "physical_files": [
+      "sources/pms/rooms.csv"
+    ],
+    "row_count": 156
+  },
+  "pms/rate_plans": {
+    "grain": "One effective-dated property rate-plan version",
+    "primary_key": [
+      "rate_plan_version_id"
+    ],
+    "fields": [
+      "rate_plan_version_id",
+      "property_id",
+      "rate_plan_code",
+      "effective_from",
+      "effective_through",
+      "minimum_nights",
+      "base_rate_usd",
+      "base_multiplier",
+      "refundable",
+      "tax_policy_id",
+      "pricing_note"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "rate_plan_version_id": "string",
+      "property_id": "string",
+      "rate_plan_code": "string",
+      "effective_from": "date",
+      "effective_through": "date",
+      "minimum_nights": "integer",
+      "base_rate_usd": "decimal(18,2)",
+      "base_multiplier": "decimal",
+      "refundable": "boolean",
+      "tax_policy_id": "string",
+      "pricing_note": "string"
+    },
+    "physical_files": [
+      "sources/pms/rate_plans.csv"
+    ],
+    "row_count": 30
+  },
+  "night_audit/tax_policies": {
+    "grain": "One synthetic hotel tax parameter; not a statutory rate",
+    "primary_key": [
+      "tax_policy_id"
+    ],
+    "fields": [
+      "tax_policy_id",
+      "property_id",
+      "effective_from",
+      "effective_through",
+      "lodging_tax_rate",
+      "ancillary_tax_rate",
+      "long_stay_exemption_applied",
+      "merchant_ota_remits_lodging_tax",
+      "assumption_note"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "tax_policy_id": "string",
+      "property_id": "string",
+      "effective_from": "date",
+      "effective_through": "date",
+      "lodging_tax_rate": "decimal",
+      "ancillary_tax_rate": "decimal",
+      "long_stay_exemption_applied": "boolean",
+      "merchant_ota_remits_lodging_tax": "boolean",
+      "assumption_note": "string"
+    },
+    "physical_files": [
+      "sources/night_audit/tax_policies.csv"
+    ],
+    "row_count": 3
+  },
+  "quickbooks/cost_centres": {
+    "grain": "One property or shared corporate accounting centre",
+    "primary_key": [
+      "cost_centre_id"
+    ],
+    "fields": [
+      "cost_centre_id",
+      "property_id",
+      "centre_name",
+      "capacity_keys"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "cost_centre_id": "string",
+      "property_id": "string",
+      "centre_name": "string",
+      "capacity_keys": "integer"
+    },
+    "physical_files": [
+      "sources/quickbooks/cost_centres.csv"
+    ],
+    "row_count": 4
+  },
+  "channel_manager/channels": {
+    "grain": "One synthetic distribution contract",
+    "primary_key": [
+      "channel_id"
+    ],
+    "fields": [
+      "channel_id",
+      "channel_name",
+      "collection_model",
+      "commission_rate",
+      "effective_from",
+      "effective_through",
+      "fee_assumption"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "channel_id": "string",
+      "channel_name": "string",
+      "collection_model": "string",
+      "commission_rate": "decimal",
+      "effective_from": "date",
+      "effective_through": "date",
+      "fee_assumption": "string"
+    },
+    "physical_files": [
+      "sources/channel_manager/channels.csv"
+    ],
+    "row_count": 5
+  },
+  "channel_manager/listings": {
+    "grain": "One OTA/property listing mapping",
+    "primary_key": [
+      "listing_id"
+    ],
+    "fields": [
+      "listing_id",
+      "channel_id",
+      "property_id",
+      "external_listing_id",
+      "pms_property_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "listing_id": "string",
+      "channel_id": "string",
+      "property_id": "string",
+      "external_listing_id": "string",
+      "pms_property_id": "string"
+    },
+    "physical_files": [
+      "sources/channel_manager/listings.csv"
+    ],
+    "row_count": 6
+  },
+  "corporate_billing/companies": {
+    "grain": "One synthetic corporate client",
+    "primary_key": [
+      "company_id"
+    ],
+    "fields": [
+      "company_id",
+      "company_name",
+      "billing_email",
+      "country_code",
+      "credit_limit_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "company_id": "string",
+      "company_name": "string",
+      "billing_email": "string",
+      "country_code": "string",
+      "credit_limit_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/corporate_billing/companies.csv"
+    ],
+    "row_count": 6
+  },
+  "corporate_billing/contracts": {
+    "grain": "One effective corporate/property agreement",
+    "primary_key": [
+      "contract_id"
+    ],
+    "fields": [
+      "contract_id",
+      "company_id",
+      "property_id",
+      "effective_from",
+      "effective_through",
+      "payment_terms_days",
+      "invoice_frequency",
+      "advance_percent",
+      "minimum_nights",
+      "rate_discount",
+      "security_deposit_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "contract_id": "string",
+      "company_id": "string",
+      "property_id": "string",
+      "effective_from": "date",
+      "effective_through": "date",
+      "payment_terms_days": "integer",
+      "invoice_frequency": "string",
+      "advance_percent": "decimal",
+      "minimum_nights": "integer",
+      "rate_discount": "decimal",
+      "security_deposit_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/corporate_billing/contracts.csv"
+    ],
+    "row_count": 18
+  },
+  "operations/work_orders": {
+    "grain": "One maintenance job with exclusive end date",
+    "primary_key": [
+      "work_order_id"
+    ],
+    "fields": [
+      "work_order_id",
+      "property_id",
+      "room_id",
+      "opened_date",
+      "planned_start_date",
+      "planned_end_date",
+      "actual_start_date",
+      "actual_completed_date",
+      "work_type",
+      "capitalized",
+      "block_id",
+      "approved_cost_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "work_order_id": "string",
+      "property_id": "string",
+      "room_id": "string",
+      "opened_date": "date",
+      "planned_start_date": "date",
+      "planned_end_date": "date",
+      "actual_start_date": "date",
+      "actual_completed_date": "date",
+      "work_type": "string",
+      "capitalized": "boolean",
+      "block_id": "string",
+      "approved_cost_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/operations/work_orders.csv"
+    ],
+    "row_count": 168
+  },
+  "availability/room_blocks": {
+    "grain": "One room closure interval; end_date exclusive",
+    "primary_key": [
+      "block_id"
+    ],
+    "fields": [
+      "block_id",
+      "room_id",
+      "property_id",
+      "start_date",
+      "end_date",
+      "block_status",
+      "work_order_id",
+      "reason",
+      "excluded_from_internal_availability"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "block_id": "string",
+      "room_id": "string",
+      "property_id": "string",
+      "start_date": "date",
+      "end_date": "date",
+      "block_status": "string",
+      "work_order_id": "string",
+      "reason": "string",
+      "excluded_from_internal_availability": "boolean"
+    },
+    "physical_files": [
+      "sources/availability/room_blocks.csv"
+    ],
+    "row_count": 168
+  },
+  "pms/reservations": {
+    "grain": "One room reservation snapshot; future confirmed != actual stay",
+    "primary_key": [
+      "reservation_id"
+    ],
+    "fields": [
+      "reservation_id",
+      "booking_id",
+      "property_id",
+      "guest_id",
+      "company_id",
+      "contract_id",
+      "channel_id",
+      "collection_model",
+      "booked_date",
+      "scheduled_checkin_date",
+      "scheduled_checkout_date",
+      "actual_checkin_date",
+      "actual_checkout_date",
+      "cancellation_date",
+      "status_as_of_cutoff",
+      "room_type_id",
+      "assigned_room_id",
+      "rate_plan_code",
+      "planned_nights",
+      "actual_consumed_nights",
+      "adults",
+      "stay_category",
+      "is_complimentary",
+      "is_house_use",
+      "prepaid",
+      "quoted_room_usd",
+      "quoted_lodging_tax_usd",
+      "quoted_total_usd",
+      "snapshot_date"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "reservation_id": "string",
+      "booking_id": "string",
+      "property_id": "string",
+      "guest_id": "string",
+      "company_id": "string",
+      "contract_id": "string",
+      "channel_id": "string",
+      "collection_model": "string",
+      "booked_date": "date",
+      "scheduled_checkin_date": "date",
+      "scheduled_checkout_date": "date",
+      "actual_checkin_date": "date",
+      "actual_checkout_date": "date",
+      "cancellation_date": "date",
+      "status_as_of_cutoff": "string",
+      "room_type_id": "string",
+      "assigned_room_id": "string",
+      "rate_plan_code": "string",
+      "planned_nights": "integer",
+      "actual_consumed_nights": "integer",
+      "adults": "integer",
+      "stay_category": "string",
+      "is_complimentary": "boolean",
+      "is_house_use": "boolean",
+      "prepaid": "boolean",
+      "quoted_room_usd": "decimal(18,2)",
+      "quoted_lodging_tax_usd": "decimal(18,2)",
+      "quoted_total_usd": "decimal(18,2)",
+      "snapshot_date": "date"
+    },
+    "physical_files": [
+      "sources/pms/reservations.csv"
+    ],
+    "row_count": 21371
+  },
+  "pms/reservation_history": {
+    "grain": "One recorded status/modification event; not a second booking",
+    "primary_key": [
+      "history_id"
+    ],
+    "fields": [
+      "history_id",
+      "reservation_id",
+      "event_date",
+      "event_type",
+      "previous_value",
+      "new_value",
+      "changed_by",
+      "event_sequence"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "history_id": "string",
+      "reservation_id": "string",
+      "event_date": "date",
+      "event_type": "string",
+      "previous_value": "string",
+      "new_value": "string",
+      "changed_by": "string",
+      "event_sequence": "integer"
+    },
+    "physical_files": [
+      "sources/pms/reservation_history.csv"
+    ],
+    "row_count": 62121
+  },
+  "pms/room_assignments": {
+    "grain": "One confirmed assignment per room reservation",
+    "primary_key": [
+      "assignment_id"
+    ],
+    "fields": [
+      "assignment_id",
+      "reservation_id",
+      "room_id",
+      "property_id",
+      "assigned_date",
+      "start_date",
+      "end_date",
+      "assignment_state"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "assignment_id": "string",
+      "reservation_id": "string",
+      "room_id": "string",
+      "property_id": "string",
+      "assigned_date": "date",
+      "start_date": "date",
+      "end_date": "date",
+      "assignment_state": "string"
+    },
+    "physical_files": [
+      "sources/pms/room_assignments.csv"
+    ],
+    "row_count": 21371
+  },
+  "pms/actual_stay_nights": {
+    "grain": "One actually consumed assigned room-night; checkout excluded",
+    "primary_key": [
+      "stay_night_id"
+    ],
+    "fields": [
+      "stay_night_id",
+      "reservation_id",
+      "property_id",
+      "room_id",
+      "service_date",
+      "stay_status",
+      "sold_nights",
+      "occupied_nights",
+      "rate_plan_version_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. All partitions form one logical table.",
+    "types": {
+      "stay_night_id": "string",
+      "reservation_id": "string",
+      "property_id": "string",
+      "room_id": "string",
+      "service_date": "date",
+      "stay_status": "string",
+      "sold_nights": "integer",
+      "occupied_nights": "integer",
+      "rate_plan_version_id": "string"
+    },
+    "physical_files": [
+      "sources/pms/actual_stay_nights/2024-11.csv",
+      "sources/pms/actual_stay_nights/2024-12.csv",
+      "sources/pms/actual_stay_nights/2025-01.csv",
+      "sources/pms/actual_stay_nights/2025-02.csv",
+      "sources/pms/actual_stay_nights/2025-03.csv",
+      "sources/pms/actual_stay_nights/2025-04.csv",
+      "sources/pms/actual_stay_nights/2025-05.csv",
+      "sources/pms/actual_stay_nights/2025-06.csv",
+      "sources/pms/actual_stay_nights/2025-07.csv",
+      "sources/pms/actual_stay_nights/2025-08.csv",
+      "sources/pms/actual_stay_nights/2025-09.csv",
+      "sources/pms/actual_stay_nights/2025-10.csv",
+      "sources/pms/actual_stay_nights/2025-11.csv",
+      "sources/pms/actual_stay_nights/2025-12.csv",
+      "sources/pms/actual_stay_nights/2026-01.csv",
+      "sources/pms/actual_stay_nights/2026-02.csv",
+      "sources/pms/actual_stay_nights/2026-03.csv",
+      "sources/pms/actual_stay_nights/2026-04.csv",
+      "sources/pms/actual_stay_nights/2026-05.csv",
+      "sources/pms/actual_stay_nights/2026-06.csv",
+      "sources/pms/actual_stay_nights/2026-07.csv",
+      "sources/pms/actual_stay_nights/2026-08.csv",
+      "sources/pms/actual_stay_nights/2026-09.csv",
+      "sources/pms/actual_stay_nights/2026-10.csv"
+    ],
+    "row_count": 76313
+  },
+  "pms/reservation_modifications": {
+    "grain": "One reservation amendment with old/new scheduled fields",
+    "primary_key": [
+      "modification_id"
+    ],
+    "fields": [
+      "modification_id",
+      "reservation_id",
+      "modified_date",
+      "field_name",
+      "old_value",
+      "new_value",
+      "reason"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "modification_id": "string",
+      "reservation_id": "string",
+      "modified_date": "date",
+      "field_name": "string",
+      "old_value": "string",
+      "new_value": "string",
+      "reason": "string"
+    },
+    "physical_files": [
+      "sources/pms/reservation_modifications.csv"
+    ],
+    "row_count": 739
+  },
+  "planning/on_books_nights": {
+    "grain": "One known booked future room-night at cutoff; not actual revenue",
+    "primary_key": [
+      "on_books_night_id"
+    ],
+    "fields": [
+      "on_books_night_id",
+      "snapshot_date",
+      "reservation_id",
+      "property_id",
+      "room_id",
+      "service_date",
+      "channel_id",
+      "collection_model",
+      "booked_room_usd",
+      "booked_lodging_tax_usd",
+      "contract_id",
+      "is_sold_commitment"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. All partitions form one logical table.",
+    "types": {
+      "on_books_night_id": "string",
+      "snapshot_date": "date",
+      "reservation_id": "string",
+      "property_id": "string",
+      "room_id": "string",
+      "service_date": "date",
+      "channel_id": "string",
+      "collection_model": "string",
+      "booked_room_usd": "decimal(18,2)",
+      "booked_lodging_tax_usd": "decimal(18,2)",
+      "contract_id": "string",
+      "is_sold_commitment": "boolean"
+    },
+    "physical_files": [
+      "sources/planning/on_books_nights/2026-11.csv",
+      "sources/planning/on_books_nights/2026-12.csv",
+      "sources/planning/on_books_nights/2027-01.csv"
+    ],
+    "row_count": 3661
+  },
+  "pms/bookings": {
+    "grain": "One single-room or multi-room booking group",
+    "primary_key": [
+      "booking_id"
+    ],
+    "fields": [
+      "booking_id",
+      "property_id",
+      "created_date",
+      "booker_guest_id",
+      "company_id",
+      "room_reservation_count"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "booking_id": "string",
+      "property_id": "string",
+      "created_date": "date",
+      "booker_guest_id": "string",
+      "company_id": "string",
+      "room_reservation_count": "integer"
+    },
+    "physical_files": [
+      "sources/pms/bookings.csv"
+    ],
+    "row_count": 19463
+  },
+  "pms/booking_rooms": {
+    "grain": "One booking-to-room-reservation mapping",
+    "primary_key": [
+      "booking_room_id"
+    ],
+    "fields": [
+      "booking_room_id",
+      "booking_id",
+      "reservation_id",
+      "room_sequence"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "booking_room_id": "string",
+      "booking_id": "string",
+      "reservation_id": "string",
+      "room_sequence": "integer"
+    },
+    "physical_files": [
+      "sources/pms/booking_rooms.csv"
+    ],
+    "row_count": 21371
+  },
+  "pms/guests": {
+    "grain": "One synthetic guest identifier; no personal data",
+    "primary_key": [
+      "guest_id"
+    ],
+    "fields": [
+      "guest_id",
+      "display_name",
+      "email",
+      "country_code"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "guest_id": "string",
+      "display_name": "string",
+      "email": "string",
+      "country_code": "string"
+    },
+    "physical_files": [
+      "sources/pms/guests.csv"
+    ],
+    "row_count": 13655
+  },
+  "availability/room_dates": {
+    "grain": "One physical room per service date; additive capacity measures",
+    "primary_key": [
+      "room_id",
+      "service_date"
+    ],
+    "fields": [
+      "room_id",
+      "property_id",
+      "service_date",
+      "physical_nights",
+      "out_of_order_nights",
+      "out_of_service_nights",
+      "available_nights",
+      "sold_nights",
+      "complimentary_nights",
+      "house_use_nights",
+      "occupied_nights",
+      "vacant_available_nights",
+      "arrivals_count",
+      "departures_count",
+      "same_day_turnovers_count",
+      "block_id",
+      "reservation_id",
+      "stay_night_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. All partitions form one logical table.",
+    "types": {
+      "room_id": "string",
+      "property_id": "string",
+      "service_date": "date",
+      "physical_nights": "integer",
+      "out_of_order_nights": "integer",
+      "out_of_service_nights": "integer",
+      "available_nights": "integer",
+      "sold_nights": "integer",
+      "complimentary_nights": "integer",
+      "house_use_nights": "integer",
+      "occupied_nights": "integer",
+      "vacant_available_nights": "integer",
+      "arrivals_count": "integer",
+      "departures_count": "integer",
+      "same_day_turnovers_count": "integer",
+      "block_id": "string",
+      "reservation_id": "string",
+      "stay_night_id": "string"
+    },
+    "physical_files": [
+      "sources/availability/room_dates/2024-11.csv",
+      "sources/availability/room_dates/2024-12.csv",
+      "sources/availability/room_dates/2025-01.csv",
+      "sources/availability/room_dates/2025-02.csv",
+      "sources/availability/room_dates/2025-03.csv",
+      "sources/availability/room_dates/2025-04.csv",
+      "sources/availability/room_dates/2025-05.csv",
+      "sources/availability/room_dates/2025-06.csv",
+      "sources/availability/room_dates/2025-07.csv",
+      "sources/availability/room_dates/2025-08.csv",
+      "sources/availability/room_dates/2025-09.csv",
+      "sources/availability/room_dates/2025-10.csv",
+      "sources/availability/room_dates/2025-11.csv",
+      "sources/availability/room_dates/2025-12.csv",
+      "sources/availability/room_dates/2026-01.csv",
+      "sources/availability/room_dates/2026-02.csv",
+      "sources/availability/room_dates/2026-03.csv",
+      "sources/availability/room_dates/2026-04.csv",
+      "sources/availability/room_dates/2026-05.csv",
+      "sources/availability/room_dates/2026-06.csv",
+      "sources/availability/room_dates/2026-07.csv",
+      "sources/availability/room_dates/2026-08.csv",
+      "sources/availability/room_dates/2026-09.csv",
+      "sources/availability/room_dates/2026-10.csv"
+    ],
+    "row_count": 113880
+  },
+  "planning/future_capacity": {
+    "grain": "One forecast date/property physical capacity assumption",
+    "primary_key": [
+      "property_id",
+      "service_date"
+    ],
+    "fields": [
+      "property_id",
+      "service_date",
+      "snapshot_date",
+      "physical_nights",
+      "known_closed_nights",
+      "available_nights",
+      "assumption_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "property_id": "string",
+      "service_date": "date",
+      "snapshot_date": "date",
+      "physical_nights": "integer",
+      "known_closed_nights": "integer",
+      "available_nights": "integer",
+      "assumption_id": "string"
+    },
+    "physical_files": [
+      "sources/planning/future_capacity.csv"
+    ],
+    "row_count": 273
+  },
+  "night_audit/folio_lines": {
+    "grain": "One earned service charge or credit; signed USD; invoices copy/reclass only",
+    "primary_key": [
+      "folio_line_id"
+    ],
+    "fields": [
+      "folio_line_id",
+      "folio_id",
+      "reservation_id",
+      "stay_night_id",
+      "property_id",
+      "service_date",
+      "posting_date",
+      "charge_type",
+      "original_folio_line_id",
+      "gross_amount_usd",
+      "discount_amount_usd",
+      "net_revenue_usd",
+      "tax_usd",
+      "total_charge_usd",
+      "receivable_account_code",
+      "revenue_account_code",
+      "tax_account_code",
+      "collection_model",
+      "currency"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. All partitions form one logical table.",
+    "types": {
+      "folio_line_id": "string",
+      "folio_id": "string",
+      "reservation_id": "string",
+      "stay_night_id": "string",
+      "property_id": "string",
+      "service_date": "date",
+      "posting_date": "date",
+      "charge_type": "string",
+      "original_folio_line_id": "string",
+      "gross_amount_usd": "decimal(18,2)",
+      "discount_amount_usd": "decimal(18,2)",
+      "net_revenue_usd": "decimal(18,2)",
+      "tax_usd": "decimal(18,2)",
+      "total_charge_usd": "decimal(18,2)",
+      "receivable_account_code": "string",
+      "revenue_account_code": "string",
+      "tax_account_code": "string",
+      "collection_model": "string",
+      "currency": "string"
+    },
+    "physical_files": [
+      "sources/night_audit/folio_lines/2024-11.csv",
+      "sources/night_audit/folio_lines/2024-12.csv",
+      "sources/night_audit/folio_lines/2025-01.csv",
+      "sources/night_audit/folio_lines/2025-02.csv",
+      "sources/night_audit/folio_lines/2025-03.csv",
+      "sources/night_audit/folio_lines/2025-04.csv",
+      "sources/night_audit/folio_lines/2025-05.csv",
+      "sources/night_audit/folio_lines/2025-06.csv",
+      "sources/night_audit/folio_lines/2025-07.csv",
+      "sources/night_audit/folio_lines/2025-08.csv",
+      "sources/night_audit/folio_lines/2025-09.csv",
+      "sources/night_audit/folio_lines/2025-10.csv",
+      "sources/night_audit/folio_lines/2025-11.csv",
+      "sources/night_audit/folio_lines/2025-12.csv",
+      "sources/night_audit/folio_lines/2026-01.csv",
+      "sources/night_audit/folio_lines/2026-02.csv",
+      "sources/night_audit/folio_lines/2026-03.csv",
+      "sources/night_audit/folio_lines/2026-04.csv",
+      "sources/night_audit/folio_lines/2026-05.csv",
+      "sources/night_audit/folio_lines/2026-06.csv",
+      "sources/night_audit/folio_lines/2026-07.csv",
+      "sources/night_audit/folio_lines/2026-08.csv",
+      "sources/night_audit/folio_lines/2026-09.csv",
+      "sources/night_audit/folio_lines/2026-10.csv"
+    ],
+    "row_count": 104085
+  },
+  "quickbooks/general_ledger": {
+    "grain": "One journal/account/property line; debit and credit unsigned USD",
+    "primary_key": [
+      "line_id"
+    ],
+    "fields": [
+      "line_id",
+      "journal_id",
+      "accounting_date",
+      "property_id",
+      "account_code",
+      "debit_usd",
+      "credit_usd",
+      "source_system",
+      "source_table",
+      "source_id",
+      "memo"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. All partitions form one logical table.",
+    "types": {
+      "line_id": "string",
+      "journal_id": "string",
+      "accounting_date": "date",
+      "property_id": "string",
+      "account_code": "string",
+      "debit_usd": "decimal(18,2)",
+      "credit_usd": "decimal(18,2)",
+      "source_system": "string",
+      "source_table": "string",
+      "source_id": "string",
+      "memo": "string"
+    },
+    "physical_files": [
+      "sources/quickbooks/general_ledger/2024-11.csv",
+      "sources/quickbooks/general_ledger/2024-12.csv",
+      "sources/quickbooks/general_ledger/2025-01.csv",
+      "sources/quickbooks/general_ledger/2025-02.csv",
+      "sources/quickbooks/general_ledger/2025-03.csv",
+      "sources/quickbooks/general_ledger/2025-04.csv",
+      "sources/quickbooks/general_ledger/2025-05.csv",
+      "sources/quickbooks/general_ledger/2025-06.csv",
+      "sources/quickbooks/general_ledger/2025-07.csv",
+      "sources/quickbooks/general_ledger/2025-08.csv",
+      "sources/quickbooks/general_ledger/2025-09.csv",
+      "sources/quickbooks/general_ledger/2025-10.csv",
+      "sources/quickbooks/general_ledger/2025-11.csv",
+      "sources/quickbooks/general_ledger/2025-12.csv",
+      "sources/quickbooks/general_ledger/2026-01.csv",
+      "sources/quickbooks/general_ledger/2026-02.csv",
+      "sources/quickbooks/general_ledger/2026-03.csv",
+      "sources/quickbooks/general_ledger/2026-04.csv",
+      "sources/quickbooks/general_ledger/2026-05.csv",
+      "sources/quickbooks/general_ledger/2026-06.csv",
+      "sources/quickbooks/general_ledger/2026-07.csv",
+      "sources/quickbooks/general_ledger/2026-08.csv",
+      "sources/quickbooks/general_ledger/2026-09.csv",
+      "sources/quickbooks/general_ledger/2026-10.csv"
+    ],
+    "row_count": 567058
+  },
+  "payments/transactions": {
+    "grain": "One successful actual gateway capture/refund; no bank deposit revenue",
+    "primary_key": [
+      "payment_id"
+    ],
+    "fields": [
+      "payment_id",
+      "reservation_id",
+      "property_id",
+      "transaction_date",
+      "transaction_type",
+      "purpose",
+      "parent_payment_id",
+      "folio_line_id",
+      "gross_amount_usd",
+      "processing_fee_usd",
+      "net_processor_usd",
+      "currency",
+      "liability_or_ar_account_code",
+      "status"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "payment_id": "string",
+      "reservation_id": "string",
+      "property_id": "string",
+      "transaction_date": "date",
+      "transaction_type": "string",
+      "purpose": "string",
+      "parent_payment_id": "string",
+      "folio_line_id": "string",
+      "gross_amount_usd": "decimal(18,2)",
+      "processing_fee_usd": "decimal(18,2)",
+      "net_processor_usd": "decimal(18,2)",
+      "currency": "string",
+      "liability_or_ar_account_code": "string",
+      "status": "string"
+    },
+    "physical_files": [
+      "sources/payments/transactions.csv"
+    ],
+    "row_count": 20177
+  },
+  "payments/applications": {
+    "grain": "One non-cash guest deposit application to an earned folio charge",
+    "primary_key": [
+      "application_id"
+    ],
+    "fields": [
+      "application_id",
+      "payment_id",
+      "reservation_id",
+      "folio_line_id",
+      "property_id",
+      "application_date",
+      "amount_usd",
+      "from_account_code",
+      "to_account_code"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "application_id": "string",
+      "payment_id": "string",
+      "reservation_id": "string",
+      "folio_line_id": "string",
+      "property_id": "string",
+      "application_date": "date",
+      "amount_usd": "decimal(18,2)",
+      "from_account_code": "string",
+      "to_account_code": "string"
+    },
+    "physical_files": [
+      "sources/payments/applications.csv"
+    ],
+    "row_count": 52958
+  },
+  "channel_manager/commissions": {
+    "grain": "One commission accrual or adjustment linked to earned folio line",
+    "primary_key": [
+      "commission_id"
+    ],
+    "fields": [
+      "commission_id",
+      "reservation_id",
+      "folio_line_id",
+      "property_id",
+      "channel_id",
+      "service_date",
+      "commission_base_usd",
+      "commission_rate",
+      "commission_usd",
+      "adjustment_type",
+      "settlement_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "commission_id": "string",
+      "reservation_id": "string",
+      "folio_line_id": "string",
+      "property_id": "string",
+      "channel_id": "string",
+      "service_date": "date",
+      "commission_base_usd": "decimal(18,2)",
+      "commission_rate": "decimal",
+      "commission_usd": "decimal(18,2)",
+      "adjustment_type": "string",
+      "settlement_id": "string"
+    },
+    "physical_files": [
+      "sources/channel_manager/commissions.csv"
+    ],
+    "row_count": 22140
+  },
+  "corporate_billing/prepayments": {
+    "grain": "One actual corporate advance; application later is non-cash",
+    "primary_key": [
+      "prepayment_id"
+    ],
+    "fields": [
+      "prepayment_id",
+      "reservation_id",
+      "company_id",
+      "property_id",
+      "payment_date",
+      "amount_usd",
+      "bank_transaction_id",
+      "applied_usd",
+      "open_amount_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "prepayment_id": "string",
+      "reservation_id": "string",
+      "company_id": "string",
+      "property_id": "string",
+      "payment_date": "date",
+      "amount_usd": "decimal(18,2)",
+      "bank_transaction_id": "string",
+      "applied_usd": "decimal(18,2)",
+      "open_amount_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/corporate_billing/prepayments.csv"
+    ],
+    "row_count": 1234
+  },
+  "payments/security_movements": {
+    "grain": "One refundable security cash movement; signed receipts positive",
+    "primary_key": [
+      "security_movement_id"
+    ],
+    "fields": [
+      "security_movement_id",
+      "reservation_id",
+      "property_id",
+      "movement_date",
+      "movement_type",
+      "amount_usd",
+      "payment_id",
+      "bank_transaction_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "security_movement_id": "string",
+      "reservation_id": "string",
+      "property_id": "string",
+      "movement_date": "date",
+      "movement_type": "string",
+      "amount_usd": "decimal(18,2)",
+      "payment_id": "string",
+      "bank_transaction_id": "string"
+    },
+    "physical_files": [
+      "sources/payments/security_movements.csv"
+    ],
+    "row_count": 1761
+  },
+  "payments/payouts": {
+    "grain": "One initiated gateway payout; blank bank date means in transit",
+    "primary_key": [
+      "payout_id"
+    ],
+    "fields": [
+      "payout_id",
+      "property_id",
+      "created_date",
+      "expected_bank_date",
+      "actual_bank_date",
+      "gross_usd",
+      "fees_usd",
+      "net_payout_usd",
+      "balance_transaction_count",
+      "bank_transaction_id",
+      "status"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "payout_id": "string",
+      "property_id": "string",
+      "created_date": "date",
+      "expected_bank_date": "date",
+      "actual_bank_date": "date",
+      "gross_usd": "decimal(18,2)",
+      "fees_usd": "decimal(18,2)",
+      "net_payout_usd": "decimal(18,2)",
+      "balance_transaction_count": "integer",
+      "bank_transaction_id": "string",
+      "status": "string"
+    },
+    "physical_files": [
+      "sources/payments/payouts.csv"
+    ],
+    "row_count": 310
+  },
+  "payments/balance_transactions": {
+    "grain": "One processor ledger transaction linked once to a payment",
+    "primary_key": [
+      "balance_transaction_id"
+    ],
+    "fields": [
+      "balance_transaction_id",
+      "payment_id",
+      "property_id",
+      "transaction_date",
+      "expected_available_date",
+      "actual_available_date",
+      "gross_usd",
+      "fee_usd",
+      "net_usd",
+      "payout_id",
+      "status_as_of_cutoff"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "balance_transaction_id": "string",
+      "payment_id": "string",
+      "property_id": "string",
+      "transaction_date": "date",
+      "expected_available_date": "date",
+      "actual_available_date": "date",
+      "gross_usd": "decimal(18,2)",
+      "fee_usd": "decimal(18,2)",
+      "net_usd": "decimal(18,2)",
+      "payout_id": "string",
+      "status_as_of_cutoff": "string"
+    },
+    "physical_files": [
+      "sources/payments/balance_transactions.csv"
+    ],
+    "row_count": 20177
+  },
+  "channel_manager/reservations": {
+    "grain": "One OTA reference mapped to PMS reservation",
+    "primary_key": [
+      "ota_reservation_id"
+    ],
+    "fields": [
+      "ota_reservation_id",
+      "reservation_id",
+      "listing_id",
+      "channel_id",
+      "collection_model",
+      "external_booking_reference",
+      "booked_date",
+      "status_as_of_cutoff",
+      "quoted_room_usd",
+      "quoted_tax_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "ota_reservation_id": "string",
+      "reservation_id": "string",
+      "listing_id": "string",
+      "channel_id": "string",
+      "collection_model": "string",
+      "external_booking_reference": "string",
+      "booked_date": "date",
+      "status_as_of_cutoff": "string",
+      "quoted_room_usd": "decimal(18,2)",
+      "quoted_tax_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/channel_manager/reservations.csv"
+    ],
+    "row_count": 8628
+  },
+  "channel_manager/settlements": {
+    "grain": "One merchant release batch or expected unreleased settlement at cutoff",
+    "primary_key": [
+      "settlement_id"
+    ],
+    "fields": [
+      "settlement_id",
+      "property_id",
+      "channel_id",
+      "expected_release_date",
+      "actual_release_date",
+      "expected_bank_date",
+      "actual_bank_date",
+      "gross_folio_usd",
+      "commission_withheld_usd",
+      "ota_remitted_tax_usd",
+      "net_payout_usd",
+      "bank_transaction_id",
+      "status"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "settlement_id": "string",
+      "property_id": "string",
+      "channel_id": "string",
+      "expected_release_date": "date",
+      "actual_release_date": "date",
+      "expected_bank_date": "date",
+      "actual_bank_date": "date",
+      "gross_folio_usd": "decimal(18,2)",
+      "commission_withheld_usd": "decimal(18,2)",
+      "ota_remitted_tax_usd": "decimal(18,2)",
+      "net_payout_usd": "decimal(18,2)",
+      "bank_transaction_id": "string",
+      "status": "string"
+    },
+    "physical_files": [
+      "sources/channel_manager/settlements.csv"
+    ],
+    "row_count": 254
+  },
+  "channel_manager/settlement_lines": {
+    "grain": "One earned folio component mapped to merchant settlement",
+    "primary_key": [
+      "settlement_line_id"
+    ],
+    "fields": [
+      "settlement_line_id",
+      "settlement_id",
+      "reservation_id",
+      "folio_line_id",
+      "property_id",
+      "gross_folio_usd",
+      "commission_usd",
+      "ota_tax_usd",
+      "net_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "settlement_line_id": "string",
+      "settlement_id": "string",
+      "reservation_id": "string",
+      "folio_line_id": "string",
+      "property_id": "string",
+      "gross_folio_usd": "decimal(18,2)",
+      "commission_usd": "decimal(18,2)",
+      "ota_tax_usd": "decimal(18,2)",
+      "net_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/channel_manager/settlement_lines.csv"
+    ],
+    "row_count": 8963
+  },
+  "channel_manager/agency_invoices": {
+    "grain": "One accrued agency commission period; payment clears payable only",
+    "primary_key": [
+      "agency_invoice_id"
+    ],
+    "fields": [
+      "agency_invoice_id",
+      "property_id",
+      "channel_id",
+      "service_month",
+      "invoice_date",
+      "due_date",
+      "commission_usd",
+      "paid_usd",
+      "open_usd",
+      "actual_payment_date",
+      "bank_transaction_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "agency_invoice_id": "string",
+      "property_id": "string",
+      "channel_id": "string",
+      "service_month": "month",
+      "invoice_date": "date",
+      "due_date": "date",
+      "commission_usd": "decimal(18,2)",
+      "paid_usd": "decimal(18,2)",
+      "open_usd": "decimal(18,2)",
+      "actual_payment_date": "date",
+      "bank_transaction_id": "string"
+    },
+    "physical_files": [
+      "sources/channel_manager/agency_invoices.csv"
+    ],
+    "row_count": 72
+  },
+  "corporate_billing/invoice_lines": {
+    "grain": "One corporate invoice line mapped to one earned folio line",
+    "primary_key": [
+      "invoice_line_id"
+    ],
+    "fields": [
+      "invoice_line_id",
+      "invoice_id",
+      "folio_line_id",
+      "reservation_id",
+      "property_id",
+      "service_date",
+      "net_usd",
+      "tax_usd",
+      "total_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "invoice_line_id": "string",
+      "invoice_id": "string",
+      "folio_line_id": "string",
+      "reservation_id": "string",
+      "property_id": "string",
+      "service_date": "date",
+      "net_usd": "decimal(18,2)",
+      "tax_usd": "decimal(18,2)",
+      "total_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/corporate_billing/invoice_lines.csv"
+    ],
+    "row_count": 38248
+  },
+  "corporate_billing/receipt_applications": {
+    "grain": "One cash receipt or non-cash prepayment application to an invoice",
+    "primary_key": [
+      "application_id"
+    ],
+    "fields": [
+      "application_id",
+      "invoice_id",
+      "receipt_id",
+      "prepayment_id",
+      "application_date",
+      "property_id",
+      "amount_usd",
+      "application_type"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "application_id": "string",
+      "invoice_id": "string",
+      "receipt_id": "string",
+      "prepayment_id": "string",
+      "application_date": "date",
+      "property_id": "string",
+      "amount_usd": "decimal(18,2)",
+      "application_type": "string"
+    },
+    "physical_files": [
+      "sources/corporate_billing/receipt_applications.csv"
+    ],
+    "row_count": 2040
+  },
+  "corporate_billing/receipts": {
+    "grain": "One actual corporate bank receipt; partial allocation explicit",
+    "primary_key": [
+      "receipt_id"
+    ],
+    "fields": [
+      "receipt_id",
+      "company_id",
+      "property_id",
+      "receipt_date",
+      "amount_usd",
+      "bank_transaction_id",
+      "remittance_reference"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "receipt_id": "string",
+      "company_id": "string",
+      "property_id": "string",
+      "receipt_date": "date",
+      "amount_usd": "decimal(18,2)",
+      "bank_transaction_id": "string",
+      "remittance_reference": "string"
+    },
+    "physical_files": [
+      "sources/corporate_billing/receipts.csv"
+    ],
+    "row_count": 798
+  },
+  "corporate_billing/invoices": {
+    "grain": "One corporate company/property/service-month earned invoice",
+    "primary_key": [
+      "invoice_id"
+    ],
+    "fields": [
+      "invoice_id",
+      "company_id",
+      "contract_id",
+      "property_id",
+      "service_month",
+      "invoice_date",
+      "due_date",
+      "net_usd",
+      "tax_usd",
+      "total_usd",
+      "prepayment_applied_usd",
+      "cash_applied_usd",
+      "open_ar_usd",
+      "days_past_due_at_cutoff",
+      "aging_bucket",
+      "expected_collection_date",
+      "snapshot_date"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "invoice_id": "string",
+      "company_id": "string",
+      "contract_id": "string",
+      "property_id": "string",
+      "service_month": "month",
+      "invoice_date": "date",
+      "due_date": "date",
+      "net_usd": "decimal(18,2)",
+      "tax_usd": "decimal(18,2)",
+      "total_usd": "decimal(18,2)",
+      "prepayment_applied_usd": "decimal(18,2)",
+      "cash_applied_usd": "decimal(18,2)",
+      "open_ar_usd": "decimal(18,2)",
+      "days_past_due_at_cutoff": "integer",
+      "aging_bucket": "string",
+      "expected_collection_date": "date",
+      "snapshot_date": "date"
+    },
+    "physical_files": [
+      "sources/corporate_billing/invoices.csv"
+    ],
+    "row_count": 432
+  },
+  "corporate_billing/group_blocks": {
+    "grain": "One contracted room allotment interval; no occupancy until reservation pickup",
+    "primary_key": [
+      "group_block_id"
+    ],
+    "fields": [
+      "group_block_id",
+      "company_id",
+      "property_id",
+      "created_date",
+      "arrival_date",
+      "departure_date",
+      "allotted_rooms",
+      "release_date",
+      "contract_id",
+      "block_status",
+      "is_sold_room_night"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "group_block_id": "string",
+      "company_id": "string",
+      "property_id": "string",
+      "created_date": "date",
+      "arrival_date": "date",
+      "departure_date": "date",
+      "allotted_rooms": "integer",
+      "release_date": "date",
+      "contract_id": "string",
+      "block_status": "string",
+      "is_sold_room_night": "boolean"
+    },
+    "physical_files": [
+      "sources/corporate_billing/group_blocks.csv"
+    ],
+    "row_count": 72
+  },
+  "corporate_billing/group_pickups": {
+    "grain": "One picked-up reservation mapped to a group block",
+    "primary_key": [
+      "group_pickup_id"
+    ],
+    "fields": [
+      "group_pickup_id",
+      "group_block_id",
+      "reservation_id",
+      "picked_up_rooms"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "group_pickup_id": "string",
+      "group_block_id": "string",
+      "reservation_id": "string",
+      "picked_up_rooms": "integer"
+    },
+    "physical_files": [
+      "sources/corporate_billing/group_pickups.csv"
+    ],
+    "row_count": 66
+  },
+  "night_audit/folios": {
+    "grain": "One reservation folio aggregate; earned charges only",
+    "primary_key": [
+      "folio_id"
+    ],
+    "fields": [
+      "folio_id",
+      "reservation_id",
+      "property_id",
+      "net_revenue_usd",
+      "tax_usd",
+      "total_charge_usd",
+      "guest_open_ar_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "folio_id": "string",
+      "reservation_id": "string",
+      "property_id": "string",
+      "net_revenue_usd": "decimal(18,2)",
+      "tax_usd": "decimal(18,2)",
+      "total_charge_usd": "decimal(18,2)",
+      "guest_open_ar_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/night_audit/folios.csv"
+    ],
+    "row_count": 21371
+  },
+  "procurement/vendors": {
+    "grain": "One fictional supplier or synthetic platform billing vendor",
+    "primary_key": [
+      "vendor_id"
+    ],
+    "fields": [
+      "vendor_id",
+      "vendor_name",
+      "category",
+      "payment_terms_days",
+      "email",
+      "currency"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "vendor_id": "string",
+      "vendor_name": "string",
+      "category": "string",
+      "payment_terms_days": "integer",
+      "email": "string",
+      "currency": "string"
+    },
+    "physical_files": [
+      "sources/procurement/vendors.csv"
+    ],
+    "row_count": 13
+  },
+  "gusto/employees": {
+    "grain": "One synthetic employee with employment dates",
+    "primary_key": [
+      "employee_id"
+    ],
+    "fields": [
+      "employee_id",
+      "display_name",
+      "email",
+      "home_property_id",
+      "role",
+      "pay_type",
+      "hire_date",
+      "termination_date",
+      "status_as_of_cutoff"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "employee_id": "string",
+      "display_name": "string",
+      "email": "string",
+      "home_property_id": "string",
+      "role": "string",
+      "pay_type": "string",
+      "hire_date": "date",
+      "termination_date": "date",
+      "status_as_of_cutoff": "string"
+    },
+    "physical_files": [
+      "sources/gusto/employees.csv"
+    ],
+    "row_count": 33
+  },
+  "gusto/compensation_history": {
+    "grain": "One effective pay rate; hourly vs annual salary in separate columns",
+    "primary_key": [
+      "compensation_id"
+    ],
+    "fields": [
+      "compensation_id",
+      "employee_id",
+      "effective_from",
+      "effective_through",
+      "hourly_rate_usd",
+      "annual_salary_usd",
+      "employee_withholding_rate",
+      "employer_payroll_tax_rate",
+      "case_policy"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "compensation_id": "string",
+      "employee_id": "string",
+      "effective_from": "date",
+      "effective_through": "date",
+      "hourly_rate_usd": "decimal(18,2)",
+      "annual_salary_usd": "decimal(18,2)",
+      "employee_withholding_rate": "decimal",
+      "employer_payroll_tax_rate": "decimal",
+      "case_policy": "string"
+    },
+    "physical_files": [
+      "sources/gusto/compensation_history.csv"
+    ],
+    "row_count": 66
+  },
+  "gusto/work_schedules": {
+    "grain": "One planned employee workday; absence tracked in actual hours",
+    "primary_key": [
+      "schedule_id"
+    ],
+    "fields": [
+      "schedule_id",
+      "employee_id",
+      "property_id",
+      "work_date",
+      "planned_minutes",
+      "planned_role"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "schedule_id": "string",
+      "employee_id": "string",
+      "property_id": "string",
+      "work_date": "date",
+      "planned_minutes": "integer",
+      "planned_role": "string"
+    },
+    "physical_files": [
+      "sources/gusto/work_schedules.csv"
+    ],
+    "row_count": 17207
+  },
+  "gusto/time_entries": {
+    "grain": "One approved employee workday; overtime assigned over 40 hours in Monday week",
+    "primary_key": [
+      "time_entry_id"
+    ],
+    "fields": [
+      "time_entry_id",
+      "employee_id",
+      "property_id",
+      "work_date",
+      "week_start_date",
+      "regular_minutes",
+      "overtime_minutes",
+      "total_minutes",
+      "approved_housekeeping_minutes",
+      "absence_minutes",
+      "compensation_id",
+      "approval_status"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. All partitions form one logical table.",
+    "types": {
+      "time_entry_id": "string",
+      "employee_id": "string",
+      "property_id": "string",
+      "work_date": "date",
+      "week_start_date": "date",
+      "regular_minutes": "integer",
+      "overtime_minutes": "integer",
+      "total_minutes": "integer",
+      "approved_housekeeping_minutes": "integer",
+      "absence_minutes": "integer",
+      "compensation_id": "string",
+      "approval_status": "string"
+    },
+    "physical_files": [
+      "sources/gusto/time_entries/2024-11.csv",
+      "sources/gusto/time_entries/2024-12.csv",
+      "sources/gusto/time_entries/2025-01.csv",
+      "sources/gusto/time_entries/2025-02.csv",
+      "sources/gusto/time_entries/2025-03.csv",
+      "sources/gusto/time_entries/2025-04.csv",
+      "sources/gusto/time_entries/2025-05.csv",
+      "sources/gusto/time_entries/2025-06.csv",
+      "sources/gusto/time_entries/2025-07.csv",
+      "sources/gusto/time_entries/2025-08.csv",
+      "sources/gusto/time_entries/2025-09.csv",
+      "sources/gusto/time_entries/2025-10.csv",
+      "sources/gusto/time_entries/2025-11.csv",
+      "sources/gusto/time_entries/2025-12.csv",
+      "sources/gusto/time_entries/2026-01.csv",
+      "sources/gusto/time_entries/2026-02.csv",
+      "sources/gusto/time_entries/2026-03.csv",
+      "sources/gusto/time_entries/2026-04.csv",
+      "sources/gusto/time_entries/2026-05.csv",
+      "sources/gusto/time_entries/2026-06.csv",
+      "sources/gusto/time_entries/2026-07.csv",
+      "sources/gusto/time_entries/2026-08.csv",
+      "sources/gusto/time_entries/2026-09.csv",
+      "sources/gusto/time_entries/2026-10.csv"
+    ],
+    "row_count": 17207
+  },
+  "operations/housekeeping_tasks": {
+    "grain": "One approved completed cleaning task, linked to actual stay/departure",
+    "primary_key": [
+      "task_id"
+    ],
+    "fields": [
+      "task_id",
+      "property_id",
+      "room_id",
+      "reservation_id",
+      "service_date",
+      "task_type",
+      "employee_id",
+      "contractor_vendor_id",
+      "planned_minutes",
+      "approved_work_minutes",
+      "actual_completed_date",
+      "linen_sets",
+      "laundry_cost_usd",
+      "consumables_cost_usd",
+      "agency_cost_usd",
+      "status",
+      "cost_posting_policy"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. All partitions form one logical table.",
+    "types": {
+      "task_id": "string",
+      "property_id": "string",
+      "room_id": "string",
+      "reservation_id": "string",
+      "service_date": "date",
+      "task_type": "string",
+      "employee_id": "string",
+      "contractor_vendor_id": "string",
+      "planned_minutes": "integer",
+      "approved_work_minutes": "integer",
+      "actual_completed_date": "date",
+      "linen_sets": "integer",
+      "laundry_cost_usd": "decimal(18,2)",
+      "consumables_cost_usd": "decimal(18,2)",
+      "agency_cost_usd": "decimal(18,2)",
+      "status": "string",
+      "cost_posting_policy": "string"
+    },
+    "physical_files": [
+      "sources/operations/housekeeping_tasks/2024-11.csv",
+      "sources/operations/housekeeping_tasks/2024-12.csv",
+      "sources/operations/housekeeping_tasks/2025-01.csv",
+      "sources/operations/housekeeping_tasks/2025-02.csv",
+      "sources/operations/housekeeping_tasks/2025-03.csv",
+      "sources/operations/housekeeping_tasks/2025-04.csv",
+      "sources/operations/housekeeping_tasks/2025-05.csv",
+      "sources/operations/housekeeping_tasks/2025-06.csv",
+      "sources/operations/housekeeping_tasks/2025-07.csv",
+      "sources/operations/housekeeping_tasks/2025-08.csv",
+      "sources/operations/housekeeping_tasks/2025-09.csv",
+      "sources/operations/housekeeping_tasks/2025-10.csv",
+      "sources/operations/housekeeping_tasks/2025-11.csv",
+      "sources/operations/housekeeping_tasks/2025-12.csv",
+      "sources/operations/housekeeping_tasks/2026-01.csv",
+      "sources/operations/housekeeping_tasks/2026-02.csv",
+      "sources/operations/housekeeping_tasks/2026-03.csv",
+      "sources/operations/housekeeping_tasks/2026-04.csv",
+      "sources/operations/housekeeping_tasks/2026-05.csv",
+      "sources/operations/housekeeping_tasks/2026-06.csv",
+      "sources/operations/housekeeping_tasks/2026-07.csv",
+      "sources/operations/housekeeping_tasks/2026-08.csv",
+      "sources/operations/housekeeping_tasks/2026-09.csv",
+      "sources/operations/housekeeping_tasks/2026-10.csv"
+    ],
+    "row_count": 55543
+  },
+  "operations/linen_logs": {
+    "grain": "One approved linen/laundry usage log per cleaning task",
+    "primary_key": [
+      "linen_log_id"
+    ],
+    "fields": [
+      "linen_log_id",
+      "task_id",
+      "property_id",
+      "service_date",
+      "linen_sets",
+      "unit_laundry_cost_usd",
+      "total_laundry_usd",
+      "vendor_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "linen_log_id": "string",
+      "task_id": "string",
+      "property_id": "string",
+      "service_date": "date",
+      "linen_sets": "integer",
+      "unit_laundry_cost_usd": "decimal(18,2)",
+      "total_laundry_usd": "decimal(18,2)",
+      "vendor_id": "string"
+    },
+    "physical_files": [
+      "sources/operations/linen_logs.csv"
+    ],
+    "row_count": 55543
+  },
+  "operations/agency_shifts": {
+    "grain": "One approved property/day agency support shift",
+    "primary_key": [
+      "agency_shift_id"
+    ],
+    "fields": [
+      "agency_shift_id",
+      "property_id",
+      "work_date",
+      "vendor_id",
+      "approved_minutes",
+      "rooms_serviced",
+      "approved_cost_usd",
+      "worker_count"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "agency_shift_id": "string",
+      "property_id": "string",
+      "work_date": "date",
+      "vendor_id": "string",
+      "approved_minutes": "integer",
+      "rooms_serviced": "integer",
+      "approved_cost_usd": "decimal(18,2)",
+      "worker_count": "integer"
+    },
+    "physical_files": [
+      "sources/operations/agency_shifts.csv"
+    ],
+    "row_count": 42
+  },
+  "gusto/payroll_details": {
+    "grain": "One employee semi-monthly gross-to-net earned payroll line",
+    "primary_key": [
+      "payroll_detail_id"
+    ],
+    "fields": [
+      "payroll_detail_id",
+      "payroll_run_id",
+      "employee_id",
+      "property_id",
+      "period_id",
+      "regular_minutes",
+      "overtime_minutes",
+      "gross_pay_usd",
+      "employee_withholding_usd",
+      "net_pay_usd",
+      "employer_tax_usd",
+      "employer_benefit_usd",
+      "total_employer_cost_usd",
+      "wage_account_code"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "payroll_detail_id": "string",
+      "payroll_run_id": "string",
+      "employee_id": "string",
+      "property_id": "string",
+      "period_id": "string",
+      "regular_minutes": "integer",
+      "overtime_minutes": "integer",
+      "gross_pay_usd": "decimal(18,2)",
+      "employee_withholding_usd": "decimal(18,2)",
+      "net_pay_usd": "decimal(18,2)",
+      "employer_tax_usd": "decimal(18,2)",
+      "employer_benefit_usd": "decimal(18,2)",
+      "total_employer_cost_usd": "decimal(18,2)",
+      "wage_account_code": "string"
+    },
+    "physical_files": [
+      "sources/gusto/payroll_details.csv"
+    ],
+    "row_count": 1584
+  },
+  "gusto/payroll_runs": {
+    "grain": "One earned semi-monthly payroll; funding may be after cutoff",
+    "primary_key": [
+      "payroll_run_id"
+    ],
+    "fields": [
+      "payroll_run_id",
+      "period_start_date",
+      "period_end_date",
+      "earned_date",
+      "scheduled_funding_date",
+      "actual_funding_date",
+      "gross_pay_usd",
+      "net_pay_usd",
+      "withholding_usd",
+      "employer_tax_usd",
+      "employer_benefit_usd",
+      "total_employer_cost_usd",
+      "status"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "payroll_run_id": "string",
+      "period_start_date": "date",
+      "period_end_date": "date",
+      "earned_date": "date",
+      "scheduled_funding_date": "date",
+      "actual_funding_date": "date",
+      "gross_pay_usd": "decimal(18,2)",
+      "net_pay_usd": "decimal(18,2)",
+      "withholding_usd": "decimal(18,2)",
+      "employer_tax_usd": "decimal(18,2)",
+      "employer_benefit_usd": "decimal(18,2)",
+      "total_employer_cost_usd": "decimal(18,2)",
+      "status": "string"
+    },
+    "physical_files": [
+      "sources/gusto/payroll_runs.csv"
+    ],
+    "row_count": 48
+  },
+  "gusto/funding": {
+    "grain": "One payroll/property funding component or known unpaid obligation",
+    "primary_key": [
+      "funding_id"
+    ],
+    "fields": [
+      "funding_id",
+      "payroll_run_id",
+      "property_id",
+      "funding_type",
+      "payable_account_code",
+      "due_date",
+      "actual_payment_date",
+      "amount_usd",
+      "open_payable_usd",
+      "bank_transaction_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "funding_id": "string",
+      "payroll_run_id": "string",
+      "property_id": "string",
+      "funding_type": "string",
+      "payable_account_code": "string",
+      "due_date": "date",
+      "actual_payment_date": "date",
+      "amount_usd": "decimal(18,2)",
+      "open_payable_usd": "decimal(18,2)",
+      "bank_transaction_id": "string"
+    },
+    "physical_files": [
+      "sources/gusto/funding.csv"
+    ],
+    "row_count": 384
+  },
+  "procurement/purchase_orders": {
+    "grain": "One approved vendor order; commitments differ from bills and cash",
+    "primary_key": [
+      "purchase_order_id"
+    ],
+    "fields": [
+      "purchase_order_id",
+      "property_id",
+      "vendor_id",
+      "approved_date",
+      "expected_receipt_date",
+      "ordered_total_usd",
+      "received_total_usd",
+      "unreceived_commitment_usd",
+      "status",
+      "contract_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "purchase_order_id": "string",
+      "property_id": "string",
+      "vendor_id": "string",
+      "approved_date": "date",
+      "expected_receipt_date": "date",
+      "ordered_total_usd": "decimal(18,2)",
+      "received_total_usd": "decimal(18,2)",
+      "unreceived_commitment_usd": "decimal(18,2)",
+      "status": "string",
+      "contract_id": "string"
+    },
+    "physical_files": [
+      "sources/procurement/purchase_orders.csv"
+    ],
+    "row_count": 271
+  },
+  "procurement/receipts": {
+    "grain": "One actual accepted goods/service receipt; not a second expense",
+    "primary_key": [
+      "receipt_id"
+    ],
+    "fields": [
+      "receipt_id",
+      "purchase_order_id",
+      "property_id",
+      "vendor_id",
+      "received_date",
+      "accepted_value_usd",
+      "bill_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "receipt_id": "string",
+      "purchase_order_id": "string",
+      "property_id": "string",
+      "vendor_id": "string",
+      "received_date": "date",
+      "accepted_value_usd": "decimal(18,2)",
+      "bill_id": "string"
+    },
+    "physical_files": [
+      "sources/procurement/receipts.csv"
+    ],
+    "row_count": 270
+  },
+  "quickbooks/bills": {
+    "grain": "One vendor bill recognized once in GL; amount_paid applications below",
+    "primary_key": [
+      "bill_id"
+    ],
+    "fields": [
+      "bill_id",
+      "vendor_id",
+      "property_id",
+      "invoice_date",
+      "service_month",
+      "due_date",
+      "purchase_order_id",
+      "receipt_id",
+      "source_reference",
+      "bill_type",
+      "total_usd",
+      "paid_usd",
+      "open_ap_usd",
+      "currency",
+      "expected_payment_date"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "bill_id": "string",
+      "vendor_id": "string",
+      "property_id": "string",
+      "invoice_date": "date",
+      "service_month": "month",
+      "due_date": "date",
+      "purchase_order_id": "string",
+      "receipt_id": "string",
+      "source_reference": "string",
+      "bill_type": "string",
+      "total_usd": "decimal(18,2)",
+      "paid_usd": "decimal(18,2)",
+      "open_ap_usd": "decimal(18,2)",
+      "currency": "string",
+      "expected_payment_date": "date"
+    },
+    "physical_files": [
+      "sources/quickbooks/bills.csv"
+    ],
+    "row_count": 702
+  },
+  "quickbooks/bill_lines": {
+    "grain": "One vendor bill account/source detail; operational detail is supporting, not additive",
+    "primary_key": [
+      "bill_line_id"
+    ],
+    "fields": [
+      "bill_line_id",
+      "bill_id",
+      "property_id",
+      "account_code",
+      "description",
+      "quantity",
+      "unit_cost_usd",
+      "line_amount_usd",
+      "source_table",
+      "source_id",
+      "purchase_order_line_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "bill_line_id": "string",
+      "bill_id": "string",
+      "property_id": "string",
+      "account_code": "string",
+      "description": "string",
+      "quantity": "integer",
+      "unit_cost_usd": "decimal(18,2)",
+      "line_amount_usd": "decimal(18,2)",
+      "source_table": "string",
+      "source_id": "string",
+      "purchase_order_line_id": "string"
+    },
+    "physical_files": [
+      "sources/quickbooks/bill_lines.csv"
+    ],
+    "row_count": 702
+  },
+  "procurement/purchase_order_lines": {
+    "grain": "One ordered item/service line",
+    "primary_key": [
+      "purchase_order_line_id"
+    ],
+    "fields": [
+      "purchase_order_line_id",
+      "purchase_order_id",
+      "description",
+      "quantity",
+      "unit_cost_usd",
+      "ordered_value_usd",
+      "received_value_usd",
+      "open_value_usd",
+      "account_code"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "purchase_order_line_id": "string",
+      "purchase_order_id": "string",
+      "description": "string",
+      "quantity": "integer",
+      "unit_cost_usd": "decimal(18,2)",
+      "ordered_value_usd": "decimal(18,2)",
+      "received_value_usd": "decimal(18,2)",
+      "open_value_usd": "decimal(18,2)",
+      "account_code": "string"
+    },
+    "physical_files": [
+      "sources/procurement/purchase_order_lines.csv"
+    ],
+    "row_count": 271
+  },
+  "procurement/receipt_lines": {
+    "grain": "One accepted PO line; matches recognized vendor bill line",
+    "primary_key": [
+      "receipt_line_id"
+    ],
+    "fields": [
+      "receipt_line_id",
+      "receipt_id",
+      "purchase_order_line_id",
+      "bill_line_id",
+      "quantity",
+      "accepted_value_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "receipt_line_id": "string",
+      "receipt_id": "string",
+      "purchase_order_line_id": "string",
+      "bill_line_id": "string",
+      "quantity": "integer",
+      "accepted_value_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/procurement/receipt_lines.csv"
+    ],
+    "row_count": 270
+  },
+  "operations/cost_bill_links": {
+    "grain": "One property/month operational cost category to accounting bill",
+    "primary_key": [
+      "cost_link_id"
+    ],
+    "fields": [
+      "cost_link_id",
+      "property_id",
+      "service_month",
+      "cost_type",
+      "approved_cost_usd",
+      "bill_id",
+      "account_code"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "cost_link_id": "string",
+      "property_id": "string",
+      "service_month": "month",
+      "cost_type": "string",
+      "approved_cost_usd": "decimal(18,2)",
+      "bill_id": "string",
+      "account_code": "string"
+    },
+    "physical_files": [
+      "sources/operations/cost_bill_links.csv"
+    ],
+    "row_count": 147
+  },
+  "planning/recurring_contracts": {
+    "grain": "One active recurring cost agreement; future cycles exclude existing AP bill",
+    "primary_key": [
+      "recurring_contract_id"
+    ],
+    "fields": [
+      "recurring_contract_id",
+      "property_id",
+      "vendor_id",
+      "account_code",
+      "effective_from",
+      "effective_through",
+      "frequency",
+      "base_monthly_usd",
+      "next_service_month",
+      "next_due_date",
+      "escalation_from",
+      "escalation_rate",
+      "existing_october_bill_id",
+      "forecast_overlap_key"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "recurring_contract_id": "string",
+      "property_id": "string",
+      "vendor_id": "string",
+      "account_code": "string",
+      "effective_from": "date",
+      "effective_through": "date",
+      "frequency": "string",
+      "base_monthly_usd": "decimal(18,2)",
+      "next_service_month": "month",
+      "next_due_date": "date",
+      "escalation_from": "date",
+      "escalation_rate": "decimal",
+      "existing_october_bill_id": "string",
+      "forecast_overlap_key": "string"
+    },
+    "physical_files": [
+      "sources/planning/recurring_contracts.csv"
+    ],
+    "row_count": 9
+  },
+  "operations/utility_readings": {
+    "grain": "One synthetic property monthly consumption/billing detail",
+    "primary_key": [
+      "property_id",
+      "service_month"
+    ],
+    "fields": [
+      "property_id",
+      "service_month",
+      "kwh",
+      "water_kgal",
+      "billed_cost_usd",
+      "cost_assumption"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "property_id": "string",
+      "service_month": "month",
+      "kwh": "integer",
+      "water_kgal": "decimal",
+      "billed_cost_usd": "decimal(18,2)",
+      "cost_assumption": "string"
+    },
+    "physical_files": [
+      "sources/operations/utility_readings.csv"
+    ],
+    "row_count": 72
+  },
+  "operations/maintenance_cost_links": {
+    "grain": "One property/month maintenance invoice supporting work orders and preventive base",
+    "primary_key": [
+      "maintenance_cost_id"
+    ],
+    "fields": [
+      "maintenance_cost_id",
+      "property_id",
+      "service_month",
+      "work_orders_cost_usd",
+      "preventive_base_usd",
+      "total_expense_usd",
+      "bill_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "maintenance_cost_id": "string",
+      "property_id": "string",
+      "service_month": "month",
+      "work_orders_cost_usd": "decimal(18,2)",
+      "preventive_base_usd": "decimal(18,2)",
+      "total_expense_usd": "decimal(18,2)",
+      "bill_id": "string"
+    },
+    "physical_files": [
+      "sources/operations/maintenance_cost_links.csv"
+    ],
+    "row_count": 72
+  },
+  "marketing/campaigns": {
+    "grain": "One property/platform own direct-booking campaign",
+    "primary_key": [
+      "campaign_id"
+    ],
+    "fields": [
+      "campaign_id",
+      "platform",
+      "property_id",
+      "campaign_name",
+      "active_from",
+      "active_through",
+      "objective"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "campaign_id": "string",
+      "platform": "string",
+      "property_id": "string",
+      "campaign_name": "string",
+      "active_from": "date",
+      "active_through": "date",
+      "objective": "string"
+    },
+    "physical_files": [
+      "sources/marketing/campaigns.csv"
+    ],
+    "row_count": 6
+  },
+  "marketing/daily_campaigns": {
+    "grain": "One campaign/day cost and overlapping platform attribution",
+    "primary_key": [
+      "campaign_id",
+      "metric_date"
+    ],
+    "fields": [
+      "campaign_id",
+      "property_id",
+      "platform",
+      "metric_date",
+      "impressions",
+      "clicks",
+      "spend_usd",
+      "cost_micros",
+      "attributed_bookings",
+      "attributed_booking_value_usd",
+      "attribution_policy"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "campaign_id": "string",
+      "property_id": "string",
+      "platform": "string",
+      "metric_date": "date",
+      "impressions": "integer",
+      "clicks": "integer",
+      "spend_usd": "decimal(18,2)",
+      "cost_micros": "integer",
+      "attributed_bookings": "decimal",
+      "attributed_booking_value_usd": "decimal(18,2)",
+      "attribution_policy": "string"
+    },
+    "physical_files": [
+      "sources/marketing/daily_campaigns.csv"
+    ],
+    "row_count": 4380
+  },
+  "marketing/billing": {
+    "grain": "One platform/property/month advertising bill, same expense as daily spend",
+    "primary_key": [
+      "billing_id"
+    ],
+    "fields": [
+      "billing_id",
+      "platform",
+      "property_id",
+      "service_month",
+      "spend_usd",
+      "bill_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "billing_id": "string",
+      "platform": "string",
+      "property_id": "string",
+      "service_month": "month",
+      "spend_usd": "decimal(18,2)",
+      "bill_id": "string"
+    },
+    "physical_files": [
+      "sources/marketing/billing.csv"
+    ],
+    "row_count": 144
+  },
+  "marketing/direct_funnel": {
+    "grain": "One own booking engine property/day funnel; bookings include later cancellations",
+    "primary_key": [
+      "property_id",
+      "metric_date"
+    ],
+    "fields": [
+      "property_id",
+      "metric_date",
+      "sessions",
+      "availability_searches",
+      "checkout_starts",
+      "confirmed_reservations",
+      "recognized_revenue_usd",
+      "measurement_note"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "property_id": "string",
+      "metric_date": "date",
+      "sessions": "integer",
+      "availability_searches": "integer",
+      "checkout_starts": "integer",
+      "confirmed_reservations": "integer",
+      "recognized_revenue_usd": "decimal(18,2)",
+      "measurement_note": "string"
+    },
+    "physical_files": [
+      "sources/marketing/direct_funnel.csv"
+    ],
+    "row_count": 2190
+  },
+  "fixed_assets_finance/assets": {
+    "grain": "One owned capitalized asset or opening asset pool",
+    "primary_key": [
+      "asset_id"
+    ],
+    "fields": [
+      "asset_id",
+      "property_id",
+      "asset_class",
+      "cost_account_code",
+      "acquisition_date",
+      "in_service_date",
+      "gross_cost_usd",
+      "opening_accum_depreciation_usd",
+      "useful_life_months",
+      "residual_value_usd",
+      "source_bill_id",
+      "is_opening_asset"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "asset_id": "string",
+      "property_id": "string",
+      "asset_class": "string",
+      "cost_account_code": "string",
+      "acquisition_date": "date",
+      "in_service_date": "date",
+      "gross_cost_usd": "decimal(18,2)",
+      "opening_accum_depreciation_usd": "decimal(18,2)",
+      "useful_life_months": "integer",
+      "residual_value_usd": "decimal(18,2)",
+      "source_bill_id": "string",
+      "is_opening_asset": "boolean"
+    },
+    "physical_files": [
+      "sources/fixed_assets_finance/assets.csv"
+    ],
+    "row_count": 7
+  },
+  "fixed_assets_finance/depreciation": {
+    "grain": "One asset/month depreciation with carrying amount",
+    "primary_key": [
+      "depreciation_id"
+    ],
+    "fields": [
+      "depreciation_id",
+      "asset_id",
+      "property_id",
+      "service_month",
+      "depreciation_usd",
+      "accumulated_depreciation_usd",
+      "closing_net_book_value_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "depreciation_id": "string",
+      "asset_id": "string",
+      "property_id": "string",
+      "service_month": "month",
+      "depreciation_usd": "decimal(18,2)",
+      "accumulated_depreciation_usd": "decimal(18,2)",
+      "closing_net_book_value_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/fixed_assets_finance/depreciation.csv"
+    ],
+    "row_count": 120
+  },
+  "fixed_assets_finance/debt_facilities": {
+    "grain": "One synthetic debt contract; principal separate from interest",
+    "primary_key": [
+      "facility_id"
+    ],
+    "fields": [
+      "facility_id",
+      "property_id",
+      "opening_principal_usd",
+      "annual_interest_rate",
+      "monthly_principal_usd",
+      "maturity_date",
+      "security",
+      "currency"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "facility_id": "string",
+      "property_id": "string",
+      "opening_principal_usd": "decimal(18,2)",
+      "annual_interest_rate": "decimal",
+      "monthly_principal_usd": "decimal(18,2)",
+      "maturity_date": "date",
+      "security": "string",
+      "currency": "string"
+    },
+    "physical_files": [
+      "sources/fixed_assets_finance/debt_facilities.csv"
+    ],
+    "row_count": 1
+  },
+  "fixed_assets_finance/debt_schedule": {
+    "grain": "One contractual monthly debt obligation; future schedule is not actual cash",
+    "primary_key": [
+      "debt_payment_id"
+    ],
+    "fields": [
+      "debt_payment_id",
+      "facility_id",
+      "property_id",
+      "due_date",
+      "actual_payment_date",
+      "opening_principal_usd",
+      "principal_usd",
+      "interest_usd",
+      "total_usd",
+      "scheduled_closing_principal_usd",
+      "bank_transaction_id",
+      "status"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "debt_payment_id": "string",
+      "facility_id": "string",
+      "property_id": "string",
+      "due_date": "date",
+      "actual_payment_date": "date",
+      "opening_principal_usd": "decimal(18,2)",
+      "principal_usd": "decimal(18,2)",
+      "interest_usd": "decimal(18,2)",
+      "total_usd": "decimal(18,2)",
+      "scheduled_closing_principal_usd": "decimal(18,2)",
+      "bank_transaction_id": "string",
+      "status": "string"
+    },
+    "physical_files": [
+      "sources/fixed_assets_finance/debt_schedule.csv"
+    ],
+    "row_count": 27
+  },
+  "planning/capex_commitments": {
+    "grain": "One unreceived PO payment installment; exclude once billed/paid",
+    "primary_key": [
+      "commitment_id"
+    ],
+    "fields": [
+      "commitment_id",
+      "purchase_order_id",
+      "property_id",
+      "vendor_id",
+      "due_date",
+      "expected_receipt_date",
+      "committed_usd",
+      "paid_usd",
+      "open_commitment_usd",
+      "existing_bill_id",
+      "is_actual"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "commitment_id": "string",
+      "purchase_order_id": "string",
+      "property_id": "string",
+      "vendor_id": "string",
+      "due_date": "date",
+      "expected_receipt_date": "date",
+      "committed_usd": "decimal(18,2)",
+      "paid_usd": "decimal(18,2)",
+      "open_commitment_usd": "decimal(18,2)",
+      "existing_bill_id": "string",
+      "is_actual": "boolean"
+    },
+    "physical_files": [
+      "sources/planning/capex_commitments.csv"
+    ],
+    "row_count": 2
+  },
+  "quickbooks/bill_payments": {
+    "grain": "One actual vendor bank payment",
+    "primary_key": [
+      "bill_payment_id"
+    ],
+    "fields": [
+      "bill_payment_id",
+      "vendor_id",
+      "property_id",
+      "payment_date",
+      "amount_usd",
+      "bank_transaction_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "bill_payment_id": "string",
+      "vendor_id": "string",
+      "property_id": "string",
+      "payment_date": "date",
+      "amount_usd": "decimal(18,2)",
+      "bank_transaction_id": "string"
+    },
+    "physical_files": [
+      "sources/quickbooks/bill_payments.csv"
+    ],
+    "row_count": 744
+  },
+  "quickbooks/bill_payment_applications": {
+    "grain": "One actual vendor payment application to AP bill",
+    "primary_key": [
+      "application_id"
+    ],
+    "fields": [
+      "application_id",
+      "bill_payment_id",
+      "bill_id",
+      "application_date",
+      "amount_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "application_id": "string",
+      "bill_payment_id": "string",
+      "bill_id": "string",
+      "application_date": "date",
+      "amount_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/quickbooks/bill_payment_applications.csv"
+    ],
+    "row_count": 744
+  },
+  "fixed_assets_finance/tax_remittances": {
+    "grain": "One hotel-collected lodging tax period and actual/scheduled remittance",
+    "primary_key": [
+      "tax_remittance_id"
+    ],
+    "fields": [
+      "tax_remittance_id",
+      "property_id",
+      "tax_account_code",
+      "service_month",
+      "due_date",
+      "scheduled_payment_date",
+      "actual_payment_date",
+      "net_tax_collected_usd",
+      "paid_usd",
+      "open_tax_usd",
+      "bank_transaction_id",
+      "case_policy"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "tax_remittance_id": "string",
+      "property_id": "string",
+      "tax_account_code": "string",
+      "service_month": "month",
+      "due_date": "date",
+      "scheduled_payment_date": "date",
+      "actual_payment_date": "date",
+      "net_tax_collected_usd": "decimal(18,2)",
+      "paid_usd": "decimal(18,2)",
+      "open_tax_usd": "decimal(18,2)",
+      "bank_transaction_id": "string",
+      "case_policy": "string"
+    },
+    "physical_files": [
+      "sources/fixed_assets_finance/tax_remittances.csv"
+    ],
+    "row_count": 72
+  },
+  "quickbooks/opening_trial_balance": {
+    "grain": "One opening account/property signed debit-minus-credit balance; outside period",
+    "primary_key": [
+      "property_id",
+      "account_code"
+    ],
+    "fields": [
+      "as_of_date",
+      "property_id",
+      "account_code",
+      "debit_usd",
+      "credit_usd",
+      "signed_balance_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "as_of_date": "date",
+      "property_id": "string",
+      "account_code": "string",
+      "debit_usd": "decimal(18,2)",
+      "credit_usd": "decimal(18,2)",
+      "signed_balance_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/quickbooks/opening_trial_balance.csv"
+    ],
+    "row_count": 16
+  },
+  "fixed_assets_finance/member_distributions": {
+    "grain": "One equity distribution, not operating expense",
+    "primary_key": [
+      "distribution_id"
+    ],
+    "fields": [
+      "distribution_id",
+      "payment_date",
+      "property_id",
+      "amount_usd",
+      "bank_transaction_id"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "distribution_id": "string",
+      "payment_date": "date",
+      "property_id": "string",
+      "amount_usd": "decimal(18,2)",
+      "bank_transaction_id": "string"
+    },
+    "physical_files": [
+      "sources/fixed_assets_finance/member_distributions.csv"
+    ],
+    "row_count": 3
+  },
+  "bank/statement": {
+    "grain": "One actually posted bank transaction in one consolidated USD operating account",
+    "primary_key": [
+      "bank_transaction_id"
+    ],
+    "fields": [
+      "bank_transaction_id",
+      "posted_date",
+      "property_id",
+      "signed_amount_usd",
+      "transaction_type",
+      "source_system",
+      "source_id",
+      "memo",
+      "bank_account_id",
+      "sequence",
+      "credit_usd",
+      "debit_usd",
+      "running_balance_usd",
+      "currency"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "bank_transaction_id": "string",
+      "posted_date": "date",
+      "property_id": "string",
+      "signed_amount_usd": "decimal(18,2)",
+      "transaction_type": "string",
+      "source_system": "string",
+      "source_id": "string",
+      "memo": "string",
+      "bank_account_id": "string",
+      "sequence": "integer",
+      "credit_usd": "decimal(18,2)",
+      "debit_usd": "decimal(18,2)",
+      "running_balance_usd": "decimal(18,2)",
+      "currency": "string"
+    },
+    "physical_files": [
+      "sources/bank/statement.csv"
+    ],
+    "row_count": 5261
+  },
+  "bank/monthly_balances": {
+    "grain": "One monthly independent statement opening/flows/closing",
+    "primary_key": [
+      "bank_account_id",
+      "service_month"
+    ],
+    "fields": [
+      "bank_account_id",
+      "service_month",
+      "opening_balance_usd",
+      "credits_usd",
+      "debits_usd",
+      "closing_balance_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "bank_account_id": "string",
+      "service_month": "month",
+      "opening_balance_usd": "decimal(18,2)",
+      "credits_usd": "decimal(18,2)",
+      "debits_usd": "decimal(18,2)",
+      "closing_balance_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/bank/monthly_balances.csv"
+    ],
+    "row_count": 24
+  },
+  "quickbooks/monthly_trial_balance": {
+    "grain": "One monthly GL account/property rollforward; P&L balances not reset yearly",
+    "primary_key": [
+      "service_month",
+      "property_id",
+      "account_code"
+    ],
+    "fields": [
+      "service_month",
+      "property_id",
+      "account_code",
+      "opening_signed_usd",
+      "period_debit_usd",
+      "period_credit_usd",
+      "closing_signed_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "service_month": "month",
+      "property_id": "string",
+      "account_code": "string",
+      "opening_signed_usd": "decimal(18,2)",
+      "period_debit_usd": "decimal(18,2)",
+      "period_credit_usd": "decimal(18,2)",
+      "closing_signed_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/quickbooks/monthly_trial_balance.csv"
+    ],
+    "row_count": 4800
+  },
+  "planning/shared_cost_allocations": {
+    "grain": "One analytical allocation bridge line; group sum zero; no GL reposting",
+    "primary_key": [
+      "allocation_id",
+      "property_id"
+    ],
+    "fields": [
+      "allocation_id",
+      "service_month",
+      "property_id",
+      "account_code",
+      "driver",
+      "driver_units",
+      "allocated_expense_usd",
+      "source_cost_usd",
+      "consolidated_increment_usd"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "allocation_id": "string",
+      "service_month": "month",
+      "property_id": "string",
+      "account_code": "string",
+      "driver": "string",
+      "driver_units": "integer",
+      "allocated_expense_usd": "decimal(18,2)",
+      "source_cost_usd": "decimal(18,2)",
+      "consolidated_increment_usd": "decimal(18,2)"
+    },
+    "physical_files": [
+      "sources/planning/shared_cost_allocations.csv"
+    ],
+    "row_count": 384
+  },
+  "planning/budget_versions": {
+    "grain": "One frozen pre-period approved 24-month budget version",
+    "primary_key": [
+      "budget_version_id"
+    ],
+    "fields": [
+      "budget_version_id",
+      "approved_date",
+      "approved_by",
+      "first_month",
+      "last_month",
+      "status",
+      "actuals_used"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "budget_version_id": "string",
+      "approved_date": "date",
+      "approved_by": "string",
+      "first_month": "month",
+      "last_month": "month",
+      "status": "string",
+      "actuals_used": "boolean"
+    },
+    "physical_files": [
+      "sources/planning/budget_versions.csv"
+    ],
+    "row_count": 1
+  },
+  "planning/approved_room_plan": {
+    "grain": "One original monthly property room-night/rate/mix plan; no recast actuals",
+    "primary_key": [
+      "budget_version_id",
+      "property_id",
+      "service_month"
+    ],
+    "fields": [
+      "budget_version_id",
+      "approved_date",
+      "property_id",
+      "service_month",
+      "physical_nights",
+      "planned_closed_nights",
+      "available_nights",
+      "planned_sold_nights",
+      "planned_adr_usd",
+      "planned_net_room_revenue_usd",
+      "direct_mix",
+      "agency_mix",
+      "merchant_mix",
+      "corporate_mix",
+      "planned_complimentary_nights"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "budget_version_id": "string",
+      "approved_date": "date",
+      "property_id": "string",
+      "service_month": "month",
+      "physical_nights": "integer",
+      "planned_closed_nights": "integer",
+      "available_nights": "integer",
+      "planned_sold_nights": "integer",
+      "planned_adr_usd": "decimal(18,2)",
+      "planned_net_room_revenue_usd": "decimal(18,2)",
+      "direct_mix": "decimal",
+      "agency_mix": "decimal",
+      "merchant_mix": "decimal",
+      "corporate_mix": "decimal",
+      "planned_complimentary_nights": "integer"
+    },
+    "physical_files": [
+      "sources/planning/approved_room_plan.csv"
+    ],
+    "row_count": 72
+  },
+  "planning/approved_staff_plan": {
+    "grain": "One original monthly role/property headcount and cost driver",
+    "primary_key": [
+      "budget_version_id",
+      "property_id",
+      "service_month",
+      "role"
+    ],
+    "fields": [
+      "budget_version_id",
+      "property_id",
+      "service_month",
+      "role",
+      "planned_headcount",
+      "hourly_rate_usd",
+      "annual_salary_usd",
+      "planned_hours_per_week",
+      "approved_date"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "budget_version_id": "string",
+      "property_id": "string",
+      "service_month": "month",
+      "role": "string",
+      "planned_headcount": "integer",
+      "hourly_rate_usd": "decimal(18,2)",
+      "annual_salary_usd": "decimal(18,2)",
+      "planned_hours_per_week": "integer",
+      "approved_date": "date"
+    },
+    "physical_files": [
+      "sources/planning/approved_staff_plan.csv"
+    ],
+    "row_count": 240
+  },
+  "planning/approved_budget": {
+    "grain": "One frozen original budget P&L account/property/month; income and expense positive; contra revenue negative",
+    "primary_key": [
+      "budget_version_id",
+      "property_id",
+      "service_month",
+      "account_code"
+    ],
+    "fields": [
+      "budget_version_id",
+      "approved_date",
+      "property_id",
+      "service_month",
+      "account_code",
+      "budget_usd",
+      "currency",
+      "sign_convention"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "budget_version_id": "string",
+      "approved_date": "date",
+      "property_id": "string",
+      "service_month": "month",
+      "account_code": "string",
+      "budget_usd": "decimal(18,2)",
+      "currency": "string",
+      "sign_convention": "string"
+    },
+    "physical_files": [
+      "sources/planning/approved_budget.csv"
+    ],
+    "row_count": 2688
+  },
+  "payments/reservation_balances": {
+    "grain": "One nonzero reservation deposit/security/guest/OTA balance at cutoff; different account types never netted",
+    "primary_key": [
+      "reservation_id"
+    ],
+    "fields": [
+      "reservation_id",
+      "property_id",
+      "snapshot_date",
+      "guest_advance_deposit_usd",
+      "corporate_advance_deposit_usd",
+      "refundable_security_usd",
+      "guest_open_ar_usd",
+      "ota_open_ar_usd",
+      "expected_security_return_date",
+      "scheduled_checkout_date"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "reservation_id": "string",
+      "property_id": "string",
+      "snapshot_date": "date",
+      "guest_advance_deposit_usd": "decimal(18,2)",
+      "corporate_advance_deposit_usd": "decimal(18,2)",
+      "refundable_security_usd": "decimal(18,2)",
+      "guest_open_ar_usd": "decimal(18,2)",
+      "ota_open_ar_usd": "decimal(18,2)",
+      "expected_security_return_date": "date",
+      "scheduled_checkout_date": "date"
+    },
+    "physical_files": [
+      "sources/payments/reservation_balances.csv"
+    ],
+    "row_count": 273
+  },
+  "planning/booked_payment_terms": {
+    "grain": "One OTB reservation/service-month cash timing input; corporate monthly invoice timing; not actual AR",
+    "primary_key": [
+      "reservation_id",
+      "service_month"
+    ],
+    "fields": [
+      "reservation_id",
+      "service_month",
+      "property_id",
+      "snapshot_date",
+      "collection_model",
+      "company_id",
+      "scheduled_checkin_date",
+      "scheduled_checkout_date",
+      "future_booked_charges_usd",
+      "existing_advance_cover_usd",
+      "incremental_guest_collect_usd",
+      "expected_first_collect_date",
+      "first_tranche_share",
+      "expected_collect_date",
+      "assumption"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "reservation_id": "string",
+      "service_month": "month",
+      "property_id": "string",
+      "snapshot_date": "date",
+      "collection_model": "string",
+      "company_id": "string",
+      "scheduled_checkin_date": "date",
+      "scheduled_checkout_date": "date",
+      "future_booked_charges_usd": "decimal(18,2)",
+      "existing_advance_cover_usd": "decimal(18,2)",
+      "incremental_guest_collect_usd": "decimal(18,2)",
+      "expected_first_collect_date": "date",
+      "first_tranche_share": "decimal",
+      "expected_collect_date": "date",
+      "assumption": "string"
+    },
+    "physical_files": [
+      "sources/planning/booked_payment_terms.csv"
+    ],
+    "row_count": 728
+  },
+  "planning/forecast_weeks": {
+    "grain": "One 7-day cash forecasting bucket; no forecast result is precomputed",
+    "primary_key": [
+      "week_id"
+    ],
+    "fields": [
+      "week_id",
+      "week_start_date",
+      "week_end_date",
+      "snapshot_date",
+      "is_actual"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "week_id": "string",
+      "week_start_date": "date",
+      "week_end_date": "date",
+      "snapshot_date": "date",
+      "is_actual": "boolean"
+    },
+    "physical_files": [
+      "sources/planning/forecast_weeks.csv"
+    ],
+    "row_count": 13
+  },
+  "planning/incremental_demand_assumptions": {
+    "grain": "One versioned incremental new-booking assumption; apply only after subtracting OTB nights",
+    "primary_key": [
+      "week_id",
+      "property_id"
+    ],
+    "fields": [
+      "week_id",
+      "property_id",
+      "assumption_version",
+      "target_total_sold_occupancy",
+      "target_new_booking_adr_usd",
+      "direct_mix",
+      "agency_mix",
+      "merchant_mix",
+      "corporate_mix",
+      "guest_prepaid_share",
+      "corporate_collection_days",
+      "agency_commission_rate",
+      "merchant_commission_rate",
+      "gateway_percent_rate",
+      "gateway_fixed_fee_usd",
+      "lodging_tax_rate",
+      "variable_laundry_cost_per_sold_night_usd",
+      "variable_consumables_per_sold_night_usd",
+      "utilities_monthly_base_usd",
+      "maintenance_monthly_base_usd",
+      "incremental_nights_rule",
+      "cash_lag_policy"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "week_id": "string",
+      "property_id": "string",
+      "assumption_version": "string",
+      "target_total_sold_occupancy": "decimal",
+      "target_new_booking_adr_usd": "decimal(18,2)",
+      "direct_mix": "decimal",
+      "agency_mix": "decimal",
+      "merchant_mix": "decimal",
+      "corporate_mix": "decimal",
+      "guest_prepaid_share": "decimal",
+      "corporate_collection_days": "integer",
+      "agency_commission_rate": "decimal",
+      "merchant_commission_rate": "decimal",
+      "gateway_percent_rate": "decimal",
+      "gateway_fixed_fee_usd": "decimal(18,2)",
+      "lodging_tax_rate": "decimal",
+      "variable_laundry_cost_per_sold_night_usd": "decimal(18,2)",
+      "variable_consumables_per_sold_night_usd": "decimal(18,2)",
+      "utilities_monthly_base_usd": "decimal(18,2)",
+      "maintenance_monthly_base_usd": "decimal(18,2)",
+      "incremental_nights_rule": "string",
+      "cash_lag_policy": "string"
+    },
+    "physical_files": [
+      "sources/planning/incremental_demand_assumptions.csv"
+    ],
+    "row_count": 39
+  },
+  "planning/known_cash_inputs": {
+    "grain": "One convenience COPY/index of a known cash input; source tables authoritative; never append as extra facts",
+    "primary_key": [
+      "input_id"
+    ],
+    "fields": [
+      "input_id",
+      "snapshot_date",
+      "input_type",
+      "source_table",
+      "source_id",
+      "property_id",
+      "expected_cash_date",
+      "amount_usd",
+      "direction",
+      "gl_account_code",
+      "overlap_key",
+      "is_actual_cash"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "input_id": "string",
+      "snapshot_date": "date",
+      "input_type": "string",
+      "source_table": "string",
+      "source_id": "string",
+      "property_id": "string",
+      "expected_cash_date": "date",
+      "amount_usd": "decimal(18,2)",
+      "direction": "string",
+      "gl_account_code": "string",
+      "overlap_key": "string",
+      "is_actual_cash": "boolean"
+    },
+    "physical_files": [
+      "sources/planning/known_cash_inputs.csv"
+    ],
+    "row_count": 139
+  },
+  "planning/future_payroll_calendar": {
+    "grain": "One future earned period/funding timing assumption; do not overlap earned actual payroll",
+    "primary_key": [
+      "forecast_payroll_id"
+    ],
+    "fields": [
+      "forecast_payroll_id",
+      "period_start_date",
+      "period_end_date",
+      "scheduled_funding_date",
+      "basis",
+      "hourly_regular_weekly_hours",
+      "other_hourly_weekly_hours",
+      "assumed_overtime_weekly_hours",
+      "employer_tax_rate",
+      "benefit_per_employee_halfmonth_usd",
+      "is_actual"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "forecast_payroll_id": "string",
+      "period_start_date": "date",
+      "period_end_date": "date",
+      "scheduled_funding_date": "date",
+      "basis": "string",
+      "hourly_regular_weekly_hours": "integer",
+      "other_hourly_weekly_hours": "integer",
+      "assumed_overtime_weekly_hours": "integer",
+      "employer_tax_rate": "decimal",
+      "benefit_per_employee_halfmonth_usd": "decimal(18,2)",
+      "is_actual": "boolean"
+    },
+    "physical_files": [
+      "sources/planning/future_payroll_calendar.csv"
+    ],
+    "row_count": 6
+  },
+  "planning/cutoff_balance_inputs": {
+    "grain": "One signed GL cutoff balance; a lookup COPY, not a second balance source",
+    "primary_key": [
+      "property_id",
+      "account_code"
+    ],
+    "fields": [
+      "snapshot_date",
+      "property_id",
+      "account_code",
+      "signed_balance_usd",
+      "cash_restriction_note"
+    ],
+    "notes": "Custom flat synthetic extract; not a verified native API/export schema. ",
+    "types": {
+      "snapshot_date": "date",
+      "property_id": "string",
+      "account_code": "string",
+      "signed_balance_usd": "decimal(18,2)",
+      "cash_restriction_note": "string"
+    },
+    "physical_files": [
+      "sources/planning/cutoff_balance_inputs.csv"
+    ],
+    "row_count": 68
+  }
+}

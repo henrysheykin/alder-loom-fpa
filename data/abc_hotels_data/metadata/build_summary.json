@@ -1,0 +1,12 @@
+{
+  "tables": 95,
+  "csv_files": 235,
+  "source_rows": 1399337,
+  "source_bytes": 142169277,
+  "reservations": 21371,
+  "consumed_nights": 76313,
+  "journals": 209262,
+  "gl_lines": 567058,
+  "employees": 33,
+  "closing_bank_usd": "2756844.48"
+}

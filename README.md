@@ -23,6 +23,7 @@ One site, a separate link per demo company (nothing is shared between them excep
 - ABC Agency (marketing agency): `/agency`, data `/api/data/agency`
 - ABC SaaS (B2B subscription software): `/saas`, data `/api/data/saas`
 - ABC Restaurants (restaurant group): `/restaurants`, data `/api/data/restaurants`
+- ABC Hotels (three-property hotel operator): `/hotels`, data `/api/data/hotels`
 
 ## Second company: ABC Agency — `/agency`
 A fictional performance-marketing agency (Meta & Google Ads management, creative, analytics), 24 months of synthetic data
@@ -47,6 +48,15 @@ delivery platforms, payroll, timekeeping, kitchen inventory, procurement, QuickB
 Pipeline: `pipeline/restaurants/` (50 checks). Tabs: Company overview · Month review · P&L vs budget · Restaurants ·
 Menu & channels · Labor · Food cost & waste · Delivery & ads · 13-week cash (scenarios + drill-down) · Data sources ·
 Data quality, plus the AI analyst. Refresh with `npm run refresh:restaurants`.
+
+## Fifth company: ABC Hotels — `/hotels`
+A fictional operator of three North Carolina lodging properties (Raleigh select-service hotel 60 rooms, owned; Wilmington coastal
+hotel 52 rooms and Durham aparthotel 44 apartments, leased) plus a shared corporate office. 24 months of synthetic data from 14
+simulated systems (PMS, room availability, night audit, channel manager/OTAs, payment gateway, corporate billing, housekeeping
+operations, payroll, procurement, fixed assets & debt, ad platforms, QuickBooks, bank, planning). Pipeline: `pipeline/hotels/`
+(71 checks, incl. 47 metrics × 96 month-scope pairs vs control totals). Tabs: Company overview · Month review · P&L vs budget
+(before/after CORP allocation) · Properties · Channels & marketing · Corporate accounts · Housekeeping & labor · 13-week cash
+(scenarios + drill-down + on-the-books) · Data sources · Data quality, plus the AI analyst. Refresh with `npm run refresh:hotels`.
 
 ## Dashboards (ABC Inc., `/dashboard`)
 - **Company overview** — L12M KPIs, revenue vs budget, margins, working capital, categories, channels, SKUs, suppliers
