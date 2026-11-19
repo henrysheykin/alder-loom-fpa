@@ -12,6 +12,7 @@ presented as a real client's results.
 - `forecasts/cash/*.json` — user-saved forecast versions (immutable; never edit or delete, create new ones)
 - `config/data_schedule.json` — data collection and job schedule (Central Time); scheduled tasks follow it
 - `app/`, `middleware.ts`, `lib/` — Next.js site deployed by Vercel from `main`
+- Links are separate per company on one domain: ABC Inc. at `/ecommerce` (alias of `/dashboard`), ABC Agency at `/agency`. Do not merge them into one page.
 
 ## Second company: ABC Agency (marketing agency)
 Raw source files use the placeholder name "Signal Harbor Performance"; the pipeline renames it to **ABC Agency** on output. Same demo/synthetic rules apply.

@@ -17,6 +17,11 @@ private/datamart.json  ──git push──►  GitHub  ──auto deploy──�
                                                                   └─ /api/chat     proxy to Claude API (key stays on server)
 ```
 
+## Links
+One site, a separate link per demo company (nothing is shared between them except the AI chat proxy):
+- ABC Inc. (e-commerce): `/ecommerce` (old link `/dashboard` still works), data `/api/data`
+- ABC Agency (marketing agency): `/agency`, data `/api/data/agency`
+
 ## Second company: ABC Agency — `/agency`
 A fictional performance-marketing agency (Meta & Google Ads management, creative, analytics), 24 months of synthetic data
 from 12 simulated systems (HubSpot, contracts, timekeeping, Gusto, freelancers, client-owned Meta/Google ad accounts,

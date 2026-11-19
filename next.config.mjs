@@ -11,6 +11,10 @@ const nextConfig = {
   outputFileTracingExcludes: {
     "*": ["./data/**", "./pipeline/**"],
   },
+  // One site, separate links per demo company: /ecommerce (ABC Inc., also /dashboard) and /agency (ABC Agency).
+  async rewrites() {
+    return [{ source: "/ecommerce", destination: "/dashboard" }];
+  },
   async redirects() {
     return [{ source: "/", destination: "/dashboard", permanent: false }];
   },
