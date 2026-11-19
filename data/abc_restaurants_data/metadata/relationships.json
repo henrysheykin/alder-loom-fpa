@@ -1,0 +1,1658 @@
+[
+  {
+    "child_table": "general_ledger",
+    "child_field": "journal_id",
+    "parent_table": "journals",
+    "parent_field": "journal_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "general_ledger",
+    "child_field": "account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "general_ledger",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "opening_trial_balance",
+    "child_field": "account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "opening_trial_balance",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "monthly_trial_balance",
+    "child_field": "account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "monthly_trial_balance",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "bank_transactions",
+    "child_field": "bank_account_id",
+    "parent_table": "bank_accounts",
+    "parent_field": "bank_account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "bank_transactions",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "checks",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "payments",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "refunds",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "day_closings",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "processor_transactions",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "processor_payouts",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "cash_drawer_closings",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "cash_deposits",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "petty_cash_receipts",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "check_lines",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "check_modifiers",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "discounts",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "comps",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "voids",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "payments",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "refunds",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "marketplace_pos_map",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "check_modifiers",
+    "child_field": "check_line_id",
+    "parent_table": "check_lines",
+    "parent_field": "check_line_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "discounts",
+    "child_field": "check_line_id",
+    "parent_table": "check_lines",
+    "parent_field": "check_line_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "comps",
+    "child_field": "check_line_id",
+    "parent_table": "check_lines",
+    "parent_field": "check_line_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "voids",
+    "child_field": "check_line_id",
+    "parent_table": "check_lines",
+    "parent_field": "check_line_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "refunds",
+    "child_field": "check_line_id",
+    "parent_table": "check_lines",
+    "parent_field": "check_line_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "check_lines",
+    "child_field": "menu_item_id",
+    "parent_table": "menu_items",
+    "parent_field": "menu_item_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "check_lines",
+    "child_field": "price_version_id",
+    "parent_table": "menu_price_versions",
+    "parent_field": "price_version_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "check_modifiers",
+    "child_field": "modifier_id",
+    "parent_table": "modifier_options",
+    "parent_field": "modifier_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "menu_price_versions",
+    "child_field": "menu_item_id",
+    "parent_table": "menu_items",
+    "parent_field": "menu_item_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "processor_transactions",
+    "child_field": "payment_id",
+    "parent_table": "payments",
+    "parent_field": "payment_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "processor_transactions",
+    "child_field": "refund_id",
+    "parent_table": "refunds",
+    "parent_field": "refund_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "processor_transactions",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "processor_transactions",
+    "child_field": "payout_id",
+    "parent_table": "processor_payouts",
+    "parent_field": "payout_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "processor_payouts",
+    "child_field": "bank_transaction_id",
+    "parent_table": "bank_transactions",
+    "parent_field": "bank_transaction_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "payments",
+    "child_field": "processor_capture_id",
+    "parent_table": "processor_transactions",
+    "parent_field": "processor_transaction_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "refunds",
+    "child_field": "payment_id",
+    "parent_table": "payments",
+    "parent_field": "payment_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "cash_drawer_closings",
+    "child_field": "close_id",
+    "parent_table": "day_closings",
+    "parent_field": "close_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "cash_drawer_closings",
+    "child_field": "deposit_id",
+    "parent_table": "cash_deposits",
+    "parent_field": "deposit_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "cash_deposits",
+    "child_field": "bank_transaction_id",
+    "parent_table": "bank_transactions",
+    "parent_field": "bank_transaction_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_orders",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_orders",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_orders",
+    "child_field": "settlement_id",
+    "parent_table": "doordash_settlements",
+    "parent_field": "settlement_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_transactions",
+    "child_field": "platform_order_id",
+    "parent_table": "doordash_orders",
+    "parent_field": "platform_order_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_transactions",
+    "child_field": "refund_id",
+    "parent_table": "refunds",
+    "parent_field": "refund_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_transactions",
+    "child_field": "settlement_id",
+    "parent_table": "doordash_settlements",
+    "parent_field": "settlement_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_settlements",
+    "child_field": "bank_transaction_id",
+    "parent_table": "bank_transactions",
+    "parent_field": "bank_transaction_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_orders",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_orders",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_orders",
+    "child_field": "settlement_id",
+    "parent_table": "ubereats_settlements",
+    "parent_field": "settlement_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_transactions",
+    "child_field": "platform_order_id",
+    "parent_table": "ubereats_orders",
+    "parent_field": "platform_order_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_transactions",
+    "child_field": "refund_id",
+    "parent_table": "refunds",
+    "parent_field": "refund_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_transactions",
+    "child_field": "settlement_id",
+    "parent_table": "ubereats_settlements",
+    "parent_field": "settlement_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_settlements",
+    "child_field": "bank_transaction_id",
+    "parent_table": "bank_transactions",
+    "parent_field": "bank_transaction_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "employees",
+    "child_field": "home_restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "employees",
+    "child_field": "role_id",
+    "parent_table": "roles",
+    "parent_field": "role_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "pay_rates",
+    "child_field": "employee_id",
+    "parent_table": "employees",
+    "parent_field": "employee_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "opening_workweek_balances",
+    "child_field": "employee_id",
+    "parent_table": "employees",
+    "parent_field": "employee_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "scheduled_shifts",
+    "child_field": "employee_id",
+    "parent_table": "employees",
+    "parent_field": "employee_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "timesheets",
+    "child_field": "employee_id",
+    "parent_table": "employees",
+    "parent_field": "employee_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "tip_allocations",
+    "child_field": "employee_id",
+    "parent_table": "employees",
+    "parent_field": "employee_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "payroll_register",
+    "child_field": "employee_id",
+    "parent_table": "employees",
+    "parent_field": "employee_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "timesheets",
+    "child_field": "shift_id",
+    "parent_table": "scheduled_shifts",
+    "parent_field": "shift_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "timesheets",
+    "child_field": "pay_rate_id",
+    "parent_table": "pay_rates",
+    "parent_field": "pay_rate_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "tip_allocations",
+    "child_field": "timesheet_id",
+    "parent_table": "timesheets",
+    "parent_field": "timesheet_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "timesheets",
+    "child_field": "payroll_run_id",
+    "parent_table": "payroll_runs",
+    "parent_field": "payroll_run_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "tip_allocations",
+    "child_field": "payroll_run_id",
+    "parent_table": "payroll_runs",
+    "parent_field": "payroll_run_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "payroll_register",
+    "child_field": "payroll_run_id",
+    "parent_table": "payroll_runs",
+    "parent_field": "payroll_run_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "payroll_funding",
+    "child_field": "payroll_run_id",
+    "parent_table": "payroll_runs",
+    "parent_field": "payroll_run_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "payroll_funding",
+    "child_field": "bank_transaction_id",
+    "parent_table": "bank_transactions",
+    "parent_field": "bank_transaction_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "scheduled_shifts",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "timesheets",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "tip_allocations",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "payroll_register",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_bills",
+    "child_field": "vendor_id",
+    "parent_table": "vendors",
+    "parent_field": "vendor_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_credits",
+    "child_field": "vendor_id",
+    "parent_table": "vendors",
+    "parent_field": "vendor_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_payments",
+    "child_field": "vendor_id",
+    "parent_table": "vendors",
+    "parent_field": "vendor_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_bill_lines",
+    "child_field": "bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_credits",
+    "child_field": "bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "bill_credit_applications",
+    "child_field": "bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "bill_payment_applications",
+    "child_field": "bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "bill_payment_schedule",
+    "child_field": "bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_bill_lines",
+    "child_field": "account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_bill_lines",
+    "child_field": "receipt_line_id",
+    "parent_table": "receipt_lines",
+    "parent_field": "receipt_line_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_bill_lines",
+    "child_field": "purchase_order_line_id",
+    "parent_table": "purchase_order_lines",
+    "parent_field": "purchase_order_line_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "bill_credit_applications",
+    "child_field": "vendor_credit_id",
+    "parent_table": "vendor_credits",
+    "parent_field": "vendor_credit_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "bill_payment_applications",
+    "child_field": "vendor_payment_id",
+    "parent_table": "vendor_payments",
+    "parent_field": "vendor_payment_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "bill_payment_schedule",
+    "child_field": "vendor_payment_id",
+    "parent_table": "vendor_payments",
+    "parent_field": "vendor_payment_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_payments",
+    "child_field": "bank_transaction_id",
+    "parent_table": "bank_transactions",
+    "parent_field": "bank_transaction_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_bills",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_bill_lines",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_credits",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "vendor_payments",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ingredients",
+    "child_field": "supplier_id",
+    "parent_table": "suppliers",
+    "parent_field": "supplier_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "purchase_orders",
+    "child_field": "supplier_id",
+    "parent_table": "suppliers",
+    "parent_field": "supplier_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_price_versions",
+    "child_field": "supplier_id",
+    "parent_table": "suppliers",
+    "parent_field": "supplier_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "receipts",
+    "child_field": "supplier_id",
+    "parent_table": "suppliers",
+    "parent_field": "supplier_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_invoices",
+    "child_field": "supplier_id",
+    "parent_table": "suppliers",
+    "parent_field": "supplier_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_credit_notes",
+    "child_field": "supplier_id",
+    "parent_table": "suppliers",
+    "parent_field": "supplier_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "unit_conversions",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_price_versions",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recipe_components",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "opening_inventory",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "purchase_order_lines",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "receipt_lines",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_invoice_lines",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_credit_lines",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "inventory_movements",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "theoretical_usage",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "waste_events",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "inventory_transfers",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "physical_stock_counts",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "inventory_daily_balances",
+    "child_field": "ingredient_id",
+    "parent_table": "ingredients",
+    "parent_field": "ingredient_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "opening_inventory",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "purchase_orders",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "receipts",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_invoices",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "inventory_movements",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "theoretical_usage",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "waste_events",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "staff_meals",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "physical_stock_counts",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "inventory_daily_balances",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recipe_components",
+    "child_field": "recipe_id",
+    "parent_table": "recipes",
+    "parent_field": "recipe_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "theoretical_usage",
+    "child_field": "recipe_component_id",
+    "parent_table": "recipe_components",
+    "parent_field": "recipe_component_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "theoretical_usage",
+    "child_field": "recipe_id",
+    "parent_table": "recipes",
+    "parent_field": "recipe_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "staff_meals",
+    "child_field": "recipe_id",
+    "parent_table": "recipes",
+    "parent_field": "recipe_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "purchase_order_lines",
+    "child_field": "purchase_order_id",
+    "parent_table": "purchase_orders",
+    "parent_field": "purchase_order_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "purchase_order_lines",
+    "child_field": "supplier_price_id",
+    "parent_table": "supplier_price_versions",
+    "parent_field": "supplier_price_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "delivery_schedule",
+    "child_field": "purchase_order_id",
+    "parent_table": "purchase_orders",
+    "parent_field": "purchase_order_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "delivery_schedule",
+    "child_field": "receipt_id",
+    "parent_table": "receipts",
+    "parent_field": "receipt_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "receipts",
+    "child_field": "delivery_schedule_id",
+    "parent_table": "delivery_schedule",
+    "parent_field": "delivery_schedule_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "receipt_lines",
+    "child_field": "receipt_id",
+    "parent_table": "receipts",
+    "parent_field": "receipt_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "receipt_lines",
+    "child_field": "purchase_order_line_id",
+    "parent_table": "purchase_order_lines",
+    "parent_field": "purchase_order_line_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_invoices",
+    "child_field": "accounting_bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_invoice_lines",
+    "child_field": "supplier_invoice_id",
+    "parent_table": "supplier_invoices",
+    "parent_field": "supplier_invoice_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_credit_notes",
+    "child_field": "supplier_invoice_id",
+    "parent_table": "supplier_invoices",
+    "parent_field": "supplier_invoice_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_credit_lines",
+    "child_field": "supplier_credit_note_id",
+    "parent_table": "supplier_credit_notes",
+    "parent_field": "supplier_credit_note_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "receipt_lines",
+    "child_field": "inventory_movement_id",
+    "parent_table": "inventory_movements",
+    "parent_field": "inventory_movement_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "theoretical_usage",
+    "child_field": "inventory_movement_id",
+    "parent_table": "inventory_movements",
+    "parent_field": "inventory_movement_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "waste_events",
+    "child_field": "inventory_movement_id",
+    "parent_table": "inventory_movements",
+    "parent_field": "inventory_movement_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "physical_stock_counts",
+    "child_field": "inventory_movement_id",
+    "parent_table": "inventory_movements",
+    "parent_field": "inventory_movement_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "inventory_transfers",
+    "child_field": "out_movement_id",
+    "parent_table": "inventory_movements",
+    "parent_field": "inventory_movement_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "inventory_transfers",
+    "child_field": "in_movement_id",
+    "parent_table": "inventory_movements",
+    "parent_field": "inventory_movement_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "meta_ads_daily",
+    "child_field": "campaign_id",
+    "parent_table": "meta_ads_campaigns",
+    "parent_field": "campaign_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "meta_ads_daily",
+    "child_field": "billing_id",
+    "parent_table": "meta_ads_billing",
+    "parent_field": "billing_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "meta_ads_billing",
+    "child_field": "accounting_bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "meta_ads_campaigns",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "meta_ads_daily",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "google_ads_daily",
+    "child_field": "campaign_id",
+    "parent_table": "google_ads_campaigns",
+    "parent_field": "campaign_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "google_ads_daily",
+    "child_field": "billing_id",
+    "parent_table": "google_ads_billing",
+    "parent_field": "billing_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "google_ads_billing",
+    "child_field": "accounting_bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "google_ads_campaigns",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "google_ads_daily",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recurring_obligations",
+    "child_field": "contract_id",
+    "parent_table": "recurring_contracts",
+    "parent_field": "contract_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recurring_obligations",
+    "child_field": "existing_bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recurring_contracts",
+    "child_field": "vendor_id",
+    "parent_table": "vendors",
+    "parent_field": "vendor_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "depreciation_schedule",
+    "child_field": "asset_id",
+    "parent_table": "equipment_assets",
+    "parent_field": "asset_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "equipment_assets",
+    "child_field": "accounting_bill_id",
+    "parent_table": "vendor_bills",
+    "parent_field": "bill_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "debt_schedule",
+    "child_field": "facility_id",
+    "parent_table": "debt_facilities",
+    "parent_field": "facility_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "debt_schedule",
+    "child_field": "bank_transaction_id",
+    "parent_table": "bank_transactions",
+    "parent_field": "bank_transaction_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "sales_tax_obligations",
+    "child_field": "bank_transaction_id",
+    "parent_table": "bank_transactions",
+    "parent_field": "bank_transaction_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "owner_distributions",
+    "child_field": "bank_transaction_id",
+    "parent_table": "bank_transactions",
+    "parent_field": "bank_transaction_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "approved_budget",
+    "child_field": "budget_version_id",
+    "parent_table": "budget_versions",
+    "parent_field": "budget_version_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "approved_budget",
+    "child_field": "account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "approved_budget",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "bank_monthly_statements",
+    "child_field": "bank_account_id",
+    "parent_table": "bank_accounts",
+    "parent_field": "bank_account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "menu_items",
+    "child_field": "recipe_id",
+    "parent_table": "recipes",
+    "parent_field": "recipe_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "modifier_options",
+    "child_field": "recipe_id",
+    "parent_table": "recipes",
+    "parent_field": "recipe_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "marketplace_pos_map",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_transactions",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_transactions",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "doordash_settlements",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_transactions",
+    "child_field": "check_id",
+    "parent_table": "checks",
+    "parent_field": "check_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_transactions",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ubereats_settlements",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "petty_cash_receipts",
+    "child_field": "expense_account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "roles",
+    "child_field": "expense_account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "scheduled_shifts",
+    "child_field": "role_id",
+    "parent_table": "roles",
+    "parent_field": "role_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "timesheets",
+    "child_field": "role_id",
+    "parent_table": "roles",
+    "parent_field": "role_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ingredients",
+    "child_field": "inventory_account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "ingredients",
+    "child_field": "cogs_account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recipes",
+    "child_field": "menu_item_id",
+    "parent_table": "menu_items",
+    "parent_field": "menu_item_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recipes",
+    "child_field": "modifier_id",
+    "parent_table": "modifier_options",
+    "parent_field": "modifier_id",
+    "optional": true,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "receipts",
+    "child_field": "purchase_order_id",
+    "parent_table": "purchase_orders",
+    "parent_field": "purchase_order_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_invoices",
+    "child_field": "purchase_order_id",
+    "parent_table": "purchase_orders",
+    "parent_field": "purchase_order_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_invoices",
+    "child_field": "receipt_id",
+    "parent_table": "receipts",
+    "parent_field": "receipt_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_invoice_lines",
+    "child_field": "receipt_line_id",
+    "parent_table": "receipt_lines",
+    "parent_field": "receipt_line_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "supplier_credit_lines",
+    "child_field": "receipt_line_id",
+    "parent_table": "receipt_lines",
+    "parent_field": "receipt_line_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recurring_contracts",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recurring_contracts",
+    "child_field": "expense_account_id",
+    "parent_table": "chart_of_accounts",
+    "parent_field": "account_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "recurring_obligations",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "equipment_assets",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "depreciation_schedule",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "sales_tax_obligations",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "budget_assumptions",
+    "child_field": "budget_version_id",
+    "parent_table": "budget_versions",
+    "parent_field": "budget_version_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "cash_commitments",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "meta_ads_billing",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "google_ads_billing",
+    "child_field": "restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "receipts",
+    "child_field": "invoice_id",
+    "parent_table": "supplier_invoices",
+    "parent_field": "supplier_invoice_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "inventory_transfers",
+    "child_field": "from_restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  },
+  {
+    "child_table": "inventory_transfers",
+    "child_field": "to_restaurant_id",
+    "parent_table": "restaurants",
+    "parent_field": "restaurant_id",
+    "optional": false,
+    "cardinality": "many-to-one"
+  }
+]

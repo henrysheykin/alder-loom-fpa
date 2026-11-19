@@ -7,3 +7,5 @@ data/output/
 __pycache__/
 *.pyc
 .DS_Store
+# ABC Restaurants raw extracts (578 MB, 736 CSVs): keep outside git; unpack cedar_skillet_complete.zip here to refresh
+data/abc_restaurants_data/sources/

@@ -1,0 +1,17 @@
+{
+  "actual_start": "2024-11-01",
+  "actual_end": "2026-10-31",
+  "snapshot_date": "2026-10-31",
+  "source_tables": 92,
+  "source_files": 736,
+  "source_rows": 4402229,
+  "check_groups": 695,
+  "evaluated_conditions": 49788385,
+  "failed_groups": 0,
+  "failures": 0,
+  "money_tolerance_usd": "0.00",
+  "quantity_tolerance_base_units": "0.000000",
+  "quantity_storage_resolution": "0.000001",
+  "verifier": "Independent Python stdlib / saved CSV / integer SQLite",
+  "control_rows": 96
+}

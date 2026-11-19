@@ -22,6 +22,7 @@ One site, a separate link per demo company (nothing is shared between them excep
 - ABC Inc. (e-commerce): `/ecommerce` (old link `/dashboard` still works), data `/api/data`
 - ABC Agency (marketing agency): `/agency`, data `/api/data/agency`
 - ABC SaaS (B2B subscription software): `/saas`, data `/api/data/saas`
+- ABC Restaurants (restaurant group): `/restaurants`, data `/api/data/restaurants`
 
 ## Second company: ABC Agency — `/agency`
 A fictional performance-marketing agency (Meta & Google Ads management, creative, analytics), 24 months of synthetic data
@@ -38,6 +39,14 @@ first-party tracking, procurement, planning, equity register). Pipeline: `pipeli
 Tabs: Business overview · MRR & retention (bridge, cohorts, price versions) · Revenue · billing · cash · Budget vs actual · Department spend ·
 Rolling forecast (driver sliders) · 13-week cash (scenarios + drill-down) · Data sources · Data quality, plus the AI analyst.
 Refresh with `npm run refresh:saas`.
+
+## Fourth company: ABC Restaurants — `/restaurants`
+A fictional group of three full-service restaurants (Raleigh, Durham, Cary) with dine-in, takeaway and DoorDash / Uber Eats
+delivery, plus a shared management office. 24 months of synthetic data from 15 simulated systems (POS, card processor,
+delivery platforms, payroll, timekeeping, kitchen inventory, procurement, QuickBooks, bank, treasury, ads, planning).
+Pipeline: `pipeline/restaurants/` (50 checks). Tabs: Company overview · Month review · P&L vs budget · Restaurants ·
+Menu & channels · Labor · Food cost & waste · Delivery & ads · 13-week cash (scenarios + drill-down) · Data sources ·
+Data quality, plus the AI analyst. Refresh with `npm run refresh:restaurants`.
 
 ## Dashboards (ABC Inc., `/dashboard`)
 - **Company overview** — L12M KPIs, revenue vs budget, margins, working capital, categories, channels, SKUs, suppliers

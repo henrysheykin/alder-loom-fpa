@@ -12,7 +12,7 @@ presented as a real client's results.
 - `forecasts/cash/*.json` — user-saved forecast versions (immutable; never edit or delete, create new ones)
 - `config/data_schedule.json` — data collection and job schedule (Central Time); scheduled tasks follow it
 - `app/`, `middleware.ts`, `lib/` — Next.js site deployed by Vercel from `main`
-- Links are separate per company on one domain: ABC Inc. at `/ecommerce` (alias of `/dashboard`), ABC Agency at `/agency`, ABC SaaS at `/saas`. Do not merge them into one page.
+- Links are separate per company on one domain: ABC Inc. at `/ecommerce` (alias of `/dashboard`), ABC Agency at `/agency`, ABC SaaS at `/saas`, ABC Restaurants at `/restaurants`. Do not merge them into one page.
 
 ## Second company: ABC Agency (marketing agency)
 Raw source files use the placeholder name "Signal Harbor Performance"; the pipeline renames it to **ABC Agency** on output. Same demo/synthetic rules apply.
@@ -30,6 +30,16 @@ Raw source files use the placeholder name "RelayNest Workflow, Inc."; the pipeli
 - `private/saas/dashboard.html`, `private/saas/datamart.json` — served at `/saas` and `/api/data/saas`.
 - Refresh: `npm run refresh:saas`; any FAIL → stop and report; all PASS → copy, commit, push.
 - SaaS commentary rules: MRR comes from subscription status/price history, not invoices, cash or revenue. Bookings, billings, recognized revenue, captured cash and bank receipts are different metrics — never add them. Deferred revenue never creates a second future receipt. Equity funding is not revenue. Cite subscription/contract/invoice/requisition IDs.
+
+## Fourth company: ABC Restaurants (restaurant group)
+Raw source files use the placeholder name "Cedar & Skillet Hospitality"; the pipeline renames it to **ABC Restaurants** on output. Same demo/synthetic rules apply.
+- Three restaurants R01 Raleigh, R02 Durham, R03 Cary plus HQ; 24 months Nov 2024–Oct 2026, cutoff 2026-10-31, FY Nov–Oct.
+- `data/abc_restaurants_data/` — docs, metadata, validation control totals and the package verifier are in git. The 578 MB `sources/` folder (15 simulated systems, 92 tables, 736 CSVs, 4.4M rows) is git-ignored: unpack `cedar_skillet_complete.zip` there before a refresh.
+- `pipeline/restaurants/build_datamart.py` (stdlib, integer cents) → `data/output/restaurants/datamart_raw.json`; `pipeline/restaurants/site_datamart.py` → `datamart.json` in the site shape with 50 checks (package verifier + 49 metrics × 24 months × COMPANY/R01–R03 vs `validation/monthly_control_totals.csv`). It exits with an error and writes nothing if a check fails.
+- `private/restaurants/dashboard.html`, `private/restaurants/datamart.json` — served at `/restaurants` and `/api/data/restaurants`.
+- Refresh: `npm run refresh:restaurants`; then the same rule: any FAIL → stop and report; all PASS → commit, push.
+- Commentary rules: net revenue = POS sales less discounts, comps, refunds; excludes sales tax and tips. DoorDash/Uber Eats orders are already in POS sales — never add marketplace sales to POS sales. Meta and Google attributed revenue overlaps. Prime cost = COGS + labor. Cite restaurant IDs (R01–R03, HQ).
+- Demo assumptions shown on the page: sales tax due 2026-11-20; $500k cash floor.
 
 ## Data refresh procedure (ABC Inc.)
 1. `pip install pandas --break-system-packages -q` if pandas is missing.

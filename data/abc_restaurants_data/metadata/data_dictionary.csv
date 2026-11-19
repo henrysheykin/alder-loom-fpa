@@ -1,0 +1,885 @@
+﻿table_id,column_order,column_name,data_type,unit,primary_key,nullable_in_extract,foreign_key,observed_values,description_en
+chart_of_accounts,1,account_id,text,,YES,NO,,,Text chart-of-accounts identifier; preserve it as a string.
+chart_of_accounts,2,account_name,text,,NO,NO,,,Account name. Applies to: One GL account.
+chart_of_accounts,3,account_type,text,,NO,NO,,,Account type. Applies to: One GL account.
+chart_of_accounts,4,statement_group,text,,NO,NO,,,Statement group. Applies to: One GL account.
+chart_of_accounts,5,normal_balance,text,,NO,NO,,,Normal balance. Applies to: One GL account.
+opening_trial_balance,1,opening_balance_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+opening_trial_balance,2,as_of_date,date,ISO date,NO,NO,,,"As of date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+opening_trial_balance,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+opening_trial_balance,4,account_id,text,,NO,NO,chart_of_accounts.account_id,,Text chart-of-accounts identifier; preserve it as a string.
+opening_trial_balance,5,debit_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive debit posting or period debit turnover.
+opening_trial_balance,6,credit_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive credit posting or period credit turnover.
+opening_trial_balance,7,balance_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Opening TB balance in debit-minus-credit sign.
+journals,1,journal_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+journals,2,journal_date,date,ISO date,NO,NO,,,"Journal date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+journals,3,source_system,text,,NO,NO,,,Source system. Applies to: One balanced accounting journal.
+journals,4,source_table,text,,NO,NO,,,Logical table containing the original source_id. It is not a filesystem path.
+journals,5,source_id,text,,NO,NO,,,Polymorphic source document key; interpret jointly with source_table (or bank transaction_type).
+journals,6,description,text,,NO,NO,,,Description. Applies to: One balanced accounting journal.
+general_ledger,1,gl_line_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+general_ledger,2,journal_id,text,,NO,NO,journals.journal_id,,Text foreign key to journals.journal_id. Blank only where the relationship is optional.
+general_ledger,3,line_number,integer,,NO,NO,,,Line number. Applies to: One debit or credit line.
+general_ledger,4,journal_date,date,ISO date,NO,NO,,,"Journal date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+general_ledger,5,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+general_ledger,6,account_id,text,,NO,NO,chart_of_accounts.account_id,,Text chart-of-accounts identifier; preserve it as a string.
+general_ledger,7,debit_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive debit posting or period debit turnover.
+general_ledger,8,credit_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive credit posting or period credit turnover.
+general_ledger,9,source_system,text,,NO,NO,,,Source system. Applies to: One debit or credit line.
+general_ledger,10,source_table,text,,NO,NO,,,Logical table containing the original source_id. It is not a filesystem path.
+general_ledger,11,source_id,text,,NO,NO,,,Polymorphic source document key; interpret jointly with source_table (or bank transaction_type).
+general_ledger,12,description,text,,NO,NO,,,Description. Applies to: One debit or credit line.
+monthly_trial_balance,1,trial_balance_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+monthly_trial_balance,2,service_month,date,ISO date,NO,NO,,,"First calendar date of the reporting/service month (YYYY-MM-01), not an extra transaction."
+monthly_trial_balance,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+monthly_trial_balance,4,account_id,text,,NO,NO,chart_of_accounts.account_id,,Text chart-of-accounts identifier; preserve it as a string.
+monthly_trial_balance,5,opening_balance_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Account/bank opening balance for the period, distinct from turnover."
+monthly_trial_balance,6,debit_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive debit posting or period debit turnover.
+monthly_trial_balance,7,credit_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive credit posting or period credit turnover.
+monthly_trial_balance,8,closing_balance_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Account or bank closing balance. For TB use debit-minus-credit; for statement use cash positive.
+bank_accounts,1,bank_account_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+bank_accounts,2,bank_name,text,,NO,NO,,,Bank name. Applies to: One synthetic bank account.
+bank_accounts,3,account_type,text,,NO,NO,,,Account type. Applies to: One synthetic bank account.
+bank_accounts,4,currency,text,,NO,NO,,,Currency. Applies to: One synthetic bank account.
+bank_accounts,5,opening_date,date,ISO date,NO,NO,,,"Opening date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+bank_accounts,6,opening_balance_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Account/bank opening balance for the period, distinct from turnover."
+bank_transactions,1,bank_transaction_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+bank_transactions,2,bank_account_id,text,,NO,NO,bank_accounts.bank_account_id,,Text foreign key to bank_accounts.bank_account_id. Blank only where the relationship is optional.
+bank_transactions,3,transaction_date,date,ISO date,NO,NO,,,"Transaction date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+bank_transactions,4,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+bank_transactions,5,transaction_type,text,,NO,NO,,CARD_PAYOUT|CASH_DEPOSIT|DEBT_SERVICE|DOORDASH_SETTLEMENT|OWNER_DISTRIBUTION|PAYROLL_NET_PAY|PAYROLL_PAYROLL_TAXES|SALES_TAX_REMITTANCE|UBEREATS_SETTLEMENT|VENDOR_PAYMENT,Transaction type. Applies to: One actual statement transaction.
+bank_transactions,6,source_id,text,,NO,NO,,,Polymorphic source document key; interpret jointly with source_table (or bank transaction_type).
+bank_transactions,7,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+bank_transactions,8,running_balance_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Running balance in USD. Use table-specific balance/sign conventions.
+bank_transactions,9,description,text,,NO,NO,,,Description. Applies to: One actual statement transaction.
+bank_monthly_statements,1,statement_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+bank_monthly_statements,2,bank_account_id,text,,NO,NO,bank_accounts.bank_account_id,,Text foreign key to bank_accounts.bank_account_id. Blank only where the relationship is optional.
+bank_monthly_statements,3,service_month,date,ISO date,NO,NO,,,"First calendar date of the reporting/service month (YYYY-MM-01), not an extra transaction."
+bank_monthly_statements,4,opening_balance_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Account/bank opening balance for the period, distinct from turnover."
+bank_monthly_statements,5,inflows_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Inflows in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+bank_monthly_statements,6,outflows_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Outflows in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+bank_monthly_statements,7,closing_balance_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Account or bank closing balance. For TB use debit-minus-credit; for statement use cash positive.
+bank_monthly_statements,8,transaction_count,integer,,NO,NO,,,"Transaction count, whole count at the declared table grain."
+restaurants,1,restaurant_id,text,,YES,NO,,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+restaurants,2,company_id,text,,NO,NO,,,Text identifier for company. Interpret at the table grain; do not convert IDs to numbers.
+restaurants,3,brand,text,,NO,NO,,,Brand. Applies to: One operating restaurant or HQ reporting entity.
+restaurants,4,restaurant_name,text,,NO,NO,,,Restaurant name. Applies to: One operating restaurant or HQ reporting entity.
+restaurants,5,city,text,,NO,NO,,,City. Applies to: One operating restaurant or HQ reporting entity.
+restaurants,6,state_code,text,,NO,NO,,,State code. Applies to: One operating restaurant or HQ reporting entity.
+restaurants,7,country_code,text,,NO,NO,,,Country code. Applies to: One operating restaurant or HQ reporting entity.
+restaurants,8,timezone,text,,NO,NO,,,Timezone. Applies to: One operating restaurant or HQ reporting entity.
+restaurants,9,seats,integer,,NO,NO,,,Seats. Applies to: One operating restaurant or HQ reporting entity.
+restaurants,10,opened_date,date,ISO date,NO,NO,,,"Opened date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+restaurants,11,location_type,text,,NO,NO,,,Location type. Applies to: One operating restaurant or HQ reporting entity.
+restaurants,12,contact_email,text,,NO,NO,,,Contact email. Applies to: One operating restaurant or HQ reporting entity.
+menu_items,1,menu_item_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+menu_items,2,item_name,text,,NO,NO,,,Item name. Applies to: One menu item; alcoholic beverages are not sold through marketplaces.
+menu_items,3,category,text,,NO,NO,,,Category. Applies to: One menu item; alcoholic beverages are not sold through marketplaces.
+menu_items,4,menu_group,text,,NO,NO,,,Menu group. Applies to: One menu item; alcoholic beverages are not sold through marketplaces.
+menu_items,5,base_price_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Base price in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+menu_items,6,active_from,date,ISO date,NO,NO,,,"Active from, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+menu_items,7,recipe_id,text,,NO,NO,recipes.recipe_id,,Text foreign key to recipes.recipe_id. Blank only where the relationship is optional.
+menu_items,8,delivery_available,text,,NO,NO,,,Delivery available. Applies to: One menu item; alcoholic beverages are not sold through marketplaces.
+modifier_options,1,modifier_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+modifier_options,2,modifier_name,text,,NO,NO,,,Modifier name. Applies to: One recipe-bearing add-on.
+modifier_options,3,unit_price_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Unit price in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+modifier_options,4,recipe_id,text,,NO,NO,recipes.recipe_id,,Text foreign key to recipes.recipe_id. Blank only where the relationship is optional.
+menu_price_versions,1,price_version_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+menu_price_versions,2,menu_item_id,text,,NO,NO,menu_items.menu_item_id,,Text foreign key to menu_items.menu_item_id. Blank only where the relationship is optional.
+menu_price_versions,3,price_channel,text,,NO,NO,,,Price channel. Applies to: One menu item/channel/effective interval.
+menu_price_versions,4,effective_from,date,ISO date,NO,NO,,,First inclusive date of this price/rate agreement. Intervals never overlap within the same item/employee key.
+menu_price_versions,5,effective_to,date,ISO date,NO,YES,,,"Last inclusive effective date; blank means continuing until superseded, not expiry at the snapshot. Future forecast uses last-known terms only as an explicit scenario assumption."
+menu_price_versions,6,unit_price_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Unit price in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+checks,1,check_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+checks,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+checks,3,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+checks,4,opened_at,local_datetime,local ISO timestamp,NO,NO,,,"Opened at, local ISO date-time without offset; use restaurant America/New_York timezone."
+checks,5,closed_at,local_datetime,local ISO timestamp,NO,NO,,,"Closed at, local ISO date-time without offset; use restaurant America/New_York timezone."
+checks,6,daypart,text,,NO,NO,,DINNER|LATE|LUNCH,"Daypart. Applies to: One POS check, including voided checks."
+checks,7,channel,text,,NO,NO,,DINE_IN|DOORDASH|TAKEAWAY|UBEREATS,"Channel. Applies to: One POS check, including voided checks."
+checks,8,platform_order_id,text,,NO,YES,,,Text identifier for platform order. Interpret at the table grain; do not convert IDs to numbers.
+checks,9,status,text,,NO,NO,,CLOSED|VOID,"Status. Applies to: One POS check, including voided checks."
+checks,10,guests,integer,,NO,NO,,,"Guests. Applies to: One POS check, including voided checks."
+checks,11,ordered_gross_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Quoted original menu/add-on value including void lines; not recognized revenue.
+checks,12,gross_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Recognized original gross sales before restaurant discounts/comps; void lines contribute zero.
+checks,13,discount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Restaurant-funded reduction of served gross sales; contra revenue, not a second marketing expense."
+checks,14,comp_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Full value of a served comped line, recognized as contra revenue. The recipe still consumes inventory."
+checks,15,net_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Original served sales after restaurant-funded discounts/comps, before tax/tips; dated refunds are separate."
+checks,16,sales_tax_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Informational customer sales tax at model 7.5%, rounded per POS line. Direct channel is payable; marketplace tax is retained by platform."
+checks,17,card_tips_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Collected/allocated card tips owed to staff. Liability settlement via payroll, not revenue or incremental wages expense."
+checks,18,cash_tips_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Cash tips physically received and paid to eligible staff the same business day.
+checks,19,total_due_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Original POS merchant sales plus tax and collected staff tips. Excludes third-party courier fees/tips and platform-funded consumer discounts.
+checks,20,currency,text,,NO,NO,,,"Currency. Applies to: One POS check, including voided checks."
+check_lines,1,check_line_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+check_lines,2,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+check_lines,3,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+check_lines,4,line_number,integer,,NO,NO,,,Line number. Applies to: One original menu item line; modifier gross rolls into this line.
+check_lines,5,menu_item_id,text,,NO,NO,menu_items.menu_item_id,,Text foreign key to menu_items.menu_item_id. Blank only where the relationship is optional.
+check_lines,6,price_version_id,text,,NO,NO,menu_price_versions.price_version_id,,Text foreign key to menu_price_versions.price_version_id. Blank only where the relationship is optional.
+check_lines,7,quantity,integer,whole menu/add-on servings,NO,NO,,,Quantity. Applies to: One original menu item line; modifier gross rolls into this line.
+check_lines,8,line_status,text,,NO,NO,,SERVED|VOID,Line status. Applies to: One original menu item line; modifier gross rolls into this line.
+check_lines,9,unit_price_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Unit price in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+check_lines,10,menu_gross_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Quantity times original menu unit price, before add-ons/discounts/comps; retained on void lines."
+check_lines,11,modifier_gross_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Selected add-on value already rolled into the parent line gross; never add it twice.
+check_lines,12,gross_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Recognized original gross sales before restaurant discounts/comps; void lines contribute zero.
+check_lines,13,discount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Restaurant-funded reduction of served gross sales; contra revenue, not a second marketing expense."
+check_lines,14,comp_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Full value of a served comped line, recognized as contra revenue. The recipe still consumes inventory."
+check_lines,15,net_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Original served sales after restaurant-funded discounts/comps, before tax/tips; dated refunds are separate."
+check_lines,16,sales_tax_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Informational customer sales tax at model 7.5%, rounded per POS line. Direct channel is payable; marketplace tax is retained by platform."
+check_modifiers,1,check_modifier_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+check_modifiers,2,check_line_id,text,,NO,NO,check_lines.check_line_id,,Text foreign key to check_lines.check_line_id. Blank only where the relationship is optional.
+check_modifiers,3,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+check_modifiers,4,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+check_modifiers,5,modifier_id,text,,NO,NO,modifier_options.modifier_id,,Text foreign key to modifier_options.modifier_id. Blank only where the relationship is optional.
+check_modifiers,6,quantity,integer,whole menu/add-on servings,NO,NO,,,Quantity. Applies to: One selected add-on to one POS line.
+check_modifiers,7,unit_price_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Unit price in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+check_modifiers,8,gross_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Gross in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+check_modifiers,9,modifier_status,text,,NO,NO,,,Modifier status. Applies to: One selected add-on to one POS line.
+discounts,1,discount_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+discounts,2,check_line_id,text,,NO,NO,check_lines.check_line_id,,Text foreign key to check_lines.check_line_id. Blank only where the relationship is optional.
+discounts,3,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+discounts,4,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+discounts,5,discount_code,text,,NO,NO,,,Discount code. Applies to: One restaurant-funded discount on a line.
+discounts,6,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+discounts,7,funding_party,text,,NO,NO,,,Funding party. Applies to: One restaurant-funded discount on a line.
+comps,1,comp_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+comps,2,check_line_id,text,,NO,NO,check_lines.check_line_id,,Text foreign key to check_lines.check_line_id. Blank only where the relationship is optional.
+comps,3,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+comps,4,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+comps,5,comp_reason,text,,NO,NO,,,Comp reason. Applies to: One fully comped line served to a guest.
+comps,6,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+comps,7,approved_by_role,text,,NO,NO,,,Approved by role. Applies to: One fully comped line served to a guest.
+voids,1,void_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+voids,2,check_line_id,text,,NO,NO,check_lines.check_line_id,,Text foreign key to check_lines.check_line_id. Blank only where the relationship is optional.
+voids,3,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+voids,4,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+voids,5,void_reason,text,,NO,NO,,,Void reason. Applies to: One line cancelled before preparation.
+voids,6,kitchen_prepared,text,,NO,NO,,,Kitchen prepared. Applies to: One line cancelled before preparation.
+voids,7,quoted_amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Quoted amount in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+payments,1,payment_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+payments,2,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+payments,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+payments,4,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+payments,5,tender_type,text,,NO,NO,,CARD|CASH|DOORDASH|UBEREATS,Tender type. Applies to: One successful POS tender; split checks may have multiple.
+payments,6,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+payments,7,sales_and_tax_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Sales and tax in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+payments,8,tip_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Tip in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+payments,9,processor_capture_id,text,,NO,YES,processor_transactions.processor_transaction_id,,Text foreign key to processor_transactions.processor_transaction_id. Blank only where the relationship is optional.
+refunds,1,refund_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+refunds,2,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+refunds,3,check_line_id,text,,NO,NO,check_lines.check_line_id,,Text foreign key to check_lines.check_line_id. Blank only where the relationship is optional.
+refunds,4,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+refunds,5,refund_date,date,ISO date,NO,NO,,,Actual refund recognition date; original check values remain unchanged.
+refunds,6,original_business_date,date,ISO date,NO,NO,,,"Original business date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+refunds,7,tender_type,text,,NO,NO,,CARD|CASH|DOORDASH|UBEREATS,Tender type. Applies to: One dated partial/full line refund; no cooked-food restocking.
+refunds,8,payment_id,text,,NO,NO,payments.payment_id,,Text foreign key to payments.payment_id. Blank only where the relationship is optional.
+refunds,9,refund_qty,"decimal(18,6)","original menu line servings refunded, 6 decimals; not ingredient quantity",NO,NO,,,Quantity of the original menu line refunded; never a restock of prepared food.
+refunds,10,net_sales_refund_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive refund of original pretax restaurant sales; debit to sales refunds on refund_date.
+refunds,11,tax_refund_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive refunded customer tax. Only direct-channel refunds reduce merchant sales tax payable.
+refunds,12,tip_refund_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Staff tip refund; zero in this case. Original collected tips remain due to employees.
+refunds,13,total_refund_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Total refund in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+refunds,14,reason,text,,NO,NO,,,Reason. Applies to: One dated partial/full line refund; no cooked-food restocking.
+refunds,15,inventory_restock,text,,NO,NO,,,Inventory restock. Applies to: One dated partial/full line refund; no cooked-food restocking.
+marketplace_pos_map,1,mapping_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+marketplace_pos_map,2,platform,text,,NO,NO,,,Platform. Applies to: One marketplace order to exactly one POS check.
+marketplace_pos_map,3,platform_order_id,text,,NO,NO,,,Text identifier for platform order. Interpret at the table grain; do not convert IDs to numbers.
+marketplace_pos_map,4,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+marketplace_pos_map,5,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+marketplace_pos_map,6,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+day_closings,1,close_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+day_closings,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+day_closings,3,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+day_closings,4,closed_check_count,integer,,NO,NO,,,"Closed check count, whole count at the declared table grain."
+day_closings,5,void_check_count,integer,,NO,NO,,,"Void check count, whole count at the declared table grain."
+day_closings,6,guest_count,integer,,NO,NO,,,"Guest count, whole count at the declared table grain."
+day_closings,7,gross_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Recognized original gross sales before restaurant discounts/comps; void lines contribute zero.
+day_closings,8,discount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Restaurant-funded reduction of served gross sales; contra revenue, not a second marketing expense."
+day_closings,9,comp_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Full value of a served comped line, recognized as contra revenue. The recipe still consumes inventory."
+day_closings,10,net_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Original served sales after restaurant-funded discounts/comps, before tax/tips; dated refunds are separate."
+day_closings,11,direct_sales_tax_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Direct sales tax in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,12,marketplace_sales_tax_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Marketplace sales tax in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,13,card_tips_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Collected/allocated card tips owed to staff. Liability settlement via payroll, not revenue or incremental wages expense."
+day_closings,14,cash_tips_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Cash tips physically received and paid to eligible staff the same business day.
+day_closings,15,cash_tenders_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Cash tenders in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,16,card_tenders_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Card tenders in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,17,doordash_tenders_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Doordash tenders in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,18,ubereats_tenders_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Ubereats tenders in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,19,refunds_net_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Refunds net in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,20,refunds_tax_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Refunds tax in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,21,cash_refunds_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Cash refunds in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,22,card_refunds_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Card refunds in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+day_closings,23,marketplace_refunds_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Marketplace refunds in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+processor_transactions,1,processor_transaction_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+processor_transactions,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+processor_transactions,3,transaction_date,date,ISO date,NO,NO,,,"Transaction date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+processor_transactions,4,transaction_type,text,,NO,NO,,CAPTURE|REFUND,Transaction type. Applies to: One capture or refund; all card tips included in captures.
+processor_transactions,5,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+processor_transactions,6,payment_id,text,,NO,YES,payments.payment_id,,Text foreign key to payments.payment_id. Blank only where the relationship is optional.
+processor_transactions,7,refund_id,text,,NO,YES,refunds.refund_id,,Text foreign key to refunds.refund_id. Blank only where the relationship is optional.
+processor_transactions,8,payout_id,text,,NO,NO,processor_payouts.payout_id,,Text foreign key to processor_payouts.payout_id. Blank only where the relationship is optional.
+processor_transactions,9,gross_amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Original bill amount, or signed processor gross event amount; interpret using table grain/notes."
+processor_transactions,10,fee_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Fee in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+processor_transactions,11,net_amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Signed processor gross amount less positive fee; contribution to processor clearing.
+processor_transactions,12,currency,text,,NO,NO,,,Currency. Applies to: One capture or refund; all card tips included in captures.
+processor_payouts,1,payout_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+processor_payouts,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+processor_payouts,3,created_date,date,ISO date,NO,NO,,,"Created date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+processor_payouts,4,activity_date,date,ISO date,NO,NO,,,"Activity date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+processor_payouts,5,capture_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Capture in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+processor_payouts,6,refund_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Refund in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+processor_payouts,7,fees_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Fees in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+processor_payouts,8,payout_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Net batch/settlement cash expected or actually received; not sales again.
+processor_payouts,9,scheduled_initiation_date,date,ISO date,NO,NO,,,Expected processor initiation date; actual initiated_date remains blank until observed.
+processor_payouts,10,initiated_date,date,ISO date,NO,YES,,,Actual payout initiation date only if on/before cutoff.
+processor_payouts,11,expected_bank_date,date,ISO date,NO,NO,,,Contract/model expected bank receipt date; can legitimately be after cutoff.
+processor_payouts,12,bank_arrival_date,date,ISO date,NO,YES,,,Observed bank receipt date; blank for pending payouts/deposits after snapshot.
+processor_payouts,13,bank_transaction_id,text,,NO,YES,bank_transactions.bank_transaction_id,,Text foreign key to bank_transactions.bank_transaction_id. Blank only where the relationship is optional.
+processor_payouts,14,status,text,,NO,NO,,IN_TRANSIT|PAID|SCHEDULED,"Status. Applies to: One daily restaurant card batch, including pending final batches."
+doordash_orders,1,platform_order_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+doordash_orders,2,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+doordash_orders,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+doordash_orders,4,order_date,date,ISO date,NO,NO,,,"Order date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+doordash_orders,5,merchant_gross_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant gross in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_orders,6,merchant_discount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Restaurant-funded POS discount on the mirrored order; already reduces merchant revenue.
+doordash_orders,7,merchant_comp_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant comp in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_orders,8,merchant_net_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant net sales in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_orders,9,sales_tax_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Informational customer sales tax at model 7.5%, rounded per POS line. Direct channel is payable; marketplace tax is retained by platform."
+doordash_orders,10,marketplace_tax_withheld_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive tax retained/remitted by platform under this case assumption; excluded from merchant clearing and tax payable.
+doordash_orders,11,platform_customer_promo_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Platform-funded customer discount, reimbursed to merchant. Does not reduce POS merchant net sales."
+doordash_orders,12,platform_reimbursement_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Reimbursement equal to platform-funded customer discount; not additional merchant revenue.
+doordash_orders,13,customer_food_paid_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Customer food paid in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_orders,14,merchant_tip_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant tip in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_orders,15,commission_rate,"decimal(18,6)",fraction / ratio,NO,NO,,,Agreed synthetic fraction of merchant net pretax sales; no assertion about real platform tariffs.
+doordash_orders,16,commission_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive commission expense withheld from marketplace merchant proceeds.
+doordash_orders,17,merchant_promotion_fee_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Separate merchant-funded platform promotion fee; expense, not another POS sales discount."
+doordash_orders,18,service_adjustment_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive merchant service-charge expense; not a duplicate customer sales refund.
+doordash_orders,19,merchant_net_receivable_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Merchant pretax sales less commissions, merchant promotion fees and service adjustments; excludes marketplace tax."
+doordash_orders,20,settlement_id,text,,NO,NO,doordash_settlements.settlement_id,,Text foreign key to doordash_settlements.settlement_id. Blank only where the relationship is optional.
+doordash_transactions,1,platform_transaction_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+doordash_transactions,2,platform_order_id,text,,NO,NO,doordash_orders.platform_order_id,,Text foreign key to doordash_orders.platform_order_id. Blank only where the relationship is optional.
+doordash_transactions,3,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+doordash_transactions,4,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+doordash_transactions,5,transaction_date,date,ISO date,NO,NO,,,"Transaction date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+doordash_transactions,6,transaction_type,text,,NO,NO,,CAPTURE|REFUND,Transaction type. Applies to: One order capture or dated refund event.
+doordash_transactions,7,refund_id,text,,NO,YES,refunds.refund_id,,Text foreign key to refunds.refund_id. Blank only where the relationship is optional.
+doordash_transactions,8,settlement_id,text,,NO,NO,doordash_settlements.settlement_id,,Text foreign key to doordash_settlements.settlement_id. Blank only where the relationship is optional.
+doordash_transactions,9,merchant_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant sales in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_transactions,10,commission_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive commission expense withheld from marketplace merchant proceeds.
+doordash_transactions,11,promotion_fee_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Promotion fee in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_transactions,12,service_adjustment_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive merchant service-charge expense; not a duplicate customer sales refund.
+doordash_transactions,13,net_receivable_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Signed transaction contribution to marketplace clearing after fees; refund is negative pretax merchant sales.
+doordash_settlements,1,settlement_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+doordash_settlements,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+doordash_settlements,3,period_start,date,ISO date,NO,NO,,,Period start. Applies to: One restaurant/calendar-week settlement; final week is a cutoff stub.
+doordash_settlements,4,period_end,date,ISO date,NO,NO,,,Period end. Applies to: One restaurant/calendar-week settlement; final week is a cutoff stub.
+doordash_settlements,5,statement_date,date,ISO date,NO,YES,,,"Statement date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+doordash_settlements,6,merchant_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant sales in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_settlements,7,refunds_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Refunds in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_settlements,8,commissions_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Commissions in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_settlements,9,promotion_fees_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Promotion fees in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_settlements,10,service_adjustments_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Service adjustments in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+doordash_settlements,11,payout_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Net batch/settlement cash expected or actually received; not sales again.
+doordash_settlements,12,scheduled_payout_date,date,ISO date,NO,NO,,,"Scheduled payout date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+doordash_settlements,13,initiated_date,date,ISO date,NO,YES,,,Actual payout initiation date only if on/before cutoff.
+doordash_settlements,14,expected_bank_date,date,ISO date,NO,NO,,,Contract/model expected bank receipt date; can legitimately be after cutoff.
+doordash_settlements,15,bank_arrival_date,date,ISO date,NO,YES,,,Observed bank receipt date; blank for pending payouts/deposits after snapshot.
+doordash_settlements,16,bank_transaction_id,text,,NO,YES,bank_transactions.bank_transaction_id,,Text foreign key to bank_transactions.bank_transaction_id. Blank only where the relationship is optional.
+doordash_settlements,17,status,text,,NO,NO,,PAID|PENDING,Status. Applies to: One restaurant/calendar-week settlement; final week is a cutoff stub.
+ubereats_orders,1,platform_order_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+ubereats_orders,2,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+ubereats_orders,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+ubereats_orders,4,order_date,date,ISO date,NO,NO,,,"Order date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+ubereats_orders,5,merchant_gross_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant gross in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_orders,6,merchant_discount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Restaurant-funded POS discount on the mirrored order; already reduces merchant revenue.
+ubereats_orders,7,merchant_comp_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant comp in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_orders,8,merchant_net_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant net sales in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_orders,9,sales_tax_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Informational customer sales tax at model 7.5%, rounded per POS line. Direct channel is payable; marketplace tax is retained by platform."
+ubereats_orders,10,marketplace_tax_withheld_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive tax retained/remitted by platform under this case assumption; excluded from merchant clearing and tax payable.
+ubereats_orders,11,platform_customer_promo_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Platform-funded customer discount, reimbursed to merchant. Does not reduce POS merchant net sales."
+ubereats_orders,12,platform_reimbursement_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Reimbursement equal to platform-funded customer discount; not additional merchant revenue.
+ubereats_orders,13,customer_food_paid_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Customer food paid in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_orders,14,merchant_tip_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant tip in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_orders,15,commission_rate,"decimal(18,6)",fraction / ratio,NO,NO,,,Agreed synthetic fraction of merchant net pretax sales; no assertion about real platform tariffs.
+ubereats_orders,16,commission_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive commission expense withheld from marketplace merchant proceeds.
+ubereats_orders,17,merchant_promotion_fee_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Separate merchant-funded platform promotion fee; expense, not another POS sales discount."
+ubereats_orders,18,service_adjustment_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive merchant service-charge expense; not a duplicate customer sales refund.
+ubereats_orders,19,merchant_net_receivable_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Merchant pretax sales less commissions, merchant promotion fees and service adjustments; excludes marketplace tax."
+ubereats_orders,20,settlement_id,text,,NO,NO,ubereats_settlements.settlement_id,,Text foreign key to ubereats_settlements.settlement_id. Blank only where the relationship is optional.
+ubereats_transactions,1,platform_transaction_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+ubereats_transactions,2,platform_order_id,text,,NO,NO,ubereats_orders.platform_order_id,,Text foreign key to ubereats_orders.platform_order_id. Blank only where the relationship is optional.
+ubereats_transactions,3,check_id,text,,NO,NO,checks.check_id,,Text foreign key to checks.check_id. Blank only where the relationship is optional.
+ubereats_transactions,4,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+ubereats_transactions,5,transaction_date,date,ISO date,NO,NO,,,"Transaction date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+ubereats_transactions,6,transaction_type,text,,NO,NO,,CAPTURE|REFUND,Transaction type. Applies to: One order capture or dated refund event.
+ubereats_transactions,7,refund_id,text,,NO,YES,refunds.refund_id,,Text foreign key to refunds.refund_id. Blank only where the relationship is optional.
+ubereats_transactions,8,settlement_id,text,,NO,NO,ubereats_settlements.settlement_id,,Text foreign key to ubereats_settlements.settlement_id. Blank only where the relationship is optional.
+ubereats_transactions,9,merchant_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant sales in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_transactions,10,commission_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive commission expense withheld from marketplace merchant proceeds.
+ubereats_transactions,11,promotion_fee_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Promotion fee in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_transactions,12,service_adjustment_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Positive merchant service-charge expense; not a duplicate customer sales refund.
+ubereats_transactions,13,net_receivable_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Signed transaction contribution to marketplace clearing after fees; refund is negative pretax merchant sales.
+ubereats_settlements,1,settlement_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+ubereats_settlements,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+ubereats_settlements,3,period_start,date,ISO date,NO,NO,,,Period start. Applies to: One restaurant/calendar-week settlement; final week is a cutoff stub.
+ubereats_settlements,4,period_end,date,ISO date,NO,NO,,,Period end. Applies to: One restaurant/calendar-week settlement; final week is a cutoff stub.
+ubereats_settlements,5,statement_date,date,ISO date,NO,YES,,,"Statement date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+ubereats_settlements,6,merchant_sales_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Merchant sales in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_settlements,7,refunds_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Refunds in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_settlements,8,commissions_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Commissions in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_settlements,9,promotion_fees_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Promotion fees in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_settlements,10,service_adjustments_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Service adjustments in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+ubereats_settlements,11,payout_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Net batch/settlement cash expected or actually received; not sales again.
+ubereats_settlements,12,scheduled_payout_date,date,ISO date,NO,NO,,,"Scheduled payout date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+ubereats_settlements,13,initiated_date,date,ISO date,NO,YES,,,Actual payout initiation date only if on/before cutoff.
+ubereats_settlements,14,expected_bank_date,date,ISO date,NO,NO,,,Contract/model expected bank receipt date; can legitimately be after cutoff.
+ubereats_settlements,15,bank_arrival_date,date,ISO date,NO,YES,,,Observed bank receipt date; blank for pending payouts/deposits after snapshot.
+ubereats_settlements,16,bank_transaction_id,text,,NO,YES,bank_transactions.bank_transaction_id,,Text foreign key to bank_transactions.bank_transaction_id. Blank only where the relationship is optional.
+ubereats_settlements,17,status,text,,NO,NO,,PAID|PENDING,Status. Applies to: One restaurant/calendar-week settlement; final week is a cutoff stub.
+cash_drawer_closings,1,drawer_close_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+cash_drawer_closings,2,close_id,text,,NO,NO,day_closings.close_id,,Text foreign key to day_closings.close_id. Blank only where the relationship is optional.
+cash_drawer_closings,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+cash_drawer_closings,4,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+cash_drawer_closings,5,opening_float_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Opening float in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+cash_drawer_closings,6,cash_tenders_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Cash tenders in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+cash_drawer_closings,7,cash_refunds_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Cash refunds in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+cash_drawer_closings,8,cash_tips_paid_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Cash tips paid in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+cash_drawer_closings,9,petty_cash_out_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Petty cash out in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+cash_drawer_closings,10,expected_before_count_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Expected before count in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+cash_drawer_closings,11,counted_before_deposit_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Counted before deposit in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+cash_drawer_closings,12,over_short_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Counted drawer less expected cash: positive overage, negative shortage. P&L cost is opposite sign."
+cash_drawer_closings,13,deposit_bag_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Counted cash moved from drawer to transit, preserving USD400 site float."
+cash_drawer_closings,14,closing_float_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Closing float in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+cash_drawer_closings,15,deposit_id,text,,NO,NO,cash_deposits.deposit_id,,Text foreign key to cash_deposits.deposit_id. Blank only where the relationship is optional.
+cash_deposits,1,deposit_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+cash_deposits,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+cash_deposits,3,dispatch_date,date,ISO date,NO,NO,,,"Dispatch date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+cash_deposits,4,deposit_bag_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Counted cash moved from drawer to transit, preserving USD400 site float."
+cash_deposits,5,expected_bank_date,date,ISO date,NO,NO,,,Contract/model expected bank receipt date; can legitimately be after cutoff.
+cash_deposits,6,bank_arrival_date,date,ISO date,NO,YES,,,Observed bank receipt date; blank for pending payouts/deposits after snapshot.
+cash_deposits,7,bank_transaction_id,text,,NO,YES,bank_transactions.bank_transaction_id,,Text foreign key to bank_transactions.bank_transaction_id. Blank only where the relationship is optional.
+cash_deposits,8,status,text,,NO,NO,,IN_TRANSIT|RECEIVED,Status. Applies to: One sealed night-deposit bag and bank arrival.
+petty_cash_receipts,1,petty_cash_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+petty_cash_receipts,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+petty_cash_receipts,3,transaction_date,date,ISO date,NO,NO,,,"Transaction date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+petty_cash_receipts,4,expense_account_id,text,,NO,NO,chart_of_accounts.account_id,,Text foreign key to chart_of_accounts.account_id. Blank only where the relationship is optional.
+petty_cash_receipts,5,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+petty_cash_receipts,6,purpose,text,,NO,NO,,,Purpose. Applies to: One small cash-paid operating expense.
+roles,1,role_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+roles,2,role_name,text,,NO,NO,,,Role name. Applies to: One role and payroll accounting mapping.
+roles,3,pay_type,text,,NO,NO,,HOURLY|SALARY,Pay type. Applies to: One role and payroll accounting mapping.
+roles,4,tip_eligible,text,,NO,NO,,,Tip eligible. Applies to: One role and payroll accounting mapping.
+roles,5,expense_account_id,text,,NO,NO,chart_of_accounts.account_id,,Text foreign key to chart_of_accounts.account_id. Blank only where the relationship is optional.
+employees,1,employee_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+employees,2,first_name,text,,NO,NO,,,First name. Applies to: One synthetic employee; employment dates inclusive.
+employees,3,last_name,text,,NO,NO,,,Last name. Applies to: One synthetic employee; employment dates inclusive.
+employees,4,email,text,,NO,NO,,,Email. Applies to: One synthetic employee; employment dates inclusive.
+employees,5,home_restaurant_id,text,,NO,NO,restaurants.restaurant_id,,Text foreign key to restaurants.restaurant_id. Blank only where the relationship is optional.
+employees,6,role_id,text,,NO,NO,roles.role_id,,Text foreign key to roles.role_id. Blank only where the relationship is optional.
+employees,7,pay_type,text,,NO,NO,,HOURLY|SALARY,Pay type. Applies to: One synthetic employee; employment dates inclusive.
+employees,8,hire_date,date,ISO date,NO,NO,,,"Hire date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+employees,9,termination_date,date,ISO date,NO,YES,,,"Termination date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+employees,10,synthetic_person,text,,NO,NO,,,Synthetic person. Applies to: One synthetic employee; employment dates inclusive.
+pay_rates,1,pay_rate_id,text,,YES,NO,,,Effective employee-specific rate agreement applicable to the worked date.
+pay_rates,2,employee_id,text,,NO,NO,employees.employee_id,,Text foreign key to employees.employee_id. Blank only where the relationship is optional.
+pay_rates,3,effective_from,date,ISO date,NO,NO,,,First inclusive date of this price/rate agreement. Intervals never overlap within the same item/employee key.
+pay_rates,4,effective_to,date,ISO date,NO,YES,,,"Last inclusive effective date; blank means continuing until superseded, not expiry at the snapshot. Future forecast uses last-known terms only as an explicit scenario assumption."
+pay_rates,5,hourly_rate_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Hourly rate in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+pay_rates,6,annual_salary_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Annual salary in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+pay_rates,7,employee_withholding_rate,"decimal(18,6)",fraction / ratio,NO,NO,,,Synthetic employee flat withholding fraction; not real statutory or W-4 calculations.
+pay_rates,8,employer_tax_rate,"decimal(18,6)",fraction / ratio,NO,NO,,,Synthetic flat employer tax fraction; no statutory wage caps or tip credits modeled.
+pay_rates,9,overtime_multiplier,"decimal(18,6)",,NO,NO,,,Model 1.5 times effective hourly rate for weekly overtime paid minutes.
+opening_workweek_balances,1,opening_workweek_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+opening_workweek_balances,2,employee_id,text,,NO,NO,employees.employee_id,,Text foreign key to employees.employee_id. Blank only where the relationship is optional.
+opening_workweek_balances,3,workweek_start_date,date,ISO date,NO,NO,,,Monday beginning the overtime workweek; weekly accumulation crosses months/payroll runs.
+opening_workweek_balances,4,paid_minutes_before_window,integer,minutes,NO,NO,,,Opening paid-minute state for the partial workweek before Nov 1; already paid before opening.
+scheduled_shifts,1,shift_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+scheduled_shifts,2,employee_id,text,,NO,NO,employees.employee_id,,Text foreign key to employees.employee_id. Blank only where the relationship is optional.
+scheduled_shifts,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+scheduled_shifts,4,role_id,text,,NO,NO,roles.role_id,,Text foreign key to roles.role_id. Blank only where the relationship is optional.
+scheduled_shifts,5,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+scheduled_shifts,6,scheduled_start_at,local_datetime,local ISO timestamp,NO,NO,,,"Scheduled start at, local ISO date-time without offset; use restaurant America/New_York timezone."
+scheduled_shifts,7,scheduled_end_at,local_datetime,local ISO timestamp,NO,NO,,,"Scheduled end at, local ISO date-time without offset; use restaurant America/New_York timezone."
+scheduled_shifts,8,scheduled_break_minutes,integer,minutes,NO,NO,,,"Scheduled break minutes, whole minutes."
+scheduled_shifts,9,scheduled_paid_minutes,integer,minutes,NO,NO,,,"Scheduled paid minutes, whole minutes."
+timesheets,1,timesheet_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+timesheets,2,shift_id,text,,NO,NO,scheduled_shifts.shift_id,,Text foreign key to scheduled_shifts.shift_id. Blank only where the relationship is optional.
+timesheets,3,employee_id,text,,NO,NO,employees.employee_id,,Text foreign key to employees.employee_id. Blank only where the relationship is optional.
+timesheets,4,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+timesheets,5,role_id,text,,NO,NO,roles.role_id,,Text foreign key to roles.role_id. Blank only where the relationship is optional.
+timesheets,6,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+timesheets,7,clock_in_at,local_datetime,local ISO timestamp,NO,NO,,,"Clock in at, local ISO date-time without offset; use restaurant America/New_York timezone."
+timesheets,8,clock_out_at,local_datetime,local ISO timestamp,NO,NO,,,"Clock out at, local ISO date-time without offset; use restaurant America/New_York timezone."
+timesheets,9,unpaid_break_minutes,integer,minutes,NO,NO,,,"Unpaid break minutes, whole minutes."
+timesheets,10,paid_minutes,integer,minutes,NO,NO,,,"Clock-out minus clock-in minus unpaid breaks, in exact whole minutes."
+timesheets,11,regular_minutes,integer,minutes,NO,NO,,,Paid minutes remaining below the model 2400-minute Monday-Sunday weekly threshold.
+timesheets,12,overtime_minutes,integer,minutes,NO,NO,,,"Paid minutes above the weekly threshold, including opening/cross-period carry."
+timesheets,13,paid_hours,"decimal(18,6)",hours,NO,NO,,,"Paid hours derived from exact whole minutes / 60, rounded to six decimals."
+timesheets,14,regular_hours,"decimal(18,6)",hours,NO,NO,,,"Regular hours derived from exact whole minutes / 60, rounded to six decimals."
+timesheets,15,overtime_hours,"decimal(18,6)",hours,NO,NO,,,"Overtime hours derived from exact whole minutes / 60, rounded to six decimals."
+timesheets,16,pay_rate_id,text,,NO,NO,pay_rates.pay_rate_id,,Effective employee-specific rate agreement applicable to the worked date.
+timesheets,17,regular_pay_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Regular pay in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+timesheets,18,overtime_pay_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Overtime pay in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+timesheets,19,wage_expense_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Company hourly/salary wage expense, excluding both cash and card tips."
+timesheets,20,payroll_run_id,text,,NO,NO,payroll_runs.payroll_run_id,,Text foreign key to payroll_runs.payroll_run_id. Blank only where the relationship is optional.
+timesheets,21,workweek_start_date,date,ISO date,NO,NO,,,Monday beginning the overtime workweek; weekly accumulation crosses months/payroll runs.
+tip_allocations,1,tip_allocation_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+tip_allocations,2,timesheet_id,text,,NO,NO,timesheets.timesheet_id,,Text foreign key to timesheets.timesheet_id. Blank only where the relationship is optional.
+tip_allocations,3,employee_id,text,,NO,NO,employees.employee_id,,Text foreign key to employees.employee_id. Blank only where the relationship is optional.
+tip_allocations,4,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+tip_allocations,5,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+tip_allocations,6,payroll_run_id,text,,NO,NO,payroll_runs.payroll_run_id,,Text foreign key to payroll_runs.payroll_run_id. Blank only where the relationship is optional.
+tip_allocations,7,card_tips_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Collected/allocated card tips owed to staff. Liability settlement via payroll, not revenue or incremental wages expense."
+tip_allocations,8,cash_tips_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Cash tips physically received and paid to eligible staff the same business day.
+tip_allocations,9,cash_tip_paid_date,date,ISO date,NO,NO,,,"Cash tip paid date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+payroll_runs,1,payroll_run_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+payroll_runs,2,period_start,date,ISO date,NO,NO,,,Period start. Applies to: One semi-monthly company payroll.
+payroll_runs,3,period_end,date,ISO date,NO,NO,,,Period end. Applies to: One semi-monthly company payroll.
+payroll_runs,4,approval_date,date,ISO date,NO,NO,,,"Approval date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+payroll_runs,5,scheduled_funding_date,date,ISO date,NO,NO,,,"Scheduled funding date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+payroll_runs,6,funding_date,date,ISO date,NO,YES,,,Actual payroll funding date; blank if the approved run is not funded by cutoff.
+payroll_runs,7,scheduled_pay_date,date,ISO date,NO,NO,,,"Scheduled pay date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+payroll_runs,8,actual_pay_date,date,ISO date,NO,YES,,,Actual employee pay date; future scheduled pay dates are not put here.
+payroll_runs,9,wage_expense_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Company hourly/salary wage expense, excluding both cash and card tips."
+payroll_runs,10,card_tips_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Collected/allocated card tips owed to staff. Liability settlement via payroll, not revenue or incremental wages expense."
+payroll_runs,11,cash_tips_reported_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Previously paid cash tips reported for taxable gross; excluded from net payroll cash paid again.
+payroll_runs,12,taxable_gross_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Wage expense plus card tips plus already paid reported cash tips; taxable basis under model rules.
+payroll_runs,13,employee_withholding_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Employee tax withholding, deducted from wages/tips, not a separate company P&L expense."
+payroll_runs,14,employer_taxes_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Employer payroll tax at model 8.3% of taxable gross; company labor expense.
+payroll_runs,15,net_pay_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Wages + card tips - employee withholding; cash tips excluded because already paid.
+payroll_runs,16,total_funding_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Net pay + employee withholding + employer payroll taxes; excludes already paid cash tips.
+payroll_runs,17,status,text,,NO,NO,,APPROVED_UNFUNDED|FUNDED,Status. Applies to: One semi-monthly company payroll.
+payroll_register,1,payroll_register_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+payroll_register,2,payroll_run_id,text,,NO,NO,payroll_runs.payroll_run_id,,Text foreign key to payroll_runs.payroll_run_id. Blank only where the relationship is optional.
+payroll_register,3,employee_id,text,,NO,NO,employees.employee_id,,Text foreign key to employees.employee_id. Blank only where the relationship is optional.
+payroll_register,4,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+payroll_register,5,pay_type,text,,NO,NO,,HOURLY|SALARY,Pay type. Applies to: One employee earnings/tax record per semi-monthly run.
+payroll_register,6,regular_minutes,integer,minutes,NO,NO,,,Paid minutes remaining below the model 2400-minute Monday-Sunday weekly threshold.
+payroll_register,7,overtime_minutes,integer,minutes,NO,NO,,,"Paid minutes above the weekly threshold, including opening/cross-period carry."
+payroll_register,8,regular_wages_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Regular wages in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+payroll_register,9,overtime_wages_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Overtime wages in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+payroll_register,10,salary_wages_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Salary wages in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+payroll_register,11,wage_expense_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Company hourly/salary wage expense, excluding both cash and card tips."
+payroll_register,12,card_tips_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Collected/allocated card tips owed to staff. Liability settlement via payroll, not revenue or incremental wages expense."
+payroll_register,13,cash_tips_reported_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Previously paid cash tips reported for taxable gross; excluded from net payroll cash paid again.
+payroll_register,14,taxable_gross_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Wage expense plus card tips plus already paid reported cash tips; taxable basis under model rules.
+payroll_register,15,employee_withholding_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Employee tax withholding, deducted from wages/tips, not a separate company P&L expense."
+payroll_register,16,employer_taxes_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Employer payroll tax at model 8.3% of taxable gross; company labor expense.
+payroll_register,17,net_pay_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Wages + card tips - employee withholding; cash tips excluded because already paid.
+payroll_funding,1,payroll_funding_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+payroll_funding,2,payroll_run_id,text,,NO,NO,payroll_runs.payroll_run_id,,Text foreign key to payroll_runs.payroll_run_id. Blank only where the relationship is optional.
+payroll_funding,3,funding_component,text,,NO,NO,,NET_PAY|PAYROLL_TAXES,"Funding component. Applies to: One net-pay or combined-tax funding component, actual or pending."
+payroll_funding,4,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+payroll_funding,5,scheduled_funding_date,date,ISO date,NO,NO,,,"Scheduled funding date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+payroll_funding,6,actual_funding_date,date,ISO date,NO,YES,,,Observed company bank funding date; blank for future scheduled funding.
+payroll_funding,7,bank_transaction_id,text,,NO,YES,bank_transactions.bank_transaction_id,,Text foreign key to bank_transactions.bank_transaction_id. Blank only where the relationship is optional.
+payroll_funding,8,status,text,,NO,NO,,FUNDED|PENDING,"Status. Applies to: One net-pay or combined-tax funding component, actual or pending."
+vendors,1,vendor_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+vendors,2,vendor_name,text,,NO,NO,,,Vendor name. Applies to: One synthetic supplier or operating vendor.
+vendors,3,vendor_type,text,,NO,NO,,,Vendor type. Applies to: One synthetic supplier or operating vendor.
+vendors,4,payment_terms,text,,NO,NO,,COD|MONTHLY|NET_10|NET_14|NET_15|NET_30|NET_7,Payment terms. Applies to: One synthetic supplier or operating vendor.
+vendors,5,contact_email,text,,NO,NO,,,Contact email. Applies to: One synthetic supplier or operating vendor.
+vendor_bills,1,bill_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+vendor_bills,2,vendor_id,text,,NO,NO,vendors.vendor_id,,Text foreign key to vendors.vendor_id. Blank only where the relationship is optional.
+vendor_bills,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+vendor_bills,4,bill_date,date,ISO date,NO,NO,,,"Bill date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+vendor_bills,5,service_month,date,ISO date,NO,NO,,,"First calendar date of the reporting/service month (YYYY-MM-01), not an extra transaction."
+vendor_bills,6,due_date,date,ISO date,NO,NO,,,"Due date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+vendor_bills,7,bill_type,text,,NO,NO,,,Bill type. Applies to: One accounting bill; inventory supplier invoice mirrors one-to-one.
+vendor_bills,8,source_document_id,text,,NO,NO,,,Source-system document mirrored by this accounting record; do not sum both as separate expenses.
+vendor_bills,9,gross_amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Original bill amount, or signed processor gross event amount; interpret using table grain/notes."
+vendor_bills,10,credit_applied_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Credit applied in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+vendor_bills,11,cash_paid_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Cumulative actual applied vendor cash through cutoff, excluding noncash supplier credits."
+vendor_bills,12,open_balance_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Original bill gross minus noncash credit applications minus actual applied cash.
+vendor_bills,13,status,text,,NO,NO,,OPEN|PAID|PARTIALLY_PAID,Status. Applies to: One accounting bill; inventory supplier invoice mirrors one-to-one.
+vendor_bill_lines,1,bill_line_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+vendor_bill_lines,2,bill_id,text,,NO,NO,vendor_bills.bill_id,,Text foreign key to vendor_bills.bill_id. Blank only where the relationship is optional.
+vendor_bill_lines,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+vendor_bill_lines,4,account_id,text,,NO,NO,chart_of_accounts.account_id,,Text chart-of-accounts identifier; preserve it as a string.
+vendor_bill_lines,5,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+vendor_bill_lines,6,description,text,,NO,NO,,,Description. Applies to: One bill distribution to a GL account.
+vendor_bill_lines,7,source_line_id,text,,NO,YES,,,Text identifier for source line. Interpret at the table grain; do not convert IDs to numbers.
+vendor_bill_lines,8,receipt_line_id,text,,NO,YES,receipt_lines.receipt_line_id,,Text foreign key to receipt_lines.receipt_line_id. Blank only where the relationship is optional.
+vendor_bill_lines,9,purchase_order_line_id,text,,NO,YES,purchase_order_lines.purchase_order_line_id,,Text foreign key to purchase_order_lines.purchase_order_line_id. Blank only where the relationship is optional.
+vendor_credits,1,vendor_credit_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+vendor_credits,2,bill_id,text,,NO,NO,vendor_bills.bill_id,,Text foreign key to vendor_bills.bill_id. Blank only where the relationship is optional.
+vendor_credits,3,vendor_id,text,,NO,NO,vendors.vendor_id,,Text foreign key to vendors.vendor_id. Blank only where the relationship is optional.
+vendor_credits,4,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+vendor_credits,5,credit_date,date,ISO date,NO,NO,,,"Credit date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+vendor_credits,6,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+vendor_credits,7,source_document_id,text,,NO,NO,,,Source-system document mirrored by this accounting record; do not sum both as separate expenses.
+bill_credit_applications,1,credit_application_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+bill_credit_applications,2,vendor_credit_id,text,,NO,NO,vendor_credits.vendor_credit_id,,Text foreign key to vendor_credits.vendor_credit_id. Blank only where the relationship is optional.
+bill_credit_applications,3,bill_id,text,,NO,NO,vendor_bills.bill_id,,Text foreign key to vendor_bills.bill_id. Blank only where the relationship is optional.
+bill_credit_applications,4,application_date,date,ISO date,NO,NO,,,"Application date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+bill_credit_applications,5,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+vendor_payments,1,vendor_payment_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+vendor_payments,2,vendor_id,text,,NO,NO,vendors.vendor_id,,Text foreign key to vendors.vendor_id. Blank only where the relationship is optional.
+vendor_payments,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+vendor_payments,4,payment_date,date,ISO date,NO,NO,,,"Payment date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+vendor_payments,5,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+vendor_payments,6,bank_transaction_id,text,,NO,NO,bank_transactions.bank_transaction_id,,Text foreign key to bank_transactions.bank_transaction_id. Blank only where the relationship is optional.
+bill_payment_applications,1,bill_application_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+bill_payment_applications,2,vendor_payment_id,text,,NO,NO,vendor_payments.vendor_payment_id,,Text foreign key to vendor_payments.vendor_payment_id. Blank only where the relationship is optional.
+bill_payment_applications,3,bill_id,text,,NO,NO,vendor_bills.bill_id,,Text foreign key to vendor_bills.bill_id. Blank only where the relationship is optional.
+bill_payment_applications,4,application_date,date,ISO date,NO,NO,,,"Application date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+bill_payment_applications,5,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+bill_payment_schedule,1,bill_schedule_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+bill_payment_schedule,2,bill_id,text,,NO,NO,vendor_bills.bill_id,,Text foreign key to vendor_bills.bill_id. Blank only where the relationship is optional.
+bill_payment_schedule,3,original_due_date,date,ISO date,NO,NO,,,"Original due date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+bill_payment_schedule,4,agreed_payment_date,date,ISO date,NO,NO,,,"Agreed installment funding date; future date is a payable schedule, not a bank actual."
+bill_payment_schedule,5,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+bill_payment_schedule,6,actual_payment_date,date,ISO date,NO,YES,,,"Actual payment date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+bill_payment_schedule,7,vendor_payment_id,text,,NO,YES,vendor_payments.vendor_payment_id,,Text foreign key to vendor_payments.vendor_payment_id. Blank only where the relationship is optional.
+bill_payment_schedule,8,status,text,,NO,NO,,OPEN|PAID,"Status. Applies to: One agreed installment, including open AP commitments."
+suppliers,1,supplier_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+suppliers,2,supplier_name,text,,NO,NO,,,Supplier name. Applies to: One synthetic food/beverage/packaging supplier.
+suppliers,3,supplier_category,text,,NO,NO,,,Supplier category. Applies to: One synthetic food/beverage/packaging supplier.
+suppliers,4,country_code,text,,NO,NO,,,Country code. Applies to: One synthetic food/beverage/packaging supplier.
+suppliers,5,payment_terms,text,,NO,NO,,COD|NET_14|NET_30|NET_7,Payment terms. Applies to: One synthetic food/beverage/packaging supplier.
+suppliers,6,net_days,integer,,NO,NO,,,Net days. Applies to: One synthetic food/beverage/packaging supplier.
+suppliers,7,lead_time_days,integer,,NO,NO,,,Lead time days. Applies to: One synthetic food/beverage/packaging supplier.
+suppliers,8,email,text,,NO,NO,,,Email. Applies to: One synthetic food/beverage/packaging supplier.
+suppliers,9,synthetic_entity,text,,NO,NO,,,Synthetic entity. Applies to: One synthetic food/beverage/packaging supplier.
+ingredients,1,ingredient_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+ingredients,2,ingredient_name,text,,NO,NO,,,Ingredient name. Applies to: One purchased ingredient or packaging consumable.
+ingredients,3,inventory_class,text,,NO,NO,,,Inventory class. Applies to: One purchased ingredient or packaging consumable.
+ingredients,4,base_uom,text,,NO,NO,,EA|FL_OZ|LB|ML,"Ingredient quantity unit: LB, EA, FL_OZ or ML. Do not sum unlike units."
+ingredients,5,supplier_id,text,,NO,NO,suppliers.supplier_id,,Text foreign key to suppliers.supplier_id. Blank only where the relationship is optional.
+ingredients,6,inventory_account_id,text,,NO,NO,chart_of_accounts.account_id,,Text foreign key to chart_of_accounts.account_id. Blank only where the relationship is optional.
+ingredients,7,cogs_account_id,text,,NO,NO,chart_of_accounts.account_id,,Text foreign key to chart_of_accounts.account_id. Blank only where the relationship is optional.
+ingredients,8,purchase_uom,text,,NO,NO,,,Purchase uom. Applies to: One purchased ingredient or packaging consumable.
+ingredients,9,base_units_per_pack_qty,"decimal(18,6)",ingredient base units per one supplier purchase pack,NO,NO,,,"Ingredient base units in one supplier case/pack/bag/keg, not a universal pack conversion."
+unit_conversions,1,conversion_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+unit_conversions,2,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+unit_conversions,3,from_uom,text,,NO,NO,,,From uom. Applies to: One ingredient-aware unit conversion; not interchangeable across ingredients.
+unit_conversions,4,to_uom,text,,NO,NO,,,To uom. Applies to: One ingredient-aware unit conversion; not interchangeable across ingredients.
+unit_conversions,5,conversion_factor,"decimal(18,6)",fraction / ratio,NO,NO,,,"Multiply from_uom quantity by this factor to obtain to_uom, for this ingredient only."
+supplier_price_versions,1,supplier_price_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+supplier_price_versions,2,supplier_id,text,,NO,NO,suppliers.supplier_id,,Text foreign key to suppliers.supplier_id. Blank only where the relationship is optional.
+supplier_price_versions,3,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+supplier_price_versions,4,purchase_uom,text,,NO,NO,,,Purchase uom. Applies to: One supplier ingredient pack-price interval.
+supplier_price_versions,5,effective_from,date,ISO date,NO,NO,,,First inclusive date of this price/rate agreement. Intervals never overlap within the same item/employee key.
+supplier_price_versions,6,effective_to,date,ISO date,NO,YES,,,"Last inclusive effective date; blank means continuing until superseded, not expiry at the snapshot. Future forecast uses last-known terms only as an explicit scenario assumption."
+supplier_price_versions,7,pack_price_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Agreed full purchase-pack price on this source document/version; supplier input tax is not separately modeled.
+supplier_price_versions,8,base_units_per_pack_qty,"decimal(18,6)",ingredient base units per one supplier purchase pack,NO,NO,,,"Ingredient base units in one supplier case/pack/bag/keg, not a universal pack conversion."
+supplier_price_versions,9,base_unit_price_usd,"decimal(18,6)","USD per base unit, six decimals",NO,NO,,,"USD per one ingredient base unit, displayed at six decimals; bill/receipt money still rounds to cents."
+recipes,1,recipe_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+recipes,2,recipe_name,text,,NO,NO,,,Recipe name. Applies to: One menu/add-on/staff/packaging recipe.
+recipes,3,menu_item_id,text,,NO,YES,menu_items.menu_item_id,,Text foreign key to menu_items.menu_item_id. Blank only where the relationship is optional.
+recipes,4,modifier_id,text,,NO,YES,modifier_options.modifier_id,,Text foreign key to modifier_options.modifier_id. Blank only where the relationship is optional.
+recipes,5,usage_basis,text,,NO,NO,,,Usage basis. Applies to: One menu/add-on/staff/packaging recipe.
+recipes,6,active_from,date,ISO date,NO,NO,,,"Active from, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+recipe_components,1,recipe_component_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+recipe_components,2,recipe_id,text,,NO,NO,recipes.recipe_id,,Text foreign key to recipes.recipe_id. Blank only where the relationship is optional.
+recipe_components,3,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+recipe_components,4,edible_per_portion_qty,"decimal(18,6)","ingredient base units per recipe serving, 6 decimals",NO,NO,,,Edible recipe output quantity before dividing by yield.
+recipe_components,5,yield_factor,"decimal(18,6)",fraction / ratio,NO,NO,,,Edible output divided by purchased raw input; hydrated rice can have yield above 1.
+recipe_components,6,raw_per_portion_qty,"decimal(18,6)","ingredient base units per recipe serving, 6 decimals",NO,NO,,,Purchased ingredient base quantity per serving after yield; rounded to six decimals once.
+recipe_components,7,base_uom,text,,NO,NO,,EA|FL_OZ|LB|ML,"Ingredient quantity unit: LB, EA, FL_OZ or ML. Do not sum unlike units."
+opening_inventory,1,opening_inventory_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+opening_inventory,2,as_of_date,date,ISO date,NO,NO,,,"As of date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+opening_inventory,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+opening_inventory,4,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+opening_inventory,5,on_hand_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"On hand at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+opening_inventory,6,inventory_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Inventory value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+purchase_orders,1,purchase_order_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+purchase_orders,2,supplier_id,text,,NO,NO,suppliers.supplier_id,,Text foreign key to suppliers.supplier_id. Blank only where the relationship is optional.
+purchase_orders,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+purchase_orders,4,order_date,date,ISO date,NO,NO,,,"Order date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+purchase_orders,5,order_type,text,,NO,NO,,,"Order type. Applies to: One approved supplier order, including unreceived cutoff commitments."
+purchase_orders,6,payment_terms,text,,NO,NO,,COD|NET_14|NET_30|NET_7,"Payment terms. Applies to: One approved supplier order, including unreceived cutoff commitments."
+purchase_orders,7,expected_first_delivery_date,date,ISO date,NO,NO,,,"Expected first delivery date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+purchase_orders,8,ordered_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Ordered value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+purchase_orders,9,received_net_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Received net value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+purchase_orders,10,credited_short_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Credited short value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+purchase_orders,11,status,text,,NO,NO,,CLOSED|CLOSED_WITH_CREDIT|OPEN,"Status. Applies to: One approved supplier order, including unreceived cutoff commitments."
+purchase_order_lines,1,purchase_order_line_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+purchase_order_lines,2,purchase_order_id,text,,NO,NO,purchase_orders.purchase_order_id,,Text foreign key to purchase_orders.purchase_order_id. Blank only where the relationship is optional.
+purchase_order_lines,3,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+purchase_order_lines,4,supplier_price_id,text,,NO,NO,supplier_price_versions.supplier_price_id,,Text foreign key to supplier_price_versions.supplier_price_id. Blank only where the relationship is optional.
+purchase_order_lines,5,ordered_pack_qty,"decimal(18,6)","supplier purchase packs (case/pack/bag/box/keg), 6 decimals; multiply by ingredient base_units_per_pack_qty",NO,NO,,,"Ordered pack at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+purchase_order_lines,6,pack_price_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Agreed full purchase-pack price on this source document/version; supplier input tax is not separately modeled.
+purchase_order_lines,7,ordered_base_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Ordered base at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+purchase_order_lines,8,ordered_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Ordered value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+purchase_order_lines,9,accepted_base_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Accepted usable quantity in ingredient base units, after shortages/rejections."
+purchase_order_lines,10,credited_short_base_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"PO base quantity closed by supplier credit, not pending/backordered stock."
+purchase_order_lines,11,outstanding_base_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,Ordered base quantity minus actual accepted and credited quantities; an unreceived commitment.
+delivery_schedule,1,delivery_schedule_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+delivery_schedule,2,purchase_order_id,text,,NO,NO,purchase_orders.purchase_order_id,,Text foreign key to purchase_orders.purchase_order_id. Blank only where the relationship is optional.
+delivery_schedule,3,scheduled_delivery_date,date,ISO date,NO,NO,,,"Scheduled delivery date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+delivery_schedule,4,expected_delivery_date,date,ISO date,NO,NO,,,"Expected delivery date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+delivery_schedule,5,actual_delivery_date,date,ISO date,NO,YES,,,"Actual delivery date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+delivery_schedule,6,receipt_id,text,,NO,YES,receipts.receipt_id,,Text foreign key to receipts.receipt_id. Blank only where the relationship is optional.
+delivery_schedule,7,status,text,,NO,NO,,CONFIRMED_NOT_RECEIVED|RECEIVED,"Status. Applies to: One planned shipment, with actual receipt if occurred."
+receipts,1,receipt_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+receipts,2,purchase_order_id,text,,NO,NO,purchase_orders.purchase_order_id,,Text foreign key to purchase_orders.purchase_order_id. Blank only where the relationship is optional.
+receipts,3,delivery_schedule_id,text,,NO,NO,delivery_schedule.delivery_schedule_id,,Text foreign key to delivery_schedule.delivery_schedule_id. Blank only where the relationship is optional.
+receipts,4,supplier_id,text,,NO,NO,suppliers.supplier_id,,Text foreign key to suppliers.supplier_id. Blank only where the relationship is optional.
+receipts,5,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+receipts,6,receipt_date,date,ISO date,NO,NO,,,"Receipt date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+receipts,7,accepted_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Accepted value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+receipts,8,invoice_id,text,,NO,NO,supplier_invoices.supplier_invoice_id,,Text identifier for invoice. Interpret at the table grain; do not convert IDs to numbers.
+receipt_lines,1,receipt_line_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+receipt_lines,2,receipt_id,text,,NO,NO,receipts.receipt_id,,Text foreign key to receipts.receipt_id. Blank only where the relationship is optional.
+receipt_lines,3,purchase_order_line_id,text,,NO,NO,purchase_order_lines.purchase_order_line_id,,Text foreign key to purchase_order_lines.purchase_order_line_id. Blank only where the relationship is optional.
+receipt_lines,4,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+receipt_lines,5,shipped_pack_qty,"decimal(18,6)","supplier purchase packs (case/pack/bag/box/keg), 6 decimals; multiply by ingredient base_units_per_pack_qty",NO,NO,,,Supplier-invoiced shipment quantity in purchase packs; may exceed physical delivered/accepted quantity.
+receipt_lines,6,delivered_pack_qty,"decimal(18,6)","supplier purchase packs (case/pack/bag/box/keg), 6 decimals; multiply by ingredient base_units_per_pack_qty",NO,NO,,,"Delivered pack at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+receipt_lines,7,accepted_pack_qty,"decimal(18,6)","supplier purchase packs (case/pack/bag/box/keg), 6 decimals; multiply by ingredient base_units_per_pack_qty",NO,NO,,,"Accepted pack at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+receipt_lines,8,rejected_pack_qty,"decimal(18,6)","supplier purchase packs (case/pack/bag/box/keg), 6 decimals; multiply by ingredient base_units_per_pack_qty",NO,NO,,,Physically delivered damaged packs rejected at receipt; credited and never added to usable inventory.
+receipt_lines,9,short_pack_qty,"decimal(18,6)","supplier purchase packs (case/pack/bag/box/keg), 6 decimals; multiply by ingredient base_units_per_pack_qty",NO,NO,,,Supplier invoiced packs not physically delivered; credited in this case.
+receipt_lines,10,accepted_base_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Accepted usable quantity in ingredient base units, after shortages/rejections."
+receipt_lines,11,billed_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Billed value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+receipt_lines,12,accepted_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Accepted value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+receipt_lines,13,shortage_credit_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Shortage credit in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+receipt_lines,14,inventory_movement_id,text,,NO,NO,inventory_movements.inventory_movement_id,,Text foreign key to inventory_movements.inventory_movement_id. Blank only where the relationship is optional.
+supplier_invoices,1,supplier_invoice_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+supplier_invoices,2,supplier_id,text,,NO,NO,suppliers.supplier_id,,Text foreign key to suppliers.supplier_id. Blank only where the relationship is optional.
+supplier_invoices,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+supplier_invoices,4,purchase_order_id,text,,NO,NO,purchase_orders.purchase_order_id,,Text foreign key to purchase_orders.purchase_order_id. Blank only where the relationship is optional.
+supplier_invoices,5,receipt_id,text,,NO,NO,receipts.receipt_id,,Text foreign key to receipts.receipt_id. Blank only where the relationship is optional.
+supplier_invoices,6,invoice_date,date,ISO date,NO,NO,,,"Invoice date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+supplier_invoices,7,due_date,date,ISO date,NO,NO,,,"Due date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+supplier_invoices,8,gross_amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Original bill amount, or signed processor gross event amount; interpret using table grain/notes."
+supplier_invoices,9,credit_amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Credit amount in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+supplier_invoices,10,net_payable_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Net payable in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+supplier_invoices,11,accounting_bill_id,text,,NO,NO,vendor_bills.bill_id,,Text foreign key to vendor_bills.bill_id. Blank only where the relationship is optional.
+supplier_invoice_lines,1,supplier_invoice_line_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+supplier_invoice_lines,2,supplier_invoice_id,text,,NO,NO,supplier_invoices.supplier_invoice_id,,Text foreign key to supplier_invoices.supplier_invoice_id. Blank only where the relationship is optional.
+supplier_invoice_lines,3,receipt_line_id,text,,NO,NO,receipt_lines.receipt_line_id,,Text foreign key to receipt_lines.receipt_line_id. Blank only where the relationship is optional.
+supplier_invoice_lines,4,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+supplier_invoice_lines,5,billed_pack_qty,"decimal(18,6)","supplier purchase packs (case/pack/bag/box/keg), 6 decimals; multiply by ingredient base_units_per_pack_qty",NO,NO,,,"Billed pack at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+supplier_invoice_lines,6,pack_price_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Agreed full purchase-pack price on this source document/version; supplier input tax is not separately modeled.
+supplier_invoice_lines,7,billed_amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Billed amount in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+supplier_credit_notes,1,supplier_credit_note_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+supplier_credit_notes,2,supplier_invoice_id,text,,NO,NO,supplier_invoices.supplier_invoice_id,,Text foreign key to supplier_invoices.supplier_invoice_id. Blank only where the relationship is optional.
+supplier_credit_notes,3,accounting_bill_id,text,,NO,NO,,,Text identifier for accounting bill. Interpret at the table grain; do not convert IDs to numbers.
+supplier_credit_notes,4,supplier_id,text,,NO,NO,suppliers.supplier_id,,Text foreign key to suppliers.supplier_id. Blank only where the relationship is optional.
+supplier_credit_notes,5,credit_date,date,ISO date,NO,NO,,,"Credit date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+supplier_credit_notes,6,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+supplier_credit_notes,7,reason,text,,NO,NO,,,Reason. Applies to: One agreed supplier shortage/damage credit.
+supplier_credit_lines,1,supplier_credit_line_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+supplier_credit_lines,2,supplier_credit_note_id,text,,NO,NO,supplier_credit_notes.supplier_credit_note_id,,Text foreign key to supplier_credit_notes.supplier_credit_note_id. Blank only where the relationship is optional.
+supplier_credit_lines,3,receipt_line_id,text,,NO,NO,receipt_lines.receipt_line_id,,Text foreign key to receipt_lines.receipt_line_id. Blank only where the relationship is optional.
+supplier_credit_lines,4,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+supplier_credit_lines,5,credited_pack_qty,"decimal(18,6)","supplier purchase packs (case/pack/bag/box/keg), 6 decimals; multiply by ingredient base_units_per_pack_qty",NO,NO,,,"Credited pack at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+supplier_credit_lines,6,credited_base_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Credited base at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+supplier_credit_lines,7,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+inventory_movements,1,inventory_movement_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+inventory_movements,2,movement_date,date,ISO date,NO,NO,,,"Movement date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+inventory_movements,3,movement_sequence,integer,,NO,NO,,,Global integer event order. Sort numerically within ingredient/site for carrying cost and roll-forward.
+inventory_movements,4,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+inventory_movements,5,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+inventory_movements,6,movement_type,text,,NO,NO,,COUNT_ADJUSTMENT|MENU|MODIFIER|PACKAGING|RECEIPT|STAFF_MEAL|TRANSFER_IN|TRANSFER_OUT|WASTE,Movement type. Applies to: One signed ingredient quantity/value movement.
+inventory_movements,7,reference_table,text,,NO,NO,,,Reference table. Applies to: One signed ingredient quantity/value movement.
+inventory_movements,8,reference_id,text,,NO,NO,,,Text identifier for reference. Interpret at the table grain; do not convert IDs to numbers.
+inventory_movements,9,quantity_delta_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Signed change in ingredient base quantity. Positive receipts/in, negative issues/out."
+inventory_movements,10,value_delta_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Signed inventory carrying value change. Issue/transfer-out value is negative.
+inventory_movements,11,balance_after_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,On-hand base quantity immediately after this movement.
+inventory_movements,12,value_after_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Inventory carrying value immediately after this movement.
+theoretical_usage,1,usage_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+theoretical_usage,2,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+theoretical_usage,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+theoretical_usage,4,recipe_id,text,,NO,NO,recipes.recipe_id,,Text foreign key to recipes.recipe_id. Blank only where the relationship is optional.
+theoretical_usage,5,recipe_component_id,text,,NO,NO,recipe_components.recipe_component_id,,Text foreign key to recipe_components.recipe_component_id. Blank only where the relationship is optional.
+theoretical_usage,6,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+theoretical_usage,7,usage_type,text,,NO,NO,,MENU|MODIFIER|PACKAGING|STAFF_MEAL,Usage type. Applies to: One date/site/recipe/component usage at actual issue cost.
+theoretical_usage,8,served_count,integer,,NO,NO,,,"Source-driven count of served menu/add-on units, completed off-premise checks or staff meals as usage_type specifies."
+theoretical_usage,9,raw_per_portion_qty,"decimal(18,6)","ingredient base units per recipe serving, 6 decimals",NO,NO,,,Purchased ingredient base quantity per serving after yield; rounded to six decimals once.
+theoretical_usage,10,theoretical_use_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Saved served_count times recipe raw_per_portion_qty, including comps and excluding voids."
+theoretical_usage,11,usage_cost_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Actual perpetual carrying cost issued for the recipe component; links to negative inventory movement value.
+theoretical_usage,12,inventory_movement_id,text,,NO,NO,inventory_movements.inventory_movement_id,,Text foreign key to inventory_movements.inventory_movement_id. Blank only where the relationship is optional.
+waste_events,1,waste_event_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+waste_events,2,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+waste_events,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+waste_events,4,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+waste_events,5,waste_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Waste at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+waste_events,6,waste_cost_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Waste cost in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+waste_events,7,reason,text,,NO,NO,,,Reason. Applies to: One measured ingredient loss.
+waste_events,8,inventory_movement_id,text,,NO,NO,inventory_movements.inventory_movement_id,,Text foreign key to inventory_movements.inventory_movement_id. Blank only where the relationship is optional.
+staff_meals,1,staff_meal_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+staff_meals,2,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+staff_meals,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+staff_meals,4,recipe_id,text,,NO,NO,recipes.recipe_id,,Text foreign key to recipes.recipe_id. Blank only where the relationship is optional.
+staff_meals,5,meal_count,integer,,NO,NO,,,"Meal count, whole count at the declared table grain."
+inventory_transfers,1,transfer_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+inventory_transfers,2,transfer_date,date,ISO date,NO,NO,,,"Transfer date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+inventory_transfers,3,from_restaurant_id,text,,NO,NO,restaurants.restaurant_id,,Text identifier for from restaurant. Interpret at the table grain; do not convert IDs to numbers.
+inventory_transfers,4,to_restaurant_id,text,,NO,NO,restaurants.restaurant_id,,Text identifier for to restaurant. Interpret at the table grain; do not convert IDs to numbers.
+inventory_transfers,5,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+inventory_transfers,6,transfer_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Transfer at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+inventory_transfers,7,carrying_cost_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Carrying cost in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+inventory_transfers,8,out_movement_id,text,,NO,NO,inventory_movements.inventory_movement_id,,Text foreign key to inventory_movements.inventory_movement_id. Blank only where the relationship is optional.
+inventory_transfers,9,in_movement_id,text,,NO,NO,inventory_movements.inventory_movement_id,,Text foreign key to inventory_movements.inventory_movement_id. Blank only where the relationship is optional.
+inventory_transfers,10,reason,text,,NO,NO,,,Reason. Applies to: One paired same-day interrestaurant transfer.
+physical_stock_counts,1,stock_count_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+physical_stock_counts,2,count_date,date,ISO date,NO,NO,,,"Count date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+physical_stock_counts,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+physical_stock_counts,4,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+physical_stock_counts,5,expected_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Expected at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+physical_stock_counts,6,counted_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Counted at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+physical_stock_counts,7,adjustment_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,Physical count minus expected quantity before the count; signed.
+physical_stock_counts,8,adjustment_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Signed inventory value of stock-count difference at existing moving-average cost; expense is opposite sign.
+physical_stock_counts,9,inventory_movement_id,text,,NO,YES,inventory_movements.inventory_movement_id,,Text foreign key to inventory_movements.inventory_movement_id. Blank only where the relationship is optional.
+inventory_daily_balances,1,inventory_balance_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+inventory_daily_balances,2,business_date,date,ISO date,NO,NO,,,"Local operating day, America/New_York; the canonical service/usage/tip allocation date."
+inventory_daily_balances,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+inventory_daily_balances,4,ingredient_id,text,,NO,NO,ingredients.ingredient_id,,Text foreign key to ingredients.ingredient_id. Blank only where the relationship is optional.
+inventory_daily_balances,5,closing_qty,"decimal(18,6)","ingredient base unit, 6 decimals",NO,NO,,,"Closing at six decimal places in the ingredient base unit, or supplier packs where pack is named."
+inventory_daily_balances,6,closing_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Closing value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+recurring_contracts,1,contract_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+recurring_contracts,2,vendor_id,text,,NO,NO,vendors.vendor_id,,Text foreign key to vendors.vendor_id. Blank only where the relationship is optional.
+recurring_contracts,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+recurring_contracts,4,contract_name,text,,NO,NO,,,Contract name. Applies to: One approved recurring operating contract.
+recurring_contracts,5,expense_account_id,text,,NO,NO,chart_of_accounts.account_id,,Text foreign key to chart_of_accounts.account_id. Blank only where the relationship is optional.
+recurring_contracts,6,effective_from,date,ISO date,NO,NO,,,First inclusive date of this price/rate agreement. Intervals never overlap within the same item/employee key.
+recurring_contracts,7,effective_to,date,ISO date,NO,NO,,,"Last inclusive effective date; blank means continuing until superseded, not expiry at the snapshot. Future forecast uses last-known terms only as an explicit scenario assumption."
+recurring_contracts,8,frequency,text,,NO,NO,,,Frequency. Applies to: One approved recurring operating contract.
+recurring_contracts,9,billing_basis,text,,NO,NO,,,Billing basis. Applies to: One approved recurring operating contract.
+recurring_contracts,10,payment_day,text,,NO,NO,,,Payment day. Applies to: One approved recurring operating contract.
+recurring_contracts,11,base_monthly_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Base monthly in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+recurring_contracts,12,annual_increase_rate,"decimal(18,6)",fraction / ratio,NO,NO,,,Annual increase rate. Applies to: One approved recurring operating contract.
+recurring_contracts,13,next_service_month,text,,NO,NO,,,Next service month. Applies to: One approved recurring operating contract.
+recurring_obligations,1,obligation_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+recurring_obligations,2,contract_id,text,,NO,NO,recurring_contracts.contract_id,,Text foreign key to recurring_contracts.contract_id. Blank only where the relationship is optional.
+recurring_obligations,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+recurring_obligations,4,service_month,date,ISO date,NO,NO,,,"First calendar date of the reporting/service month (YYYY-MM-01), not an extra transaction."
+recurring_obligations,5,obligation_type,text,,NO,NO,,BILLED|FUTURE_CYCLE,"Obligation type. Applies to: One contract cycle, either historical billed or future not billed."
+recurring_obligations,6,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+recurring_obligations,7,due_date,date,ISO date,NO,NO,,,"Due date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+recurring_obligations,8,existing_bill_id,text,,NO,YES,vendor_bills.bill_id,,Accounting bill already representing this contract cycle. Do not add this obligation on top of AP.
+recurring_obligations,9,certainty,text,,NO,NO,,CONTRACTED|ESTIMATE,CONTRACTED/CONFIRMED values versus variable-service ESTIMATE; do not promote estimates to actuals.
+recurring_obligations,10,status,text,,NO,NO,,BILLED|NOT_BILLED,"Status. Applies to: One contract cycle, either historical billed or future not billed."
+equipment_assets,1,asset_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+equipment_assets,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+equipment_assets,3,asset_name,text,,NO,NO,,,Asset name. Applies to: One opening or acquired depreciable kitchen asset.
+equipment_assets,4,acquisition_date,date,ISO date,NO,NO,,,"Acquisition date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+equipment_assets,5,original_cost_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Original cost in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+equipment_assets,6,opening_accumulated_depreciation_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Opening accumulated depreciation in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+equipment_assets,7,useful_life_months,integer,,NO,NO,,,Useful life months. Applies to: One opening or acquired depreciable kitchen asset.
+equipment_assets,8,depreciation_start_date,date,ISO date,NO,NO,,,"Depreciation start date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+equipment_assets,9,accounting_bill_id,text,,NO,YES,vendor_bills.bill_id,,Text foreign key to vendor_bills.bill_id. Blank only where the relationship is optional.
+depreciation_schedule,1,depreciation_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+depreciation_schedule,2,asset_id,text,,NO,NO,equipment_assets.asset_id,,Text foreign key to equipment_assets.asset_id. Blank only where the relationship is optional.
+depreciation_schedule,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+depreciation_schedule,4,service_month,date,ISO date,NO,NO,,,"First calendar date of the reporting/service month (YYYY-MM-01), not an extra transaction."
+depreciation_schedule,5,depreciation_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Depreciation in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+depreciation_schedule,6,accumulated_depreciation_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Accumulated depreciation in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+depreciation_schedule,7,net_book_value_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Net book value in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+debt_facilities,1,facility_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+debt_facilities,2,lender_name,text,,NO,NO,,,Lender name. Applies to: One synthetic term loan; no revolving activity.
+debt_facilities,3,opening_principal_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Opening principal in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+debt_facilities,4,annual_interest_rate,"decimal(18,6)",fraction / ratio,NO,NO,,,Annual interest rate. Applies to: One synthetic term loan; no revolving activity.
+debt_facilities,5,monthly_principal_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Monthly principal in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+debt_facilities,6,interest_method,text,,NO,NO,,,Interest method. Applies to: One synthetic term loan; no revolving activity.
+debt_facilities,7,maturity_date,date,ISO date,NO,NO,,,"Maturity date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+debt_schedule,1,debt_schedule_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+debt_schedule,2,facility_id,text,,NO,NO,debt_facilities.facility_id,,Text foreign key to debt_facilities.facility_id. Blank only where the relationship is optional.
+debt_schedule,3,period_start,date,ISO date,NO,NO,,,"Period start. Applies to: One contractual debt installment, historical or future."
+debt_schedule,4,period_end,date,ISO date,NO,NO,,,"Period end. Applies to: One contractual debt installment, historical or future."
+debt_schedule,5,payment_due_date,date,ISO date,NO,NO,,,"Payment due date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+debt_schedule,6,opening_principal_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Opening principal in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+debt_schedule,7,principal_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Principal in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+debt_schedule,8,interest_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Interest in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+debt_schedule,9,total_payment_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Total payment in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+debt_schedule,10,closing_principal_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Closing principal in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+debt_schedule,11,actual_payment_date,date,ISO date,NO,YES,,,"Actual payment date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+debt_schedule,12,bank_transaction_id,text,,NO,YES,bank_transactions.bank_transaction_id,,Text foreign key to bank_transactions.bank_transaction_id. Blank only where the relationship is optional.
+debt_schedule,13,schedule_status,text,,NO,NO,,,"Schedule status. Applies to: One contractual debt installment, historical or future."
+sales_tax_obligations,1,tax_obligation_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+sales_tax_obligations,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+sales_tax_obligations,3,service_month,date,ISO date,NO,NO,,,"First calendar date of the reporting/service month (YYYY-MM-01), not an extra transaction."
+sales_tax_obligations,4,direct_tax_collected_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Direct tax collected in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+sales_tax_obligations,5,direct_tax_refunded_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Direct tax refunded in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+sales_tax_obligations,6,net_tax_payable_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Net tax payable in USD. Positive cost or payment amount; see accounting sign guide and table notes.
+sales_tax_obligations,7,due_date,date,ISO date,NO,NO,,,"Due date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+sales_tax_obligations,8,actual_payment_date,date,ISO date,NO,YES,,,"Actual payment date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+sales_tax_obligations,9,bank_transaction_id,text,,NO,YES,bank_transactions.bank_transaction_id,,Text foreign key to bank_transactions.bank_transaction_id. Blank only where the relationship is optional.
+sales_tax_obligations,10,status,text,,NO,NO,,OPEN|PAID,Status. Applies to: One monthly direct-channel sales tax obligation.
+owner_distributions,1,distribution_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+owner_distributions,2,distribution_date,date,ISO date,NO,NO,,,"Distribution date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+owner_distributions,3,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+owner_distributions,4,bank_transaction_id,text,,NO,NO,bank_transactions.bank_transaction_id,,Text foreign key to bank_transactions.bank_transaction_id. Blank only where the relationship is optional.
+budget_versions,1,budget_version_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+budget_versions,2,version_name,text,,NO,NO,,,Version name. Applies to: One original approved 24-month management plan.
+budget_versions,3,approved_date,date,ISO date,NO,NO,,,"Approved date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+budget_versions,4,first_service_month,text,,NO,NO,,,First service month. Applies to: One original approved 24-month management plan.
+budget_versions,5,last_service_month,text,,NO,NO,,,Last service month. Applies to: One original approved 24-month management plan.
+budget_versions,6,status,text,,NO,NO,,APPROVED_ORIGINAL,Status. Applies to: One original approved 24-month management plan.
+budget_assumptions,1,assumption_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+budget_assumptions,2,budget_version_id,text,,NO,NO,budget_versions.budget_version_id,,Text foreign key to budget_versions.budget_version_id. Blank only where the relationship is optional.
+budget_assumptions,3,assumption_name,text,,NO,NO,,,Assumption name. Applies to: One frozen original planning driver.
+budget_assumptions,4,value,"decimal(18,6)",,NO,NO,,,Value. Applies to: One frozen original planning driver.
+budget_assumptions,5,unit,text,,NO,NO,,,Unit. Applies to: One frozen original planning driver.
+budget_assumptions,6,note,text,,NO,NO,,,Note. Applies to: One frozen original planning driver.
+approved_budget,1,budget_line_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+approved_budget,2,budget_version_id,text,,NO,NO,budget_versions.budget_version_id,,Text foreign key to budget_versions.budget_version_id. Blank only where the relationship is optional.
+approved_budget,3,approved_date,date,ISO date,NO,NO,,,"Approved date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+approved_budget,4,service_month,date,ISO date,NO,NO,,,"First calendar date of the reporting/service month (YYYY-MM-01), not an extra transaction."
+approved_budget,5,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+approved_budget,6,account_id,text,,NO,NO,chart_of_accounts.account_id,,Text chart-of-accounts identifier; preserve it as a string.
+approved_budget,7,budget_amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"Original approved plan in debit-minus-credit sign: revenues negative, expenses/contra revenues positive."
+cash_commitments,1,commitment_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+cash_commitments,2,as_of_date,date,ISO date,NO,NO,,,"As of date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+cash_commitments,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+cash_commitments,4,direction,text,,NO,NO,,INFLOW|OUTFLOW,Direction. Applies to: One source-linked open cash commitment/expected settlement at snapshot.
+cash_commitments,5,commitment_type,text,,NO,NO,,,Commitment type. Applies to: One source-linked open cash commitment/expected settlement at snapshot.
+cash_commitments,6,source_table,text,,NO,NO,,,Logical table containing the original source_id. It is not a filesystem path.
+cash_commitments,7,source_id,text,,NO,NO,,,Polymorphic source document key; interpret jointly with source_table (or bank transaction_type).
+cash_commitments,8,expected_cash_date,date,ISO date,NO,NO,,,"Expected cash date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+cash_commitments,9,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+cash_commitments,10,certainty,text,,NO,NO,,CONFIRMED|CONTRACTED|ESTIMATE|ORDER_CONFIRMED,CONTRACTED/CONFIRMED values versus variable-service ESTIMATE; do not promote estimates to actuals.
+cash_commitments,11,overlap_key,text,,NO,NO,,,Unique source_table:source_id key in the cash commitment index; prevents duplicated obligations.
+cash_commitments,12,notes,text,,NO,YES,,,Notes. Applies to: One source-linked open cash commitment/expected settlement at snapshot.
+meta_ads_campaigns,1,campaign_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+meta_ads_campaigns,2,campaign_name,text,,NO,NO,,,Campaign name. Applies to: One synthetic advertising campaign.
+meta_ads_campaigns,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+meta_ads_campaigns,4,objective,text,,NO,NO,,,Objective. Applies to: One synthetic advertising campaign.
+meta_ads_campaigns,5,active_from,date,ISO date,NO,NO,,,"Active from, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+meta_ads_campaigns,6,active_to,date,ISO date,NO,NO,,,"Active to, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+meta_ads_campaigns,7,attribution_model,text,,NO,NO,,,Attribution model. Applies to: One synthetic advertising campaign.
+meta_ads_campaigns,8,attribution_window,text,,NO,NO,,,Attribution window. Applies to: One synthetic advertising campaign.
+meta_ads_daily,1,ad_daily_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+meta_ads_daily,2,campaign_id,text,,NO,NO,meta_ads_campaigns.campaign_id,,Text foreign key to meta_ads_campaigns.campaign_id. Blank only where the relationship is optional.
+meta_ads_daily,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+meta_ads_daily,4,activity_date,date,ISO date,NO,NO,,,"Activity date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+meta_ads_daily,5,impressions,integer,,NO,NO,,,Impressions. Applies to: One campaign/site/day ad metric.
+meta_ads_daily,6,reach,integer,,NO,NO,,,Reach. Applies to: One campaign/site/day ad metric.
+meta_ads_daily,7,clicks,integer,,NO,NO,,,Clicks. Applies to: One campaign/site/day ad metric.
+meta_ads_daily,8,conversions,integer,,NO,NO,,,Conversions. Applies to: One campaign/site/day ad metric.
+meta_ads_daily,9,attributed_revenue_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Platform-reported demo conversion value; can overlap other platforms and never replaces POS sales.
+meta_ads_daily,10,spend_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Daily advertising consumption; same economics as the monthly advertising bill.
+meta_ads_daily,11,billing_id,text,,NO,NO,meta_ads_billing.billing_id,,Text foreign key to meta_ads_billing.billing_id. Blank only where the relationship is optional.
+meta_ads_billing,1,billing_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+meta_ads_billing,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+meta_ads_billing,3,service_month,date,ISO date,NO,NO,,,"First calendar date of the reporting/service month (YYYY-MM-01), not an extra transaction."
+meta_ads_billing,4,invoice_date,date,ISO date,NO,NO,,,"Invoice date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+meta_ads_billing,5,due_date,date,ISO date,NO,NO,,,"Due date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+meta_ads_billing,6,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+meta_ads_billing,7,accounting_bill_id,text,,NO,NO,vendor_bills.bill_id,,Text foreign key to vendor_bills.bill_id. Blank only where the relationship is optional.
+google_ads_campaigns,1,campaign_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+google_ads_campaigns,2,campaign_name,text,,NO,NO,,,Campaign name. Applies to: One synthetic advertising campaign.
+google_ads_campaigns,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+google_ads_campaigns,4,objective,text,,NO,NO,,,Objective. Applies to: One synthetic advertising campaign.
+google_ads_campaigns,5,active_from,date,ISO date,NO,NO,,,"Active from, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+google_ads_campaigns,6,active_to,date,ISO date,NO,NO,,,"Active to, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+google_ads_campaigns,7,attribution_model,text,,NO,NO,,,Attribution model. Applies to: One synthetic advertising campaign.
+google_ads_campaigns,8,attribution_window,text,,NO,NO,,,Attribution window. Applies to: One synthetic advertising campaign.
+google_ads_daily,1,ad_daily_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+google_ads_daily,2,campaign_id,text,,NO,NO,google_ads_campaigns.campaign_id,,Text foreign key to google_ads_campaigns.campaign_id. Blank only where the relationship is optional.
+google_ads_daily,3,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+google_ads_daily,4,activity_date,date,ISO date,NO,NO,,,"Activity date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+google_ads_daily,5,impressions,integer,,NO,NO,,,Impressions. Applies to: One campaign/site/day ad metric.
+google_ads_daily,6,reach,integer,,NO,NO,,,Reach. Applies to: One campaign/site/day ad metric.
+google_ads_daily,7,clicks,integer,,NO,NO,,,Clicks. Applies to: One campaign/site/day ad metric.
+google_ads_daily,8,conversions,integer,,NO,NO,,,Conversions. Applies to: One campaign/site/day ad metric.
+google_ads_daily,9,attributed_revenue_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Platform-reported demo conversion value; can overlap other platforms and never replaces POS sales.
+google_ads_daily,10,spend_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,Daily advertising consumption; same economics as the monthly advertising bill.
+google_ads_daily,11,billing_id,text,,NO,NO,google_ads_billing.billing_id,,Text foreign key to google_ads_billing.billing_id. Blank only where the relationship is optional.
+google_ads_billing,1,billing_id,text,,YES,NO,,,Stable text primary key at the declared table grain; unique across all monthly partitions.
+google_ads_billing,2,restaurant_id,text,,NO,NO,restaurants.restaurant_id,,"Reporting entity R01/R02/R03, or HQ for shared management. HQ is not a fourth restaurant."
+google_ads_billing,3,service_month,date,ISO date,NO,NO,,,"First calendar date of the reporting/service month (YYYY-MM-01), not an extra transaction."
+google_ads_billing,4,invoice_date,date,ISO date,NO,NO,,,"Invoice date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+google_ads_billing,5,due_date,date,ISO date,NO,NO,,,"Due date, ISO YYYY-MM-DD. Actual dates after cutoff are blank; schedules are explicitly labeled."
+google_ads_billing,6,amount_usd,"decimal(18,2)","USD cents, displayed decimal USD",NO,NO,,,"USD amount at the declared source grain. Bank transactions signed inflow/outflow; bills, schedules and commitments positive."
+google_ads_billing,7,accounting_bill_id,text,,NO,NO,vendor_bills.bill_id,,Text foreign key to vendor_bills.bill_id. Blank only where the relationship is optional.
