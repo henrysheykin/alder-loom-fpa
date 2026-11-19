@@ -1,0 +1,8 @@
+﻿distribution_id,distribution_date,amount_usd,bank_transaction_id,journal_id,policy
+DIST-2025-04,2025-04-30,63988.25,BTX-000197,JRN-000832,up_to_200000_quarterly_preserve_420000_cash_at_distribution_time
+DIST-2025-07,2025-07-31,200000.00,BTX-000324,JRN-001306,up_to_200000_quarterly_preserve_420000_cash_at_distribution_time
+DIST-2025-10,2025-10-31,157838.25,BTX-000452,JRN-001794,up_to_200000_quarterly_preserve_420000_cash_at_distribution_time
+DIST-2026-01,2026-01-31,200000.00,BTX-000592,JRN-002303,up_to_200000_quarterly_preserve_420000_cash_at_distribution_time
+DIST-2026-04,2026-04-30,200000.00,BTX-000732,JRN-002827,up_to_200000_quarterly_preserve_420000_cash_at_distribution_time
+DIST-2026-07,2026-07-31,200000.00,BTX-000878,JRN-003363,up_to_200000_quarterly_preserve_420000_cash_at_distribution_time
+DIST-2026-10,2026-10-31,200000.00,BTX-001028,JRN-003897,up_to_200000_quarterly_preserve_420000_cash_at_distribution_time

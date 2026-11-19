@@ -1,0 +1,9 @@
+﻿contractor_rate_id,contractor_id,effective_start_date,effective_end_date,hourly_cost_rate_usd,approved_date,reason
+FRATE-001-1,FREE-001,2024-01-01,2027-12-31,68.00,2023-12-11,original negotiated cost rate
+FRATE-002-1,FREE-002,2024-01-01,2025-12-31,85.00,2023-12-11,original negotiated cost rate
+FRATE-002-2,FREE-002,2026-01-01,2027-12-31,92.00,2025-12-11,Annual contractor repricing
+FRATE-003-1,FREE-003,2024-01-01,2027-12-31,92.00,2023-12-11,original negotiated cost rate
+FRATE-004-1,FREE-004,2024-01-01,2026-07-31,95.00,2023-12-11,original negotiated cost rate
+FRATE-004-2,FREE-004,2026-08-01,2027-12-31,122.00,2026-07-11,Video production specialist rate increase
+FRATE-005-1,FREE-005,2024-01-01,2027-12-31,74.00,2023-12-11,original negotiated cost rate
+FRATE-006-1,FREE-006,2024-01-01,2027-12-31,78.00,2023-12-11,original negotiated cost rate

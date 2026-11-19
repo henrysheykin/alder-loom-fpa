@@ -1,0 +1,13 @@
+﻿vendor_id,vendor_name,vendor_type,email,payment_terms_days
+VND-RENT,Harbor Works Property LLC,rent,rent.billing@example.com,15
+VND-SAAS,Lighthouse Workflow Software LLC,software,saas.billing@example.com,15
+VND-PRO,Mesa Accounting Advisory LLC,professional_services,pro.billing@example.com,30
+VND-TRAVEL,Field Route Travel Services LLC,travel,travel.billing@example.com,15
+VND-TRAIN,Studio Learning Services LLC,training,train.billing@example.com,15
+VND-INS,Aspen Business Insurance LLC,insurance,ins.billing@example.com,15
+VND-FREE-001,Dylan Ridge Studio LLC,freelancer,freelancer1@example.com,30
+VND-FREE-002,Sasha Pine Studio LLC,freelancer,freelancer2@example.com,30
+VND-FREE-003,Micah Clay Studio LLC,freelancer,freelancer3@example.com,30
+VND-FREE-004,Ellis Cove Studio LLC,freelancer,freelancer4@example.com,30
+VND-FREE-005,Arden Marsh Studio LLC,freelancer,freelancer5@example.com,30
+VND-FREE-006,Remy Brook Studio LLC,freelancer,freelancer6@example.com,30

@@ -1,0 +1,8 @@
+﻿stage_id,stage_name,stage_order,probability,is_closed
+qualified,Qualified,1,0.15,False
+discovery,Discovery,2,0.30,False
+proposal,Proposal sent,3,0.55,False
+negotiation,Negotiation,4,0.75,False
+contract_sent,Contract sent,5,0.90,False
+closed_won,Closed won,6,1,True
+closed_lost,Closed lost,7,0,True

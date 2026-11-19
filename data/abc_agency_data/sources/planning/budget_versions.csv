@@ -1,0 +1,3 @@
+﻿budget_version_id,budget_name,approved_date,period_start_date,period_end_date,is_original_approved,status,assumptions
+BUDGET-FY2025,Original approved November-October plan FY2025,2024-10-15,2024-11-01,2025-10-31,True,immutable,"Pre-period planning assumptions; 4% salary reviews, planned growth cohorts, no later actual scope creep or churn incorporated"
+BUDGET-FY2026,Original approved November-October plan FY2026,2025-10-15,2025-11-01,2026-10-31,True,immutable,"Pre-period planning assumptions; 4% salary reviews, planned growth cohorts, no later actual scope creep or churn incorporated"

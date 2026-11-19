@@ -1,0 +1,3 @@
+﻿credit_note_id,client_id,invoice_id,invoice_line_id,contract_id,service_id,credit_date,amount_usd,reason,recognition_id,journal_id
+CN-001,CLI-003,INV-CON-R-003-2-2026-06,INV-CON-R-003-2-2026-06-L1,CON-R-003-2,SVC-CON-R-003-2-2026-06,2026-07-12,2500.00,Delivery credit for excessive revision cycles,REV-CN-001,JRN-003233
+CN-002,CLI-004,INV-CON-R-004-2-2026-08,INV-CON-R-004-2-2026-08-L1,CON-R-004-2,SVC-CON-R-004-2-2026-08,2026-09-15,1000.00,Commercial concession during collection dispute,REV-CN-002,JRN-003594

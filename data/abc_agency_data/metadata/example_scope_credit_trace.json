@@ -1,0 +1,195 @@
+{
+  "classification": "illustrative_copies_do_not_load_as_facts",
+  "explanation": "CLI-003 June service, unpriced scope rework, July concession and partial-stage receivable settlement.",
+  "records": [
+    {
+      "logical_table": "contracts/change_orders",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "change_order_id": "CO-CON-R-003-2-1",
+          "contract_id": "CON-R-003-2",
+          "signed_date": "2026-09-20",
+          "effective_date": "2026-10-01",
+          "change_type": "repricing_scope_reset",
+          "fee_change_usd": "2500.00",
+          "scope_hours_change": "22",
+          "reason": "Extra creative variants accepted after prolonged unpaid scope creep",
+          "supersedes_version_id": "VER-CON-R-003-2-1"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "timekeeping/timesheets",
+      "matched_total": 198,
+      "copied_rows": [
+        {
+          "time_entry_id": "TIME-0017807",
+          "employee_id": "EMP-006",
+          "role": "Paid Media Strategist",
+          "project_id": "PRJ-R-003-2",
+          "task_id": "TSK-REWORK",
+          "client_id": "CLI-003",
+          "contract_id": "CON-R-003-2",
+          "work_date": "2026-04-02",
+          "hours": "3.5",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-04-04",
+          "billing_treatment": "included_in_retainer",
+          "rate_card_id": "",
+          "billable_rate_usd": "",
+          "is_scope_rework": "True"
+        },
+        {
+          "time_entry_id": "TIME-0017817",
+          "employee_id": "EMP-006",
+          "role": "Paid Media Strategist",
+          "project_id": "PRJ-R-003-2",
+          "task_id": "TSK-REWORK",
+          "client_id": "CLI-003",
+          "contract_id": "CON-R-003-2",
+          "work_date": "2026-04-07",
+          "hours": "2.75",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-04-09",
+          "billing_treatment": "included_in_retainer",
+          "rate_card_id": "",
+          "billable_rate_usd": "",
+          "is_scope_rework": "True"
+        },
+        {
+          "time_entry_id": "TIME-0017820",
+          "employee_id": "EMP-006",
+          "role": "Paid Media Strategist",
+          "project_id": "PRJ-R-003-2",
+          "task_id": "TSK-REWORK",
+          "client_id": "CLI-003",
+          "contract_id": "CON-R-003-2",
+          "work_date": "2026-04-08",
+          "hours": "2.5",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-04-10",
+          "billing_treatment": "included_in_retainer",
+          "rate_card_id": "",
+          "billable_rate_usd": "",
+          "is_scope_rework": "True"
+        },
+        {
+          "time_entry_id": "TIME-0017830",
+          "employee_id": "EMP-006",
+          "role": "Paid Media Strategist",
+          "project_id": "PRJ-R-003-2",
+          "task_id": "TSK-REWORK",
+          "client_id": "CLI-003",
+          "contract_id": "CON-R-003-2",
+          "work_date": "2026-04-14",
+          "hours": "6.5",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-04-16",
+          "billing_treatment": "included_in_retainer",
+          "rate_card_id": "",
+          "billable_rate_usd": "",
+          "is_scope_rework": "True"
+        }
+      ],
+      "sample_limited": true
+    },
+    {
+      "logical_table": "quickbooks/client_invoices",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "invoice_id": "INV-CON-R-003-2-2026-06",
+          "client_id": "CLI-003",
+          "contract_id": "CON-R-003-2",
+          "invoice_date": "2026-06-01",
+          "due_date": "2026-06-16",
+          "invoice_total_usd": "13000.00",
+          "record_scope": "in_period",
+          "invoice_status_asof": "paid",
+          "open_balance_usd": "0.00",
+          "journal_id": "JRN-003005"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/credit_notes",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "credit_note_id": "CN-001",
+          "client_id": "CLI-003",
+          "invoice_id": "INV-CON-R-003-2-2026-06",
+          "invoice_line_id": "INV-CON-R-003-2-2026-06-L1",
+          "contract_id": "CON-R-003-2",
+          "service_id": "SVC-CON-R-003-2-2026-06",
+          "credit_date": "2026-07-12",
+          "amount_usd": "2500.00",
+          "reason": "Delivery credit for excessive revision cycles",
+          "recognition_id": "REV-CN-001",
+          "journal_id": "JRN-003233"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/receipt_applications",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "receipt_application_id": "APP-RCPT-INV-CON-R-003-2-2026-06-1",
+          "receipt_id": "RCPT-INV-CON-R-003-2-2026-06-1",
+          "invoice_id": "INV-CON-R-003-2-2026-06",
+          "applied_date": "2026-07-20",
+          "applied_amount_usd": "10500.00"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "delivery/recognition_events",
+      "matched_total": 2,
+      "copied_rows": [
+        {
+          "recognition_id": "REV-SVC-CON-R-003-2-2026-06",
+          "service_id": "SVC-CON-R-003-2-2026-06",
+          "contract_id": "CON-R-003-2",
+          "client_id": "CLI-003",
+          "project_id": "PRJ-R-003-2",
+          "recognition_date": "2026-06-30",
+          "service_month": "2026-06",
+          "recognition_type": "retainer",
+          "revenue_account_id": "4000",
+          "recognized_fee_usd": "13000.00",
+          "earned_from_deferred_usd": "13000.00",
+          "earned_to_unbilled_usd": "0.00",
+          "credit_note_id": "",
+          "journal_id": "JRN-003154"
+        },
+        {
+          "recognition_id": "REV-CN-001",
+          "service_id": "SVC-CON-R-003-2-2026-06",
+          "contract_id": "CON-R-003-2",
+          "client_id": "CLI-003",
+          "project_id": "PRJ-R-003-2",
+          "recognition_date": "2026-07-12",
+          "service_month": "2026-07",
+          "recognition_type": "fee_concession",
+          "revenue_account_id": "4090",
+          "recognized_fee_usd": "-2500.00",
+          "earned_from_deferred_usd": "0.00",
+          "earned_to_unbilled_usd": "0.00",
+          "credit_note_id": "CN-001",
+          "journal_id": "JRN-003233"
+        }
+      ],
+      "sample_limited": false
+    }
+  ]
+}

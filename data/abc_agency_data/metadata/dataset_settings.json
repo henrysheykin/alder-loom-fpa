@@ -1,0 +1,20 @@
+{
+  "company": "Signal Harbor Performance LLC",
+  "synthetic": true,
+  "currency": "USD",
+  "actual_start": "2024-11-01",
+  "actual_end": "2026-10-31",
+  "snapshot_date": "2026-10-31",
+  "random_seed": 803117,
+  "media_policy": "ALL_CLIENT_DIRECT_NO_PASS_THROUGH",
+  "source_csv_count": 218,
+  "logical_table_count": 80,
+  "source_row_count": 135757,
+  "schema_version": "1.0",
+  "opening_balance_date": "2024-10-31",
+  "csv_encoding": "UTF-8 BOM",
+  "delimiter": ",",
+  "money_precision": "USD cents, ROUND_HALF_UP",
+  "budget_calendar": "November-October",
+  "generation_script": "tools/run_build.py"
+}

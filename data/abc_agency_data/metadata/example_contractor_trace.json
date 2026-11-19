@@ -1,0 +1,160 @@
+{
+  "classification": "illustrative_copies_do_not_load_as_facts",
+  "explanation": "FREE-004 accepted August work at increased rate; expense/accrual, September AP bill and partial payments without duplicate expense.",
+  "records": [
+    {
+      "logical_table": "freelancers/rate_history",
+      "matched_total": 2,
+      "copied_rows": [
+        {
+          "contractor_rate_id": "FRATE-004-1",
+          "contractor_id": "FREE-004",
+          "effective_start_date": "2024-01-01",
+          "effective_end_date": "2026-07-31",
+          "hourly_cost_rate_usd": "95.00",
+          "approved_date": "2023-12-11",
+          "reason": "original negotiated cost rate"
+        },
+        {
+          "contractor_rate_id": "FRATE-004-2",
+          "contractor_id": "FREE-004",
+          "effective_start_date": "2026-08-01",
+          "effective_end_date": "2027-12-31",
+          "hourly_cost_rate_usd": "122.00",
+          "approved_date": "2026-07-11",
+          "reason": "Video production specialist rate increase"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "freelancers/approved_work",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "approved_work_id": "WORK-WO-FREE-004-2026-08-1",
+          "work_order_id": "WO-FREE-004-2026-08-1",
+          "contractor_id": "FREE-004",
+          "contractor_rate_id": "FRATE-004-2",
+          "project_id": "PRJ-R-007-2",
+          "contract_id": "CON-R-007-2",
+          "client_id": "CLI-007",
+          "service_month": "2026-08",
+          "service_start_date": "2026-08-01",
+          "service_end_date": "2026-08-31",
+          "approved_date": "2026-08-31",
+          "approved_hours": "28",
+          "hourly_cost_rate_usd": "122.00",
+          "earned_cost_usd": "3416.00",
+          "deliverable": "Accepted monthly specialist production/measurement work",
+          "contractor_invoice_id": "FINV-FREE-004-2026-08",
+          "journal_id": "JRN-003508"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "freelancers/invoice_lines",
+      "matched_total": 2,
+      "copied_rows": [
+        {
+          "contractor_invoice_line_id": "FINV-FREE-004-2026-08-L1",
+          "contractor_invoice_id": "FINV-FREE-004-2026-08",
+          "approved_work_id": "WORK-WO-FREE-004-2026-08-1",
+          "work_order_id": "WO-FREE-004-2026-08-1",
+          "line_amount_usd": "3416.00",
+          "accounting_bill_line_id": "BILL-FINV-FREE-004-2026-08-L1"
+        },
+        {
+          "contractor_invoice_line_id": "FINV-FREE-004-2026-08-L2",
+          "contractor_invoice_id": "FINV-FREE-004-2026-08",
+          "approved_work_id": "WORK-WO-FREE-004-2026-08-2",
+          "work_order_id": "WO-FREE-004-2026-08-2",
+          "line_amount_usd": "3416.00",
+          "accounting_bill_line_id": "BILL-FINV-FREE-004-2026-08-L2"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/vendor_bills",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "bill_id": "BILL-FINV-FREE-004-2026-08",
+          "vendor_id": "VND-FREE-004",
+          "contractor_invoice_id": "FINV-FREE-004-2026-08",
+          "bill_date": "2026-09-03",
+          "due_date": "2026-10-03",
+          "service_month": "2026-08",
+          "bill_total_usd": "6832.00",
+          "record_scope": "in_period",
+          "bill_status_asof": "partially_paid",
+          "open_balance_usd": "3416.00",
+          "journal_id": "JRN-003562"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/vendor_bill_lines",
+      "matched_total": 2,
+      "copied_rows": [
+        {
+          "bill_line_id": "BILL-FINV-FREE-004-2026-08-L1",
+          "bill_id": "BILL-FINV-FREE-004-2026-08",
+          "account_id": "2200",
+          "description": "Previously accrued accepted freelance services",
+          "line_amount_usd": "3416.00",
+          "approved_work_id": "WORK-WO-FREE-004-2026-08-1",
+          "source_line_id": "FINV-FREE-004-2026-08-L1",
+          "project_id": "PRJ-R-007-2",
+          "contract_id": "CON-R-007-2",
+          "client_id": "CLI-007"
+        },
+        {
+          "bill_line_id": "BILL-FINV-FREE-004-2026-08-L2",
+          "bill_id": "BILL-FINV-FREE-004-2026-08",
+          "account_id": "2200",
+          "description": "Previously accrued accepted freelance services",
+          "line_amount_usd": "3416.00",
+          "approved_work_id": "WORK-WO-FREE-004-2026-08-2",
+          "source_line_id": "FINV-FREE-004-2026-08-L2",
+          "project_id": "PRJ-R-011-2",
+          "contract_id": "CON-R-011-2",
+          "client_id": "CLI-011"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/vendor_payment_applications",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "vendor_application_id": "VAPP-VPAY-BILL-FINV-FREE-004-2026-08-1",
+          "vendor_payment_id": "VPAY-BILL-FINV-FREE-004-2026-08-1",
+          "bill_id": "BILL-FINV-FREE-004-2026-08",
+          "applied_date": "2026-10-05",
+          "applied_amount_usd": "3416.00"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/vendor_payments",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "vendor_payment_id": "VPAY-BILL-FINV-FREE-004-2026-08-1",
+          "vendor_id": "VND-FREE-004",
+          "payment_date": "2026-10-05",
+          "payment_amount_usd": "3416.00",
+          "bank_transaction_id": "BTX-000984",
+          "journal_id": "JRN-003757"
+        }
+      ],
+      "sample_limited": false
+    }
+  ]
+}

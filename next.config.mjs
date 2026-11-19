@@ -5,6 +5,8 @@ const nextConfig = {
   outputFileTracingIncludes: {
     "/dashboard": ["./private/dashboard.html"],
     "/api/data": ["./private/datamart.json"],
+    "/agency": ["./private/agency/dashboard.html"],
+    "/api/data/agency": ["./private/agency/datamart.json"],
   },
   outputFileTracingExcludes: {
     "*": ["./data/**", "./pipeline/**"],

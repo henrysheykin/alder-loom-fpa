@@ -1,0 +1,7 @@
+﻿contractor_id,vendor_id,contractor_name,email,role,status_asof,payment_terms_days
+FREE-001,VND-FREE-001,Dylan Ridge,freelancer1@example.com,motion_designer,active,30
+FREE-002,VND-FREE-002,Sasha Pine,freelancer2@example.com,brand_designer,active,30
+FREE-003,VND-FREE-003,Micah Clay,freelancer3@example.com,measurement_engineer,active,30
+FREE-004,VND-FREE-004,Ellis Cove,freelancer4@example.com,video_producer,active,30
+FREE-005,VND-FREE-005,Arden Marsh,freelancer5@example.com,copywriter,active,30
+FREE-006,VND-FREE-006,Remy Brook,freelancer6@example.com,paid_search_specialist,active,30

@@ -2,12 +2,13 @@
   "name": "alder-loom-fpa",
   "private": true,
   "version": "1.0.0",
-  "description": "Demo FP&A portal for a synthetic e-commerce company (ABC Inc.). Password login, dashboards, AI analyst.",
+  "description": "Demo FP&A portals for synthetic companies: ABC Inc. (e-commerce) and ABC Agency (marketing agency). Password login, dashboards, AI analyst.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "refresh": "python3 pipeline/build_datamart.py data/alder_loom_data data/output && cp data/output/datamart.json private/datamart.json"
+    "refresh": "python3 pipeline/build_datamart.py data/alder_loom_data data/output && cp data/output/datamart.json private/datamart.json",
+    "refresh:agency": "python3 -I pipeline/agency/build_datamart.py data/abc_agency_data data/output/agency && cp data/output/agency/datamart.json private/agency/datamart.json"
   },
   "dependencies": {
     "next": "15.5.28",

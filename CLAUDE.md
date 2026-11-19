@@ -13,7 +13,16 @@ presented as a real client's results.
 - `config/data_schedule.json` — data collection and job schedule (Central Time); scheduled tasks follow it
 - `app/`, `middleware.ts`, `lib/` — Next.js site deployed by Vercel from `main`
 
-## Data refresh procedure
+## Second company: ABC Agency (marketing agency)
+Raw source files use the placeholder name "Signal Harbor Performance"; the pipeline renames it to **ABC Agency** on output. Same demo/synthetic rules apply.
+- `data/abc_agency_data/` — raw package (12 simulated systems, 80 tables, docs, metadata, validation control totals). Facts come only from `sources/`.
+- `pipeline/agency/build_datamart.py` — standard-library Python, integer cents; writes `data/output/agency/datamart.json` + `reconciliation_report.csv` (61 checks, incl. 47 metrics × 24 months vs `validation/monthly_control_totals.csv`).
+- `private/agency/dashboard.html`, `private/agency/datamart.json` — served at `/agency` and `/api/data/agency`.
+- Refresh: `npm run refresh:agency` (or `python3 -I pipeline/agency/build_datamart.py data/abc_agency_data data/output/agency`), then the same rule: any FAIL → stop and report; all PASS → copy, commit, push.
+- Claude artifact: https://claude.ai/artifact/HpX2eZAkqMic74pd78N8bw — publish `private/agency/dashboard.html` as `index.html` and `private/agency/datamart.json` as `datamart.json`.
+- Agency commentary rules: fee revenue (earned on service approval), client media spend (client-paid, not agency money), contract value, invoices and cash are different metrics — never add them. Meta and Google attributed values overlap. Gusto project allocations re-cut payroll already in the GL. Cite client/contract IDs (CLI-…, CON-…, FREE-…).
+
+## Data refresh procedure (ABC Inc.)
 1. `pip install pandas --break-system-packages -q` if pandas is missing.
 2. `python3 pipeline/build_datamart.py data/alder_loom_data data/output`
 3. Read `data/output/reconciliation_report.csv`. **If any row is FAIL: stop, do not copy or commit anything, report the failing checks with expected vs actual values.**

@@ -1,0 +1,25 @@
+﻿employee_id,employee_name,email,role,department,cost_class,hire_date,termination_date,employment_type,standard_week_hours
+EMP-001,Avery Lane,avery.lane@example.com,Managing Partner,operations,overhead,2023-01-18,,salaried_full_time,40
+EMP-002,Morgan Vale,morgan.vale@example.com,Finance and Operations Lead,operations,overhead,2023-02-04,,salaried_full_time,40
+EMP-003,Jordan Ellis,jordan.ellis@example.com,Business Development Lead,operations,overhead,2023-02-21,,salaried_full_time,40
+EMP-004,Riley Brooks,riley.brooks@example.com,Paid Media Lead,paid_media,delivery,2023-03-10,,salaried_full_time,40
+EMP-005,Casey Rowan,casey.rowan@example.com,Paid Media Strategist,paid_media,delivery,2023-03-27,,salaried_full_time,40
+EMP-006,Quinn Parker,quinn.parker@example.com,Paid Media Strategist,paid_media,delivery,2023-04-13,,salaried_full_time,40
+EMP-007,Taylor Reed,taylor.reed@example.com,Paid Media Specialist,paid_media,delivery,2023-04-30,,salaried_full_time,40
+EMP-008,Alex Morgan,alex.morgan@example.com,Paid Media Specialist,paid_media,delivery,2023-05-17,2025-12-31,salaried_full_time,40
+EMP-009,Jamie Blake,jamie.blake@example.com,Client Services Lead,client_services,delivery,2023-06-03,,salaried_full_time,40
+EMP-010,Cameron Gray,cameron.gray@example.com,Account Manager,client_services,delivery,2023-06-20,,salaried_full_time,40
+EMP-011,Dakota Hayes,dakota.hayes@example.com,Account Manager,client_services,delivery,2023-07-07,,salaried_full_time,40
+EMP-012,Reese Miller,reese.miller@example.com,Creative Lead,creative,delivery,2023-07-24,,salaried_full_time,40
+EMP-013,Skyler Quinn,skyler.quinn@example.com,Designer,creative,delivery,2023-08-10,,salaried_full_time,40
+EMP-014,Peyton Lee,peyton.lee@example.com,Video Editor,creative,delivery,2023-08-27,,salaried_full_time,40
+EMP-015,Finley Hart,finley.hart@example.com,Copywriter,creative,delivery,2023-09-13,2026-06-30,salaried_full_time,40
+EMP-016,Robin Sage,robin.sage@example.com,Analytics Lead,analytics,delivery,2023-09-30,,salaried_full_time,40
+EMP-017,Charlie West,charlie.west@example.com,Analytics Specialist,analytics,delivery,2023-10-17,,salaried_full_time,40
+EMP-018,Emerson Fox,emerson.fox@example.com,Analytics Specialist,analytics,delivery,2023-11-03,,salaried_full_time,40
+EMP-019,River Cole,river.cole@example.com,Paid Media Specialist,paid_media,delivery,2025-03-01,,salaried_full_time,40
+EMP-020,Hayden Moss,hayden.moss@example.com,Designer,creative,delivery,2025-06-01,,salaried_full_time,40
+EMP-021,Blair Stone,blair.stone@example.com,Account Manager,client_services,delivery,2025-10-01,,salaried_full_time,40
+EMP-022,Drew Lake,drew.lake@example.com,Analytics Specialist,analytics,delivery,2026-01-01,,salaried_full_time,40
+EMP-023,Shawn Wren,shawn.wren@example.com,Video Editor,creative,delivery,2026-04-01,,salaried_full_time,40
+EMP-024,Kendall Finch,kendall.finch@example.com,Paid Media Strategist,paid_media,delivery,2026-07-01,,salaried_full_time,40

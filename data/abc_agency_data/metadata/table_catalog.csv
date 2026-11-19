@@ -1,0 +1,81 @@
+﻿logical_table,source_system,grain,primary_key,row_count,physical_file_count,partition_column,notes
+hubspot/companies,hubspot,One fictional client/prospect company as of cutoff,client_id,28,1,,
+hubspot/pipeline_stages,hubspot,One sales pipeline stage,stage_id,7,1,,
+hubspot/leads,hubspot,One prospect qualification record,lead_id,28,1,,
+hubspot/deals,hubspot,One deal current state at cutoff,deal_id,126,1,,"Won deal amount is a quote/bookings measure, never earned revenue."
+hubspot/deal_stage_history,hubspot,One observed sales-stage or expected-close revision; same-stage events revise forecast properties,stage_event_id,742,1,,
+hubspot/deal_monthly_snapshots,hubspot,One deal known at a historical month-end,snapshot_id,1795,1,,Closed-won/lost rows carry zero weighted open pipeline.
+contracts/contracts,contracts,One signed SOW/renewal; amendments separate,contract_id,86,1,,
+contracts/contract_versions,contracts,"One dated commercial version, append-only",contract_version_id,55,1,,
+contracts/monthly_terms,contracts,One signed retainer service month including known future months,term_id,626,1,,
+contracts/change_orders,contracts,One signed amendment/termination,change_order_id,4,1,,
+contracts/rate_cards,contracts,One hourly bill rate per role/effective interval,rate_card_id,28,1,,
+contracts/milestones,contracts,One explicitly priced fixed-project milestone,milestone_id,75,1,,
+contracts/fee_calculations,contracts,One observed monthly retainer fee calculation,calculation_id,429,1,,"Media spend is a fee driver, not agency revenue."
+contracts/billing_schedule,contracts,One planned billing allocation to a service obligation,schedule_line_id,865,1,,Historical billed rows and future known billings share the same schedule; do not add actual and schedule amounts.
+timekeeping/projects,timekeeping,One internal or contract delivery project,project_id,87,1,,
+timekeeping/tasks,timekeeping,One reusable timekeeping task,task_id,7,1,,
+timekeeping/work_calendar,timekeeping,One calendar date in historical window,calendar_date,730,1,,
+timekeeping/daily_capacity,timekeeping,"One active employee weekday, including paid leave",capacity_id,10619,24,work_date,
+timekeeping/time_off,timekeeping,One approved paid-leave event,time_off_id,704,1,,
+timekeeping/staff_allocations,timekeeping,One frozen employee/project monthly allocation,allocation_plan_id,3946,1,,
+timekeeping/timesheets,timekeeping,One actual employee/task time entry,time_entry_id,26049,24,work_date,Retainer and fixed-fee billable time does not generate extra hourly invoices.
+gusto/employees,gusto,One fictional employee across entire roster history,employee_id,24,1,,
+gusto/compensation_rates,gusto,One effective salary interval; all tax parameters are synthetic,compensation_id,62,1,,
+gusto/payroll_runs,gusto,"One semimonthly payroll, with one opening run",payroll_run_id,49,1,,
+gusto/payroll_earnings,gusto,One employee/payroll-period earning,payroll_earning_id,996,1,,
+gusto/payroll_funding,gusto,One actual payroll-provider bank funding,funding_id,48,1,,Provider remits tax/benefits from this debit; do not add another tax cash payment.
+gusto/cost_allocations,gusto,One employee/payroll-period/project-or-overhead cost allocation,cost_allocation_id,7187,1,,"Secondary view of already-posted payroll, not an additional expense."
+freelancers/contractors,freelancers,One freelance supplier,contractor_id,6,1,,
+freelancers/rate_history,freelancers,One effective freelance cost-rate interval,contractor_rate_id,8,1,,
+freelancers/work_orders,freelancers,One monthly approved freelance work authorization,work_order_id,288,1,,
+freelancers/approved_work,freelancers,One accepted freelance work item/earned cost,approved_work_id,288,1,,Expense arises here once; subsequent QB bill clears accrued contractor cost.
+freelancers/invoices,freelancers,One received freelancer invoice,contractor_invoice_id,138,1,,
+freelancers/invoice_lines,freelancers,One invoiced accepted-work reference,contractor_invoice_line_id,276,1,,
+meta_ads/ad_accounts,meta_ads,One client-owned advertising account,ad_account_id,22,1,,
+meta_ads/campaigns,meta_ads,One client campaign,campaign_id,44,1,,
+meta_ads/campaign_contract_map,meta_ads,One campaign/management-SOW effective interval,mapping_id,106,1,,
+meta_ads/daily_metrics,meta_ads,One campaign/day/platform observation,metric_id,26102,24,metric_date,Platform attribution can overlap across platforms; values are not agency sales.
+meta_ads/monthly_billing,meta_ads,One analytical monthly client platform-spend statement,platform_statement_id,429,1,,Monthly consolidation is a synthetic simplification; client bank settlement is not observed.
+google_ads/ad_accounts,google_ads,One client-owned advertising account,ad_account_id,22,1,,
+google_ads/campaigns,google_ads,One client campaign,campaign_id,44,1,,
+google_ads/campaign_contract_map,google_ads,One campaign/management-SOW effective interval,mapping_id,106,1,,
+google_ads/daily_metrics,google_ads,One campaign/day/platform observation,metric_id,26102,24,metric_date,Platform attribution can overlap across platforms; values are not agency sales.
+google_ads/monthly_billing,google_ads,One analytical monthly client platform-spend statement,platform_statement_id,429,1,,Monthly consolidation is a synthetic simplification; client bank settlement is not observed.
+delivery/service_obligations,delivery,One priced monthly service or approved milestone; includes signed future obligations,service_id,865,1,,
+delivery/recognition_events,delivery,One actual earning or fee-concession event,recognition_id,663,1,,
+delivery/opening_service_balances,delivery,One opening performance-obligation asset/liability,opening_service_balance_id,7,1,,
+delivery/monthly_contract_balances,delivery,One contract/month service balance roll-forward,contract_balance_id,1172,1,,
+quickbooks/chart_of_accounts,quickbooks,One modeled GL account,account_id,35,1,,
+quickbooks/opening_trial_balance,quickbooks,One opening account balance; excluded from period activity,account_id,35,1,,
+quickbooks/client_invoices,quickbooks,"One client fee invoice, including opening receivables",invoice_id,635,1,,
+quickbooks/client_invoice_lines,quickbooks,One fee invoice allocation to a service,invoice_line_id,651,1,,
+quickbooks/credit_notes,quickbooks,One post-service commercial fee concession,credit_note_id,2,1,,
+quickbooks/client_receipts,quickbooks,One actual client ACH receipt,receipt_id,698,1,,
+quickbooks/receipt_applications,quickbooks,One client receipt application to an invoice,receipt_application_id,698,1,,
+quickbooks/vendors,quickbooks,One fictional vendor or named-system modeled supplier,vendor_id,12,1,,
+quickbooks/vendor_bills,quickbooks,One received AP bill,bill_id,262,1,,
+quickbooks/vendor_bill_lines,quickbooks,One AP line; freelance lines debit accrued liability,bill_line_id,400,1,,
+quickbooks/vendor_payments,quickbooks,One actual vendor payment,vendor_payment_id,251,1,,
+quickbooks/vendor_payment_applications,quickbooks,One AP payment allocation,vendor_application_id,251,1,,
+quickbooks/ar_open_items,quickbooks,One unpaid client invoice at cutoff,ar_item_id,17,1,,
+quickbooks/ap_open_items,quickbooks,One unpaid vendor bill at cutoff,ap_item_id,13,1,,
+quickbooks/journals,quickbooks,One in-period balanced journal,journal_id,3897,1,,
+quickbooks/general_ledger,quickbooks,One journal/account/dimension debit or credit,gl_line_id,11980,24,journal_date,Opening TB is separate. No year-end closing journals in this 24-month extract.
+quickbooks/monthly_trial_balance,quickbooks,One account/month; signs debit minus credit,tb_id,840,1,,
+bank/accounts,bank,One fictional agency operating bank account,bank_account_id,1,1,,
+bank/transactions,bank,One actual agency bank statement movement,bank_transaction_id,1028,24,transaction_date,
+bank/monthly_statements,bank,One monthly bank statement,statement_id,24,1,,
+planning/budget_versions,planning,One immutable original annual management budget,budget_version_id,2,1,,
+planning/monthly_budget,planning,One original monthly budget line; revenue and expense amounts positive,budget_line_id,1044,1,,
+planning/headcount_capacity_plan,planning,One department/month frozen resource plan,capacity_plan_id,135,1,,
+planning/signed_future_commitments,planning,One already-signed future billing item at cutoff,commitment_id,211,1,,"Convenience copy of future billing schedule, not another fact."
+planning/collection_expectations,planning,One management collection assumption for existing AR,collection_expectation_id,17,1,,Expected date is not an actual receipt.
+planning/recurring_obligations,planning,One active operating vendor obligation at cutoff,obligation_id,6,1,,
+planning/payroll_commitments,planning,One earned but unfunded payroll run at cutoff,payroll_commitment_id,1,1,,
+planning/contractor_accruals,planning,One accepted but not yet invoiced freelance work item,contractor_accrual_id,12,1,,
+finance/debt_register,finance,One term loan; rate is an invented contract parameter,debt_id,1,1,,
+finance/debt_service,finance,One actual loan repayment,debt_service_id,24,1,,
+finance/debt_schedule,finance,"One future contractual debt payment, not an actual",debt_schedule_id,24,1,,
+finance/owner_distributions,finance,One actual owner distribution; financing only,distribution_id,7,1,,
+finance/prepaid_amortization,finance,One monthly release of paid insurance asset,amortization_id,24,1,,

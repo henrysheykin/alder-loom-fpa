@@ -17,7 +17,15 @@ private/datamart.json  ──git push──►  GitHub  ──auto deploy──�
                                                                   └─ /api/chat     proxy to Claude API (key stays on server)
 ```
 
-## Dashboards
+## Second company: ABC Agency — `/agency`
+A fictional performance-marketing agency (Meta & Google Ads management, creative, analytics), 24 months of synthetic data
+from 12 simulated systems (HubSpot, contracts, timekeeping, Gusto, freelancers, client-owned Meta/Google ad accounts,
+delivery approvals, QuickBooks, bank, planning, debt). Pipeline: `pipeline/agency/build_datamart.py` (61 checks).
+Tabs: Company overview · P&L vs budget · Client profitability · Team & utilization · Scope & delivery · Receivables ·
+Retention & pipeline · 13-week cash (scenarios + drill-down) · Data sources · Data quality, plus the AI analyst.
+Refresh with `npm run refresh:agency`.
+
+## Dashboards (ABC Inc., `/dashboard`)
 - **Company overview** — L12M KPIs, revenue vs budget, margins, working capital, categories, channels, SKUs, suppliers
 - **P&L vs budget** — month / YTD / full-year outlook, variance table, EBITDA bridge, plan extension methodology
 - **Product profitability** — fully allocated P&L by category, SKU, supplier; overhead basis switch

@@ -1,0 +1,5 @@
+﻿change_order_id,contract_id,signed_date,effective_date,change_type,fee_change_usd,scope_hours_change,reason,supersedes_version_id
+CO-CON-R-003-2-1,CON-R-003-2,2026-09-20,2026-10-01,repricing_scope_reset,2500.00,22,Extra creative variants accepted after prolonged unpaid scope creep,VER-CON-R-003-2-1
+CO-CON-R-005-2-TERM,CON-R-005-2,2026-06-15,2026-08-01,termination_release,-49377.00,0,Client moved media buying in-house,VER-CON-R-005-2-1
+CO-CON-R-006-2-1,CON-R-006-2,2026-06-18,2026-07-01,variable_fee_repricing,0.00,0,Management percentage rises from 6% to 7%; minimum unchanged,VER-CON-R-006-2-1
+CO-CON-R-012-2-TERM,CON-R-012-2,2026-03-10,2026-04-01,termination_release,-69496.00,0,Client closed a product line; no renewal,VER-CON-R-012-2-1

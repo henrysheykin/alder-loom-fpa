@@ -1,0 +1,349 @@
+{
+  "classification": "illustrative_copies_do_not_load_as_facts",
+  "explanation": "CLI-001 October flat fee, independent client media spend, included time, invoice, actual receipt and recognition. Samples are copies, not additive facts.",
+  "records": [
+    {
+      "logical_table": "contracts/contracts",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "contract_id": "CON-R-001-2",
+          "client_id": "CLI-001",
+          "deal_id": "DEAL-CON-R-001-2",
+          "parent_contract_id": "CON-R-001-1",
+          "contract_type": "retainer",
+          "sow_name": "Paid media, creative and analytics annual SOW 2",
+          "signed_date": "2025-10-12",
+          "service_start_date": "2025-11-01",
+          "original_end_date": "2026-10-31",
+          "current_end_date": "2026-10-31",
+          "original_contract_value_usd": "144000.00",
+          "current_committed_minimum_usd": "144000.00",
+          "contract_ceiling_usd": "",
+          "contract_value_basis": "fixed_minimum_excludes_variable_spend_upside",
+          "payment_terms_days": "15",
+          "billing_cadence": "monthly_service_start",
+          "status_asof": "active",
+          "currency": "USD"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "contracts/fee_calculations",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "calculation_id": "FEE-CON-R-001-2-2026-10",
+          "term_id": "TERM-CON-R-001-2-2026-10",
+          "contract_id": "CON-R-001-2",
+          "client_id": "CLI-001",
+          "service_month": "2026-10",
+          "media_spend_usd": "191470.05",
+          "spend_fee_rate": "0",
+          "percentage_fee_usd": "0.00",
+          "minimum_fee_usd": "12000.00",
+          "earned_fee_usd": "12000.00",
+          "service_id": "SVC-CON-R-001-2-2026-10"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "meta_ads/monthly_billing",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "platform_statement_id": "META-STMT-001-2026-10",
+          "ad_account_id": "META-ACCT-001",
+          "client_id": "CLI-001",
+          "service_month": "2026-10",
+          "statement_date": "2026-10-31",
+          "media_spend_usd": "107223.23",
+          "payer_client_id": "CLI-001",
+          "funding_responsibility": "CLIENT_DIRECT",
+          "agency_cash_amount_usd": "0.00",
+          "client_payment_status": "CLIENT_DIRECT_SETTLEMENT_NOT_OBSERVED"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "google_ads/monthly_billing",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "platform_statement_id": "GOOG-STMT-001-2026-10",
+          "ad_account_id": "GOOG-ACCT-001",
+          "client_id": "CLI-001",
+          "service_month": "2026-10",
+          "statement_date": "2026-10-31",
+          "media_spend_usd": "84246.82",
+          "payer_client_id": "CLI-001",
+          "funding_responsibility": "CLIENT_DIRECT",
+          "agency_cash_amount_usd": "0.00",
+          "client_payment_status": "CLIENT_DIRECT_SETTLEMENT_NOT_OBSERVED"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "timekeeping/timesheets",
+      "matched_total": 40,
+      "copied_rows": [
+        {
+          "time_entry_id": "TIME-0024866",
+          "employee_id": "EMP-004",
+          "role": "Paid Media Lead",
+          "project_id": "PRJ-R-001-2",
+          "task_id": "TSK-OPTIMIZE",
+          "client_id": "CLI-001",
+          "contract_id": "CON-R-001-2",
+          "work_date": "2026-10-02",
+          "hours": "2.5",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-10-04",
+          "billing_treatment": "included_in_retainer",
+          "rate_card_id": "",
+          "billable_rate_usd": "",
+          "is_scope_rework": "False"
+        },
+        {
+          "time_entry_id": "TIME-0024878",
+          "employee_id": "EMP-004",
+          "role": "Paid Media Lead",
+          "project_id": "PRJ-R-001-2",
+          "task_id": "TSK-OPTIMIZE",
+          "client_id": "CLI-001",
+          "contract_id": "CON-R-001-2",
+          "work_date": "2026-10-08",
+          "hours": "2",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-10-10",
+          "billing_treatment": "included_in_retainer",
+          "rate_card_id": "",
+          "billable_rate_usd": "",
+          "is_scope_rework": "False"
+        },
+        {
+          "time_entry_id": "TIME-0024886",
+          "employee_id": "EMP-004",
+          "role": "Paid Media Lead",
+          "project_id": "PRJ-R-001-2",
+          "task_id": "TSK-OPTIMIZE",
+          "client_id": "CLI-001",
+          "contract_id": "CON-R-001-2",
+          "work_date": "2026-10-13",
+          "hours": "3.5",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-10-15",
+          "billing_treatment": "included_in_retainer",
+          "rate_card_id": "",
+          "billable_rate_usd": "",
+          "is_scope_rework": "False"
+        }
+      ],
+      "sample_limited": true
+    },
+    {
+      "logical_table": "delivery/recognition_events",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "recognition_id": "REV-SVC-CON-R-001-2-2026-10",
+          "service_id": "SVC-CON-R-001-2-2026-10",
+          "contract_id": "CON-R-001-2",
+          "client_id": "CLI-001",
+          "project_id": "PRJ-R-001-2",
+          "recognition_date": "2026-10-31",
+          "service_month": "2026-10",
+          "recognition_type": "retainer",
+          "revenue_account_id": "4000",
+          "recognized_fee_usd": "12000.00",
+          "earned_from_deferred_usd": "12000.00",
+          "earned_to_unbilled_usd": "0.00",
+          "credit_note_id": "",
+          "journal_id": "JRN-003870"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/client_invoice_lines",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "invoice_line_id": "INV-CON-R-001-2-2026-10-L1",
+          "invoice_id": "INV-CON-R-001-2-2026-10",
+          "contract_id": "CON-R-001-2",
+          "client_id": "CLI-001",
+          "service_id": "SVC-CON-R-001-2-2026-10",
+          "schedule_line_id": "SCH-SVC-CON-R-001-2-2026-10",
+          "description": "retainer 2026-10",
+          "line_amount_usd": "12000.00",
+          "invoiced_to_deferred_usd": "12000.00",
+          "invoiced_from_unbilled_usd": "0.00"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/receipt_applications",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "receipt_application_id": "APP-RCPT-INV-CON-R-001-2-2026-10-1",
+          "receipt_id": "RCPT-INV-CON-R-001-2-2026-10-1",
+          "invoice_id": "INV-CON-R-001-2-2026-10",
+          "applied_date": "2026-10-19",
+          "applied_amount_usd": "12000.00"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/client_receipts",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "receipt_id": "RCPT-INV-CON-R-001-2-2026-10-1",
+          "client_id": "CLI-001",
+          "receipt_date": "2026-10-19",
+          "receipt_amount_usd": "12000.00",
+          "payment_method": "ACH",
+          "bank_transaction_id": "BTX-001002",
+          "journal_id": "JRN-003800"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "bank/transactions",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "bank_transaction_id": "BTX-001002",
+          "bank_account_id": "BANK-OPERATING-1042",
+          "transaction_date": "2026-10-19",
+          "sequence": "1002",
+          "transaction_type": "client_receipt",
+          "counterparty": "CLI-001",
+          "reference_type": "client_receipt",
+          "reference_id": "RCPT-INV-CON-R-001-2-2026-10-1",
+          "money_in_usd": "12000.00",
+          "money_out_usd": "0.00",
+          "signed_amount_usd": "12000.00",
+          "running_balance_usd": "678692.02",
+          "journal_id": "JRN-003800"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/general_ledger",
+      "matched_total": 6,
+      "copied_rows": [
+        {
+          "gl_line_id": "GL-0011434",
+          "journal_id": "JRN-003719",
+          "journal_date": "2026-10-01",
+          "account_id": "1100",
+          "debit_usd": "12000.00",
+          "credit_usd": "0.00",
+          "source_system": "quickbooks",
+          "source_type": "client_invoice",
+          "source_id": "INV-CON-R-001-2-2026-10",
+          "client_id": "CLI-001",
+          "contract_id": "CON-R-001-2",
+          "project_id": "",
+          "employee_id": "",
+          "service_month": "2026-10"
+        },
+        {
+          "gl_line_id": "GL-0011435",
+          "journal_id": "JRN-003719",
+          "journal_date": "2026-10-01",
+          "account_id": "2300",
+          "debit_usd": "0.00",
+          "credit_usd": "12000.00",
+          "source_system": "quickbooks",
+          "source_type": "client_invoice",
+          "source_id": "INV-CON-R-001-2-2026-10",
+          "client_id": "CLI-001",
+          "contract_id": "CON-R-001-2",
+          "project_id": "",
+          "employee_id": "",
+          "service_month": "2026-10"
+        },
+        {
+          "gl_line_id": "GL-0011694",
+          "journal_id": "JRN-003800",
+          "journal_date": "2026-10-19",
+          "account_id": "1000",
+          "debit_usd": "12000.00",
+          "credit_usd": "0.00",
+          "source_system": "quickbooks",
+          "source_type": "client_receipt",
+          "source_id": "RCPT-INV-CON-R-001-2-2026-10-1",
+          "client_id": "CLI-001",
+          "contract_id": "CON-R-001-2",
+          "project_id": "",
+          "employee_id": "",
+          "service_month": "2026-10"
+        },
+        {
+          "gl_line_id": "GL-0011695",
+          "journal_id": "JRN-003800",
+          "journal_date": "2026-10-19",
+          "account_id": "1100",
+          "debit_usd": "0.00",
+          "credit_usd": "12000.00",
+          "source_system": "quickbooks",
+          "source_type": "client_receipt",
+          "source_id": "RCPT-INV-CON-R-001-2-2026-10-1",
+          "client_id": "CLI-001",
+          "contract_id": "CON-R-001-2",
+          "project_id": "",
+          "employee_id": "",
+          "service_month": "2026-10"
+        },
+        {
+          "gl_line_id": "GL-0011925",
+          "journal_id": "JRN-003870",
+          "journal_date": "2026-10-31",
+          "account_id": "2300",
+          "debit_usd": "12000.00",
+          "credit_usd": "0.00",
+          "source_system": "delivery",
+          "source_type": "revenue",
+          "source_id": "REV-SVC-CON-R-001-2-2026-10",
+          "client_id": "CLI-001",
+          "contract_id": "CON-R-001-2",
+          "project_id": "PRJ-R-001-2",
+          "employee_id": "",
+          "service_month": "2026-10"
+        },
+        {
+          "gl_line_id": "GL-0011926",
+          "journal_id": "JRN-003870",
+          "journal_date": "2026-10-31",
+          "account_id": "4000",
+          "debit_usd": "0.00",
+          "credit_usd": "12000.00",
+          "source_system": "delivery",
+          "source_type": "revenue",
+          "source_id": "REV-SVC-CON-R-001-2-2026-10",
+          "client_id": "CLI-001",
+          "contract_id": "CON-R-001-2",
+          "project_id": "PRJ-R-001-2",
+          "employee_id": "",
+          "service_month": "2026-10"
+        }
+      ],
+      "sample_limited": false
+    }
+  ]
+}

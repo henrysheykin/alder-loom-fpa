@@ -1,0 +1,29 @@
+﻿client_id,company_name,industry,state_code,email,created_date,lifecycle_stage,currency,is_synthetic
+CLI-001,Cedar Peak Outdoor LLC,Outdoor retail,TX,finance.client001@example.com,2024-07-08,customer,USD,True
+CLI-002,Willow Bend Dental Group LLC,Dental services,IL,finance.client002@example.com,2024-07-15,customer,USD,True
+CLI-003,Morrow Home Goods LLC,Home goods,NC,finance.client003@example.com,2024-07-22,customer,USD,True
+CLI-004,Canyon Trail Fitness LLC,Fitness,WA,finance.client004@example.com,2024-07-29,customer,USD,True
+CLI-005,Beacon Ridge Solar LLC,Residential solar,AZ,finance.client005@example.com,2024-08-05,customer,USD,True
+CLI-006,Copperline Learning LLC,Online learning,CO,finance.client006@example.com,2024-08-12,customer,USD,True
+CLI-007,Maple & Moss Skincare LLC,Beauty,TX,finance.client007@example.com,2024-08-19,customer,USD,True
+CLI-008,Prairie Home Services LLC,Home services,IL,finance.client008@example.com,2024-08-26,customer,USD,True
+CLI-009,Northstar Pet Supply LLC,Pet retail,NC,finance.client009@example.com,2024-09-02,customer,USD,True
+CLI-010,Harborlight B2B Software LLC,B2B SaaS,WA,finance.client010@example.com,2024-09-09,customer,USD,True
+CLI-011,Blue Mesa Travel LLC,Travel,AZ,finance.client011@example.com,2024-09-16,customer,USD,True
+CLI-012,Aster Kitchenware LLC,Kitchen retail,CO,finance.client012@example.com,2024-09-23,customer,USD,True
+CLI-013,Summit Grove Wellness LLC,Wellness,TX,finance.client013@example.com,2024-09-30,customer,USD,True
+CLI-014,Fieldstone Auto Care LLC,Automotive services,IL,finance.client014@example.com,2024-10-07,customer,USD,True
+CLI-015,Juniper Kids Apparel LLC,Apparel,NC,finance.client015@example.com,2024-07-01,customer,USD,True
+CLI-016,Redwood Local Clinics LLC,Clinics,WA,finance.client016@example.com,2024-07-08,customer,USD,True
+CLI-017,Fairhaven Coffee Roasters LLC,Food & beverage,AZ,finance.client017@example.com,2024-07-15,customer,USD,True
+CLI-018,Vela Safety Equipment LLC,Safety equipment,CO,finance.client018@example.com,2024-07-22,customer,USD,True
+CLI-019,Pinecrest Garden Supply LLC,Garden retail,TX,finance.client019@example.com,2024-07-29,customer,USD,True
+CLI-020,Lumen Office Systems LLC,Office services,IL,finance.client020@example.com,2024-08-05,customer,USD,True
+CLI-021,Tidepool Home Textiles LLC,Home textiles,NC,finance.client021@example.com,2024-08-12,customer,USD,True
+CLI-022,Atlas Trail Nutrition LLC,Nutrition,WA,finance.client022@example.com,2024-08-19,customer,USD,True
+CLI-023,Prospect Birch Home LLC,Outdoor retail,AZ,finance.client023@example.com,2024-08-26,prospect,USD,True
+CLI-024,Prospect Oak Dental LLC,Dental services,CO,finance.client024@example.com,2024-09-02,prospect,USD,True
+CLI-025,Prospect Vista Equipment LLC,Home goods,TX,finance.client025@example.com,2024-09-09,prospect,USD,True
+CLI-026,Prospect Ember Wellness LLC,Fitness,IL,finance.client026@example.com,2024-09-16,prospect,USD,True
+CLI-027,Prospect Wren Software LLC,Residential solar,NC,finance.client027@example.com,2024-09-23,prospect,USD,True
+CLI-028,Prospect Cove Travel LLC,Online learning,WA,finance.client028@example.com,2024-09-30,prospect,USD,True

@@ -1,0 +1,88 @@
+﻿project_id,client_id,contract_id,project_name,project_type,start_date,end_date,is_billable,original_hours_budget,original_cost_budget_usd,budget_basis
+PRJ-R-001-1,CLI-001,CON-R-001-1,CLI-001 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-001-2,CLI-001,CON-R-001-2,CLI-001 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-001-3,CLI-001,CON-R-001-3,CLI-001 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-002-1,CLI-002,CON-R-002-1,CLI-002 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-002-2,CLI-002,CON-R-002-2,CLI-002 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-002-3,CLI-002,CON-R-002-3,CLI-002 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-003-1,CLI-003,CON-R-003-1,CLI-003 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-003-2,CLI-003,CON-R-003-2,CLI-003 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-003-3,CLI-003,CON-R-003-3,CLI-003 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1500,102000.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-004-1,CLI-004,CON-R-004-1,CLI-004 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-004-2,CLI-004,CON-R-004-2,CLI-004 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-004-3,CLI-004,CON-R-004-3,CLI-004 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-005-1,CLI-005,CON-R-005-1,CLI-005 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,984,66912.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-005-2,CLI-005,CON-R-005-2,CLI-005 integrated monthly retainer,retainer,2025-11-01,2026-07-31,True,984,66912.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-006-1,CLI-006,CON-R-006-1,CLI-006 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-006-2,CLI-006,CON-R-006-2,CLI-006 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-006-3,CLI-006,CON-R-006-3,CLI-006 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-007-1,CLI-007,CON-R-007-1,CLI-007 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-007-2,CLI-007,CON-R-007-2,CLI-007 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-007-3,CLI-007,CON-R-007-3,CLI-007 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-008-1,CLI-008,CON-R-008-1,CLI-008 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-008-2,CLI-008,CON-R-008-2,CLI-008 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-008-3,CLI-008,CON-R-008-3,CLI-008 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-009-1,CLI-009,CON-R-009-1,CLI-009 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-009-2,CLI-009,CON-R-009-2,CLI-009 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-009-3,CLI-009,CON-R-009-3,CLI-009 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-010-1,CLI-010,CON-R-010-1,CLI-010 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,984,66912.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-010-2,CLI-010,CON-R-010-2,CLI-010 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,984,66912.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-010-3,CLI-010,CON-R-010-3,CLI-010 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,984,66912.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-011-1,CLI-011,CON-R-011-1,CLI-011 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-011-2,CLI-011,CON-R-011-2,CLI-011 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-011-3,CLI-011,CON-R-011-3,CLI-011 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-012-1,CLI-012,CON-R-012-1,CLI-012 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-012-2,CLI-012,CON-R-012-2,CLI-012 integrated monthly retainer,retainer,2025-11-01,2026-03-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-013-1,CLI-013,CON-R-013-1,CLI-013 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-013-2,CLI-013,CON-R-013-2,CLI-013 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-013-3,CLI-013,CON-R-013-3,CLI-013 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-014-1,CLI-014,CON-R-014-1,CLI-014 integrated monthly retainer,retainer,2024-11-01,2025-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-014-2,CLI-014,CON-R-014-2,CLI-014 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-014-3,CLI-014,CON-R-014-3,CLI-014 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-015-1,CLI-015,CON-R-015-1,CLI-015 integrated monthly retainer,retainer,2025-01-01,2025-12-31,True,984,66912.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-015-2,CLI-015,CON-R-015-2,CLI-015 integrated monthly retainer,retainer,2026-01-01,2026-12-31,True,984,66912.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-016-1,CLI-016,CON-R-016-1,CLI-016 integrated monthly retainer,retainer,2025-03-01,2026-02-28,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-016-2,CLI-016,CON-R-016-2,CLI-016 integrated monthly retainer,retainer,2026-03-01,2027-02-28,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-017-1,CLI-017,CON-R-017-1,CLI-017 integrated monthly retainer,retainer,2025-06-01,2026-05-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-017-2,CLI-017,CON-R-017-2,CLI-017 integrated monthly retainer,retainer,2026-06-01,2027-05-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-018-1,CLI-018,CON-R-018-1,CLI-018 integrated monthly retainer,retainer,2025-09-01,2026-08-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-018-2,CLI-018,CON-R-018-2,CLI-018 integrated monthly retainer,retainer,2026-09-01,2027-08-31,True,1236,84048.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-019-1,CLI-019,CON-R-019-1,CLI-019 integrated monthly retainer,retainer,2025-11-01,2026-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-019-2,CLI-019,CON-R-019-2,CLI-019 integrated monthly retainer,retainer,2026-11-01,2027-10-31,True,1320,89760.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-020-1,CLI-020,CON-R-020-1,CLI-020 integrated monthly retainer,retainer,2026-02-01,2027-01-31,True,984,66912.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-021-1,CLI-021,CON-R-021-1,CLI-021 integrated monthly retainer,retainer,2026-05-01,2027-04-30,True,1068,72624.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-R-022-1,CLI-022,CON-R-022-1,CLI-022 integrated monthly retainer,retainer,2026-08-01,2027-07-31,True,1152,78336.00,original annual SOW hours; monthly budgets in monthly_terms
+PRJ-F-001,CLI-003,CON-F-001,Creative launch system,fixed_project,2024-11-01,2025-01-31,True,200,13600.00,original total project budget; no automatic overtime fee
+PRJ-F-002,CLI-006,CON-F-002,Measurement rebuild,fixed_project,2024-12-01,2025-02-28,True,234.375,15937.50,original total project budget; no automatic overtime fee
+PRJ-F-003,CLI-009,CON-F-003,Landing-page creative package,fixed_project,2025-01-01,2025-03-31,True,268.75,18275.00,original total project budget; no automatic overtime fee
+PRJ-F-004,CLI-012,CON-F-004,Creative launch system,fixed_project,2025-02-01,2025-04-30,True,303.125,20612.50,original total project budget; no automatic overtime fee
+PRJ-F-005,CLI-015,CON-F-005,Measurement rebuild,fixed_project,2025-03-01,2025-05-31,True,337.5,22950.00,original total project budget; no automatic overtime fee
+PRJ-F-006,CLI-002,CON-F-006,Landing-page creative package,fixed_project,2025-04-01,2025-06-30,True,371.875,25287.50,original total project budget; no automatic overtime fee
+PRJ-F-007,CLI-005,CON-F-007,Creative launch system,fixed_project,2025-05-01,2025-07-31,True,200,13600.00,original total project budget; no automatic overtime fee
+PRJ-F-008,CLI-007,CON-F-008,Measurement rebuild,fixed_project,2025-06-01,2025-08-31,True,234.375,15937.50,original total project budget; no automatic overtime fee
+PRJ-F-009,CLI-010,CON-F-009,Landing-page creative package,fixed_project,2025-07-01,2025-09-30,True,268.75,18275.00,original total project budget; no automatic overtime fee
+PRJ-F-010,CLI-013,CON-F-010,Creative launch system,fixed_project,2025-08-01,2025-10-31,True,303.125,20612.50,original total project budget; no automatic overtime fee
+PRJ-F-011,CLI-015,CON-F-011,Measurement rebuild,fixed_project,2025-09-01,2025-11-30,True,337.5,22950.00,original total project budget; no automatic overtime fee
+PRJ-F-012,CLI-018,CON-F-012,Landing-page creative package,fixed_project,2025-10-01,2025-12-31,True,371.875,25287.50,original total project budget; no automatic overtime fee
+PRJ-F-013,CLI-001,CON-F-013,Creative launch system,fixed_project,2025-11-01,2026-01-31,True,200,13600.00,original total project budget; no automatic overtime fee
+PRJ-F-014,CLI-004,CON-F-014,Measurement rebuild,fixed_project,2025-12-01,2026-02-28,True,234.375,15937.50,original total project budget; no automatic overtime fee
+PRJ-F-015,CLI-007,CON-F-015,Landing-page creative package,fixed_project,2026-01-01,2026-03-31,True,268.75,18275.00,original total project budget; no automatic overtime fee
+PRJ-F-016,CLI-008,CON-F-016,Creative launch system,fixed_project,2026-02-01,2026-04-30,True,303.125,20612.50,original total project budget; no automatic overtime fee
+PRJ-F-017,CLI-011,CON-F-017,Measurement rebuild,fixed_project,2026-03-01,2026-05-31,True,337.5,22950.00,original total project budget; no automatic overtime fee
+PRJ-F-018,CLI-017,CON-F-018,Landing-page creative package,fixed_project,2026-04-01,2026-06-30,True,371.875,25287.50,original total project budget; no automatic overtime fee
+PRJ-F-019,CLI-018,CON-F-019,Creative launch system,fixed_project,2026-05-01,2026-07-31,True,200,13600.00,original total project budget; no automatic overtime fee
+PRJ-F-020,CLI-021,CON-F-020,Measurement rebuild,fixed_project,2026-06-01,2026-08-31,True,234.375,15937.50,original total project budget; no automatic overtime fee
+PRJ-F-021,CLI-003,CON-F-021,Landing-page creative package,fixed_project,2026-07-01,2026-09-30,True,268.75,18275.00,original total project budget; no automatic overtime fee
+PRJ-F-022,CLI-007,CON-F-022,Creative launch system,fixed_project,2026-08-01,2026-10-31,True,303.125,20612.50,original total project budget; no automatic overtime fee
+PRJ-F-023,CLI-010,CON-F-023,Measurement rebuild,fixed_project,2026-09-01,2026-11-30,True,337.5,22950.00,original total project budget; no automatic overtime fee
+PRJ-F-024,CLI-014,CON-F-024,Landing-page creative package,fixed_project,2026-10-01,2026-12-31,True,371.875,25287.50,original total project budget; no automatic overtime fee
+PRJ-F-025,CLI-017,CON-F-025,Creative launch system,fixed_project,2026-11-01,2027-01-31,True,200,13600.00,original total project budget; no automatic overtime fee
+PRJ-H-001,CLI-001,CON-H-001,Hourly analytics and experiments,hourly,2024-10-01,2027-10-31,True,180,12240.00,"estimated 12-month hours, not committed recurring fees"
+PRJ-H-003,CLI-003,CON-H-003,Hourly analytics and experiments,hourly,2024-10-01,2027-10-31,True,180,12240.00,"estimated 12-month hours, not committed recurring fees"
+PRJ-H-004,CLI-004,CON-H-004,Hourly analytics and experiments,hourly,2024-10-01,2027-10-31,True,180,12240.00,"estimated 12-month hours, not committed recurring fees"
+PRJ-H-006,CLI-006,CON-H-006,Hourly analytics and experiments,hourly,2024-10-01,2027-10-31,True,180,12240.00,"estimated 12-month hours, not committed recurring fees"
+PRJ-H-008,CLI-008,CON-H-008,Hourly analytics and experiments,hourly,2024-10-01,2027-10-31,True,180,12240.00,"estimated 12-month hours, not committed recurring fees"
+PRJ-H-010,CLI-010,CON-H-010,Hourly analytics and experiments,hourly,2024-10-01,2027-10-31,True,180,12240.00,"estimated 12-month hours, not committed recurring fees"
+PRJ-H-015,CLI-015,CON-H-015,Hourly analytics and experiments,hourly,2025-01-01,2027-10-31,True,180,12240.00,"estimated 12-month hours, not committed recurring fees"
+PRJ-H-020,CLI-020,CON-H-020,Hourly analytics and experiments,hourly,2026-02-01,2027-10-31,True,180,12240.00,"estimated 12-month hours, not committed recurring fees"
+PRJ-INTERNAL,,,"Internal, bench and business development",internal,2024-11-01,2026-10-31,False,,,not_applicable

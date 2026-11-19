@@ -1,0 +1,12 @@
+﻿join_name,join_path,rule,double_count_guard
+crm_to_sow,hubspot/deals.contract_id → contracts/contracts.contract_id,Won signed deals only; use stage history for historical open pipeline.,Do not add bookings to fee revenue
+retainer_fees,daily_metrics → campaign_contract_map → monthly_terms → fee_calculations → service_obligations,"Match client, effective service month and contract, not company name.",Media driver is not an agency expense
+invoice_service,client_invoice_lines.service_id → service_obligations.service_id,A quarterly invoice has three service lines; use invoice_id for receipt applications.,Do not multiply invoice header total by three
+cost_salary,cost_allocations.payroll_earning_id → payroll_earnings → payroll_runs,Basis project/internal/paid_leave; employee and period must match.,"Secondary allocation, not new expense"
+cost_freelance,approved_work → invoice_lines.approved_work_id → QB vendor_bill_lines.approved_work_id,QB source_line_id references freelancers/invoice_lines only when approved_work_id is populated.,Expense only at acceptance; bill clears2200
+bank_polymorphic,bank.reference_type + reference_id → receipt/payment/funding/debt/distribution primary key,Use matching reference_type; generic reference_id alone is not globally typed.,Each bank movement exactly one source cash event
+gl_polymorphic,journals.source_type + source_id → originating financial event,client_invoice→invoice_id; revenue→recognition_id; payroll_earning→payroll_earning_id; contractor_earned→approved_work_id; others follow source catalogs. depreciation has modeled DEP-YYYY-MM reference.,No independent expense or revenue from provenance copies
+insurance_origin,prepaid_amortization.source_bill_id → vendor_bills.bill_id or OPEN-INS-2024,"OPEN-INS-2024 supports opening prepaid balance USD4000, not another bill to post.",Opening item excluded from period expense until amortization
+future_commitment,signed_future_commitments.schedule_line_id → billing_schedule.schedule_line_id,Convenience copy; overlap_key equals schedule_line_id.,Only one future invoice cash driver
+recurring_overlap,recurring_obligations.current_open_bill_id → vendor_bills.bill_id,Current bill is already in AP; new cycles start next_service_start_date.,Do not add AP and current recurring cycle twice
+versions,change_orders.supersedes_version_id → contract_versions.contract_version_id,Signed append-only changes; monthly_terms picks the effective approved version.,Do not overwrite original SOW budget

@@ -1,0 +1,1045 @@
+﻿budget_line_id,budget_version_id,service_month,department,revenue_stream,account_id,client_id,project_id,budget_amount_usd,budget_hours,driver_note
+BUD-00001,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00002,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00003,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00004,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00005,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00006,BUDGET-FY2025,2024-11,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00007,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00008,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00009,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00010,BUDGET-FY2025,2024-11,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00011,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00012,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00013,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00014,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00015,BUDGET-FY2025,2024-11,client_services,flat_retainer,4000,,,10500.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00016,BUDGET-FY2025,2024-11,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00017,BUDGET-FY2025,2024-11,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00018,BUDGET-FY2025,2024-11,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00019,BUDGET-FY2025,2024-11,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00020,BUDGET-FY2025,2024-11,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00021,BUDGET-FY2025,2024-11,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00022,BUDGET-FY2025,2024-11,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00023,BUDGET-FY2025,2024-11,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00024,BUDGET-FY2025,2024-11,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00025,BUDGET-FY2025,2024-11,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00026,BUDGET-FY2025,2024-11,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00027,BUDGET-FY2025,2024-11,creative,,5000,,,26000.00,,Original planned headcount times salary assumption
+BUD-00028,BUDGET-FY2025,2024-11,creative,,5001,,,2080.00,,Synthetic employer tax assumption 8%
+BUD-00029,BUDGET-FY2025,2024-11,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00030,BUDGET-FY2025,2024-11,paid_media,,5000,,,33000.00,,Original planned headcount times salary assumption
+BUD-00031,BUDGET-FY2025,2024-11,paid_media,,5001,,,2640.00,,Synthetic employer tax assumption 8%
+BUD-00032,BUDGET-FY2025,2024-11,paid_media,,5002,,,1750.00,,Employer benefit assumption
+BUD-00033,BUDGET-FY2025,2024-11,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00034,BUDGET-FY2025,2024-11,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00035,BUDGET-FY2025,2024-11,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00036,BUDGET-FY2025,2024-11,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00037,BUDGET-FY2025,2024-11,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00038,BUDGET-FY2025,2024-11,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00039,BUDGET-FY2025,2024-11,operations,,6150,,,810.00,,Original operating-cost assumption
+BUD-00040,BUDGET-FY2025,2024-11,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00041,BUDGET-FY2025,2024-11,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00042,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00043,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00044,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00045,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00046,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00047,BUDGET-FY2025,2024-12,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00048,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00049,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00050,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00051,BUDGET-FY2025,2024-12,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00052,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00053,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00054,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00055,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00056,BUDGET-FY2025,2024-12,client_services,flat_retainer,4000,,,10500.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00057,BUDGET-FY2025,2024-12,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00058,BUDGET-FY2025,2024-12,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00059,BUDGET-FY2025,2024-12,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00060,BUDGET-FY2025,2024-12,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00061,BUDGET-FY2025,2024-12,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00062,BUDGET-FY2025,2024-12,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00063,BUDGET-FY2025,2024-12,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00064,BUDGET-FY2025,2024-12,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00065,BUDGET-FY2025,2024-12,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00066,BUDGET-FY2025,2024-12,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00067,BUDGET-FY2025,2024-12,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00068,BUDGET-FY2025,2024-12,creative,,5000,,,26000.00,,Original planned headcount times salary assumption
+BUD-00069,BUDGET-FY2025,2024-12,creative,,5001,,,2080.00,,Synthetic employer tax assumption 8%
+BUD-00070,BUDGET-FY2025,2024-12,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00071,BUDGET-FY2025,2024-12,paid_media,,5000,,,33000.00,,Original planned headcount times salary assumption
+BUD-00072,BUDGET-FY2025,2024-12,paid_media,,5001,,,2640.00,,Synthetic employer tax assumption 8%
+BUD-00073,BUDGET-FY2025,2024-12,paid_media,,5002,,,1750.00,,Employer benefit assumption
+BUD-00074,BUDGET-FY2025,2024-12,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00075,BUDGET-FY2025,2024-12,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00076,BUDGET-FY2025,2024-12,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00077,BUDGET-FY2025,2024-12,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00078,BUDGET-FY2025,2024-12,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00079,BUDGET-FY2025,2024-12,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00080,BUDGET-FY2025,2024-12,operations,,6150,,,810.00,,Original operating-cost assumption
+BUD-00081,BUDGET-FY2025,2024-12,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00082,BUDGET-FY2025,2024-12,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00083,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00084,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00085,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00086,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00087,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00088,BUDGET-FY2025,2025-01,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00089,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00090,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00091,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00092,BUDGET-FY2025,2025-01,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00093,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00094,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00095,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00096,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00097,BUDGET-FY2025,2025-01,client_services,flat_retainer,4000,,,10500.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00098,BUDGET-FY2025,2025-01,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00099,BUDGET-FY2025,2025-01,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00100,BUDGET-FY2025,2025-01,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00101,BUDGET-FY2025,2025-01,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00102,BUDGET-FY2025,2025-01,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00103,BUDGET-FY2025,2025-01,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00104,BUDGET-FY2025,2025-01,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00105,BUDGET-FY2025,2025-01,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00106,BUDGET-FY2025,2025-01,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00107,BUDGET-FY2025,2025-01,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00108,BUDGET-FY2025,2025-01,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00109,BUDGET-FY2025,2025-01,creative,,5000,,,26000.00,,Original planned headcount times salary assumption
+BUD-00110,BUDGET-FY2025,2025-01,creative,,5001,,,2080.00,,Synthetic employer tax assumption 8%
+BUD-00111,BUDGET-FY2025,2025-01,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00112,BUDGET-FY2025,2025-01,paid_media,,5000,,,33000.00,,Original planned headcount times salary assumption
+BUD-00113,BUDGET-FY2025,2025-01,paid_media,,5001,,,2640.00,,Synthetic employer tax assumption 8%
+BUD-00114,BUDGET-FY2025,2025-01,paid_media,,5002,,,1750.00,,Employer benefit assumption
+BUD-00115,BUDGET-FY2025,2025-01,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00116,BUDGET-FY2025,2025-01,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00117,BUDGET-FY2025,2025-01,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00118,BUDGET-FY2025,2025-01,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00119,BUDGET-FY2025,2025-01,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00120,BUDGET-FY2025,2025-01,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00121,BUDGET-FY2025,2025-01,operations,,6150,,,810.00,,Original operating-cost assumption
+BUD-00122,BUDGET-FY2025,2025-01,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00123,BUDGET-FY2025,2025-01,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00124,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00125,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00126,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00127,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00128,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00129,BUDGET-FY2025,2025-02,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00130,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00131,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00132,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00133,BUDGET-FY2025,2025-02,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00134,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00135,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00136,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00137,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00138,BUDGET-FY2025,2025-02,client_services,flat_retainer,4000,,,21000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00139,BUDGET-FY2025,2025-02,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00140,BUDGET-FY2025,2025-02,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00141,BUDGET-FY2025,2025-02,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00142,BUDGET-FY2025,2025-02,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00143,BUDGET-FY2025,2025-02,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00144,BUDGET-FY2025,2025-02,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00145,BUDGET-FY2025,2025-02,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00146,BUDGET-FY2025,2025-02,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00147,BUDGET-FY2025,2025-02,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00148,BUDGET-FY2025,2025-02,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00149,BUDGET-FY2025,2025-02,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00150,BUDGET-FY2025,2025-02,creative,,5000,,,26000.00,,Original planned headcount times salary assumption
+BUD-00151,BUDGET-FY2025,2025-02,creative,,5001,,,2080.00,,Synthetic employer tax assumption 8%
+BUD-00152,BUDGET-FY2025,2025-02,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00153,BUDGET-FY2025,2025-02,paid_media,,5000,,,33000.00,,Original planned headcount times salary assumption
+BUD-00154,BUDGET-FY2025,2025-02,paid_media,,5001,,,2640.00,,Synthetic employer tax assumption 8%
+BUD-00155,BUDGET-FY2025,2025-02,paid_media,,5002,,,1750.00,,Employer benefit assumption
+BUD-00156,BUDGET-FY2025,2025-02,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00157,BUDGET-FY2025,2025-02,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00158,BUDGET-FY2025,2025-02,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00159,BUDGET-FY2025,2025-02,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00160,BUDGET-FY2025,2025-02,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00161,BUDGET-FY2025,2025-02,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00162,BUDGET-FY2025,2025-02,operations,,6150,,,810.00,,Original operating-cost assumption
+BUD-00163,BUDGET-FY2025,2025-02,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00164,BUDGET-FY2025,2025-02,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00165,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00166,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00167,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00168,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00169,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00170,BUDGET-FY2025,2025-03,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00171,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00172,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00173,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00174,BUDGET-FY2025,2025-03,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00175,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00176,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00177,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00178,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00179,BUDGET-FY2025,2025-03,client_services,flat_retainer,4000,,,21000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00180,BUDGET-FY2025,2025-03,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00181,BUDGET-FY2025,2025-03,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00182,BUDGET-FY2025,2025-03,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00183,BUDGET-FY2025,2025-03,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00184,BUDGET-FY2025,2025-03,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00185,BUDGET-FY2025,2025-03,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00186,BUDGET-FY2025,2025-03,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00187,BUDGET-FY2025,2025-03,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00188,BUDGET-FY2025,2025-03,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00189,BUDGET-FY2025,2025-03,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00190,BUDGET-FY2025,2025-03,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00191,BUDGET-FY2025,2025-03,creative,,5000,,,26000.00,,Original planned headcount times salary assumption
+BUD-00192,BUDGET-FY2025,2025-03,creative,,5001,,,2080.00,,Synthetic employer tax assumption 8%
+BUD-00193,BUDGET-FY2025,2025-03,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00194,BUDGET-FY2025,2025-03,paid_media,,5000,,,39600.00,,Original planned headcount times salary assumption
+BUD-00195,BUDGET-FY2025,2025-03,paid_media,,5001,,,3168.00,,Synthetic employer tax assumption 8%
+BUD-00196,BUDGET-FY2025,2025-03,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00197,BUDGET-FY2025,2025-03,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00198,BUDGET-FY2025,2025-03,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00199,BUDGET-FY2025,2025-03,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00200,BUDGET-FY2025,2025-03,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00201,BUDGET-FY2025,2025-03,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00202,BUDGET-FY2025,2025-03,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00203,BUDGET-FY2025,2025-03,operations,,6150,,,855.00,,Original operating-cost assumption
+BUD-00204,BUDGET-FY2025,2025-03,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00205,BUDGET-FY2025,2025-03,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00206,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00207,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00208,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00209,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00210,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00211,BUDGET-FY2025,2025-04,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00212,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00213,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00214,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00215,BUDGET-FY2025,2025-04,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00216,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00217,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00218,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00219,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00220,BUDGET-FY2025,2025-04,client_services,flat_retainer,4000,,,21000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00221,BUDGET-FY2025,2025-04,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00222,BUDGET-FY2025,2025-04,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00223,BUDGET-FY2025,2025-04,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00224,BUDGET-FY2025,2025-04,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00225,BUDGET-FY2025,2025-04,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00226,BUDGET-FY2025,2025-04,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00227,BUDGET-FY2025,2025-04,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00228,BUDGET-FY2025,2025-04,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00229,BUDGET-FY2025,2025-04,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00230,BUDGET-FY2025,2025-04,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00231,BUDGET-FY2025,2025-04,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00232,BUDGET-FY2025,2025-04,creative,,5000,,,26000.00,,Original planned headcount times salary assumption
+BUD-00233,BUDGET-FY2025,2025-04,creative,,5001,,,2080.00,,Synthetic employer tax assumption 8%
+BUD-00234,BUDGET-FY2025,2025-04,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00235,BUDGET-FY2025,2025-04,paid_media,,5000,,,39600.00,,Original planned headcount times salary assumption
+BUD-00236,BUDGET-FY2025,2025-04,paid_media,,5001,,,3168.00,,Synthetic employer tax assumption 8%
+BUD-00237,BUDGET-FY2025,2025-04,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00238,BUDGET-FY2025,2025-04,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00239,BUDGET-FY2025,2025-04,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00240,BUDGET-FY2025,2025-04,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00241,BUDGET-FY2025,2025-04,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00242,BUDGET-FY2025,2025-04,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00243,BUDGET-FY2025,2025-04,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00244,BUDGET-FY2025,2025-04,operations,,6150,,,855.00,,Original operating-cost assumption
+BUD-00245,BUDGET-FY2025,2025-04,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00246,BUDGET-FY2025,2025-04,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00247,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00248,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00249,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00250,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00251,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00252,BUDGET-FY2025,2025-05,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00253,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00254,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00255,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00256,BUDGET-FY2025,2025-05,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00257,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00258,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00259,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00260,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00261,BUDGET-FY2025,2025-05,client_services,flat_retainer,4000,,,31500.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00262,BUDGET-FY2025,2025-05,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00263,BUDGET-FY2025,2025-05,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00264,BUDGET-FY2025,2025-05,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00265,BUDGET-FY2025,2025-05,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00266,BUDGET-FY2025,2025-05,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00267,BUDGET-FY2025,2025-05,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00268,BUDGET-FY2025,2025-05,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00269,BUDGET-FY2025,2025-05,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00270,BUDGET-FY2025,2025-05,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00271,BUDGET-FY2025,2025-05,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00272,BUDGET-FY2025,2025-05,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00273,BUDGET-FY2025,2025-05,creative,,5000,,,26000.00,,Original planned headcount times salary assumption
+BUD-00274,BUDGET-FY2025,2025-05,creative,,5001,,,2080.00,,Synthetic employer tax assumption 8%
+BUD-00275,BUDGET-FY2025,2025-05,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00276,BUDGET-FY2025,2025-05,paid_media,,5000,,,39600.00,,Original planned headcount times salary assumption
+BUD-00277,BUDGET-FY2025,2025-05,paid_media,,5001,,,3168.00,,Synthetic employer tax assumption 8%
+BUD-00278,BUDGET-FY2025,2025-05,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00279,BUDGET-FY2025,2025-05,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00280,BUDGET-FY2025,2025-05,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00281,BUDGET-FY2025,2025-05,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00282,BUDGET-FY2025,2025-05,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00283,BUDGET-FY2025,2025-05,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00284,BUDGET-FY2025,2025-05,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00285,BUDGET-FY2025,2025-05,operations,,6150,,,855.00,,Original operating-cost assumption
+BUD-00286,BUDGET-FY2025,2025-05,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00287,BUDGET-FY2025,2025-05,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00288,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00289,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00290,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00291,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00292,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00293,BUDGET-FY2025,2025-06,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00294,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00295,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00296,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00297,BUDGET-FY2025,2025-06,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00298,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00299,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00300,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00301,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00302,BUDGET-FY2025,2025-06,client_services,flat_retainer,4000,,,31500.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00303,BUDGET-FY2025,2025-06,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00304,BUDGET-FY2025,2025-06,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00305,BUDGET-FY2025,2025-06,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00306,BUDGET-FY2025,2025-06,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00307,BUDGET-FY2025,2025-06,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00308,BUDGET-FY2025,2025-06,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00309,BUDGET-FY2025,2025-06,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00310,BUDGET-FY2025,2025-06,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00311,BUDGET-FY2025,2025-06,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00312,BUDGET-FY2025,2025-06,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00313,BUDGET-FY2025,2025-06,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00314,BUDGET-FY2025,2025-06,creative,,5000,,,26000.00,,Original planned headcount times salary assumption
+BUD-00315,BUDGET-FY2025,2025-06,creative,,5001,,,2080.00,,Synthetic employer tax assumption 8%
+BUD-00316,BUDGET-FY2025,2025-06,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00317,BUDGET-FY2025,2025-06,paid_media,,5000,,,39600.00,,Original planned headcount times salary assumption
+BUD-00318,BUDGET-FY2025,2025-06,paid_media,,5001,,,3168.00,,Synthetic employer tax assumption 8%
+BUD-00319,BUDGET-FY2025,2025-06,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00320,BUDGET-FY2025,2025-06,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00321,BUDGET-FY2025,2025-06,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00322,BUDGET-FY2025,2025-06,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00323,BUDGET-FY2025,2025-06,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00324,BUDGET-FY2025,2025-06,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00325,BUDGET-FY2025,2025-06,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00326,BUDGET-FY2025,2025-06,operations,,6150,,,855.00,,Original operating-cost assumption
+BUD-00327,BUDGET-FY2025,2025-06,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00328,BUDGET-FY2025,2025-06,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00329,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00330,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00331,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00332,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00333,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00334,BUDGET-FY2025,2025-07,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00335,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00336,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00337,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00338,BUDGET-FY2025,2025-07,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00339,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00340,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00341,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00342,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00343,BUDGET-FY2025,2025-07,client_services,flat_retainer,4000,,,31500.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00344,BUDGET-FY2025,2025-07,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00345,BUDGET-FY2025,2025-07,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00346,BUDGET-FY2025,2025-07,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00347,BUDGET-FY2025,2025-07,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00348,BUDGET-FY2025,2025-07,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00349,BUDGET-FY2025,2025-07,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00350,BUDGET-FY2025,2025-07,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00351,BUDGET-FY2025,2025-07,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00352,BUDGET-FY2025,2025-07,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00353,BUDGET-FY2025,2025-07,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00354,BUDGET-FY2025,2025-07,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00355,BUDGET-FY2025,2025-07,creative,,5000,,,32500.00,,Original planned headcount times salary assumption
+BUD-00356,BUDGET-FY2025,2025-07,creative,,5001,,,2600.00,,Synthetic employer tax assumption 8%
+BUD-00357,BUDGET-FY2025,2025-07,creative,,5002,,,1750.00,,Employer benefit assumption
+BUD-00358,BUDGET-FY2025,2025-07,paid_media,,5000,,,39600.00,,Original planned headcount times salary assumption
+BUD-00359,BUDGET-FY2025,2025-07,paid_media,,5001,,,3168.00,,Synthetic employer tax assumption 8%
+BUD-00360,BUDGET-FY2025,2025-07,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00361,BUDGET-FY2025,2025-07,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00362,BUDGET-FY2025,2025-07,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00363,BUDGET-FY2025,2025-07,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00364,BUDGET-FY2025,2025-07,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00365,BUDGET-FY2025,2025-07,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00366,BUDGET-FY2025,2025-07,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00367,BUDGET-FY2025,2025-07,operations,,6150,,,900.00,,Original operating-cost assumption
+BUD-00368,BUDGET-FY2025,2025-07,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00369,BUDGET-FY2025,2025-07,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00370,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00371,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00372,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00373,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00374,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00375,BUDGET-FY2025,2025-08,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00376,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00377,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00378,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00379,BUDGET-FY2025,2025-08,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00380,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00381,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00382,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00383,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00384,BUDGET-FY2025,2025-08,client_services,flat_retainer,4000,,,42000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00385,BUDGET-FY2025,2025-08,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00386,BUDGET-FY2025,2025-08,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00387,BUDGET-FY2025,2025-08,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00388,BUDGET-FY2025,2025-08,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00389,BUDGET-FY2025,2025-08,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00390,BUDGET-FY2025,2025-08,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00391,BUDGET-FY2025,2025-08,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00392,BUDGET-FY2025,2025-08,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00393,BUDGET-FY2025,2025-08,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00394,BUDGET-FY2025,2025-08,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00395,BUDGET-FY2025,2025-08,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00396,BUDGET-FY2025,2025-08,creative,,5000,,,32500.00,,Original planned headcount times salary assumption
+BUD-00397,BUDGET-FY2025,2025-08,creative,,5001,,,2600.00,,Synthetic employer tax assumption 8%
+BUD-00398,BUDGET-FY2025,2025-08,creative,,5002,,,1750.00,,Employer benefit assumption
+BUD-00399,BUDGET-FY2025,2025-08,paid_media,,5000,,,39600.00,,Original planned headcount times salary assumption
+BUD-00400,BUDGET-FY2025,2025-08,paid_media,,5001,,,3168.00,,Synthetic employer tax assumption 8%
+BUD-00401,BUDGET-FY2025,2025-08,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00402,BUDGET-FY2025,2025-08,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00403,BUDGET-FY2025,2025-08,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00404,BUDGET-FY2025,2025-08,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00405,BUDGET-FY2025,2025-08,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00406,BUDGET-FY2025,2025-08,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00407,BUDGET-FY2025,2025-08,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00408,BUDGET-FY2025,2025-08,operations,,6150,,,900.00,,Original operating-cost assumption
+BUD-00409,BUDGET-FY2025,2025-08,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00410,BUDGET-FY2025,2025-08,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00411,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00412,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00413,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00414,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00415,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00416,BUDGET-FY2025,2025-09,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00417,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00418,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00419,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00420,BUDGET-FY2025,2025-09,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00421,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00422,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00423,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00424,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00425,BUDGET-FY2025,2025-09,client_services,flat_retainer,4000,,,42000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00426,BUDGET-FY2025,2025-09,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00427,BUDGET-FY2025,2025-09,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00428,BUDGET-FY2025,2025-09,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00429,BUDGET-FY2025,2025-09,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00430,BUDGET-FY2025,2025-09,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00431,BUDGET-FY2025,2025-09,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00432,BUDGET-FY2025,2025-09,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00433,BUDGET-FY2025,2025-09,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00434,BUDGET-FY2025,2025-09,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00435,BUDGET-FY2025,2025-09,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00436,BUDGET-FY2025,2025-09,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00437,BUDGET-FY2025,2025-09,creative,,5000,,,32500.00,,Original planned headcount times salary assumption
+BUD-00438,BUDGET-FY2025,2025-09,creative,,5001,,,2600.00,,Synthetic employer tax assumption 8%
+BUD-00439,BUDGET-FY2025,2025-09,creative,,5002,,,1750.00,,Employer benefit assumption
+BUD-00440,BUDGET-FY2025,2025-09,paid_media,,5000,,,39600.00,,Original planned headcount times salary assumption
+BUD-00441,BUDGET-FY2025,2025-09,paid_media,,5001,,,3168.00,,Synthetic employer tax assumption 8%
+BUD-00442,BUDGET-FY2025,2025-09,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00443,BUDGET-FY2025,2025-09,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00444,BUDGET-FY2025,2025-09,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00445,BUDGET-FY2025,2025-09,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00446,BUDGET-FY2025,2025-09,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00447,BUDGET-FY2025,2025-09,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00448,BUDGET-FY2025,2025-09,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00449,BUDGET-FY2025,2025-09,operations,,6150,,,900.00,,Original operating-cost assumption
+BUD-00450,BUDGET-FY2025,2025-09,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00451,BUDGET-FY2025,2025-09,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00452,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00453,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-002,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00454,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00455,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-004,,14000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00456,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-005,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00457,BUDGET-FY2025,2025-10,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00458,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-007,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00459,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-008,,15000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00460,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-009,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00461,BUDGET-FY2025,2025-10,client_services,spend_based_management,4010,CLI-010,,14500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00462,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-011,,15750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00463,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-012,,9500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00464,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-013,,10750.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00465,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,CLI-014,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00466,BUDGET-FY2025,2025-10,client_services,flat_retainer,4000,,,42000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00467,BUDGET-FY2025,2025-10,creative,fixed_project,4020,,,39000.00,,Planned monthly accepted-project fees
+BUD-00468,BUDGET-FY2025,2025-10,analytics,hourly,4030,,,10500.00,,Forecast approved hours times assumed blended rate
+BUD-00469,BUDGET-FY2025,2025-10,operations,,6000,,,30000.00,,Original planned headcount times salary assumption
+BUD-00470,BUDGET-FY2025,2025-10,operations,,6001,,,2400.00,,Synthetic employer tax assumption 8%
+BUD-00471,BUDGET-FY2025,2025-10,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00472,BUDGET-FY2025,2025-10,client_services,,5000,,,21300.00,,Original planned headcount times salary assumption
+BUD-00473,BUDGET-FY2025,2025-10,client_services,,5001,,,1704.00,,Synthetic employer tax assumption 8%
+BUD-00474,BUDGET-FY2025,2025-10,client_services,,5002,,,1050.00,,Employer benefit assumption
+BUD-00475,BUDGET-FY2025,2025-10,analytics,,5000,,,24000.00,,Original planned headcount times salary assumption
+BUD-00476,BUDGET-FY2025,2025-10,analytics,,5001,,,1920.00,,Synthetic employer tax assumption 8%
+BUD-00477,BUDGET-FY2025,2025-10,analytics,,5002,,,1050.00,,Employer benefit assumption
+BUD-00478,BUDGET-FY2025,2025-10,creative,,5000,,,32500.00,,Original planned headcount times salary assumption
+BUD-00479,BUDGET-FY2025,2025-10,creative,,5001,,,2600.00,,Synthetic employer tax assumption 8%
+BUD-00480,BUDGET-FY2025,2025-10,creative,,5002,,,1750.00,,Employer benefit assumption
+BUD-00481,BUDGET-FY2025,2025-10,paid_media,,5000,,,39600.00,,Original planned headcount times salary assumption
+BUD-00482,BUDGET-FY2025,2025-10,paid_media,,5001,,,3168.00,,Synthetic employer tax assumption 8%
+BUD-00483,BUDGET-FY2025,2025-10,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00484,BUDGET-FY2025,2025-10,creative,,5010,,,20500.00,,Original operating-cost assumption
+BUD-00485,BUDGET-FY2025,2025-10,operations,,6100,,,6800.00,,Original operating-cost assumption
+BUD-00486,BUDGET-FY2025,2025-10,operations,,6110,,,9000.00,,Original operating-cost assumption
+BUD-00487,BUDGET-FY2025,2025-10,operations,,6120,,,500.00,,Original operating-cost assumption
+BUD-00488,BUDGET-FY2025,2025-10,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00489,BUDGET-FY2025,2025-10,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00490,BUDGET-FY2025,2025-10,operations,,6150,,,900.00,,Original operating-cost assumption
+BUD-00491,BUDGET-FY2025,2025-10,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00492,BUDGET-FY2025,2025-10,operations,,6400,,,800.00,,Original operating-cost assumption
+BUD-00493,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00494,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00495,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00496,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00497,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00498,BUDGET-FY2026,2025-11,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00499,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00500,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00501,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00502,BUDGET-FY2026,2025-11,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00503,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00504,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00505,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00506,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00507,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00508,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00509,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00510,BUDGET-FY2026,2025-11,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00511,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00512,BUDGET-FY2026,2025-11,client_services,flat_retainer,4000,,,12000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00513,BUDGET-FY2026,2025-11,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00514,BUDGET-FY2026,2025-11,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00515,BUDGET-FY2026,2025-11,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00516,BUDGET-FY2026,2025-11,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00517,BUDGET-FY2026,2025-11,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00518,BUDGET-FY2026,2025-11,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00519,BUDGET-FY2026,2025-11,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00520,BUDGET-FY2026,2025-11,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00521,BUDGET-FY2026,2025-11,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00522,BUDGET-FY2026,2025-11,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00523,BUDGET-FY2026,2025-11,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00524,BUDGET-FY2026,2025-11,creative,,5000,,,27040.00,,Original planned headcount times salary assumption
+BUD-00525,BUDGET-FY2026,2025-11,creative,,5001,,,2163.20,,Synthetic employer tax assumption 8%
+BUD-00526,BUDGET-FY2026,2025-11,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00527,BUDGET-FY2026,2025-11,paid_media,,5000,,,34320.00,,Original planned headcount times salary assumption
+BUD-00528,BUDGET-FY2026,2025-11,paid_media,,5001,,,2745.60,,Synthetic employer tax assumption 8%
+BUD-00529,BUDGET-FY2026,2025-11,paid_media,,5002,,,1750.00,,Employer benefit assumption
+BUD-00530,BUDGET-FY2026,2025-11,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00531,BUDGET-FY2026,2025-11,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00532,BUDGET-FY2026,2025-11,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00533,BUDGET-FY2026,2025-11,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00534,BUDGET-FY2026,2025-11,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00535,BUDGET-FY2026,2025-11,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00536,BUDGET-FY2026,2025-11,operations,,6150,,,900.00,,Original operating-cost assumption
+BUD-00537,BUDGET-FY2026,2025-11,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00538,BUDGET-FY2026,2025-11,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00539,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00540,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00541,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00542,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00543,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00544,BUDGET-FY2026,2025-12,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00545,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00546,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00547,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00548,BUDGET-FY2026,2025-12,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00549,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00550,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00551,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00552,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00553,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00554,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00555,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00556,BUDGET-FY2026,2025-12,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00557,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00558,BUDGET-FY2026,2025-12,client_services,flat_retainer,4000,,,12000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00559,BUDGET-FY2026,2025-12,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00560,BUDGET-FY2026,2025-12,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00561,BUDGET-FY2026,2025-12,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00562,BUDGET-FY2026,2025-12,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00563,BUDGET-FY2026,2025-12,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00564,BUDGET-FY2026,2025-12,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00565,BUDGET-FY2026,2025-12,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00566,BUDGET-FY2026,2025-12,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00567,BUDGET-FY2026,2025-12,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00568,BUDGET-FY2026,2025-12,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00569,BUDGET-FY2026,2025-12,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00570,BUDGET-FY2026,2025-12,creative,,5000,,,27040.00,,Original planned headcount times salary assumption
+BUD-00571,BUDGET-FY2026,2025-12,creative,,5001,,,2163.20,,Synthetic employer tax assumption 8%
+BUD-00572,BUDGET-FY2026,2025-12,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00573,BUDGET-FY2026,2025-12,paid_media,,5000,,,34320.00,,Original planned headcount times salary assumption
+BUD-00574,BUDGET-FY2026,2025-12,paid_media,,5001,,,2745.60,,Synthetic employer tax assumption 8%
+BUD-00575,BUDGET-FY2026,2025-12,paid_media,,5002,,,1750.00,,Employer benefit assumption
+BUD-00576,BUDGET-FY2026,2025-12,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00577,BUDGET-FY2026,2025-12,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00578,BUDGET-FY2026,2025-12,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00579,BUDGET-FY2026,2025-12,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00580,BUDGET-FY2026,2025-12,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00581,BUDGET-FY2026,2025-12,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00582,BUDGET-FY2026,2025-12,operations,,6150,,,900.00,,Original operating-cost assumption
+BUD-00583,BUDGET-FY2026,2025-12,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00584,BUDGET-FY2026,2025-12,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00585,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00586,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00587,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00588,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00589,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00590,BUDGET-FY2026,2026-01,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00591,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00592,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00593,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00594,BUDGET-FY2026,2026-01,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00595,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00596,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00597,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00598,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00599,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00600,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00601,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00602,BUDGET-FY2026,2026-01,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00603,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00604,BUDGET-FY2026,2026-01,client_services,flat_retainer,4000,,,12000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00605,BUDGET-FY2026,2026-01,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00606,BUDGET-FY2026,2026-01,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00607,BUDGET-FY2026,2026-01,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00608,BUDGET-FY2026,2026-01,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00609,BUDGET-FY2026,2026-01,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00610,BUDGET-FY2026,2026-01,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00611,BUDGET-FY2026,2026-01,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00612,BUDGET-FY2026,2026-01,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00613,BUDGET-FY2026,2026-01,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00614,BUDGET-FY2026,2026-01,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00615,BUDGET-FY2026,2026-01,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00616,BUDGET-FY2026,2026-01,creative,,5000,,,27040.00,,Original planned headcount times salary assumption
+BUD-00617,BUDGET-FY2026,2026-01,creative,,5001,,,2163.20,,Synthetic employer tax assumption 8%
+BUD-00618,BUDGET-FY2026,2026-01,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00619,BUDGET-FY2026,2026-01,paid_media,,5000,,,34320.00,,Original planned headcount times salary assumption
+BUD-00620,BUDGET-FY2026,2026-01,paid_media,,5001,,,2745.60,,Synthetic employer tax assumption 8%
+BUD-00621,BUDGET-FY2026,2026-01,paid_media,,5002,,,1750.00,,Employer benefit assumption
+BUD-00622,BUDGET-FY2026,2026-01,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00623,BUDGET-FY2026,2026-01,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00624,BUDGET-FY2026,2026-01,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00625,BUDGET-FY2026,2026-01,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00626,BUDGET-FY2026,2026-01,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00627,BUDGET-FY2026,2026-01,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00628,BUDGET-FY2026,2026-01,operations,,6150,,,900.00,,Original operating-cost assumption
+BUD-00629,BUDGET-FY2026,2026-01,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00630,BUDGET-FY2026,2026-01,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00631,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00632,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00633,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00634,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00635,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00636,BUDGET-FY2026,2026-02,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00637,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00638,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00639,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00640,BUDGET-FY2026,2026-02,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00641,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00642,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00643,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00644,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00645,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00646,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00647,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00648,BUDGET-FY2026,2026-02,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00649,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00650,BUDGET-FY2026,2026-02,client_services,flat_retainer,4000,,,24000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00651,BUDGET-FY2026,2026-02,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00652,BUDGET-FY2026,2026-02,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00653,BUDGET-FY2026,2026-02,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00654,BUDGET-FY2026,2026-02,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00655,BUDGET-FY2026,2026-02,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00656,BUDGET-FY2026,2026-02,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00657,BUDGET-FY2026,2026-02,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00658,BUDGET-FY2026,2026-02,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00659,BUDGET-FY2026,2026-02,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00660,BUDGET-FY2026,2026-02,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00661,BUDGET-FY2026,2026-02,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00662,BUDGET-FY2026,2026-02,creative,,5000,,,27040.00,,Original planned headcount times salary assumption
+BUD-00663,BUDGET-FY2026,2026-02,creative,,5001,,,2163.20,,Synthetic employer tax assumption 8%
+BUD-00664,BUDGET-FY2026,2026-02,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00665,BUDGET-FY2026,2026-02,paid_media,,5000,,,34320.00,,Original planned headcount times salary assumption
+BUD-00666,BUDGET-FY2026,2026-02,paid_media,,5001,,,2745.60,,Synthetic employer tax assumption 8%
+BUD-00667,BUDGET-FY2026,2026-02,paid_media,,5002,,,1750.00,,Employer benefit assumption
+BUD-00668,BUDGET-FY2026,2026-02,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00669,BUDGET-FY2026,2026-02,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00670,BUDGET-FY2026,2026-02,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00671,BUDGET-FY2026,2026-02,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00672,BUDGET-FY2026,2026-02,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00673,BUDGET-FY2026,2026-02,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00674,BUDGET-FY2026,2026-02,operations,,6150,,,900.00,,Original operating-cost assumption
+BUD-00675,BUDGET-FY2026,2026-02,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00676,BUDGET-FY2026,2026-02,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00677,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00678,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00679,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00680,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00681,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00682,BUDGET-FY2026,2026-03,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00683,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00684,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00685,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00686,BUDGET-FY2026,2026-03,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00687,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00688,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00689,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00690,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00691,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00692,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00693,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00694,BUDGET-FY2026,2026-03,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00695,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00696,BUDGET-FY2026,2026-03,client_services,flat_retainer,4000,,,24000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00697,BUDGET-FY2026,2026-03,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00698,BUDGET-FY2026,2026-03,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00699,BUDGET-FY2026,2026-03,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00700,BUDGET-FY2026,2026-03,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00701,BUDGET-FY2026,2026-03,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00702,BUDGET-FY2026,2026-03,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00703,BUDGET-FY2026,2026-03,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00704,BUDGET-FY2026,2026-03,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00705,BUDGET-FY2026,2026-03,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00706,BUDGET-FY2026,2026-03,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00707,BUDGET-FY2026,2026-03,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00708,BUDGET-FY2026,2026-03,creative,,5000,,,27040.00,,Original planned headcount times salary assumption
+BUD-00709,BUDGET-FY2026,2026-03,creative,,5001,,,2163.20,,Synthetic employer tax assumption 8%
+BUD-00710,BUDGET-FY2026,2026-03,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00711,BUDGET-FY2026,2026-03,paid_media,,5000,,,41184.00,,Original planned headcount times salary assumption
+BUD-00712,BUDGET-FY2026,2026-03,paid_media,,5001,,,3294.72,,Synthetic employer tax assumption 8%
+BUD-00713,BUDGET-FY2026,2026-03,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00714,BUDGET-FY2026,2026-03,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00715,BUDGET-FY2026,2026-03,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00716,BUDGET-FY2026,2026-03,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00717,BUDGET-FY2026,2026-03,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00718,BUDGET-FY2026,2026-03,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00719,BUDGET-FY2026,2026-03,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00720,BUDGET-FY2026,2026-03,operations,,6150,,,945.00,,Original operating-cost assumption
+BUD-00721,BUDGET-FY2026,2026-03,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00722,BUDGET-FY2026,2026-03,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00723,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00724,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00725,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00726,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00727,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00728,BUDGET-FY2026,2026-04,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00729,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00730,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00731,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00732,BUDGET-FY2026,2026-04,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00733,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00734,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00735,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00736,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00737,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00738,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00739,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00740,BUDGET-FY2026,2026-04,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00741,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00742,BUDGET-FY2026,2026-04,client_services,flat_retainer,4000,,,24000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00743,BUDGET-FY2026,2026-04,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00744,BUDGET-FY2026,2026-04,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00745,BUDGET-FY2026,2026-04,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00746,BUDGET-FY2026,2026-04,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00747,BUDGET-FY2026,2026-04,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00748,BUDGET-FY2026,2026-04,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00749,BUDGET-FY2026,2026-04,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00750,BUDGET-FY2026,2026-04,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00751,BUDGET-FY2026,2026-04,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00752,BUDGET-FY2026,2026-04,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00753,BUDGET-FY2026,2026-04,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00754,BUDGET-FY2026,2026-04,creative,,5000,,,27040.00,,Original planned headcount times salary assumption
+BUD-00755,BUDGET-FY2026,2026-04,creative,,5001,,,2163.20,,Synthetic employer tax assumption 8%
+BUD-00756,BUDGET-FY2026,2026-04,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00757,BUDGET-FY2026,2026-04,paid_media,,5000,,,41184.00,,Original planned headcount times salary assumption
+BUD-00758,BUDGET-FY2026,2026-04,paid_media,,5001,,,3294.72,,Synthetic employer tax assumption 8%
+BUD-00759,BUDGET-FY2026,2026-04,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00760,BUDGET-FY2026,2026-04,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00761,BUDGET-FY2026,2026-04,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00762,BUDGET-FY2026,2026-04,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00763,BUDGET-FY2026,2026-04,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00764,BUDGET-FY2026,2026-04,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00765,BUDGET-FY2026,2026-04,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00766,BUDGET-FY2026,2026-04,operations,,6150,,,945.00,,Original operating-cost assumption
+BUD-00767,BUDGET-FY2026,2026-04,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00768,BUDGET-FY2026,2026-04,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00769,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00770,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00771,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00772,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00773,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00774,BUDGET-FY2026,2026-05,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00775,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00776,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00777,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00778,BUDGET-FY2026,2026-05,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00779,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00780,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00781,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00782,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00783,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00784,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00785,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00786,BUDGET-FY2026,2026-05,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00787,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00788,BUDGET-FY2026,2026-05,client_services,flat_retainer,4000,,,36000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00789,BUDGET-FY2026,2026-05,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00790,BUDGET-FY2026,2026-05,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00791,BUDGET-FY2026,2026-05,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00792,BUDGET-FY2026,2026-05,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00793,BUDGET-FY2026,2026-05,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00794,BUDGET-FY2026,2026-05,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00795,BUDGET-FY2026,2026-05,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00796,BUDGET-FY2026,2026-05,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00797,BUDGET-FY2026,2026-05,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00798,BUDGET-FY2026,2026-05,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00799,BUDGET-FY2026,2026-05,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00800,BUDGET-FY2026,2026-05,creative,,5000,,,27040.00,,Original planned headcount times salary assumption
+BUD-00801,BUDGET-FY2026,2026-05,creative,,5001,,,2163.20,,Synthetic employer tax assumption 8%
+BUD-00802,BUDGET-FY2026,2026-05,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00803,BUDGET-FY2026,2026-05,paid_media,,5000,,,41184.00,,Original planned headcount times salary assumption
+BUD-00804,BUDGET-FY2026,2026-05,paid_media,,5001,,,3294.72,,Synthetic employer tax assumption 8%
+BUD-00805,BUDGET-FY2026,2026-05,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00806,BUDGET-FY2026,2026-05,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00807,BUDGET-FY2026,2026-05,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00808,BUDGET-FY2026,2026-05,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00809,BUDGET-FY2026,2026-05,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00810,BUDGET-FY2026,2026-05,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00811,BUDGET-FY2026,2026-05,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00812,BUDGET-FY2026,2026-05,operations,,6150,,,945.00,,Original operating-cost assumption
+BUD-00813,BUDGET-FY2026,2026-05,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00814,BUDGET-FY2026,2026-05,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00815,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00816,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00817,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00818,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00819,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00820,BUDGET-FY2026,2026-06,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00821,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00822,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00823,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00824,BUDGET-FY2026,2026-06,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00825,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00826,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00827,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00828,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00829,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00830,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00831,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00832,BUDGET-FY2026,2026-06,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00833,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00834,BUDGET-FY2026,2026-06,client_services,flat_retainer,4000,,,36000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00835,BUDGET-FY2026,2026-06,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00836,BUDGET-FY2026,2026-06,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00837,BUDGET-FY2026,2026-06,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00838,BUDGET-FY2026,2026-06,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00839,BUDGET-FY2026,2026-06,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00840,BUDGET-FY2026,2026-06,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00841,BUDGET-FY2026,2026-06,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00842,BUDGET-FY2026,2026-06,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00843,BUDGET-FY2026,2026-06,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00844,BUDGET-FY2026,2026-06,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00845,BUDGET-FY2026,2026-06,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00846,BUDGET-FY2026,2026-06,creative,,5000,,,27040.00,,Original planned headcount times salary assumption
+BUD-00847,BUDGET-FY2026,2026-06,creative,,5001,,,2163.20,,Synthetic employer tax assumption 8%
+BUD-00848,BUDGET-FY2026,2026-06,creative,,5002,,,1400.00,,Employer benefit assumption
+BUD-00849,BUDGET-FY2026,2026-06,paid_media,,5000,,,41184.00,,Original planned headcount times salary assumption
+BUD-00850,BUDGET-FY2026,2026-06,paid_media,,5001,,,3294.72,,Synthetic employer tax assumption 8%
+BUD-00851,BUDGET-FY2026,2026-06,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00852,BUDGET-FY2026,2026-06,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00853,BUDGET-FY2026,2026-06,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00854,BUDGET-FY2026,2026-06,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00855,BUDGET-FY2026,2026-06,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00856,BUDGET-FY2026,2026-06,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00857,BUDGET-FY2026,2026-06,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00858,BUDGET-FY2026,2026-06,operations,,6150,,,945.00,,Original operating-cost assumption
+BUD-00859,BUDGET-FY2026,2026-06,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00860,BUDGET-FY2026,2026-06,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00861,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00862,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00863,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00864,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00865,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00866,BUDGET-FY2026,2026-07,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00867,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00868,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00869,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00870,BUDGET-FY2026,2026-07,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00871,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00872,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00873,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00874,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00875,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00876,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00877,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00878,BUDGET-FY2026,2026-07,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00879,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00880,BUDGET-FY2026,2026-07,client_services,flat_retainer,4000,,,36000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00881,BUDGET-FY2026,2026-07,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00882,BUDGET-FY2026,2026-07,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00883,BUDGET-FY2026,2026-07,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00884,BUDGET-FY2026,2026-07,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00885,BUDGET-FY2026,2026-07,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00886,BUDGET-FY2026,2026-07,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00887,BUDGET-FY2026,2026-07,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00888,BUDGET-FY2026,2026-07,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00889,BUDGET-FY2026,2026-07,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00890,BUDGET-FY2026,2026-07,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00891,BUDGET-FY2026,2026-07,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00892,BUDGET-FY2026,2026-07,creative,,5000,,,33800.00,,Original planned headcount times salary assumption
+BUD-00893,BUDGET-FY2026,2026-07,creative,,5001,,,2704.00,,Synthetic employer tax assumption 8%
+BUD-00894,BUDGET-FY2026,2026-07,creative,,5002,,,1750.00,,Employer benefit assumption
+BUD-00895,BUDGET-FY2026,2026-07,paid_media,,5000,,,41184.00,,Original planned headcount times salary assumption
+BUD-00896,BUDGET-FY2026,2026-07,paid_media,,5001,,,3294.72,,Synthetic employer tax assumption 8%
+BUD-00897,BUDGET-FY2026,2026-07,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00898,BUDGET-FY2026,2026-07,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00899,BUDGET-FY2026,2026-07,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00900,BUDGET-FY2026,2026-07,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00901,BUDGET-FY2026,2026-07,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00902,BUDGET-FY2026,2026-07,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00903,BUDGET-FY2026,2026-07,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00904,BUDGET-FY2026,2026-07,operations,,6150,,,990.00,,Original operating-cost assumption
+BUD-00905,BUDGET-FY2026,2026-07,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00906,BUDGET-FY2026,2026-07,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00907,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00908,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00909,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00910,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00911,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00912,BUDGET-FY2026,2026-08,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00913,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00914,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00915,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00916,BUDGET-FY2026,2026-08,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00917,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00918,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00919,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00920,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00921,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00922,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00923,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00924,BUDGET-FY2026,2026-08,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00925,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00926,BUDGET-FY2026,2026-08,client_services,flat_retainer,4000,,,48000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00927,BUDGET-FY2026,2026-08,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00928,BUDGET-FY2026,2026-08,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00929,BUDGET-FY2026,2026-08,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00930,BUDGET-FY2026,2026-08,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00931,BUDGET-FY2026,2026-08,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00932,BUDGET-FY2026,2026-08,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00933,BUDGET-FY2026,2026-08,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00934,BUDGET-FY2026,2026-08,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00935,BUDGET-FY2026,2026-08,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00936,BUDGET-FY2026,2026-08,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00937,BUDGET-FY2026,2026-08,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00938,BUDGET-FY2026,2026-08,creative,,5000,,,33800.00,,Original planned headcount times salary assumption
+BUD-00939,BUDGET-FY2026,2026-08,creative,,5001,,,2704.00,,Synthetic employer tax assumption 8%
+BUD-00940,BUDGET-FY2026,2026-08,creative,,5002,,,1750.00,,Employer benefit assumption
+BUD-00941,BUDGET-FY2026,2026-08,paid_media,,5000,,,41184.00,,Original planned headcount times salary assumption
+BUD-00942,BUDGET-FY2026,2026-08,paid_media,,5001,,,3294.72,,Synthetic employer tax assumption 8%
+BUD-00943,BUDGET-FY2026,2026-08,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00944,BUDGET-FY2026,2026-08,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00945,BUDGET-FY2026,2026-08,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00946,BUDGET-FY2026,2026-08,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00947,BUDGET-FY2026,2026-08,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00948,BUDGET-FY2026,2026-08,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00949,BUDGET-FY2026,2026-08,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00950,BUDGET-FY2026,2026-08,operations,,6150,,,990.00,,Original operating-cost assumption
+BUD-00951,BUDGET-FY2026,2026-08,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00952,BUDGET-FY2026,2026-08,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00953,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00954,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00955,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00956,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00957,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00958,BUDGET-FY2026,2026-09,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00959,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00960,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00961,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00962,BUDGET-FY2026,2026-09,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00963,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00964,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00965,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00966,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-00967,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-00968,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00969,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00970,BUDGET-FY2026,2026-09,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-00971,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-00972,BUDGET-FY2026,2026-09,client_services,flat_retainer,4000,,,48000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-00973,BUDGET-FY2026,2026-09,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-00974,BUDGET-FY2026,2026-09,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-00975,BUDGET-FY2026,2026-09,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-00976,BUDGET-FY2026,2026-09,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-00977,BUDGET-FY2026,2026-09,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-00978,BUDGET-FY2026,2026-09,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-00979,BUDGET-FY2026,2026-09,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-00980,BUDGET-FY2026,2026-09,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-00981,BUDGET-FY2026,2026-09,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-00982,BUDGET-FY2026,2026-09,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-00983,BUDGET-FY2026,2026-09,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-00984,BUDGET-FY2026,2026-09,creative,,5000,,,33800.00,,Original planned headcount times salary assumption
+BUD-00985,BUDGET-FY2026,2026-09,creative,,5001,,,2704.00,,Synthetic employer tax assumption 8%
+BUD-00986,BUDGET-FY2026,2026-09,creative,,5002,,,1750.00,,Employer benefit assumption
+BUD-00987,BUDGET-FY2026,2026-09,paid_media,,5000,,,41184.00,,Original planned headcount times salary assumption
+BUD-00988,BUDGET-FY2026,2026-09,paid_media,,5001,,,3294.72,,Synthetic employer tax assumption 8%
+BUD-00989,BUDGET-FY2026,2026-09,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-00990,BUDGET-FY2026,2026-09,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-00991,BUDGET-FY2026,2026-09,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-00992,BUDGET-FY2026,2026-09,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-00993,BUDGET-FY2026,2026-09,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-00994,BUDGET-FY2026,2026-09,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-00995,BUDGET-FY2026,2026-09,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-00996,BUDGET-FY2026,2026-09,operations,,6150,,,990.00,,Original operating-cost assumption
+BUD-00997,BUDGET-FY2026,2026-09,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-00998,BUDGET-FY2026,2026-09,operations,,6400,,,600.00,,Original operating-cost assumption
+BUD-00999,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-001,,12000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-01000,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-002,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-01001,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-003,,13000.00,90,Known client retained throughout plan; no hindsight churn
+BUD-01002,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-004,,14630.00,90,Known client retained throughout plan; no hindsight churn
+BUD-01003,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-005,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-01004,BUDGET-FY2026,2026-10,client_services,spend_based_management,4010,CLI-006,,10500.00,90,Known client retained throughout plan; no hindsight churn
+BUD-01005,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-007,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-01006,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-008,,15675.00,90,Known client retained throughout plan; no hindsight churn
+BUD-01007,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-009,,13585.00,90,Known client retained throughout plan; no hindsight churn
+BUD-01008,BUDGET-FY2026,2026-10,client_services,spend_based_management,4010,CLI-010,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-01009,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-011,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-01010,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-012,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-01011,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-013,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-01012,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-014,,12540.00,90,Known client retained throughout plan; no hindsight churn
+BUD-01013,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-015,,13846.25,90,Known client retained throughout plan; no hindsight churn
+BUD-01014,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-016,,15152.50,90,Known client retained throughout plan; no hindsight churn
+BUD-01015,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-017,,16458.75,90,Known client retained throughout plan; no hindsight churn
+BUD-01016,BUDGET-FY2026,2026-10,client_services,spend_based_management,4010,CLI-018,,9927.50,90,Known client retained throughout plan; no hindsight churn
+BUD-01017,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,CLI-019,,11233.75,90,Known client retained throughout plan; no hindsight churn
+BUD-01018,BUDGET-FY2026,2026-10,client_services,flat_retainer,4000,,,48000.00,,Unassigned new-business cohort; no fabricated signed contract
+BUD-01019,BUDGET-FY2026,2026-10,creative,fixed_project,4020,,,47000.00,,Planned monthly accepted-project fees
+BUD-01020,BUDGET-FY2026,2026-10,analytics,hourly,4030,,,14500.00,,Forecast approved hours times assumed blended rate
+BUD-01021,BUDGET-FY2026,2026-10,operations,,6000,,,31200.00,,Original planned headcount times salary assumption
+BUD-01022,BUDGET-FY2026,2026-10,operations,,6001,,,2496.00,,Synthetic employer tax assumption 8%
+BUD-01023,BUDGET-FY2026,2026-10,operations,,6002,,,1050.00,,Employer benefit assumption
+BUD-01024,BUDGET-FY2026,2026-10,client_services,,5000,,,29536.00,,Original planned headcount times salary assumption
+BUD-01025,BUDGET-FY2026,2026-10,client_services,,5001,,,2362.88,,Synthetic employer tax assumption 8%
+BUD-01026,BUDGET-FY2026,2026-10,client_services,,5002,,,1400.00,,Employer benefit assumption
+BUD-01027,BUDGET-FY2026,2026-10,analytics,,5000,,,33280.00,,Original planned headcount times salary assumption
+BUD-01028,BUDGET-FY2026,2026-10,analytics,,5001,,,2662.40,,Synthetic employer tax assumption 8%
+BUD-01029,BUDGET-FY2026,2026-10,analytics,,5002,,,1400.00,,Employer benefit assumption
+BUD-01030,BUDGET-FY2026,2026-10,creative,,5000,,,33800.00,,Original planned headcount times salary assumption
+BUD-01031,BUDGET-FY2026,2026-10,creative,,5001,,,2704.00,,Synthetic employer tax assumption 8%
+BUD-01032,BUDGET-FY2026,2026-10,creative,,5002,,,1750.00,,Employer benefit assumption
+BUD-01033,BUDGET-FY2026,2026-10,paid_media,,5000,,,41184.00,,Original planned headcount times salary assumption
+BUD-01034,BUDGET-FY2026,2026-10,paid_media,,5001,,,3294.72,,Synthetic employer tax assumption 8%
+BUD-01035,BUDGET-FY2026,2026-10,paid_media,,5002,,,2100.00,,Employer benefit assumption
+BUD-01036,BUDGET-FY2026,2026-10,creative,,5010,,,23200.00,,Original operating-cost assumption
+BUD-01037,BUDGET-FY2026,2026-10,operations,,6100,,,7000.00,,Original operating-cost assumption
+BUD-01038,BUDGET-FY2026,2026-10,operations,,6110,,,10000.00,,Original operating-cost assumption
+BUD-01039,BUDGET-FY2026,2026-10,operations,,6120,,,550.00,,Original operating-cost assumption
+BUD-01040,BUDGET-FY2026,2026-10,operations,,6130,,,2250.00,,Original operating-cost assumption
+BUD-01041,BUDGET-FY2026,2026-10,operations,,6140,,,1800.00,,Original operating-cost assumption
+BUD-01042,BUDGET-FY2026,2026-10,operations,,6150,,,990.00,,Original operating-cost assumption
+BUD-01043,BUDGET-FY2026,2026-10,operations,,6300,,,2000.00,,Original operating-cost assumption
+BUD-01044,BUDGET-FY2026,2026-10,operations,,6400,,,600.00,,Original operating-cost assumption

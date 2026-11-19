@@ -1,0 +1,23 @@
+﻿ad_account_id,client_id,account_name,account_owner,payer_client_id,funding_responsibility,agency_pays_platform,currency,timezone
+GOOG-ACCT-001,CLI-001,CLI-001 client-owned GOOG,client,CLI-001,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-002,CLI-002,CLI-002 client-owned GOOG,client,CLI-002,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-003,CLI-003,CLI-003 client-owned GOOG,client,CLI-003,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-004,CLI-004,CLI-004 client-owned GOOG,client,CLI-004,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-005,CLI-005,CLI-005 client-owned GOOG,client,CLI-005,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-006,CLI-006,CLI-006 client-owned GOOG,client,CLI-006,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-007,CLI-007,CLI-007 client-owned GOOG,client,CLI-007,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-008,CLI-008,CLI-008 client-owned GOOG,client,CLI-008,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-009,CLI-009,CLI-009 client-owned GOOG,client,CLI-009,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-010,CLI-010,CLI-010 client-owned GOOG,client,CLI-010,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-011,CLI-011,CLI-011 client-owned GOOG,client,CLI-011,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-012,CLI-012,CLI-012 client-owned GOOG,client,CLI-012,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-013,CLI-013,CLI-013 client-owned GOOG,client,CLI-013,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-014,CLI-014,CLI-014 client-owned GOOG,client,CLI-014,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-015,CLI-015,CLI-015 client-owned GOOG,client,CLI-015,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-016,CLI-016,CLI-016 client-owned GOOG,client,CLI-016,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-017,CLI-017,CLI-017 client-owned GOOG,client,CLI-017,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-018,CLI-018,CLI-018 client-owned GOOG,client,CLI-018,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-019,CLI-019,CLI-019 client-owned GOOG,client,CLI-019,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-020,CLI-020,CLI-020 client-owned GOOG,client,CLI-020,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-021,CLI-021,CLI-021 client-owned GOOG,client,CLI-021,CLIENT_DIRECT,False,USD,America/Chicago
+GOOG-ACCT-022,CLI-022,CLI-022 client-owned GOOG,client,CLI-022,CLIENT_DIRECT,False,USD,America/Chicago

@@ -1,0 +1,45 @@
+﻿campaign_id,ad_account_id,client_id,campaign_name,objective,start_date,end_date,attribution_model,attribution_window,conversion_unit
+GOOG-CMP-001-1,GOOG-ACCT-001,CLI-001,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-001-2,GOOG-ACCT-001,CLI-001,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-002-1,GOOG-ACCT-002,CLI-002,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-002-2,GOOG-ACCT-002,CLI-002,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-003-1,GOOG-ACCT-003,CLI-003,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-003-2,GOOG-ACCT-003,CLI-003,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-004-1,GOOG-ACCT-004,CLI-004,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-004-2,GOOG-ACCT-004,CLI-004,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-005-1,GOOG-ACCT-005,CLI-005,Nonbrand search,sales_or_qualified_leads,2024-11-01,2026-07-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-005-2,GOOG-ACCT-005,CLI-005,Brand and shopping,sales_or_qualified_leads,2024-11-01,2026-07-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-006-1,GOOG-ACCT-006,CLI-006,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-006-2,GOOG-ACCT-006,CLI-006,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-007-1,GOOG-ACCT-007,CLI-007,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-007-2,GOOG-ACCT-007,CLI-007,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-008-1,GOOG-ACCT-008,CLI-008,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-008-2,GOOG-ACCT-008,CLI-008,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-009-1,GOOG-ACCT-009,CLI-009,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-009-2,GOOG-ACCT-009,CLI-009,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-010-1,GOOG-ACCT-010,CLI-010,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-010-2,GOOG-ACCT-010,CLI-010,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-011-1,GOOG-ACCT-011,CLI-011,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-011-2,GOOG-ACCT-011,CLI-011,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-012-1,GOOG-ACCT-012,CLI-012,Nonbrand search,sales_or_qualified_leads,2024-11-01,2026-03-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-012-2,GOOG-ACCT-012,CLI-012,Brand and shopping,sales_or_qualified_leads,2024-11-01,2026-03-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-013-1,GOOG-ACCT-013,CLI-013,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-013-2,GOOG-ACCT-013,CLI-013,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-014-1,GOOG-ACCT-014,CLI-014,Nonbrand search,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-014-2,GOOG-ACCT-014,CLI-014,Brand and shopping,sales_or_qualified_leads,2024-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-015-1,GOOG-ACCT-015,CLI-015,Nonbrand search,sales_or_qualified_leads,2025-01-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-015-2,GOOG-ACCT-015,CLI-015,Brand and shopping,sales_or_qualified_leads,2025-01-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-016-1,GOOG-ACCT-016,CLI-016,Nonbrand search,sales_or_qualified_leads,2025-03-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-016-2,GOOG-ACCT-016,CLI-016,Brand and shopping,sales_or_qualified_leads,2025-03-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-017-1,GOOG-ACCT-017,CLI-017,Nonbrand search,sales_or_qualified_leads,2025-06-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-017-2,GOOG-ACCT-017,CLI-017,Brand and shopping,sales_or_qualified_leads,2025-06-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-018-1,GOOG-ACCT-018,CLI-018,Nonbrand search,sales_or_qualified_leads,2025-09-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-018-2,GOOG-ACCT-018,CLI-018,Brand and shopping,sales_or_qualified_leads,2025-09-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-019-1,GOOG-ACCT-019,CLI-019,Nonbrand search,sales_or_qualified_leads,2025-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-019-2,GOOG-ACCT-019,CLI-019,Brand and shopping,sales_or_qualified_leads,2025-11-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-020-1,GOOG-ACCT-020,CLI-020,Nonbrand search,sales_or_qualified_leads,2026-02-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-020-2,GOOG-ACCT-020,CLI-020,Brand and shopping,sales_or_qualified_leads,2026-02-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-021-1,GOOG-ACCT-021,CLI-021,Nonbrand search,sales_or_qualified_leads,2026-05-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-021-2,GOOG-ACCT-021,CLI-021,Brand and shopping,sales_or_qualified_leads,2026-05-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-022-1,GOOG-ACCT-022,CLI-022,Nonbrand search,sales_or_qualified_leads,2026-08-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion
+GOOG-CMP-022-2,GOOG-ACCT-022,CLI-022,Brand and shopping,sales_or_qualified_leads,2026-08-01,2027-12-31,platform_reported_data_driven,30_day_click,platform_attributed_conversion

@@ -1,0 +1,29 @@
+flowchart LR
+ CRM[CRM companies and won deals] --> SOW[Signed SOW and versions]
+ SOW --> PROJ[Projects and staff plans]
+ SOW --> OBL[Service obligations and milestones]
+ ADS[Client-funded Meta and Google] --> FEE[Monthly fee calculation]
+ FEE --> OBL
+ PROJ --> TIME[Actual time and capacity]
+ TIME --> HOUR[Approved hourly fees]
+ HOUR --> OBL
+ OBL --> REV[Approved recognition]
+ OBL --> INVOICE[Agency fee invoices]
+ INVOICE --> AR[AR and credit notes]
+ AR --> CASH[Client receipts and bank]
+ REV --> GL[GL and monthly trial balance]
+ INVOICE --> GL
+ CASH --> GL
+ PAY[Payroll earnings] --> ALLOC[Project plus internal plus leave allocation]
+ PAY --> GL
+ PAY --> FUND[Payroll funding]
+ FUND --> CASH
+ FREE[Accepted freelance work] --> ACCR[Contractor accrual]
+ ACCR --> AP[Vendor bill and AP]
+ AP --> VP[Vendor payment]
+ VP --> CASH
+ ACCR --> GL
+ AP --> GL
+ SOW --> PLAN[Signed future billing schedule]
+ BUD[Immutable original budget] --> COMP[Budget versus actual model in Claude]
+ GL --> COMP

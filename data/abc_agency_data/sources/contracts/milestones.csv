@@ -1,0 +1,76 @@
+﻿milestone_id,contract_id,project_id,sequence,deliverable,planned_approval_date,actual_approved_date,approval_status,agreed_fee_usd,original_hours_budget,original_cost_budget_usd,service_id
+MS-CON-F-001-1,CON-F-001,PRJ-F-001,1,Approved creative strategy and briefs,2024-11-20,2024-11-20,approved,8000.00,50.00,3400.00,SVC-CON-F-001-M1
+MS-CON-F-001-2,CON-F-001,PRJ-F-001,2,Accepted production assets and tracking implementation,2024-12-25,2024-12-25,approved,11200.00,70.00,4760.00,SVC-CON-F-001-M2
+MS-CON-F-001-3,CON-F-001,PRJ-F-001,3,Signed launch QA and final handoff,2025-01-28,2025-01-28,approved,12800.00,80.00,5440.00,SVC-CON-F-001-M3
+MS-CON-F-002-1,CON-F-002,PRJ-F-002,1,Approved creative strategy and briefs,2024-12-20,2024-12-20,approved,9375.00,58.59,3984.38,SVC-CON-F-002-M1
+MS-CON-F-002-2,CON-F-002,PRJ-F-002,2,Accepted production assets and tracking implementation,2025-01-25,2025-01-25,approved,13125.00,82.03,5578.13,SVC-CON-F-002-M2
+MS-CON-F-002-3,CON-F-002,PRJ-F-002,3,Signed launch QA and final handoff,2025-02-28,2025-02-28,approved,15000.00,93.75,6375.00,SVC-CON-F-002-M3
+MS-CON-F-003-1,CON-F-003,PRJ-F-003,1,Approved creative strategy and briefs,2025-01-20,2025-01-20,approved,10750.00,67.19,4568.75,SVC-CON-F-003-M1
+MS-CON-F-003-2,CON-F-003,PRJ-F-003,2,Accepted production assets and tracking implementation,2025-02-25,2025-02-25,approved,15050.00,94.06,6396.25,SVC-CON-F-003-M2
+MS-CON-F-003-3,CON-F-003,PRJ-F-003,3,Signed launch QA and final handoff,2025-03-28,2025-03-28,approved,17200.00,107.50,7310.00,SVC-CON-F-003-M3
+MS-CON-F-004-1,CON-F-004,PRJ-F-004,1,Approved creative strategy and briefs,2025-02-20,2025-02-20,approved,12125.00,75.78,5153.13,SVC-CON-F-004-M1
+MS-CON-F-004-2,CON-F-004,PRJ-F-004,2,Accepted production assets and tracking implementation,2025-03-25,2025-03-25,approved,16975.00,106.09,7214.38,SVC-CON-F-004-M2
+MS-CON-F-004-3,CON-F-004,PRJ-F-004,3,Signed launch QA and final handoff,2025-04-28,2025-05-02,approved,19400.00,121.25,8245.00,SVC-CON-F-004-M3
+MS-CON-F-005-1,CON-F-005,PRJ-F-005,1,Approved creative strategy and briefs,2025-03-20,2025-03-20,approved,13500.00,84.38,5737.50,SVC-CON-F-005-M1
+MS-CON-F-005-2,CON-F-005,PRJ-F-005,2,Accepted production assets and tracking implementation,2025-04-25,2025-04-25,approved,18900.00,118.12,8032.50,SVC-CON-F-005-M2
+MS-CON-F-005-3,CON-F-005,PRJ-F-005,3,Signed launch QA and final handoff,2025-05-28,2025-05-28,approved,21600.00,135.00,9180.00,SVC-CON-F-005-M3
+MS-CON-F-006-1,CON-F-006,PRJ-F-006,1,Approved creative strategy and briefs,2025-04-20,2025-04-20,approved,14875.00,92.97,6321.88,SVC-CON-F-006-M1
+MS-CON-F-006-2,CON-F-006,PRJ-F-006,2,Accepted production assets and tracking implementation,2025-05-25,2025-05-25,approved,20825.00,130.16,8850.63,SVC-CON-F-006-M2
+MS-CON-F-006-3,CON-F-006,PRJ-F-006,3,Signed launch QA and final handoff,2025-06-28,2025-06-28,approved,23800.00,148.75,10115.00,SVC-CON-F-006-M3
+MS-CON-F-007-1,CON-F-007,PRJ-F-007,1,Approved creative strategy and briefs,2025-05-20,2025-05-20,approved,8000.00,50.00,3400.00,SVC-CON-F-007-M1
+MS-CON-F-007-2,CON-F-007,PRJ-F-007,2,Accepted production assets and tracking implementation,2025-06-25,2025-06-25,approved,11200.00,70.00,4760.00,SVC-CON-F-007-M2
+MS-CON-F-007-3,CON-F-007,PRJ-F-007,3,Signed launch QA and final handoff,2025-07-28,2025-07-28,approved,12800.00,80.00,5440.00,SVC-CON-F-007-M3
+MS-CON-F-008-1,CON-F-008,PRJ-F-008,1,Approved creative strategy and briefs,2025-06-20,2025-06-20,approved,9375.00,58.59,3984.38,SVC-CON-F-008-M1
+MS-CON-F-008-2,CON-F-008,PRJ-F-008,2,Accepted production assets and tracking implementation,2025-07-25,2025-07-25,approved,13125.00,82.03,5578.13,SVC-CON-F-008-M2
+MS-CON-F-008-3,CON-F-008,PRJ-F-008,3,Signed launch QA and final handoff,2025-08-28,2025-08-28,approved,15000.00,93.75,6375.00,SVC-CON-F-008-M3
+MS-CON-F-009-1,CON-F-009,PRJ-F-009,1,Approved creative strategy and briefs,2025-07-20,2025-07-20,approved,10750.00,67.19,4568.75,SVC-CON-F-009-M1
+MS-CON-F-009-2,CON-F-009,PRJ-F-009,2,Accepted production assets and tracking implementation,2025-08-25,2025-09-12,approved,15050.00,94.06,6396.25,SVC-CON-F-009-M2
+MS-CON-F-009-3,CON-F-009,PRJ-F-009,3,Signed launch QA and final handoff,2025-09-28,2025-09-28,approved,17200.00,107.50,7310.00,SVC-CON-F-009-M3
+MS-CON-F-010-1,CON-F-010,PRJ-F-010,1,Approved creative strategy and briefs,2025-08-20,2025-08-20,approved,12125.00,75.78,5153.13,SVC-CON-F-010-M1
+MS-CON-F-010-2,CON-F-010,PRJ-F-010,2,Accepted production assets and tracking implementation,2025-09-25,2025-09-25,approved,16975.00,106.09,7214.38,SVC-CON-F-010-M2
+MS-CON-F-010-3,CON-F-010,PRJ-F-010,3,Signed launch QA and final handoff,2025-10-28,2025-10-28,approved,19400.00,121.25,8245.00,SVC-CON-F-010-M3
+MS-CON-F-011-1,CON-F-011,PRJ-F-011,1,Approved creative strategy and briefs,2025-09-20,2025-09-20,approved,13500.00,84.38,5737.50,SVC-CON-F-011-M1
+MS-CON-F-011-2,CON-F-011,PRJ-F-011,2,Accepted production assets and tracking implementation,2025-10-25,2025-10-25,approved,18900.00,118.12,8032.50,SVC-CON-F-011-M2
+MS-CON-F-011-3,CON-F-011,PRJ-F-011,3,Signed launch QA and final handoff,2025-11-28,2025-12-02,approved,21600.00,135.00,9180.00,SVC-CON-F-011-M3
+MS-CON-F-012-1,CON-F-012,PRJ-F-012,1,Approved creative strategy and briefs,2025-10-20,2025-10-20,approved,14875.00,92.97,6321.88,SVC-CON-F-012-M1
+MS-CON-F-012-2,CON-F-012,PRJ-F-012,2,Accepted production assets and tracking implementation,2025-11-25,2025-11-25,approved,20825.00,130.16,8850.63,SVC-CON-F-012-M2
+MS-CON-F-012-3,CON-F-012,PRJ-F-012,3,Signed launch QA and final handoff,2025-12-28,2025-12-28,approved,23800.00,148.75,10115.00,SVC-CON-F-012-M3
+MS-CON-F-013-1,CON-F-013,PRJ-F-013,1,Approved creative strategy and briefs,2025-11-20,2025-11-20,approved,8000.00,50.00,3400.00,SVC-CON-F-013-M1
+MS-CON-F-013-2,CON-F-013,PRJ-F-013,2,Accepted production assets and tracking implementation,2025-12-25,2025-12-25,approved,11200.00,70.00,4760.00,SVC-CON-F-013-M2
+MS-CON-F-013-3,CON-F-013,PRJ-F-013,3,Signed launch QA and final handoff,2026-01-28,2026-01-28,approved,12800.00,80.00,5440.00,SVC-CON-F-013-M3
+MS-CON-F-014-1,CON-F-014,PRJ-F-014,1,Approved creative strategy and briefs,2025-12-20,2025-12-20,approved,9375.00,58.59,3984.38,SVC-CON-F-014-M1
+MS-CON-F-014-2,CON-F-014,PRJ-F-014,2,Accepted production assets and tracking implementation,2026-01-25,2026-01-25,approved,13125.00,82.03,5578.13,SVC-CON-F-014-M2
+MS-CON-F-014-3,CON-F-014,PRJ-F-014,3,Signed launch QA and final handoff,2026-02-28,2026-02-28,approved,15000.00,93.75,6375.00,SVC-CON-F-014-M3
+MS-CON-F-015-1,CON-F-015,PRJ-F-015,1,Approved creative strategy and briefs,2026-01-20,2026-01-20,approved,10750.00,67.19,4568.75,SVC-CON-F-015-M1
+MS-CON-F-015-2,CON-F-015,PRJ-F-015,2,Accepted production assets and tracking implementation,2026-02-25,2026-02-25,approved,15050.00,94.06,6396.25,SVC-CON-F-015-M2
+MS-CON-F-015-3,CON-F-015,PRJ-F-015,3,Signed launch QA and final handoff,2026-03-28,2026-03-28,approved,17200.00,107.50,7310.00,SVC-CON-F-015-M3
+MS-CON-F-016-1,CON-F-016,PRJ-F-016,1,Approved creative strategy and briefs,2026-02-20,2026-02-20,approved,12125.00,75.78,5153.13,SVC-CON-F-016-M1
+MS-CON-F-016-2,CON-F-016,PRJ-F-016,2,Accepted production assets and tracking implementation,2026-03-25,2026-03-25,approved,16975.00,106.09,7214.38,SVC-CON-F-016-M2
+MS-CON-F-016-3,CON-F-016,PRJ-F-016,3,Signed launch QA and final handoff,2026-04-28,2026-04-28,approved,19400.00,121.25,8245.00,SVC-CON-F-016-M3
+MS-CON-F-017-1,CON-F-017,PRJ-F-017,1,Approved creative strategy and briefs,2026-03-20,2026-03-20,approved,13500.00,84.38,5737.50,SVC-CON-F-017-M1
+MS-CON-F-017-2,CON-F-017,PRJ-F-017,2,Accepted production assets and tracking implementation,2026-04-25,2026-04-25,approved,18900.00,118.12,8032.50,SVC-CON-F-017-M2
+MS-CON-F-017-3,CON-F-017,PRJ-F-017,3,Signed launch QA and final handoff,2026-05-28,2026-05-28,approved,21600.00,135.00,9180.00,SVC-CON-F-017-M3
+MS-CON-F-018-1,CON-F-018,PRJ-F-018,1,Approved creative strategy and briefs,2026-04-20,2026-04-20,approved,14875.00,92.97,6321.88,SVC-CON-F-018-M1
+MS-CON-F-018-2,CON-F-018,PRJ-F-018,2,Accepted production assets and tracking implementation,2026-05-25,2026-05-25,approved,20825.00,130.16,8850.63,SVC-CON-F-018-M2
+MS-CON-F-018-3,CON-F-018,PRJ-F-018,3,Signed launch QA and final handoff,2026-06-28,2026-07-02,approved,23800.00,148.75,10115.00,SVC-CON-F-018-M3
+MS-CON-F-019-1,CON-F-019,PRJ-F-019,1,Approved creative strategy and briefs,2026-05-20,2026-05-20,approved,8000.00,50.00,3400.00,SVC-CON-F-019-M1
+MS-CON-F-019-2,CON-F-019,PRJ-F-019,2,Accepted production assets and tracking implementation,2026-06-25,2026-06-25,approved,11200.00,70.00,4760.00,SVC-CON-F-019-M2
+MS-CON-F-019-3,CON-F-019,PRJ-F-019,3,Signed launch QA and final handoff,2026-07-28,2026-07-28,approved,12800.00,80.00,5440.00,SVC-CON-F-019-M3
+MS-CON-F-020-1,CON-F-020,PRJ-F-020,1,Approved creative strategy and briefs,2026-06-20,2026-06-20,approved,9375.00,58.59,3984.38,SVC-CON-F-020-M1
+MS-CON-F-020-2,CON-F-020,PRJ-F-020,2,Accepted production assets and tracking implementation,2026-07-25,2026-07-25,approved,13125.00,82.03,5578.13,SVC-CON-F-020-M2
+MS-CON-F-020-3,CON-F-020,PRJ-F-020,3,Signed launch QA and final handoff,2026-08-28,2026-08-28,approved,15000.00,93.75,6375.00,SVC-CON-F-020-M3
+MS-CON-F-021-1,CON-F-021,PRJ-F-021,1,Approved creative strategy and briefs,2026-07-20,2026-07-20,approved,10750.00,67.19,4568.75,SVC-CON-F-021-M1
+MS-CON-F-021-2,CON-F-021,PRJ-F-021,2,Accepted production assets and tracking implementation,2026-08-25,2026-08-25,approved,15050.00,94.06,6396.25,SVC-CON-F-021-M2
+MS-CON-F-021-3,CON-F-021,PRJ-F-021,3,Signed launch QA and final handoff,2026-09-28,2026-09-28,approved,17200.00,107.50,7310.00,SVC-CON-F-021-M3
+MS-CON-F-022-1,CON-F-022,PRJ-F-022,1,Approved creative strategy and briefs,2026-08-20,2026-08-20,approved,12125.00,75.78,5153.13,SVC-CON-F-022-M1
+MS-CON-F-022-2,CON-F-022,PRJ-F-022,2,Accepted production assets and tracking implementation,2026-09-25,2026-09-25,approved,16975.00,106.09,7214.38,SVC-CON-F-022-M2
+MS-CON-F-022-3,CON-F-022,PRJ-F-022,3,Signed launch QA and final handoff,2026-10-28,2026-10-28,approved,19400.00,121.25,8245.00,SVC-CON-F-022-M3
+MS-CON-F-023-1,CON-F-023,PRJ-F-023,1,Approved creative strategy and briefs,2026-09-20,2026-09-20,approved,13500.00,84.38,5737.50,SVC-CON-F-023-M1
+MS-CON-F-023-2,CON-F-023,PRJ-F-023,2,Accepted production assets and tracking implementation,2026-10-25,2026-10-25,approved,18900.00,118.12,8032.50,SVC-CON-F-023-M2
+MS-CON-F-023-3,CON-F-023,PRJ-F-023,3,Signed launch QA and final handoff,2026-11-28,,planned,21600.00,135.00,9180.00,SVC-CON-F-023-M3
+MS-CON-F-024-1,CON-F-024,PRJ-F-024,1,Approved creative strategy and briefs,2026-10-20,2026-10-20,approved,14875.00,92.97,6321.88,SVC-CON-F-024-M1
+MS-CON-F-024-2,CON-F-024,PRJ-F-024,2,Accepted production assets and tracking implementation,2026-11-25,,planned,20825.00,130.16,8850.63,SVC-CON-F-024-M2
+MS-CON-F-024-3,CON-F-024,PRJ-F-024,3,Signed launch QA and final handoff,2026-12-28,,planned,23800.00,148.75,10115.00,SVC-CON-F-024-M3
+MS-CON-F-025-1,CON-F-025,PRJ-F-025,1,Approved creative strategy and briefs,2026-11-20,,planned,8000.00,50.00,3400.00,SVC-CON-F-025-M1
+MS-CON-F-025-2,CON-F-025,PRJ-F-025,2,Accepted production assets and tracking implementation,2026-12-25,,planned,11200.00,70.00,4760.00,SVC-CON-F-025-M2
+MS-CON-F-025-3,CON-F-025,PRJ-F-025,3,Signed launch QA and final handoff,2027-01-28,,planned,12800.00,80.00,5440.00,SVC-CON-F-025-M3

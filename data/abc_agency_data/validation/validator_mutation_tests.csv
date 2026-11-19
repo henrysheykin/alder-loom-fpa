@@ -1,0 +1,9 @@
+﻿mutation,target_check,detected,target_failures,note
+payroll_cost_one_cent,Payroll allocations equal actual employer cost to cent,True,1,Semantic check failed independently of the additional manifest hash mismatch
+client_media_payer,Direct client-funded ad accounts excluded from agency cash,True,1,Semantic check failed independently of the additional manifest hash mismatch
+future_actual_bank,No actual facts after historical cutoff,True,1,Semantic check failed independently of the additional manifest hash mismatch
+late_budget_approval,Original budgets approved before covered period,True,1,Semantic check failed independently of the additional manifest hash mismatch
+earned_hourly_overstatement,Hourly fee equals approved hours times effective rates,True,1,Semantic check failed independently of the additional manifest hash mismatch
+unbalanced_journal,Every journal balances to cents,True,1,Semantic check failed independently of the additional manifest hash mismatch
+contractor_double_expense,Freelancer QB bill clears accrual without second expense,True,1,Semantic check failed independently of the additional manifest hash mismatch
+closed_won_pipeline,Won-lost deals excluded from open pipeline,True,1,Semantic check failed independently of the additional manifest hash mismatch

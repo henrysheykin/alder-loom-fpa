@@ -1,0 +1,185 @@
+{
+  "classification": "illustrative_copies_do_not_load_as_facts",
+  "explanation": "CLI-002 November-January services already invoiced and collected in October. Deferred at cutoff, no future actual recognition and no second future invoice.",
+  "records": [
+    {
+      "logical_table": "quickbooks/client_invoices",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "invoice_id": "INV-CON-R-002-3-Q1",
+          "client_id": "CLI-002",
+          "contract_id": "CON-R-002-3",
+          "invoice_date": "2026-10-15",
+          "due_date": "2026-10-30",
+          "invoice_total_usd": "39312.00",
+          "record_scope": "in_period",
+          "invoice_status_asof": "paid",
+          "open_balance_usd": "0.00",
+          "journal_id": "JRN-003770"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/client_invoice_lines",
+      "matched_total": 3,
+      "copied_rows": [
+        {
+          "invoice_line_id": "INV-CON-R-002-3-Q1-L1",
+          "invoice_id": "INV-CON-R-002-3-Q1",
+          "contract_id": "CON-R-002-3",
+          "client_id": "CLI-002",
+          "service_id": "SVC-CON-R-002-3-2026-11",
+          "schedule_line_id": "SCH-SVC-CON-R-002-3-2026-11",
+          "description": "retainer 2026-11",
+          "line_amount_usd": "13104.00",
+          "invoiced_to_deferred_usd": "13104.00",
+          "invoiced_from_unbilled_usd": "0.00"
+        },
+        {
+          "invoice_line_id": "INV-CON-R-002-3-Q1-L2",
+          "invoice_id": "INV-CON-R-002-3-Q1",
+          "contract_id": "CON-R-002-3",
+          "client_id": "CLI-002",
+          "service_id": "SVC-CON-R-002-3-2026-12",
+          "schedule_line_id": "SCH-SVC-CON-R-002-3-2026-12",
+          "description": "retainer 2026-12",
+          "line_amount_usd": "13104.00",
+          "invoiced_to_deferred_usd": "13104.00",
+          "invoiced_from_unbilled_usd": "0.00"
+        },
+        {
+          "invoice_line_id": "INV-CON-R-002-3-Q1-L3",
+          "invoice_id": "INV-CON-R-002-3-Q1",
+          "contract_id": "CON-R-002-3",
+          "client_id": "CLI-002",
+          "service_id": "SVC-CON-R-002-3-2027-01",
+          "schedule_line_id": "SCH-SVC-CON-R-002-3-2027-01",
+          "description": "retainer 2027-01",
+          "line_amount_usd": "13104.00",
+          "invoiced_to_deferred_usd": "13104.00",
+          "invoiced_from_unbilled_usd": "0.00"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/receipt_applications",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "receipt_application_id": "APP-RCPT-INV-CON-R-002-3-Q1-1",
+          "receipt_id": "RCPT-INV-CON-R-002-3-Q1-1",
+          "invoice_id": "INV-CON-R-002-3-Q1",
+          "applied_date": "2026-10-22",
+          "applied_amount_usd": "39312.00"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "quickbooks/client_receipts",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "receipt_id": "RCPT-INV-CON-R-002-3-Q1-1",
+          "client_id": "CLI-002",
+          "receipt_date": "2026-10-22",
+          "receipt_amount_usd": "39312.00",
+          "payment_method": "ACH",
+          "bank_transaction_id": "BTX-001018",
+          "journal_id": "JRN-003817"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "delivery/service_obligations",
+      "matched_total": 3,
+      "copied_rows": [
+        {
+          "service_id": "SVC-CON-R-002-3-2026-11",
+          "contract_id": "CON-R-002-3",
+          "client_id": "CLI-002",
+          "project_id": "PRJ-R-002-3",
+          "service_type": "retainer",
+          "service_month": "2026-11",
+          "service_start_date": "2026-11-01",
+          "service_end_date": "2026-11-30",
+          "planned_approval_date": "2026-11-30",
+          "actual_approved_date": "",
+          "agreed_minimum_fee_usd": "13104.00",
+          "approved_fee_usd": "",
+          "approved_hours": "",
+          "rate_card_basis": "not_applicable",
+          "recognition_status": "signed_future",
+          "record_scope": "signed_future"
+        },
+        {
+          "service_id": "SVC-CON-R-002-3-2026-12",
+          "contract_id": "CON-R-002-3",
+          "client_id": "CLI-002",
+          "project_id": "PRJ-R-002-3",
+          "service_type": "retainer",
+          "service_month": "2026-12",
+          "service_start_date": "2026-12-01",
+          "service_end_date": "2026-12-31",
+          "planned_approval_date": "2026-12-31",
+          "actual_approved_date": "",
+          "agreed_minimum_fee_usd": "13104.00",
+          "approved_fee_usd": "",
+          "approved_hours": "",
+          "rate_card_basis": "not_applicable",
+          "recognition_status": "signed_future",
+          "record_scope": "signed_future"
+        },
+        {
+          "service_id": "SVC-CON-R-002-3-2027-01",
+          "contract_id": "CON-R-002-3",
+          "client_id": "CLI-002",
+          "project_id": "PRJ-R-002-3",
+          "service_type": "retainer",
+          "service_month": "2027-01",
+          "service_start_date": "2027-01-01",
+          "service_end_date": "2027-01-31",
+          "planned_approval_date": "2027-01-31",
+          "actual_approved_date": "",
+          "agreed_minimum_fee_usd": "13104.00",
+          "approved_fee_usd": "",
+          "approved_hours": "",
+          "rate_card_basis": "not_applicable",
+          "recognition_status": "signed_future",
+          "record_scope": "signed_future"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "delivery/recognition_events",
+      "matched_total": 0,
+      "copied_rows": [],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "delivery/monthly_contract_balances",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "contract_balance_id": "CBAL-CON-R-002-3-2026-10",
+          "contract_id": "CON-R-002-3",
+          "service_month": "2026-10",
+          "opening_deferred_usd": "0.00",
+          "invoiced_to_deferred_usd": "39312.00",
+          "earned_from_deferred_usd": "0.00",
+          "closing_deferred_usd": "39312.00",
+          "opening_unbilled_usd": "0.00",
+          "earned_to_unbilled_usd": "0.00",
+          "invoiced_from_unbilled_usd": "0.00",
+          "closing_unbilled_usd": "0.00"
+        }
+      ],
+      "sample_limited": false
+    }
+  ]
+}

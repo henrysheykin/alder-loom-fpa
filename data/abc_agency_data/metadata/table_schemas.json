@@ -1,0 +1,3822 @@
+{
+  "hubspot/companies": {
+    "fields": [
+      "client_id",
+      "company_name",
+      "industry",
+      "state_code",
+      "email",
+      "created_date",
+      "lifecycle_stage",
+      "currency",
+      "is_synthetic"
+    ],
+    "grain": "One fictional client/prospect company as of cutoff",
+    "primary_key": [
+      "client_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "client_id": "text",
+      "company_name": "text",
+      "industry": "text",
+      "state_code": "text",
+      "email": "text",
+      "created_date": "date_iso",
+      "lifecycle_stage": "text",
+      "currency": "text",
+      "is_synthetic": "boolean"
+    },
+    "nullable": {
+      "client_id": false,
+      "company_name": false,
+      "industry": false,
+      "state_code": false,
+      "email": false,
+      "created_date": false,
+      "lifecycle_stage": false,
+      "currency": false,
+      "is_synthetic": false
+    },
+    "physical_files": [
+      "sources/hubspot/companies.csv"
+    ]
+  },
+  "hubspot/pipeline_stages": {
+    "fields": [
+      "stage_id",
+      "stage_name",
+      "stage_order",
+      "probability",
+      "is_closed"
+    ],
+    "grain": "One sales pipeline stage",
+    "primary_key": [
+      "stage_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "stage_id": "text",
+      "stage_name": "text",
+      "stage_order": "integer",
+      "probability": "decimal",
+      "is_closed": "boolean"
+    },
+    "nullable": {
+      "stage_id": false,
+      "stage_name": false,
+      "stage_order": false,
+      "probability": false,
+      "is_closed": false
+    },
+    "physical_files": [
+      "sources/hubspot/pipeline_stages.csv"
+    ]
+  },
+  "hubspot/leads": {
+    "fields": [
+      "lead_id",
+      "client_id",
+      "created_date",
+      "lead_source",
+      "owner_employee_id",
+      "qualification_status"
+    ],
+    "grain": "One prospect qualification record",
+    "primary_key": [
+      "lead_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "lead_id": "text",
+      "client_id": "text",
+      "created_date": "date_iso",
+      "lead_source": "text",
+      "owner_employee_id": "text",
+      "qualification_status": "text"
+    },
+    "nullable": {
+      "lead_id": false,
+      "client_id": false,
+      "created_date": false,
+      "lead_source": false,
+      "owner_employee_id": false,
+      "qualification_status": false
+    },
+    "physical_files": [
+      "sources/hubspot/leads.csv"
+    ]
+  },
+  "hubspot/deals": {
+    "fields": [
+      "deal_id",
+      "client_id",
+      "lead_id",
+      "deal_name",
+      "deal_type",
+      "created_date",
+      "expected_close_date",
+      "actual_close_date",
+      "stage_id",
+      "probability",
+      "quoted_value_usd",
+      "value_basis",
+      "contract_id",
+      "owner_employee_id",
+      "lost_reason",
+      "as_of_date"
+    ],
+    "grain": "One deal current state at cutoff",
+    "primary_key": [
+      "deal_id"
+    ],
+    "notes": "Won deal amount is a quote/bookings measure, never earned revenue.",
+    "partition_column": "",
+    "types": {
+      "deal_id": "text",
+      "client_id": "text",
+      "lead_id": "text",
+      "deal_name": "text",
+      "deal_type": "text",
+      "created_date": "date_iso",
+      "expected_close_date": "date_iso",
+      "actual_close_date": "date_iso",
+      "stage_id": "text",
+      "probability": "decimal",
+      "quoted_value_usd": "decimal_usd_2dp",
+      "value_basis": "text",
+      "contract_id": "text",
+      "owner_employee_id": "text",
+      "lost_reason": "text",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "deal_id": false,
+      "client_id": false,
+      "lead_id": false,
+      "deal_name": false,
+      "deal_type": false,
+      "created_date": false,
+      "expected_close_date": false,
+      "actual_close_date": true,
+      "stage_id": false,
+      "probability": false,
+      "quoted_value_usd": false,
+      "value_basis": false,
+      "contract_id": true,
+      "owner_employee_id": false,
+      "lost_reason": true,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/hubspot/deals.csv"
+    ]
+  },
+  "hubspot/deal_stage_history": {
+    "fields": [
+      "stage_event_id",
+      "deal_id",
+      "changed_date",
+      "from_stage_id",
+      "to_stage_id",
+      "probability",
+      "expected_close_date",
+      "quoted_value_usd"
+    ],
+    "grain": "One observed sales-stage or expected-close revision; same-stage events revise forecast properties",
+    "primary_key": [
+      "stage_event_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "stage_event_id": "text",
+      "deal_id": "text",
+      "changed_date": "date_iso",
+      "from_stage_id": "text",
+      "to_stage_id": "text",
+      "probability": "decimal",
+      "expected_close_date": "date_iso",
+      "quoted_value_usd": "decimal_usd_2dp"
+    },
+    "nullable": {
+      "stage_event_id": false,
+      "deal_id": false,
+      "changed_date": false,
+      "from_stage_id": true,
+      "to_stage_id": false,
+      "probability": false,
+      "expected_close_date": false,
+      "quoted_value_usd": false
+    },
+    "physical_files": [
+      "sources/hubspot/deal_stage_history.csv"
+    ]
+  },
+  "hubspot/deal_monthly_snapshots": {
+    "fields": [
+      "snapshot_id",
+      "snapshot_date",
+      "deal_id",
+      "client_id",
+      "stage_id",
+      "probability",
+      "expected_close_date",
+      "quoted_value_usd",
+      "weighted_pipeline_usd",
+      "include_in_pipeline",
+      "contract_id"
+    ],
+    "grain": "One deal known at a historical month-end",
+    "primary_key": [
+      "snapshot_id"
+    ],
+    "notes": "Closed-won/lost rows carry zero weighted open pipeline.",
+    "partition_column": "",
+    "types": {
+      "snapshot_id": "text",
+      "snapshot_date": "date_iso",
+      "deal_id": "text",
+      "client_id": "text",
+      "stage_id": "text",
+      "probability": "decimal",
+      "expected_close_date": "date_iso",
+      "quoted_value_usd": "decimal_usd_2dp",
+      "weighted_pipeline_usd": "decimal_usd_2dp",
+      "include_in_pipeline": "boolean",
+      "contract_id": "text"
+    },
+    "nullable": {
+      "snapshot_id": false,
+      "snapshot_date": false,
+      "deal_id": false,
+      "client_id": false,
+      "stage_id": false,
+      "probability": false,
+      "expected_close_date": false,
+      "quoted_value_usd": false,
+      "weighted_pipeline_usd": false,
+      "include_in_pipeline": false,
+      "contract_id": true
+    },
+    "physical_files": [
+      "sources/hubspot/deal_monthly_snapshots.csv"
+    ]
+  },
+  "contracts/contracts": {
+    "fields": [
+      "contract_id",
+      "client_id",
+      "deal_id",
+      "parent_contract_id",
+      "contract_type",
+      "sow_name",
+      "signed_date",
+      "service_start_date",
+      "original_end_date",
+      "current_end_date",
+      "original_contract_value_usd",
+      "current_committed_minimum_usd",
+      "contract_ceiling_usd",
+      "contract_value_basis",
+      "payment_terms_days",
+      "billing_cadence",
+      "status_asof",
+      "currency"
+    ],
+    "grain": "One signed SOW/renewal; amendments separate",
+    "primary_key": [
+      "contract_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "contract_id": "text",
+      "client_id": "text",
+      "deal_id": "text",
+      "parent_contract_id": "text",
+      "contract_type": "text",
+      "sow_name": "text",
+      "signed_date": "date_iso",
+      "service_start_date": "date_iso",
+      "original_end_date": "date_iso",
+      "current_end_date": "date_iso",
+      "original_contract_value_usd": "decimal_usd_2dp",
+      "current_committed_minimum_usd": "decimal_usd_2dp",
+      "contract_ceiling_usd": "decimal_usd_2dp",
+      "contract_value_basis": "text",
+      "payment_terms_days": "integer",
+      "billing_cadence": "text",
+      "status_asof": "text",
+      "currency": "text"
+    },
+    "nullable": {
+      "contract_id": false,
+      "client_id": false,
+      "deal_id": false,
+      "parent_contract_id": true,
+      "contract_type": false,
+      "sow_name": false,
+      "signed_date": false,
+      "service_start_date": false,
+      "original_end_date": false,
+      "current_end_date": false,
+      "original_contract_value_usd": false,
+      "current_committed_minimum_usd": false,
+      "contract_ceiling_usd": true,
+      "contract_value_basis": false,
+      "payment_terms_days": false,
+      "billing_cadence": false,
+      "status_asof": false,
+      "currency": false
+    },
+    "physical_files": [
+      "sources/contracts/contracts.csv"
+    ]
+  },
+  "contracts/contract_versions": {
+    "fields": [
+      "contract_version_id",
+      "contract_id",
+      "version_number",
+      "approved_date",
+      "effective_start_date",
+      "effective_end_date",
+      "fee_model",
+      "monthly_minimum_fee_usd",
+      "spend_fee_rate",
+      "scope_hours_month",
+      "scope_cost_budget_month_usd",
+      "reason",
+      "change_order_id"
+    ],
+    "grain": "One dated commercial version, append-only",
+    "primary_key": [
+      "contract_version_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "contract_version_id": "text",
+      "contract_id": "text",
+      "version_number": "integer",
+      "approved_date": "date_iso",
+      "effective_start_date": "date_iso",
+      "effective_end_date": "date_iso",
+      "fee_model": "text",
+      "monthly_minimum_fee_usd": "decimal_usd_2dp",
+      "spend_fee_rate": "decimal",
+      "scope_hours_month": "decimal",
+      "scope_cost_budget_month_usd": "decimal_usd_2dp",
+      "reason": "text",
+      "change_order_id": "text"
+    },
+    "nullable": {
+      "contract_version_id": false,
+      "contract_id": false,
+      "version_number": false,
+      "approved_date": false,
+      "effective_start_date": false,
+      "effective_end_date": false,
+      "fee_model": false,
+      "monthly_minimum_fee_usd": false,
+      "spend_fee_rate": false,
+      "scope_hours_month": false,
+      "scope_cost_budget_month_usd": false,
+      "reason": false,
+      "change_order_id": true
+    },
+    "physical_files": [
+      "sources/contracts/contract_versions.csv"
+    ]
+  },
+  "contracts/monthly_terms": {
+    "fields": [
+      "term_id",
+      "contract_id",
+      "contract_version_id",
+      "client_id",
+      "service_month",
+      "fee_model",
+      "monthly_minimum_fee_usd",
+      "spend_fee_rate",
+      "scope_hours_budget",
+      "scope_cost_budget_usd",
+      "known_asof_date"
+    ],
+    "grain": "One signed retainer service month including known future months",
+    "primary_key": [
+      "term_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "term_id": "text",
+      "contract_id": "text",
+      "contract_version_id": "text",
+      "client_id": "text",
+      "service_month": "month_iso",
+      "fee_model": "text",
+      "monthly_minimum_fee_usd": "decimal_usd_2dp",
+      "spend_fee_rate": "decimal",
+      "scope_hours_budget": "decimal",
+      "scope_cost_budget_usd": "decimal_usd_2dp",
+      "known_asof_date": "date_iso"
+    },
+    "nullable": {
+      "term_id": false,
+      "contract_id": false,
+      "contract_version_id": false,
+      "client_id": false,
+      "service_month": false,
+      "fee_model": false,
+      "monthly_minimum_fee_usd": false,
+      "spend_fee_rate": false,
+      "scope_hours_budget": false,
+      "scope_cost_budget_usd": false,
+      "known_asof_date": false
+    },
+    "physical_files": [
+      "sources/contracts/monthly_terms.csv"
+    ]
+  },
+  "contracts/change_orders": {
+    "fields": [
+      "change_order_id",
+      "contract_id",
+      "signed_date",
+      "effective_date",
+      "change_type",
+      "fee_change_usd",
+      "scope_hours_change",
+      "reason",
+      "supersedes_version_id"
+    ],
+    "grain": "One signed amendment/termination",
+    "primary_key": [
+      "change_order_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "change_order_id": "text",
+      "contract_id": "text",
+      "signed_date": "date_iso",
+      "effective_date": "date_iso",
+      "change_type": "text",
+      "fee_change_usd": "decimal_usd_2dp",
+      "scope_hours_change": "decimal",
+      "reason": "text",
+      "supersedes_version_id": "text"
+    },
+    "nullable": {
+      "change_order_id": false,
+      "contract_id": false,
+      "signed_date": false,
+      "effective_date": false,
+      "change_type": false,
+      "fee_change_usd": false,
+      "scope_hours_change": false,
+      "reason": false,
+      "supersedes_version_id": false
+    },
+    "physical_files": [
+      "sources/contracts/change_orders.csv"
+    ]
+  },
+  "contracts/rate_cards": {
+    "fields": [
+      "rate_card_id",
+      "role",
+      "effective_start_date",
+      "effective_end_date",
+      "approved_date",
+      "hourly_rate_usd"
+    ],
+    "grain": "One hourly bill rate per role/effective interval",
+    "primary_key": [
+      "rate_card_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "rate_card_id": "text",
+      "role": "text",
+      "effective_start_date": "date_iso",
+      "effective_end_date": "date_iso",
+      "approved_date": "date_iso",
+      "hourly_rate_usd": "decimal_usd_2dp"
+    },
+    "nullable": {
+      "rate_card_id": false,
+      "role": false,
+      "effective_start_date": false,
+      "effective_end_date": false,
+      "approved_date": false,
+      "hourly_rate_usd": false
+    },
+    "physical_files": [
+      "sources/contracts/rate_cards.csv"
+    ]
+  },
+  "contracts/milestones": {
+    "fields": [
+      "milestone_id",
+      "contract_id",
+      "project_id",
+      "sequence",
+      "deliverable",
+      "planned_approval_date",
+      "actual_approved_date",
+      "approval_status",
+      "agreed_fee_usd",
+      "original_hours_budget",
+      "original_cost_budget_usd",
+      "service_id"
+    ],
+    "grain": "One explicitly priced fixed-project milestone",
+    "primary_key": [
+      "milestone_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "milestone_id": "text",
+      "contract_id": "text",
+      "project_id": "text",
+      "sequence": "integer",
+      "deliverable": "text",
+      "planned_approval_date": "date_iso",
+      "actual_approved_date": "date_iso",
+      "approval_status": "text",
+      "agreed_fee_usd": "decimal_usd_2dp",
+      "original_hours_budget": "decimal",
+      "original_cost_budget_usd": "decimal_usd_2dp",
+      "service_id": "text"
+    },
+    "nullable": {
+      "milestone_id": false,
+      "contract_id": false,
+      "project_id": false,
+      "sequence": false,
+      "deliverable": false,
+      "planned_approval_date": false,
+      "actual_approved_date": true,
+      "approval_status": false,
+      "agreed_fee_usd": false,
+      "original_hours_budget": false,
+      "original_cost_budget_usd": false,
+      "service_id": false
+    },
+    "physical_files": [
+      "sources/contracts/milestones.csv"
+    ]
+  },
+  "contracts/fee_calculations": {
+    "fields": [
+      "calculation_id",
+      "term_id",
+      "contract_id",
+      "client_id",
+      "service_month",
+      "media_spend_usd",
+      "spend_fee_rate",
+      "percentage_fee_usd",
+      "minimum_fee_usd",
+      "earned_fee_usd",
+      "service_id"
+    ],
+    "grain": "One observed monthly retainer fee calculation",
+    "primary_key": [
+      "calculation_id"
+    ],
+    "notes": "Media spend is a fee driver, not agency revenue.",
+    "partition_column": "",
+    "types": {
+      "calculation_id": "text",
+      "term_id": "text",
+      "contract_id": "text",
+      "client_id": "text",
+      "service_month": "month_iso",
+      "media_spend_usd": "decimal_usd_2dp",
+      "spend_fee_rate": "decimal",
+      "percentage_fee_usd": "decimal_usd_2dp",
+      "minimum_fee_usd": "decimal_usd_2dp",
+      "earned_fee_usd": "decimal_usd_2dp",
+      "service_id": "text"
+    },
+    "nullable": {
+      "calculation_id": false,
+      "term_id": false,
+      "contract_id": false,
+      "client_id": false,
+      "service_month": false,
+      "media_spend_usd": false,
+      "spend_fee_rate": false,
+      "percentage_fee_usd": false,
+      "minimum_fee_usd": false,
+      "earned_fee_usd": false,
+      "service_id": false
+    },
+    "physical_files": [
+      "sources/contracts/fee_calculations.csv"
+    ]
+  },
+  "contracts/billing_schedule": {
+    "fields": [
+      "schedule_line_id",
+      "planned_invoice_group_id",
+      "contract_id",
+      "client_id",
+      "service_id",
+      "scheduled_invoice_date",
+      "scheduled_due_date",
+      "scheduled_amount_usd",
+      "amount_basis",
+      "known_date",
+      "actual_invoice_line_id",
+      "status_asof",
+      "as_of_date"
+    ],
+    "grain": "One planned billing allocation to a service obligation",
+    "primary_key": [
+      "schedule_line_id"
+    ],
+    "notes": "Historical billed rows and future known billings share the same schedule; do not add actual and schedule amounts.",
+    "partition_column": "",
+    "types": {
+      "schedule_line_id": "text",
+      "planned_invoice_group_id": "text",
+      "contract_id": "text",
+      "client_id": "text",
+      "service_id": "text",
+      "scheduled_invoice_date": "date_iso",
+      "scheduled_due_date": "date_iso",
+      "scheduled_amount_usd": "decimal_usd_2dp",
+      "amount_basis": "text",
+      "known_date": "date_iso",
+      "actual_invoice_line_id": "text",
+      "status_asof": "text",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "schedule_line_id": false,
+      "planned_invoice_group_id": false,
+      "contract_id": false,
+      "client_id": false,
+      "service_id": false,
+      "scheduled_invoice_date": false,
+      "scheduled_due_date": false,
+      "scheduled_amount_usd": false,
+      "amount_basis": false,
+      "known_date": false,
+      "actual_invoice_line_id": true,
+      "status_asof": false,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/contracts/billing_schedule.csv"
+    ]
+  },
+  "timekeeping/projects": {
+    "fields": [
+      "project_id",
+      "client_id",
+      "contract_id",
+      "project_name",
+      "project_type",
+      "start_date",
+      "end_date",
+      "is_billable",
+      "original_hours_budget",
+      "original_cost_budget_usd",
+      "budget_basis"
+    ],
+    "grain": "One internal or contract delivery project",
+    "primary_key": [
+      "project_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "project_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "project_name": "text",
+      "project_type": "text",
+      "start_date": "date_iso",
+      "end_date": "date_iso",
+      "is_billable": "boolean",
+      "original_hours_budget": "decimal",
+      "original_cost_budget_usd": "decimal_usd_2dp",
+      "budget_basis": "text"
+    },
+    "nullable": {
+      "project_id": false,
+      "client_id": true,
+      "contract_id": true,
+      "project_name": false,
+      "project_type": false,
+      "start_date": false,
+      "end_date": false,
+      "is_billable": false,
+      "original_hours_budget": true,
+      "original_cost_budget_usd": true,
+      "budget_basis": false
+    },
+    "physical_files": [
+      "sources/timekeeping/projects.csv"
+    ]
+  },
+  "timekeeping/tasks": {
+    "fields": [
+      "task_id",
+      "task_name",
+      "is_billable",
+      "scope_class"
+    ],
+    "grain": "One reusable timekeeping task",
+    "primary_key": [
+      "task_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "task_id": "text",
+      "task_name": "text",
+      "is_billable": "boolean",
+      "scope_class": "text"
+    },
+    "nullable": {
+      "task_id": false,
+      "task_name": false,
+      "is_billable": false,
+      "scope_class": false
+    },
+    "physical_files": [
+      "sources/timekeeping/tasks.csv"
+    ]
+  },
+  "timekeeping/work_calendar": {
+    "fields": [
+      "calendar_date",
+      "is_weekday",
+      "company_holiday",
+      "standard_paid_hours"
+    ],
+    "grain": "One calendar date in historical window",
+    "primary_key": [
+      "calendar_date"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "calendar_date": "date_iso",
+      "is_weekday": "boolean",
+      "company_holiday": "boolean",
+      "standard_paid_hours": "decimal"
+    },
+    "nullable": {
+      "calendar_date": false,
+      "is_weekday": false,
+      "company_holiday": false,
+      "standard_paid_hours": false
+    },
+    "physical_files": [
+      "sources/timekeeping/work_calendar.csv"
+    ]
+  },
+  "timekeeping/daily_capacity": {
+    "fields": [
+      "capacity_id",
+      "employee_id",
+      "work_date",
+      "paid_capacity_hours",
+      "paid_time_off_hours",
+      "available_work_hours"
+    ],
+    "grain": "One active employee weekday, including paid leave",
+    "primary_key": [
+      "capacity_id"
+    ],
+    "notes": "",
+    "partition_column": "work_date",
+    "types": {
+      "capacity_id": "text",
+      "employee_id": "text",
+      "work_date": "date_iso",
+      "paid_capacity_hours": "decimal",
+      "paid_time_off_hours": "decimal",
+      "available_work_hours": "decimal"
+    },
+    "nullable": {
+      "capacity_id": false,
+      "employee_id": false,
+      "work_date": false,
+      "paid_capacity_hours": false,
+      "paid_time_off_hours": false,
+      "available_work_hours": false
+    },
+    "physical_files": [
+      "sources/timekeeping/daily_capacity/2024-11.csv",
+      "sources/timekeeping/daily_capacity/2024-12.csv",
+      "sources/timekeeping/daily_capacity/2025-01.csv",
+      "sources/timekeeping/daily_capacity/2025-02.csv",
+      "sources/timekeeping/daily_capacity/2025-03.csv",
+      "sources/timekeeping/daily_capacity/2025-04.csv",
+      "sources/timekeeping/daily_capacity/2025-05.csv",
+      "sources/timekeeping/daily_capacity/2025-06.csv",
+      "sources/timekeeping/daily_capacity/2025-07.csv",
+      "sources/timekeeping/daily_capacity/2025-08.csv",
+      "sources/timekeeping/daily_capacity/2025-09.csv",
+      "sources/timekeeping/daily_capacity/2025-10.csv",
+      "sources/timekeeping/daily_capacity/2025-11.csv",
+      "sources/timekeeping/daily_capacity/2025-12.csv",
+      "sources/timekeeping/daily_capacity/2026-01.csv",
+      "sources/timekeeping/daily_capacity/2026-02.csv",
+      "sources/timekeeping/daily_capacity/2026-03.csv",
+      "sources/timekeeping/daily_capacity/2026-04.csv",
+      "sources/timekeeping/daily_capacity/2026-05.csv",
+      "sources/timekeeping/daily_capacity/2026-06.csv",
+      "sources/timekeeping/daily_capacity/2026-07.csv",
+      "sources/timekeeping/daily_capacity/2026-08.csv",
+      "sources/timekeeping/daily_capacity/2026-09.csv",
+      "sources/timekeeping/daily_capacity/2026-10.csv"
+    ]
+  },
+  "timekeeping/time_off": {
+    "fields": [
+      "time_off_id",
+      "employee_id",
+      "off_date",
+      "hours",
+      "leave_type",
+      "approval_date",
+      "approval_status"
+    ],
+    "grain": "One approved paid-leave event",
+    "primary_key": [
+      "time_off_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "time_off_id": "text",
+      "employee_id": "text",
+      "off_date": "date_iso",
+      "hours": "decimal",
+      "leave_type": "text",
+      "approval_date": "date_iso",
+      "approval_status": "text"
+    },
+    "nullable": {
+      "time_off_id": false,
+      "employee_id": false,
+      "off_date": false,
+      "hours": false,
+      "leave_type": false,
+      "approval_date": false,
+      "approval_status": false
+    },
+    "physical_files": [
+      "sources/timekeeping/time_off.csv"
+    ]
+  },
+  "timekeeping/staff_allocations": {
+    "fields": [
+      "allocation_plan_id",
+      "employee_id",
+      "project_id",
+      "contract_id",
+      "service_month",
+      "planned_hours",
+      "approved_date",
+      "plan_version_id"
+    ],
+    "grain": "One frozen employee/project monthly allocation",
+    "primary_key": [
+      "allocation_plan_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "allocation_plan_id": "text",
+      "employee_id": "text",
+      "project_id": "text",
+      "contract_id": "text",
+      "service_month": "month_iso",
+      "planned_hours": "decimal",
+      "approved_date": "date_iso",
+      "plan_version_id": "text"
+    },
+    "nullable": {
+      "allocation_plan_id": false,
+      "employee_id": false,
+      "project_id": false,
+      "contract_id": false,
+      "service_month": false,
+      "planned_hours": false,
+      "approved_date": false,
+      "plan_version_id": false
+    },
+    "physical_files": [
+      "sources/timekeeping/staff_allocations.csv"
+    ]
+  },
+  "timekeeping/timesheets": {
+    "fields": [
+      "time_entry_id",
+      "employee_id",
+      "role",
+      "project_id",
+      "task_id",
+      "client_id",
+      "contract_id",
+      "work_date",
+      "hours",
+      "billable",
+      "approval_status",
+      "approved_date",
+      "billing_treatment",
+      "rate_card_id",
+      "billable_rate_usd",
+      "is_scope_rework"
+    ],
+    "grain": "One actual employee/task time entry",
+    "primary_key": [
+      "time_entry_id"
+    ],
+    "notes": "Retainer and fixed-fee billable time does not generate extra hourly invoices.",
+    "partition_column": "work_date",
+    "types": {
+      "time_entry_id": "text",
+      "employee_id": "text",
+      "role": "text",
+      "project_id": "text",
+      "task_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "work_date": "date_iso",
+      "hours": "decimal",
+      "billable": "boolean",
+      "approval_status": "text",
+      "approved_date": "date_iso",
+      "billing_treatment": "text",
+      "rate_card_id": "text",
+      "billable_rate_usd": "decimal_usd_2dp",
+      "is_scope_rework": "boolean"
+    },
+    "nullable": {
+      "time_entry_id": false,
+      "employee_id": false,
+      "role": false,
+      "project_id": false,
+      "task_id": false,
+      "client_id": true,
+      "contract_id": true,
+      "work_date": false,
+      "hours": false,
+      "billable": false,
+      "approval_status": false,
+      "approved_date": true,
+      "billing_treatment": false,
+      "rate_card_id": true,
+      "billable_rate_usd": true,
+      "is_scope_rework": false
+    },
+    "physical_files": [
+      "sources/timekeeping/timesheets/2024-11.csv",
+      "sources/timekeeping/timesheets/2024-12.csv",
+      "sources/timekeeping/timesheets/2025-01.csv",
+      "sources/timekeeping/timesheets/2025-02.csv",
+      "sources/timekeeping/timesheets/2025-03.csv",
+      "sources/timekeeping/timesheets/2025-04.csv",
+      "sources/timekeeping/timesheets/2025-05.csv",
+      "sources/timekeeping/timesheets/2025-06.csv",
+      "sources/timekeeping/timesheets/2025-07.csv",
+      "sources/timekeeping/timesheets/2025-08.csv",
+      "sources/timekeeping/timesheets/2025-09.csv",
+      "sources/timekeeping/timesheets/2025-10.csv",
+      "sources/timekeeping/timesheets/2025-11.csv",
+      "sources/timekeeping/timesheets/2025-12.csv",
+      "sources/timekeeping/timesheets/2026-01.csv",
+      "sources/timekeeping/timesheets/2026-02.csv",
+      "sources/timekeeping/timesheets/2026-03.csv",
+      "sources/timekeeping/timesheets/2026-04.csv",
+      "sources/timekeeping/timesheets/2026-05.csv",
+      "sources/timekeeping/timesheets/2026-06.csv",
+      "sources/timekeeping/timesheets/2026-07.csv",
+      "sources/timekeeping/timesheets/2026-08.csv",
+      "sources/timekeeping/timesheets/2026-09.csv",
+      "sources/timekeeping/timesheets/2026-10.csv"
+    ]
+  },
+  "gusto/employees": {
+    "fields": [
+      "employee_id",
+      "employee_name",
+      "email",
+      "role",
+      "department",
+      "cost_class",
+      "hire_date",
+      "termination_date",
+      "employment_type",
+      "standard_week_hours"
+    ],
+    "grain": "One fictional employee across entire roster history",
+    "primary_key": [
+      "employee_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "employee_id": "text",
+      "employee_name": "text",
+      "email": "text",
+      "role": "text",
+      "department": "text",
+      "cost_class": "text",
+      "hire_date": "date_iso",
+      "termination_date": "date_iso",
+      "employment_type": "text",
+      "standard_week_hours": "decimal"
+    },
+    "nullable": {
+      "employee_id": false,
+      "employee_name": false,
+      "email": false,
+      "role": false,
+      "department": false,
+      "cost_class": false,
+      "hire_date": false,
+      "termination_date": true,
+      "employment_type": false,
+      "standard_week_hours": false
+    },
+    "physical_files": [
+      "sources/gusto/employees.csv"
+    ]
+  },
+  "gusto/compensation_rates": {
+    "fields": [
+      "compensation_id",
+      "employee_id",
+      "effective_start_date",
+      "effective_end_date",
+      "annual_salary_usd",
+      "withholding_rate",
+      "employer_tax_rate",
+      "monthly_employer_benefit_usd",
+      "approved_date"
+    ],
+    "grain": "One effective salary interval; all tax parameters are synthetic",
+    "primary_key": [
+      "compensation_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "compensation_id": "text",
+      "employee_id": "text",
+      "effective_start_date": "date_iso",
+      "effective_end_date": "date_iso",
+      "annual_salary_usd": "decimal_usd_2dp",
+      "withholding_rate": "decimal",
+      "employer_tax_rate": "decimal",
+      "monthly_employer_benefit_usd": "decimal_usd_2dp",
+      "approved_date": "date_iso"
+    },
+    "nullable": {
+      "compensation_id": false,
+      "employee_id": false,
+      "effective_start_date": false,
+      "effective_end_date": false,
+      "annual_salary_usd": false,
+      "withholding_rate": false,
+      "employer_tax_rate": false,
+      "monthly_employer_benefit_usd": false,
+      "approved_date": false
+    },
+    "physical_files": [
+      "sources/gusto/compensation_rates.csv"
+    ]
+  },
+  "gusto/payroll_runs": {
+    "fields": [
+      "payroll_run_id",
+      "earned_start_date",
+      "earned_end_date",
+      "scheduled_funding_date",
+      "actual_funding_date",
+      "record_scope",
+      "gross_pay_usd",
+      "employee_withholding_usd",
+      "employer_tax_usd",
+      "employer_benefit_usd",
+      "net_pay_usd",
+      "total_employer_cost_usd",
+      "funding_id"
+    ],
+    "grain": "One semimonthly payroll, with one opening run",
+    "primary_key": [
+      "payroll_run_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "payroll_run_id": "text",
+      "earned_start_date": "date_iso",
+      "earned_end_date": "date_iso",
+      "scheduled_funding_date": "date_iso",
+      "actual_funding_date": "date_iso",
+      "record_scope": "text",
+      "gross_pay_usd": "decimal_usd_2dp",
+      "employee_withholding_usd": "decimal_usd_2dp",
+      "employer_tax_usd": "decimal_usd_2dp",
+      "employer_benefit_usd": "decimal_usd_2dp",
+      "net_pay_usd": "decimal_usd_2dp",
+      "total_employer_cost_usd": "decimal_usd_2dp",
+      "funding_id": "text"
+    },
+    "nullable": {
+      "payroll_run_id": false,
+      "earned_start_date": false,
+      "earned_end_date": false,
+      "scheduled_funding_date": false,
+      "actual_funding_date": true,
+      "record_scope": false,
+      "gross_pay_usd": false,
+      "employee_withholding_usd": false,
+      "employer_tax_usd": false,
+      "employer_benefit_usd": false,
+      "net_pay_usd": false,
+      "total_employer_cost_usd": false,
+      "funding_id": true
+    },
+    "physical_files": [
+      "sources/gusto/payroll_runs.csv"
+    ]
+  },
+  "gusto/payroll_earnings": {
+    "fields": [
+      "payroll_earning_id",
+      "payroll_run_id",
+      "employee_id",
+      "compensation_id",
+      "earned_start_date",
+      "earned_end_date",
+      "record_scope",
+      "gross_pay_usd",
+      "employee_withholding_usd",
+      "employer_tax_usd",
+      "employer_benefit_usd",
+      "net_pay_usd",
+      "total_employer_cost_usd",
+      "journal_id"
+    ],
+    "grain": "One employee/payroll-period earning",
+    "primary_key": [
+      "payroll_earning_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "payroll_earning_id": "text",
+      "payroll_run_id": "text",
+      "employee_id": "text",
+      "compensation_id": "text",
+      "earned_start_date": "date_iso",
+      "earned_end_date": "date_iso",
+      "record_scope": "text",
+      "gross_pay_usd": "decimal_usd_2dp",
+      "employee_withholding_usd": "decimal_usd_2dp",
+      "employer_tax_usd": "decimal_usd_2dp",
+      "employer_benefit_usd": "decimal_usd_2dp",
+      "net_pay_usd": "decimal_usd_2dp",
+      "total_employer_cost_usd": "decimal_usd_2dp",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "payroll_earning_id": false,
+      "payroll_run_id": false,
+      "employee_id": false,
+      "compensation_id": false,
+      "earned_start_date": false,
+      "earned_end_date": false,
+      "record_scope": false,
+      "gross_pay_usd": false,
+      "employee_withholding_usd": false,
+      "employer_tax_usd": false,
+      "employer_benefit_usd": false,
+      "net_pay_usd": false,
+      "total_employer_cost_usd": false,
+      "journal_id": true
+    },
+    "physical_files": [
+      "sources/gusto/payroll_earnings.csv"
+    ]
+  },
+  "gusto/payroll_funding": {
+    "fields": [
+      "funding_id",
+      "payroll_run_id",
+      "funding_date",
+      "net_pay_usd",
+      "employee_withholding_usd",
+      "employer_tax_usd",
+      "employer_benefit_usd",
+      "bank_debit_usd",
+      "bank_transaction_id",
+      "journal_id"
+    ],
+    "grain": "One actual payroll-provider bank funding",
+    "primary_key": [
+      "funding_id"
+    ],
+    "notes": "Provider remits tax/benefits from this debit; do not add another tax cash payment.",
+    "partition_column": "",
+    "types": {
+      "funding_id": "text",
+      "payroll_run_id": "text",
+      "funding_date": "date_iso",
+      "net_pay_usd": "decimal_usd_2dp",
+      "employee_withholding_usd": "decimal_usd_2dp",
+      "employer_tax_usd": "decimal_usd_2dp",
+      "employer_benefit_usd": "decimal_usd_2dp",
+      "bank_debit_usd": "decimal_usd_2dp",
+      "bank_transaction_id": "text",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "funding_id": false,
+      "payroll_run_id": false,
+      "funding_date": false,
+      "net_pay_usd": false,
+      "employee_withholding_usd": false,
+      "employer_tax_usd": false,
+      "employer_benefit_usd": false,
+      "bank_debit_usd": false,
+      "bank_transaction_id": false,
+      "journal_id": false
+    },
+    "physical_files": [
+      "sources/gusto/payroll_funding.csv"
+    ]
+  },
+  "gusto/cost_allocations": {
+    "fields": [
+      "cost_allocation_id",
+      "payroll_earning_id",
+      "payroll_run_id",
+      "employee_id",
+      "project_id",
+      "client_id",
+      "contract_id",
+      "service_month",
+      "allocation_category",
+      "basis_hours",
+      "period_paid_hours",
+      "allocated_employer_cost_usd",
+      "is_additional_gl_expense"
+    ],
+    "grain": "One employee/payroll-period/project-or-overhead cost allocation",
+    "primary_key": [
+      "cost_allocation_id"
+    ],
+    "notes": "Secondary view of already-posted payroll, not an additional expense.",
+    "partition_column": "",
+    "types": {
+      "cost_allocation_id": "text",
+      "payroll_earning_id": "text",
+      "payroll_run_id": "text",
+      "employee_id": "text",
+      "project_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "service_month": "month_iso",
+      "allocation_category": "text",
+      "basis_hours": "decimal",
+      "period_paid_hours": "decimal",
+      "allocated_employer_cost_usd": "decimal_usd_2dp",
+      "is_additional_gl_expense": "boolean"
+    },
+    "nullable": {
+      "cost_allocation_id": false,
+      "payroll_earning_id": false,
+      "payroll_run_id": false,
+      "employee_id": false,
+      "project_id": false,
+      "client_id": true,
+      "contract_id": true,
+      "service_month": false,
+      "allocation_category": false,
+      "basis_hours": false,
+      "period_paid_hours": false,
+      "allocated_employer_cost_usd": false,
+      "is_additional_gl_expense": false
+    },
+    "physical_files": [
+      "sources/gusto/cost_allocations.csv"
+    ]
+  },
+  "freelancers/contractors": {
+    "fields": [
+      "contractor_id",
+      "vendor_id",
+      "contractor_name",
+      "email",
+      "role",
+      "status_asof",
+      "payment_terms_days"
+    ],
+    "grain": "One freelance supplier",
+    "primary_key": [
+      "contractor_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "contractor_id": "text",
+      "vendor_id": "text",
+      "contractor_name": "text",
+      "email": "text",
+      "role": "text",
+      "status_asof": "text",
+      "payment_terms_days": "integer"
+    },
+    "nullable": {
+      "contractor_id": false,
+      "vendor_id": false,
+      "contractor_name": false,
+      "email": false,
+      "role": false,
+      "status_asof": false,
+      "payment_terms_days": false
+    },
+    "physical_files": [
+      "sources/freelancers/contractors.csv"
+    ]
+  },
+  "freelancers/rate_history": {
+    "fields": [
+      "contractor_rate_id",
+      "contractor_id",
+      "effective_start_date",
+      "effective_end_date",
+      "hourly_cost_rate_usd",
+      "approved_date",
+      "reason"
+    ],
+    "grain": "One effective freelance cost-rate interval",
+    "primary_key": [
+      "contractor_rate_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "contractor_rate_id": "text",
+      "contractor_id": "text",
+      "effective_start_date": "date_iso",
+      "effective_end_date": "date_iso",
+      "hourly_cost_rate_usd": "decimal_usd_2dp",
+      "approved_date": "date_iso",
+      "reason": "text"
+    },
+    "nullable": {
+      "contractor_rate_id": false,
+      "contractor_id": false,
+      "effective_start_date": false,
+      "effective_end_date": false,
+      "hourly_cost_rate_usd": false,
+      "approved_date": false,
+      "reason": false
+    },
+    "physical_files": [
+      "sources/freelancers/rate_history.csv"
+    ]
+  },
+  "freelancers/work_orders": {
+    "fields": [
+      "work_order_id",
+      "contractor_id",
+      "contract_id",
+      "project_id",
+      "client_id",
+      "service_month",
+      "approved_date",
+      "budget_hours",
+      "budget_cost_usd",
+      "status_asof"
+    ],
+    "grain": "One monthly approved freelance work authorization",
+    "primary_key": [
+      "work_order_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "work_order_id": "text",
+      "contractor_id": "text",
+      "contract_id": "text",
+      "project_id": "text",
+      "client_id": "text",
+      "service_month": "month_iso",
+      "approved_date": "date_iso",
+      "budget_hours": "decimal",
+      "budget_cost_usd": "decimal_usd_2dp",
+      "status_asof": "text"
+    },
+    "nullable": {
+      "work_order_id": false,
+      "contractor_id": false,
+      "contract_id": false,
+      "project_id": false,
+      "client_id": false,
+      "service_month": false,
+      "approved_date": false,
+      "budget_hours": false,
+      "budget_cost_usd": false,
+      "status_asof": false
+    },
+    "physical_files": [
+      "sources/freelancers/work_orders.csv"
+    ]
+  },
+  "freelancers/approved_work": {
+    "fields": [
+      "approved_work_id",
+      "work_order_id",
+      "contractor_id",
+      "contractor_rate_id",
+      "project_id",
+      "contract_id",
+      "client_id",
+      "service_month",
+      "service_start_date",
+      "service_end_date",
+      "approved_date",
+      "approved_hours",
+      "hourly_cost_rate_usd",
+      "earned_cost_usd",
+      "deliverable",
+      "contractor_invoice_id",
+      "journal_id"
+    ],
+    "grain": "One accepted freelance work item/earned cost",
+    "primary_key": [
+      "approved_work_id"
+    ],
+    "notes": "Expense arises here once; subsequent QB bill clears accrued contractor cost.",
+    "partition_column": "",
+    "types": {
+      "approved_work_id": "text",
+      "work_order_id": "text",
+      "contractor_id": "text",
+      "contractor_rate_id": "text",
+      "project_id": "text",
+      "contract_id": "text",
+      "client_id": "text",
+      "service_month": "month_iso",
+      "service_start_date": "date_iso",
+      "service_end_date": "date_iso",
+      "approved_date": "date_iso",
+      "approved_hours": "decimal",
+      "hourly_cost_rate_usd": "decimal_usd_2dp",
+      "earned_cost_usd": "decimal_usd_2dp",
+      "deliverable": "text",
+      "contractor_invoice_id": "text",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "approved_work_id": false,
+      "work_order_id": false,
+      "contractor_id": false,
+      "contractor_rate_id": false,
+      "project_id": false,
+      "contract_id": false,
+      "client_id": false,
+      "service_month": false,
+      "service_start_date": false,
+      "service_end_date": false,
+      "approved_date": false,
+      "approved_hours": false,
+      "hourly_cost_rate_usd": false,
+      "earned_cost_usd": false,
+      "deliverable": false,
+      "contractor_invoice_id": true,
+      "journal_id": false
+    },
+    "physical_files": [
+      "sources/freelancers/approved_work.csv"
+    ]
+  },
+  "freelancers/invoices": {
+    "fields": [
+      "contractor_invoice_id",
+      "contractor_id",
+      "invoice_date",
+      "due_date",
+      "service_month",
+      "invoice_total_usd",
+      "accounting_bill_id",
+      "status_asof"
+    ],
+    "grain": "One received freelancer invoice",
+    "primary_key": [
+      "contractor_invoice_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "contractor_invoice_id": "text",
+      "contractor_id": "text",
+      "invoice_date": "date_iso",
+      "due_date": "date_iso",
+      "service_month": "month_iso",
+      "invoice_total_usd": "decimal_usd_2dp",
+      "accounting_bill_id": "text",
+      "status_asof": "text"
+    },
+    "nullable": {
+      "contractor_invoice_id": false,
+      "contractor_id": false,
+      "invoice_date": false,
+      "due_date": false,
+      "service_month": false,
+      "invoice_total_usd": false,
+      "accounting_bill_id": false,
+      "status_asof": false
+    },
+    "physical_files": [
+      "sources/freelancers/invoices.csv"
+    ]
+  },
+  "freelancers/invoice_lines": {
+    "fields": [
+      "contractor_invoice_line_id",
+      "contractor_invoice_id",
+      "approved_work_id",
+      "work_order_id",
+      "line_amount_usd",
+      "accounting_bill_line_id"
+    ],
+    "grain": "One invoiced accepted-work reference",
+    "primary_key": [
+      "contractor_invoice_line_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "contractor_invoice_line_id": "text",
+      "contractor_invoice_id": "text",
+      "approved_work_id": "text",
+      "work_order_id": "text",
+      "line_amount_usd": "decimal_usd_2dp",
+      "accounting_bill_line_id": "text"
+    },
+    "nullable": {
+      "contractor_invoice_line_id": false,
+      "contractor_invoice_id": false,
+      "approved_work_id": false,
+      "work_order_id": false,
+      "line_amount_usd": false,
+      "accounting_bill_line_id": false
+    },
+    "physical_files": [
+      "sources/freelancers/invoice_lines.csv"
+    ]
+  },
+  "meta_ads/ad_accounts": {
+    "fields": [
+      "ad_account_id",
+      "client_id",
+      "account_name",
+      "account_owner",
+      "payer_client_id",
+      "funding_responsibility",
+      "agency_pays_platform",
+      "currency",
+      "timezone"
+    ],
+    "grain": "One client-owned advertising account",
+    "primary_key": [
+      "ad_account_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "ad_account_id": "text",
+      "client_id": "text",
+      "account_name": "text",
+      "account_owner": "text",
+      "payer_client_id": "text",
+      "funding_responsibility": "text",
+      "agency_pays_platform": "boolean",
+      "currency": "text",
+      "timezone": "text"
+    },
+    "nullable": {
+      "ad_account_id": false,
+      "client_id": false,
+      "account_name": false,
+      "account_owner": false,
+      "payer_client_id": false,
+      "funding_responsibility": false,
+      "agency_pays_platform": false,
+      "currency": false,
+      "timezone": false
+    },
+    "physical_files": [
+      "sources/meta_ads/ad_accounts.csv"
+    ]
+  },
+  "meta_ads/campaigns": {
+    "fields": [
+      "campaign_id",
+      "ad_account_id",
+      "client_id",
+      "campaign_name",
+      "objective",
+      "start_date",
+      "end_date",
+      "attribution_model",
+      "attribution_window",
+      "conversion_unit"
+    ],
+    "grain": "One client campaign",
+    "primary_key": [
+      "campaign_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "campaign_id": "text",
+      "ad_account_id": "text",
+      "client_id": "text",
+      "campaign_name": "text",
+      "objective": "text",
+      "start_date": "date_iso",
+      "end_date": "date_iso",
+      "attribution_model": "text",
+      "attribution_window": "text",
+      "conversion_unit": "text"
+    },
+    "nullable": {
+      "campaign_id": false,
+      "ad_account_id": false,
+      "client_id": false,
+      "campaign_name": false,
+      "objective": false,
+      "start_date": false,
+      "end_date": false,
+      "attribution_model": false,
+      "attribution_window": false,
+      "conversion_unit": false
+    },
+    "physical_files": [
+      "sources/meta_ads/campaigns.csv"
+    ]
+  },
+  "meta_ads/campaign_contract_map": {
+    "fields": [
+      "mapping_id",
+      "campaign_id",
+      "ad_account_id",
+      "client_id",
+      "contract_id",
+      "effective_start_date",
+      "effective_end_date"
+    ],
+    "grain": "One campaign/management-SOW effective interval",
+    "primary_key": [
+      "mapping_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "mapping_id": "text",
+      "campaign_id": "text",
+      "ad_account_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "effective_start_date": "date_iso",
+      "effective_end_date": "date_iso"
+    },
+    "nullable": {
+      "mapping_id": false,
+      "campaign_id": false,
+      "ad_account_id": false,
+      "client_id": false,
+      "contract_id": false,
+      "effective_start_date": false,
+      "effective_end_date": false
+    },
+    "physical_files": [
+      "sources/meta_ads/campaign_contract_map.csv"
+    ]
+  },
+  "meta_ads/daily_metrics": {
+    "fields": [
+      "metric_id",
+      "metric_date",
+      "campaign_id",
+      "ad_account_id",
+      "client_id",
+      "contract_id",
+      "payer_client_id",
+      "funding_responsibility",
+      "spend_usd",
+      "impressions",
+      "clicks",
+      "attributed_conversions",
+      "attributed_conversion_value_usd",
+      "currency"
+    ],
+    "grain": "One campaign/day/platform observation",
+    "primary_key": [
+      "metric_id"
+    ],
+    "notes": "Platform attribution can overlap across platforms; values are not agency sales.",
+    "partition_column": "metric_date",
+    "types": {
+      "metric_id": "text",
+      "metric_date": "date_iso",
+      "campaign_id": "text",
+      "ad_account_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "payer_client_id": "text",
+      "funding_responsibility": "text",
+      "spend_usd": "decimal_usd_2dp",
+      "impressions": "integer",
+      "clicks": "integer",
+      "attributed_conversions": "decimal",
+      "attributed_conversion_value_usd": "decimal_usd_2dp",
+      "currency": "text"
+    },
+    "nullable": {
+      "metric_id": false,
+      "metric_date": false,
+      "campaign_id": false,
+      "ad_account_id": false,
+      "client_id": false,
+      "contract_id": false,
+      "payer_client_id": false,
+      "funding_responsibility": false,
+      "spend_usd": false,
+      "impressions": false,
+      "clicks": false,
+      "attributed_conversions": false,
+      "attributed_conversion_value_usd": false,
+      "currency": false
+    },
+    "physical_files": [
+      "sources/meta_ads/daily_metrics/2024-11.csv",
+      "sources/meta_ads/daily_metrics/2024-12.csv",
+      "sources/meta_ads/daily_metrics/2025-01.csv",
+      "sources/meta_ads/daily_metrics/2025-02.csv",
+      "sources/meta_ads/daily_metrics/2025-03.csv",
+      "sources/meta_ads/daily_metrics/2025-04.csv",
+      "sources/meta_ads/daily_metrics/2025-05.csv",
+      "sources/meta_ads/daily_metrics/2025-06.csv",
+      "sources/meta_ads/daily_metrics/2025-07.csv",
+      "sources/meta_ads/daily_metrics/2025-08.csv",
+      "sources/meta_ads/daily_metrics/2025-09.csv",
+      "sources/meta_ads/daily_metrics/2025-10.csv",
+      "sources/meta_ads/daily_metrics/2025-11.csv",
+      "sources/meta_ads/daily_metrics/2025-12.csv",
+      "sources/meta_ads/daily_metrics/2026-01.csv",
+      "sources/meta_ads/daily_metrics/2026-02.csv",
+      "sources/meta_ads/daily_metrics/2026-03.csv",
+      "sources/meta_ads/daily_metrics/2026-04.csv",
+      "sources/meta_ads/daily_metrics/2026-05.csv",
+      "sources/meta_ads/daily_metrics/2026-06.csv",
+      "sources/meta_ads/daily_metrics/2026-07.csv",
+      "sources/meta_ads/daily_metrics/2026-08.csv",
+      "sources/meta_ads/daily_metrics/2026-09.csv",
+      "sources/meta_ads/daily_metrics/2026-10.csv"
+    ]
+  },
+  "meta_ads/monthly_billing": {
+    "fields": [
+      "platform_statement_id",
+      "ad_account_id",
+      "client_id",
+      "service_month",
+      "statement_date",
+      "media_spend_usd",
+      "payer_client_id",
+      "funding_responsibility",
+      "agency_cash_amount_usd",
+      "client_payment_status"
+    ],
+    "grain": "One analytical monthly client platform-spend statement",
+    "primary_key": [
+      "platform_statement_id"
+    ],
+    "notes": "Monthly consolidation is a synthetic simplification; client bank settlement is not observed.",
+    "partition_column": "",
+    "types": {
+      "platform_statement_id": "text",
+      "ad_account_id": "text",
+      "client_id": "text",
+      "service_month": "month_iso",
+      "statement_date": "date_iso",
+      "media_spend_usd": "decimal_usd_2dp",
+      "payer_client_id": "text",
+      "funding_responsibility": "text",
+      "agency_cash_amount_usd": "decimal_usd_2dp",
+      "client_payment_status": "text"
+    },
+    "nullable": {
+      "platform_statement_id": false,
+      "ad_account_id": false,
+      "client_id": false,
+      "service_month": false,
+      "statement_date": false,
+      "media_spend_usd": false,
+      "payer_client_id": false,
+      "funding_responsibility": false,
+      "agency_cash_amount_usd": false,
+      "client_payment_status": false
+    },
+    "physical_files": [
+      "sources/meta_ads/monthly_billing.csv"
+    ]
+  },
+  "google_ads/ad_accounts": {
+    "fields": [
+      "ad_account_id",
+      "client_id",
+      "account_name",
+      "account_owner",
+      "payer_client_id",
+      "funding_responsibility",
+      "agency_pays_platform",
+      "currency",
+      "timezone"
+    ],
+    "grain": "One client-owned advertising account",
+    "primary_key": [
+      "ad_account_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "ad_account_id": "text",
+      "client_id": "text",
+      "account_name": "text",
+      "account_owner": "text",
+      "payer_client_id": "text",
+      "funding_responsibility": "text",
+      "agency_pays_platform": "boolean",
+      "currency": "text",
+      "timezone": "text"
+    },
+    "nullable": {
+      "ad_account_id": false,
+      "client_id": false,
+      "account_name": false,
+      "account_owner": false,
+      "payer_client_id": false,
+      "funding_responsibility": false,
+      "agency_pays_platform": false,
+      "currency": false,
+      "timezone": false
+    },
+    "physical_files": [
+      "sources/google_ads/ad_accounts.csv"
+    ]
+  },
+  "google_ads/campaigns": {
+    "fields": [
+      "campaign_id",
+      "ad_account_id",
+      "client_id",
+      "campaign_name",
+      "objective",
+      "start_date",
+      "end_date",
+      "attribution_model",
+      "attribution_window",
+      "conversion_unit"
+    ],
+    "grain": "One client campaign",
+    "primary_key": [
+      "campaign_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "campaign_id": "text",
+      "ad_account_id": "text",
+      "client_id": "text",
+      "campaign_name": "text",
+      "objective": "text",
+      "start_date": "date_iso",
+      "end_date": "date_iso",
+      "attribution_model": "text",
+      "attribution_window": "text",
+      "conversion_unit": "text"
+    },
+    "nullable": {
+      "campaign_id": false,
+      "ad_account_id": false,
+      "client_id": false,
+      "campaign_name": false,
+      "objective": false,
+      "start_date": false,
+      "end_date": false,
+      "attribution_model": false,
+      "attribution_window": false,
+      "conversion_unit": false
+    },
+    "physical_files": [
+      "sources/google_ads/campaigns.csv"
+    ]
+  },
+  "google_ads/campaign_contract_map": {
+    "fields": [
+      "mapping_id",
+      "campaign_id",
+      "ad_account_id",
+      "client_id",
+      "contract_id",
+      "effective_start_date",
+      "effective_end_date"
+    ],
+    "grain": "One campaign/management-SOW effective interval",
+    "primary_key": [
+      "mapping_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "mapping_id": "text",
+      "campaign_id": "text",
+      "ad_account_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "effective_start_date": "date_iso",
+      "effective_end_date": "date_iso"
+    },
+    "nullable": {
+      "mapping_id": false,
+      "campaign_id": false,
+      "ad_account_id": false,
+      "client_id": false,
+      "contract_id": false,
+      "effective_start_date": false,
+      "effective_end_date": false
+    },
+    "physical_files": [
+      "sources/google_ads/campaign_contract_map.csv"
+    ]
+  },
+  "google_ads/daily_metrics": {
+    "fields": [
+      "metric_id",
+      "metric_date",
+      "campaign_id",
+      "ad_account_id",
+      "client_id",
+      "contract_id",
+      "payer_client_id",
+      "funding_responsibility",
+      "spend_usd",
+      "cost_micros",
+      "impressions",
+      "clicks",
+      "attributed_conversions",
+      "attributed_conversion_value_usd",
+      "currency"
+    ],
+    "grain": "One campaign/day/platform observation",
+    "primary_key": [
+      "metric_id"
+    ],
+    "notes": "Platform attribution can overlap across platforms; values are not agency sales.",
+    "partition_column": "metric_date",
+    "types": {
+      "metric_id": "text",
+      "metric_date": "date_iso",
+      "campaign_id": "text",
+      "ad_account_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "payer_client_id": "text",
+      "funding_responsibility": "text",
+      "spend_usd": "decimal_usd_2dp",
+      "cost_micros": "integer",
+      "impressions": "integer",
+      "clicks": "integer",
+      "attributed_conversions": "decimal",
+      "attributed_conversion_value_usd": "decimal_usd_2dp",
+      "currency": "text"
+    },
+    "nullable": {
+      "metric_id": false,
+      "metric_date": false,
+      "campaign_id": false,
+      "ad_account_id": false,
+      "client_id": false,
+      "contract_id": false,
+      "payer_client_id": false,
+      "funding_responsibility": false,
+      "spend_usd": false,
+      "cost_micros": false,
+      "impressions": false,
+      "clicks": false,
+      "attributed_conversions": false,
+      "attributed_conversion_value_usd": false,
+      "currency": false
+    },
+    "physical_files": [
+      "sources/google_ads/daily_metrics/2024-11.csv",
+      "sources/google_ads/daily_metrics/2024-12.csv",
+      "sources/google_ads/daily_metrics/2025-01.csv",
+      "sources/google_ads/daily_metrics/2025-02.csv",
+      "sources/google_ads/daily_metrics/2025-03.csv",
+      "sources/google_ads/daily_metrics/2025-04.csv",
+      "sources/google_ads/daily_metrics/2025-05.csv",
+      "sources/google_ads/daily_metrics/2025-06.csv",
+      "sources/google_ads/daily_metrics/2025-07.csv",
+      "sources/google_ads/daily_metrics/2025-08.csv",
+      "sources/google_ads/daily_metrics/2025-09.csv",
+      "sources/google_ads/daily_metrics/2025-10.csv",
+      "sources/google_ads/daily_metrics/2025-11.csv",
+      "sources/google_ads/daily_metrics/2025-12.csv",
+      "sources/google_ads/daily_metrics/2026-01.csv",
+      "sources/google_ads/daily_metrics/2026-02.csv",
+      "sources/google_ads/daily_metrics/2026-03.csv",
+      "sources/google_ads/daily_metrics/2026-04.csv",
+      "sources/google_ads/daily_metrics/2026-05.csv",
+      "sources/google_ads/daily_metrics/2026-06.csv",
+      "sources/google_ads/daily_metrics/2026-07.csv",
+      "sources/google_ads/daily_metrics/2026-08.csv",
+      "sources/google_ads/daily_metrics/2026-09.csv",
+      "sources/google_ads/daily_metrics/2026-10.csv"
+    ]
+  },
+  "google_ads/monthly_billing": {
+    "fields": [
+      "platform_statement_id",
+      "ad_account_id",
+      "client_id",
+      "service_month",
+      "statement_date",
+      "media_spend_usd",
+      "payer_client_id",
+      "funding_responsibility",
+      "agency_cash_amount_usd",
+      "client_payment_status"
+    ],
+    "grain": "One analytical monthly client platform-spend statement",
+    "primary_key": [
+      "platform_statement_id"
+    ],
+    "notes": "Monthly consolidation is a synthetic simplification; client bank settlement is not observed.",
+    "partition_column": "",
+    "types": {
+      "platform_statement_id": "text",
+      "ad_account_id": "text",
+      "client_id": "text",
+      "service_month": "month_iso",
+      "statement_date": "date_iso",
+      "media_spend_usd": "decimal_usd_2dp",
+      "payer_client_id": "text",
+      "funding_responsibility": "text",
+      "agency_cash_amount_usd": "decimal_usd_2dp",
+      "client_payment_status": "text"
+    },
+    "nullable": {
+      "platform_statement_id": false,
+      "ad_account_id": false,
+      "client_id": false,
+      "service_month": false,
+      "statement_date": false,
+      "media_spend_usd": false,
+      "payer_client_id": false,
+      "funding_responsibility": false,
+      "agency_cash_amount_usd": false,
+      "client_payment_status": false
+    },
+    "physical_files": [
+      "sources/google_ads/monthly_billing.csv"
+    ]
+  },
+  "delivery/service_obligations": {
+    "fields": [
+      "service_id",
+      "contract_id",
+      "client_id",
+      "project_id",
+      "service_type",
+      "service_month",
+      "service_start_date",
+      "service_end_date",
+      "planned_approval_date",
+      "actual_approved_date",
+      "agreed_minimum_fee_usd",
+      "approved_fee_usd",
+      "approved_hours",
+      "rate_card_basis",
+      "recognition_status",
+      "record_scope"
+    ],
+    "grain": "One priced monthly service or approved milestone; includes signed future obligations",
+    "primary_key": [
+      "service_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "service_id": "text",
+      "contract_id": "text",
+      "client_id": "text",
+      "project_id": "text",
+      "service_type": "text",
+      "service_month": "month_iso",
+      "service_start_date": "date_iso",
+      "service_end_date": "date_iso",
+      "planned_approval_date": "date_iso",
+      "actual_approved_date": "date_iso",
+      "agreed_minimum_fee_usd": "decimal_usd_2dp",
+      "approved_fee_usd": "decimal_usd_2dp",
+      "approved_hours": "decimal",
+      "rate_card_basis": "text",
+      "recognition_status": "text",
+      "record_scope": "text"
+    },
+    "nullable": {
+      "service_id": false,
+      "contract_id": false,
+      "client_id": false,
+      "project_id": false,
+      "service_type": false,
+      "service_month": false,
+      "service_start_date": false,
+      "service_end_date": false,
+      "planned_approval_date": false,
+      "actual_approved_date": true,
+      "agreed_minimum_fee_usd": false,
+      "approved_fee_usd": true,
+      "approved_hours": true,
+      "rate_card_basis": false,
+      "recognition_status": false,
+      "record_scope": false
+    },
+    "physical_files": [
+      "sources/delivery/service_obligations.csv"
+    ]
+  },
+  "delivery/recognition_events": {
+    "fields": [
+      "recognition_id",
+      "service_id",
+      "contract_id",
+      "client_id",
+      "project_id",
+      "recognition_date",
+      "service_month",
+      "recognition_type",
+      "revenue_account_id",
+      "recognized_fee_usd",
+      "earned_from_deferred_usd",
+      "earned_to_unbilled_usd",
+      "credit_note_id",
+      "journal_id"
+    ],
+    "grain": "One actual earning or fee-concession event",
+    "primary_key": [
+      "recognition_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "recognition_id": "text",
+      "service_id": "text",
+      "contract_id": "text",
+      "client_id": "text",
+      "project_id": "text",
+      "recognition_date": "date_iso",
+      "service_month": "month_iso",
+      "recognition_type": "text",
+      "revenue_account_id": "text",
+      "recognized_fee_usd": "decimal_usd_2dp",
+      "earned_from_deferred_usd": "decimal_usd_2dp",
+      "earned_to_unbilled_usd": "decimal_usd_2dp",
+      "credit_note_id": "text",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "recognition_id": false,
+      "service_id": false,
+      "contract_id": false,
+      "client_id": false,
+      "project_id": false,
+      "recognition_date": false,
+      "service_month": false,
+      "recognition_type": false,
+      "revenue_account_id": false,
+      "recognized_fee_usd": false,
+      "earned_from_deferred_usd": false,
+      "earned_to_unbilled_usd": false,
+      "credit_note_id": true,
+      "journal_id": false
+    },
+    "physical_files": [
+      "sources/delivery/recognition_events.csv"
+    ]
+  },
+  "delivery/opening_service_balances": {
+    "fields": [
+      "opening_service_balance_id",
+      "service_id",
+      "contract_id",
+      "client_id",
+      "balance_date",
+      "deferred_revenue_usd",
+      "unbilled_revenue_usd",
+      "explanation"
+    ],
+    "grain": "One opening performance-obligation asset/liability",
+    "primary_key": [
+      "opening_service_balance_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "opening_service_balance_id": "text",
+      "service_id": "text",
+      "contract_id": "text",
+      "client_id": "text",
+      "balance_date": "date_iso",
+      "deferred_revenue_usd": "decimal_usd_2dp",
+      "unbilled_revenue_usd": "decimal_usd_2dp",
+      "explanation": "text"
+    },
+    "nullable": {
+      "opening_service_balance_id": false,
+      "service_id": false,
+      "contract_id": false,
+      "client_id": false,
+      "balance_date": false,
+      "deferred_revenue_usd": false,
+      "unbilled_revenue_usd": false,
+      "explanation": false
+    },
+    "physical_files": [
+      "sources/delivery/opening_service_balances.csv"
+    ]
+  },
+  "delivery/monthly_contract_balances": {
+    "fields": [
+      "contract_balance_id",
+      "contract_id",
+      "service_month",
+      "opening_deferred_usd",
+      "invoiced_to_deferred_usd",
+      "earned_from_deferred_usd",
+      "closing_deferred_usd",
+      "opening_unbilled_usd",
+      "earned_to_unbilled_usd",
+      "invoiced_from_unbilled_usd",
+      "closing_unbilled_usd"
+    ],
+    "grain": "One contract/month service balance roll-forward",
+    "primary_key": [
+      "contract_balance_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "contract_balance_id": "text",
+      "contract_id": "text",
+      "service_month": "month_iso",
+      "opening_deferred_usd": "decimal_usd_2dp",
+      "invoiced_to_deferred_usd": "decimal_usd_2dp",
+      "earned_from_deferred_usd": "decimal_usd_2dp",
+      "closing_deferred_usd": "decimal_usd_2dp",
+      "opening_unbilled_usd": "decimal_usd_2dp",
+      "earned_to_unbilled_usd": "decimal_usd_2dp",
+      "invoiced_from_unbilled_usd": "decimal_usd_2dp",
+      "closing_unbilled_usd": "decimal_usd_2dp"
+    },
+    "nullable": {
+      "contract_balance_id": false,
+      "contract_id": false,
+      "service_month": false,
+      "opening_deferred_usd": false,
+      "invoiced_to_deferred_usd": false,
+      "earned_from_deferred_usd": false,
+      "closing_deferred_usd": false,
+      "opening_unbilled_usd": false,
+      "earned_to_unbilled_usd": false,
+      "invoiced_from_unbilled_usd": false,
+      "closing_unbilled_usd": false
+    },
+    "physical_files": [
+      "sources/delivery/monthly_contract_balances.csv"
+    ]
+  },
+  "quickbooks/chart_of_accounts": {
+    "fields": [
+      "account_id",
+      "account_name",
+      "account_type",
+      "financial_statement",
+      "normal_balance",
+      "cash_flow_class"
+    ],
+    "grain": "One modeled GL account",
+    "primary_key": [
+      "account_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "account_id": "text",
+      "account_name": "text",
+      "account_type": "text",
+      "financial_statement": "text",
+      "normal_balance": "text",
+      "cash_flow_class": "text"
+    },
+    "nullable": {
+      "account_id": false,
+      "account_name": false,
+      "account_type": false,
+      "financial_statement": false,
+      "normal_balance": false,
+      "cash_flow_class": false
+    },
+    "physical_files": [
+      "sources/quickbooks/chart_of_accounts.csv"
+    ]
+  },
+  "quickbooks/opening_trial_balance": {
+    "fields": [
+      "account_id",
+      "balance_date",
+      "debit_usd",
+      "credit_usd",
+      "signed_balance_usd",
+      "explanation"
+    ],
+    "grain": "One opening account balance; excluded from period activity",
+    "primary_key": [
+      "account_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "account_id": "text",
+      "balance_date": "date_iso",
+      "debit_usd": "decimal_usd_2dp",
+      "credit_usd": "decimal_usd_2dp",
+      "signed_balance_usd": "decimal_usd_2dp",
+      "explanation": "text"
+    },
+    "nullable": {
+      "account_id": false,
+      "balance_date": false,
+      "debit_usd": false,
+      "credit_usd": false,
+      "signed_balance_usd": false,
+      "explanation": false
+    },
+    "physical_files": [
+      "sources/quickbooks/opening_trial_balance.csv"
+    ]
+  },
+  "quickbooks/client_invoices": {
+    "fields": [
+      "invoice_id",
+      "client_id",
+      "contract_id",
+      "invoice_date",
+      "due_date",
+      "invoice_total_usd",
+      "record_scope",
+      "invoice_status_asof",
+      "open_balance_usd",
+      "journal_id"
+    ],
+    "grain": "One client fee invoice, including opening receivables",
+    "primary_key": [
+      "invoice_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "invoice_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "invoice_date": "date_iso",
+      "due_date": "date_iso",
+      "invoice_total_usd": "decimal_usd_2dp",
+      "record_scope": "text",
+      "invoice_status_asof": "text",
+      "open_balance_usd": "decimal_usd_2dp",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "invoice_id": false,
+      "client_id": false,
+      "contract_id": false,
+      "invoice_date": false,
+      "due_date": false,
+      "invoice_total_usd": false,
+      "record_scope": false,
+      "invoice_status_asof": false,
+      "open_balance_usd": false,
+      "journal_id": true
+    },
+    "physical_files": [
+      "sources/quickbooks/client_invoices.csv"
+    ]
+  },
+  "quickbooks/client_invoice_lines": {
+    "fields": [
+      "invoice_line_id",
+      "invoice_id",
+      "contract_id",
+      "client_id",
+      "service_id",
+      "schedule_line_id",
+      "description",
+      "line_amount_usd",
+      "invoiced_to_deferred_usd",
+      "invoiced_from_unbilled_usd"
+    ],
+    "grain": "One fee invoice allocation to a service",
+    "primary_key": [
+      "invoice_line_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "invoice_line_id": "text",
+      "invoice_id": "text",
+      "contract_id": "text",
+      "client_id": "text",
+      "service_id": "text",
+      "schedule_line_id": "text",
+      "description": "text",
+      "line_amount_usd": "decimal_usd_2dp",
+      "invoiced_to_deferred_usd": "decimal_usd_2dp",
+      "invoiced_from_unbilled_usd": "decimal_usd_2dp"
+    },
+    "nullable": {
+      "invoice_line_id": false,
+      "invoice_id": false,
+      "contract_id": false,
+      "client_id": false,
+      "service_id": false,
+      "schedule_line_id": false,
+      "description": false,
+      "line_amount_usd": false,
+      "invoiced_to_deferred_usd": false,
+      "invoiced_from_unbilled_usd": false
+    },
+    "physical_files": [
+      "sources/quickbooks/client_invoice_lines.csv"
+    ]
+  },
+  "quickbooks/credit_notes": {
+    "fields": [
+      "credit_note_id",
+      "client_id",
+      "invoice_id",
+      "invoice_line_id",
+      "contract_id",
+      "service_id",
+      "credit_date",
+      "amount_usd",
+      "reason",
+      "recognition_id",
+      "journal_id"
+    ],
+    "grain": "One post-service commercial fee concession",
+    "primary_key": [
+      "credit_note_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "credit_note_id": "text",
+      "client_id": "text",
+      "invoice_id": "text",
+      "invoice_line_id": "text",
+      "contract_id": "text",
+      "service_id": "text",
+      "credit_date": "date_iso",
+      "amount_usd": "decimal_usd_2dp",
+      "reason": "text",
+      "recognition_id": "text",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "credit_note_id": false,
+      "client_id": false,
+      "invoice_id": false,
+      "invoice_line_id": false,
+      "contract_id": false,
+      "service_id": false,
+      "credit_date": false,
+      "amount_usd": false,
+      "reason": false,
+      "recognition_id": false,
+      "journal_id": false
+    },
+    "physical_files": [
+      "sources/quickbooks/credit_notes.csv"
+    ]
+  },
+  "quickbooks/client_receipts": {
+    "fields": [
+      "receipt_id",
+      "client_id",
+      "receipt_date",
+      "receipt_amount_usd",
+      "payment_method",
+      "bank_transaction_id",
+      "journal_id"
+    ],
+    "grain": "One actual client ACH receipt",
+    "primary_key": [
+      "receipt_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "receipt_id": "text",
+      "client_id": "text",
+      "receipt_date": "date_iso",
+      "receipt_amount_usd": "decimal_usd_2dp",
+      "payment_method": "text",
+      "bank_transaction_id": "text",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "receipt_id": false,
+      "client_id": false,
+      "receipt_date": false,
+      "receipt_amount_usd": false,
+      "payment_method": false,
+      "bank_transaction_id": false,
+      "journal_id": false
+    },
+    "physical_files": [
+      "sources/quickbooks/client_receipts.csv"
+    ]
+  },
+  "quickbooks/receipt_applications": {
+    "fields": [
+      "receipt_application_id",
+      "receipt_id",
+      "invoice_id",
+      "applied_date",
+      "applied_amount_usd"
+    ],
+    "grain": "One client receipt application to an invoice",
+    "primary_key": [
+      "receipt_application_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "receipt_application_id": "text",
+      "receipt_id": "text",
+      "invoice_id": "text",
+      "applied_date": "date_iso",
+      "applied_amount_usd": "decimal_usd_2dp"
+    },
+    "nullable": {
+      "receipt_application_id": false,
+      "receipt_id": false,
+      "invoice_id": false,
+      "applied_date": false,
+      "applied_amount_usd": false
+    },
+    "physical_files": [
+      "sources/quickbooks/receipt_applications.csv"
+    ]
+  },
+  "quickbooks/vendors": {
+    "fields": [
+      "vendor_id",
+      "vendor_name",
+      "vendor_type",
+      "email",
+      "payment_terms_days"
+    ],
+    "grain": "One fictional vendor or named-system modeled supplier",
+    "primary_key": [
+      "vendor_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "vendor_id": "text",
+      "vendor_name": "text",
+      "vendor_type": "text",
+      "email": "text",
+      "payment_terms_days": "integer"
+    },
+    "nullable": {
+      "vendor_id": false,
+      "vendor_name": false,
+      "vendor_type": false,
+      "email": false,
+      "payment_terms_days": false
+    },
+    "physical_files": [
+      "sources/quickbooks/vendors.csv"
+    ]
+  },
+  "quickbooks/vendor_bills": {
+    "fields": [
+      "bill_id",
+      "vendor_id",
+      "contractor_invoice_id",
+      "bill_date",
+      "due_date",
+      "service_month",
+      "bill_total_usd",
+      "record_scope",
+      "bill_status_asof",
+      "open_balance_usd",
+      "journal_id"
+    ],
+    "grain": "One received AP bill",
+    "primary_key": [
+      "bill_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "bill_id": "text",
+      "vendor_id": "text",
+      "contractor_invoice_id": "text",
+      "bill_date": "date_iso",
+      "due_date": "date_iso",
+      "service_month": "month_iso",
+      "bill_total_usd": "decimal_usd_2dp",
+      "record_scope": "text",
+      "bill_status_asof": "text",
+      "open_balance_usd": "decimal_usd_2dp",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "bill_id": false,
+      "vendor_id": false,
+      "contractor_invoice_id": true,
+      "bill_date": false,
+      "due_date": false,
+      "service_month": false,
+      "bill_total_usd": false,
+      "record_scope": false,
+      "bill_status_asof": false,
+      "open_balance_usd": false,
+      "journal_id": true
+    },
+    "physical_files": [
+      "sources/quickbooks/vendor_bills.csv"
+    ]
+  },
+  "quickbooks/vendor_bill_lines": {
+    "fields": [
+      "bill_line_id",
+      "bill_id",
+      "account_id",
+      "description",
+      "line_amount_usd",
+      "approved_work_id",
+      "source_line_id",
+      "project_id",
+      "contract_id",
+      "client_id"
+    ],
+    "grain": "One AP line; freelance lines debit accrued liability",
+    "primary_key": [
+      "bill_line_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "bill_line_id": "text",
+      "bill_id": "text",
+      "account_id": "text",
+      "description": "text",
+      "line_amount_usd": "decimal_usd_2dp",
+      "approved_work_id": "text",
+      "source_line_id": "text",
+      "project_id": "text",
+      "contract_id": "text",
+      "client_id": "text"
+    },
+    "nullable": {
+      "bill_line_id": false,
+      "bill_id": false,
+      "account_id": false,
+      "description": false,
+      "line_amount_usd": false,
+      "approved_work_id": true,
+      "source_line_id": true,
+      "project_id": true,
+      "contract_id": true,
+      "client_id": true
+    },
+    "physical_files": [
+      "sources/quickbooks/vendor_bill_lines.csv"
+    ]
+  },
+  "quickbooks/vendor_payments": {
+    "fields": [
+      "vendor_payment_id",
+      "vendor_id",
+      "payment_date",
+      "payment_amount_usd",
+      "bank_transaction_id",
+      "journal_id"
+    ],
+    "grain": "One actual vendor payment",
+    "primary_key": [
+      "vendor_payment_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "vendor_payment_id": "text",
+      "vendor_id": "text",
+      "payment_date": "date_iso",
+      "payment_amount_usd": "decimal_usd_2dp",
+      "bank_transaction_id": "text",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "vendor_payment_id": false,
+      "vendor_id": false,
+      "payment_date": false,
+      "payment_amount_usd": false,
+      "bank_transaction_id": false,
+      "journal_id": false
+    },
+    "physical_files": [
+      "sources/quickbooks/vendor_payments.csv"
+    ]
+  },
+  "quickbooks/vendor_payment_applications": {
+    "fields": [
+      "vendor_application_id",
+      "vendor_payment_id",
+      "bill_id",
+      "applied_date",
+      "applied_amount_usd"
+    ],
+    "grain": "One AP payment allocation",
+    "primary_key": [
+      "vendor_application_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "vendor_application_id": "text",
+      "vendor_payment_id": "text",
+      "bill_id": "text",
+      "applied_date": "date_iso",
+      "applied_amount_usd": "decimal_usd_2dp"
+    },
+    "nullable": {
+      "vendor_application_id": false,
+      "vendor_payment_id": false,
+      "bill_id": false,
+      "applied_date": false,
+      "applied_amount_usd": false
+    },
+    "physical_files": [
+      "sources/quickbooks/vendor_payment_applications.csv"
+    ]
+  },
+  "quickbooks/ar_open_items": {
+    "fields": [
+      "ar_item_id",
+      "invoice_id",
+      "client_id",
+      "contract_id",
+      "invoice_date",
+      "due_date",
+      "original_amount_usd",
+      "credit_applied_usd",
+      "cash_applied_usd",
+      "open_amount_usd",
+      "days_past_due",
+      "aging_bucket",
+      "as_of_date"
+    ],
+    "grain": "One unpaid client invoice at cutoff",
+    "primary_key": [
+      "ar_item_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "ar_item_id": "text",
+      "invoice_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "invoice_date": "date_iso",
+      "due_date": "date_iso",
+      "original_amount_usd": "decimal_usd_2dp",
+      "credit_applied_usd": "decimal_usd_2dp",
+      "cash_applied_usd": "decimal_usd_2dp",
+      "open_amount_usd": "decimal_usd_2dp",
+      "days_past_due": "integer",
+      "aging_bucket": "text",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "ar_item_id": false,
+      "invoice_id": false,
+      "client_id": false,
+      "contract_id": false,
+      "invoice_date": false,
+      "due_date": false,
+      "original_amount_usd": false,
+      "credit_applied_usd": false,
+      "cash_applied_usd": false,
+      "open_amount_usd": false,
+      "days_past_due": false,
+      "aging_bucket": false,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/quickbooks/ar_open_items.csv"
+    ]
+  },
+  "quickbooks/ap_open_items": {
+    "fields": [
+      "ap_item_id",
+      "bill_id",
+      "vendor_id",
+      "bill_date",
+      "due_date",
+      "original_amount_usd",
+      "cash_applied_usd",
+      "open_amount_usd",
+      "days_past_due",
+      "aging_bucket",
+      "as_of_date"
+    ],
+    "grain": "One unpaid vendor bill at cutoff",
+    "primary_key": [
+      "ap_item_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "ap_item_id": "text",
+      "bill_id": "text",
+      "vendor_id": "text",
+      "bill_date": "date_iso",
+      "due_date": "date_iso",
+      "original_amount_usd": "decimal_usd_2dp",
+      "cash_applied_usd": "decimal_usd_2dp",
+      "open_amount_usd": "decimal_usd_2dp",
+      "days_past_due": "integer",
+      "aging_bucket": "text",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "ap_item_id": false,
+      "bill_id": false,
+      "vendor_id": false,
+      "bill_date": false,
+      "due_date": false,
+      "original_amount_usd": false,
+      "cash_applied_usd": false,
+      "open_amount_usd": false,
+      "days_past_due": false,
+      "aging_bucket": false,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/quickbooks/ap_open_items.csv"
+    ]
+  },
+  "quickbooks/journals": {
+    "fields": [
+      "journal_id",
+      "journal_date",
+      "source_system",
+      "source_type",
+      "source_id",
+      "memo",
+      "total_debit_usd",
+      "total_credit_usd"
+    ],
+    "grain": "One in-period balanced journal",
+    "primary_key": [
+      "journal_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "journal_id": "text",
+      "journal_date": "date_iso",
+      "source_system": "text",
+      "source_type": "text",
+      "source_id": "text",
+      "memo": "text",
+      "total_debit_usd": "decimal_usd_2dp",
+      "total_credit_usd": "decimal_usd_2dp"
+    },
+    "nullable": {
+      "journal_id": false,
+      "journal_date": false,
+      "source_system": false,
+      "source_type": false,
+      "source_id": false,
+      "memo": false,
+      "total_debit_usd": false,
+      "total_credit_usd": false
+    },
+    "physical_files": [
+      "sources/quickbooks/journals.csv"
+    ]
+  },
+  "quickbooks/general_ledger": {
+    "fields": [
+      "gl_line_id",
+      "journal_id",
+      "journal_date",
+      "account_id",
+      "debit_usd",
+      "credit_usd",
+      "source_system",
+      "source_type",
+      "source_id",
+      "client_id",
+      "contract_id",
+      "project_id",
+      "employee_id",
+      "service_month"
+    ],
+    "grain": "One journal/account/dimension debit or credit",
+    "primary_key": [
+      "gl_line_id"
+    ],
+    "notes": "Opening TB is separate. No year-end closing journals in this 24-month extract.",
+    "partition_column": "journal_date",
+    "types": {
+      "gl_line_id": "text",
+      "journal_id": "text",
+      "journal_date": "date_iso",
+      "account_id": "text",
+      "debit_usd": "decimal_usd_2dp",
+      "credit_usd": "decimal_usd_2dp",
+      "source_system": "text",
+      "source_type": "text",
+      "source_id": "text",
+      "client_id": "text",
+      "contract_id": "text",
+      "project_id": "text",
+      "employee_id": "text",
+      "service_month": "month_iso"
+    },
+    "nullable": {
+      "gl_line_id": false,
+      "journal_id": false,
+      "journal_date": false,
+      "account_id": false,
+      "debit_usd": false,
+      "credit_usd": false,
+      "source_system": false,
+      "source_type": false,
+      "source_id": false,
+      "client_id": true,
+      "contract_id": true,
+      "project_id": true,
+      "employee_id": true,
+      "service_month": false
+    },
+    "physical_files": [
+      "sources/quickbooks/general_ledger/2024-11.csv",
+      "sources/quickbooks/general_ledger/2024-12.csv",
+      "sources/quickbooks/general_ledger/2025-01.csv",
+      "sources/quickbooks/general_ledger/2025-02.csv",
+      "sources/quickbooks/general_ledger/2025-03.csv",
+      "sources/quickbooks/general_ledger/2025-04.csv",
+      "sources/quickbooks/general_ledger/2025-05.csv",
+      "sources/quickbooks/general_ledger/2025-06.csv",
+      "sources/quickbooks/general_ledger/2025-07.csv",
+      "sources/quickbooks/general_ledger/2025-08.csv",
+      "sources/quickbooks/general_ledger/2025-09.csv",
+      "sources/quickbooks/general_ledger/2025-10.csv",
+      "sources/quickbooks/general_ledger/2025-11.csv",
+      "sources/quickbooks/general_ledger/2025-12.csv",
+      "sources/quickbooks/general_ledger/2026-01.csv",
+      "sources/quickbooks/general_ledger/2026-02.csv",
+      "sources/quickbooks/general_ledger/2026-03.csv",
+      "sources/quickbooks/general_ledger/2026-04.csv",
+      "sources/quickbooks/general_ledger/2026-05.csv",
+      "sources/quickbooks/general_ledger/2026-06.csv",
+      "sources/quickbooks/general_ledger/2026-07.csv",
+      "sources/quickbooks/general_ledger/2026-08.csv",
+      "sources/quickbooks/general_ledger/2026-09.csv",
+      "sources/quickbooks/general_ledger/2026-10.csv"
+    ]
+  },
+  "quickbooks/monthly_trial_balance": {
+    "fields": [
+      "tb_id",
+      "service_month",
+      "account_id",
+      "opening_signed_balance_usd",
+      "period_debits_usd",
+      "period_credits_usd",
+      "closing_signed_balance_usd"
+    ],
+    "grain": "One account/month; signs debit minus credit",
+    "primary_key": [
+      "tb_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "tb_id": "text",
+      "service_month": "month_iso",
+      "account_id": "text",
+      "opening_signed_balance_usd": "decimal_usd_2dp",
+      "period_debits_usd": "decimal_usd_2dp",
+      "period_credits_usd": "decimal_usd_2dp",
+      "closing_signed_balance_usd": "decimal_usd_2dp"
+    },
+    "nullable": {
+      "tb_id": false,
+      "service_month": false,
+      "account_id": false,
+      "opening_signed_balance_usd": false,
+      "period_debits_usd": false,
+      "period_credits_usd": false,
+      "closing_signed_balance_usd": false
+    },
+    "physical_files": [
+      "sources/quickbooks/monthly_trial_balance.csv"
+    ]
+  },
+  "bank/accounts": {
+    "fields": [
+      "bank_account_id",
+      "bank_name",
+      "account_name",
+      "currency",
+      "opening_balance_date",
+      "opening_balance_usd"
+    ],
+    "grain": "One fictional agency operating bank account",
+    "primary_key": [
+      "bank_account_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "bank_account_id": "text",
+      "bank_name": "text",
+      "account_name": "text",
+      "currency": "text",
+      "opening_balance_date": "date_iso",
+      "opening_balance_usd": "decimal_usd_2dp"
+    },
+    "nullable": {
+      "bank_account_id": false,
+      "bank_name": false,
+      "account_name": false,
+      "currency": false,
+      "opening_balance_date": false,
+      "opening_balance_usd": false
+    },
+    "physical_files": [
+      "sources/bank/accounts.csv"
+    ]
+  },
+  "bank/transactions": {
+    "fields": [
+      "bank_transaction_id",
+      "bank_account_id",
+      "transaction_date",
+      "sequence",
+      "transaction_type",
+      "counterparty",
+      "reference_type",
+      "reference_id",
+      "money_in_usd",
+      "money_out_usd",
+      "signed_amount_usd",
+      "running_balance_usd",
+      "journal_id"
+    ],
+    "grain": "One actual agency bank statement movement",
+    "primary_key": [
+      "bank_transaction_id"
+    ],
+    "notes": "",
+    "partition_column": "transaction_date",
+    "types": {
+      "bank_transaction_id": "text",
+      "bank_account_id": "text",
+      "transaction_date": "date_iso",
+      "sequence": "integer",
+      "transaction_type": "text",
+      "counterparty": "text",
+      "reference_type": "text",
+      "reference_id": "text",
+      "money_in_usd": "decimal_usd_2dp",
+      "money_out_usd": "decimal_usd_2dp",
+      "signed_amount_usd": "decimal_usd_2dp",
+      "running_balance_usd": "decimal_usd_2dp",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "bank_transaction_id": false,
+      "bank_account_id": false,
+      "transaction_date": false,
+      "sequence": false,
+      "transaction_type": false,
+      "counterparty": false,
+      "reference_type": false,
+      "reference_id": false,
+      "money_in_usd": false,
+      "money_out_usd": false,
+      "signed_amount_usd": false,
+      "running_balance_usd": false,
+      "journal_id": false
+    },
+    "physical_files": [
+      "sources/bank/transactions/2024-11.csv",
+      "sources/bank/transactions/2024-12.csv",
+      "sources/bank/transactions/2025-01.csv",
+      "sources/bank/transactions/2025-02.csv",
+      "sources/bank/transactions/2025-03.csv",
+      "sources/bank/transactions/2025-04.csv",
+      "sources/bank/transactions/2025-05.csv",
+      "sources/bank/transactions/2025-06.csv",
+      "sources/bank/transactions/2025-07.csv",
+      "sources/bank/transactions/2025-08.csv",
+      "sources/bank/transactions/2025-09.csv",
+      "sources/bank/transactions/2025-10.csv",
+      "sources/bank/transactions/2025-11.csv",
+      "sources/bank/transactions/2025-12.csv",
+      "sources/bank/transactions/2026-01.csv",
+      "sources/bank/transactions/2026-02.csv",
+      "sources/bank/transactions/2026-03.csv",
+      "sources/bank/transactions/2026-04.csv",
+      "sources/bank/transactions/2026-05.csv",
+      "sources/bank/transactions/2026-06.csv",
+      "sources/bank/transactions/2026-07.csv",
+      "sources/bank/transactions/2026-08.csv",
+      "sources/bank/transactions/2026-09.csv",
+      "sources/bank/transactions/2026-10.csv"
+    ]
+  },
+  "bank/monthly_statements": {
+    "fields": [
+      "statement_id",
+      "bank_account_id",
+      "service_month",
+      "opening_balance_usd",
+      "total_money_in_usd",
+      "total_money_out_usd",
+      "closing_balance_usd",
+      "transaction_count"
+    ],
+    "grain": "One monthly bank statement",
+    "primary_key": [
+      "statement_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "statement_id": "text",
+      "bank_account_id": "text",
+      "service_month": "month_iso",
+      "opening_balance_usd": "decimal_usd_2dp",
+      "total_money_in_usd": "decimal_usd_2dp",
+      "total_money_out_usd": "decimal_usd_2dp",
+      "closing_balance_usd": "decimal_usd_2dp",
+      "transaction_count": "integer"
+    },
+    "nullable": {
+      "statement_id": false,
+      "bank_account_id": false,
+      "service_month": false,
+      "opening_balance_usd": false,
+      "total_money_in_usd": false,
+      "total_money_out_usd": false,
+      "closing_balance_usd": false,
+      "transaction_count": false
+    },
+    "physical_files": [
+      "sources/bank/monthly_statements.csv"
+    ]
+  },
+  "planning/budget_versions": {
+    "fields": [
+      "budget_version_id",
+      "budget_name",
+      "approved_date",
+      "period_start_date",
+      "period_end_date",
+      "is_original_approved",
+      "status",
+      "assumptions"
+    ],
+    "grain": "One immutable original annual management budget",
+    "primary_key": [
+      "budget_version_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "budget_version_id": "text",
+      "budget_name": "text",
+      "approved_date": "date_iso",
+      "period_start_date": "date_iso",
+      "period_end_date": "date_iso",
+      "is_original_approved": "boolean",
+      "status": "text",
+      "assumptions": "text"
+    },
+    "nullable": {
+      "budget_version_id": false,
+      "budget_name": false,
+      "approved_date": false,
+      "period_start_date": false,
+      "period_end_date": false,
+      "is_original_approved": false,
+      "status": false,
+      "assumptions": false
+    },
+    "physical_files": [
+      "sources/planning/budget_versions.csv"
+    ]
+  },
+  "planning/monthly_budget": {
+    "fields": [
+      "budget_line_id",
+      "budget_version_id",
+      "service_month",
+      "department",
+      "revenue_stream",
+      "account_id",
+      "client_id",
+      "project_id",
+      "budget_amount_usd",
+      "budget_hours",
+      "driver_note"
+    ],
+    "grain": "One original monthly budget line; revenue and expense amounts positive",
+    "primary_key": [
+      "budget_line_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "budget_line_id": "text",
+      "budget_version_id": "text",
+      "service_month": "month_iso",
+      "department": "text",
+      "revenue_stream": "text",
+      "account_id": "text",
+      "client_id": "text",
+      "project_id": "text",
+      "budget_amount_usd": "decimal_usd_2dp",
+      "budget_hours": "decimal",
+      "driver_note": "text"
+    },
+    "nullable": {
+      "budget_line_id": false,
+      "budget_version_id": false,
+      "service_month": false,
+      "department": false,
+      "revenue_stream": true,
+      "account_id": false,
+      "client_id": true,
+      "project_id": true,
+      "budget_amount_usd": false,
+      "budget_hours": true,
+      "driver_note": false
+    },
+    "physical_files": [
+      "sources/planning/monthly_budget.csv"
+    ]
+  },
+  "planning/headcount_capacity_plan": {
+    "fields": [
+      "capacity_plan_id",
+      "plan_version_id",
+      "approved_date",
+      "service_month",
+      "department",
+      "planned_headcount",
+      "planned_paid_hours",
+      "planned_available_hours",
+      "target_billable_utilization",
+      "planned_salary_cost_usd",
+      "plan_status"
+    ],
+    "grain": "One department/month frozen resource plan",
+    "primary_key": [
+      "capacity_plan_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "capacity_plan_id": "text",
+      "plan_version_id": "text",
+      "approved_date": "date_iso",
+      "service_month": "month_iso",
+      "department": "text",
+      "planned_headcount": "integer",
+      "planned_paid_hours": "decimal",
+      "planned_available_hours": "decimal",
+      "target_billable_utilization": "decimal",
+      "planned_salary_cost_usd": "decimal_usd_2dp",
+      "plan_status": "text"
+    },
+    "nullable": {
+      "capacity_plan_id": false,
+      "plan_version_id": false,
+      "approved_date": false,
+      "service_month": false,
+      "department": false,
+      "planned_headcount": false,
+      "planned_paid_hours": false,
+      "planned_available_hours": false,
+      "target_billable_utilization": false,
+      "planned_salary_cost_usd": false,
+      "plan_status": false
+    },
+    "physical_files": [
+      "sources/planning/headcount_capacity_plan.csv"
+    ]
+  },
+  "planning/signed_future_commitments": {
+    "fields": [
+      "commitment_id",
+      "schedule_line_id",
+      "contract_id",
+      "client_id",
+      "service_id",
+      "scheduled_invoice_date",
+      "scheduled_due_date",
+      "scheduled_amount_usd",
+      "amount_basis",
+      "overlap_key",
+      "as_of_date"
+    ],
+    "grain": "One already-signed future billing item at cutoff",
+    "primary_key": [
+      "commitment_id"
+    ],
+    "notes": "Convenience copy of future billing schedule, not another fact.",
+    "partition_column": "",
+    "types": {
+      "commitment_id": "text",
+      "schedule_line_id": "text",
+      "contract_id": "text",
+      "client_id": "text",
+      "service_id": "text",
+      "scheduled_invoice_date": "date_iso",
+      "scheduled_due_date": "date_iso",
+      "scheduled_amount_usd": "decimal_usd_2dp",
+      "amount_basis": "text",
+      "overlap_key": "text",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "commitment_id": false,
+      "schedule_line_id": false,
+      "contract_id": false,
+      "client_id": false,
+      "service_id": false,
+      "scheduled_invoice_date": false,
+      "scheduled_due_date": false,
+      "scheduled_amount_usd": false,
+      "amount_basis": false,
+      "overlap_key": false,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/planning/signed_future_commitments.csv"
+    ]
+  },
+  "planning/collection_expectations": {
+    "fields": [
+      "collection_expectation_id",
+      "invoice_id",
+      "client_id",
+      "open_amount_usd",
+      "expected_receipt_date",
+      "collection_risk",
+      "basis",
+      "as_of_date"
+    ],
+    "grain": "One management collection assumption for existing AR",
+    "primary_key": [
+      "collection_expectation_id"
+    ],
+    "notes": "Expected date is not an actual receipt.",
+    "partition_column": "",
+    "types": {
+      "collection_expectation_id": "text",
+      "invoice_id": "text",
+      "client_id": "text",
+      "open_amount_usd": "decimal_usd_2dp",
+      "expected_receipt_date": "date_iso",
+      "collection_risk": "text",
+      "basis": "text",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "collection_expectation_id": false,
+      "invoice_id": false,
+      "client_id": false,
+      "open_amount_usd": false,
+      "expected_receipt_date": false,
+      "collection_risk": false,
+      "basis": false,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/planning/collection_expectations.csv"
+    ]
+  },
+  "planning/recurring_obligations": {
+    "fields": [
+      "obligation_id",
+      "vendor_id",
+      "description",
+      "account_id",
+      "cadence",
+      "contract_start_date",
+      "contract_end_date",
+      "current_cycle_fee_usd",
+      "next_service_start_date",
+      "next_expected_bill_date",
+      "payment_terms_days",
+      "current_open_bill_id",
+      "overlap_rule",
+      "as_of_date"
+    ],
+    "grain": "One active operating vendor obligation at cutoff",
+    "primary_key": [
+      "obligation_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "obligation_id": "text",
+      "vendor_id": "text",
+      "description": "text",
+      "account_id": "text",
+      "cadence": "text",
+      "contract_start_date": "date_iso",
+      "contract_end_date": "date_iso",
+      "current_cycle_fee_usd": "decimal_usd_2dp",
+      "next_service_start_date": "date_iso",
+      "next_expected_bill_date": "date_iso",
+      "payment_terms_days": "integer",
+      "current_open_bill_id": "text",
+      "overlap_rule": "text",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "obligation_id": false,
+      "vendor_id": false,
+      "description": false,
+      "account_id": false,
+      "cadence": false,
+      "contract_start_date": false,
+      "contract_end_date": false,
+      "current_cycle_fee_usd": false,
+      "next_service_start_date": false,
+      "next_expected_bill_date": false,
+      "payment_terms_days": false,
+      "current_open_bill_id": true,
+      "overlap_rule": false,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/planning/recurring_obligations.csv"
+    ]
+  },
+  "planning/payroll_commitments": {
+    "fields": [
+      "payroll_commitment_id",
+      "payroll_run_id",
+      "earned_end_date",
+      "scheduled_funding_date",
+      "net_pay_usd",
+      "withholding_plus_employer_tax_usd",
+      "benefits_usd",
+      "total_funding_usd",
+      "overlap_liability_accounts",
+      "as_of_date"
+    ],
+    "grain": "One earned but unfunded payroll run at cutoff",
+    "primary_key": [
+      "payroll_commitment_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "payroll_commitment_id": "text",
+      "payroll_run_id": "text",
+      "earned_end_date": "date_iso",
+      "scheduled_funding_date": "date_iso",
+      "net_pay_usd": "decimal_usd_2dp",
+      "withholding_plus_employer_tax_usd": "decimal_usd_2dp",
+      "benefits_usd": "decimal_usd_2dp",
+      "total_funding_usd": "decimal_usd_2dp",
+      "overlap_liability_accounts": "text",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "payroll_commitment_id": false,
+      "payroll_run_id": false,
+      "earned_end_date": false,
+      "scheduled_funding_date": false,
+      "net_pay_usd": false,
+      "withholding_plus_employer_tax_usd": false,
+      "benefits_usd": false,
+      "total_funding_usd": false,
+      "overlap_liability_accounts": false,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/planning/payroll_commitments.csv"
+    ]
+  },
+  "planning/contractor_accruals": {
+    "fields": [
+      "contractor_accrual_id",
+      "approved_work_id",
+      "contractor_id",
+      "project_id",
+      "contract_id",
+      "earned_cost_usd",
+      "expected_invoice_date",
+      "expected_due_date",
+      "overlap_liability_account",
+      "as_of_date"
+    ],
+    "grain": "One accepted but not yet invoiced freelance work item",
+    "primary_key": [
+      "contractor_accrual_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "contractor_accrual_id": "text",
+      "approved_work_id": "text",
+      "contractor_id": "text",
+      "project_id": "text",
+      "contract_id": "text",
+      "earned_cost_usd": "decimal_usd_2dp",
+      "expected_invoice_date": "date_iso",
+      "expected_due_date": "date_iso",
+      "overlap_liability_account": "text",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "contractor_accrual_id": false,
+      "approved_work_id": false,
+      "contractor_id": false,
+      "project_id": false,
+      "contract_id": false,
+      "earned_cost_usd": false,
+      "expected_invoice_date": false,
+      "expected_due_date": false,
+      "overlap_liability_account": false,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/planning/contractor_accruals.csv"
+    ]
+  },
+  "finance/debt_register": {
+    "fields": [
+      "debt_id",
+      "lender_name",
+      "agreement_date",
+      "maturity_date",
+      "original_principal_usd",
+      "opening_principal_usd",
+      "annual_interest_rate",
+      "monthly_principal_usd",
+      "principal_asof_usd",
+      "is_synthetic_rate",
+      "as_of_date"
+    ],
+    "grain": "One term loan; rate is an invented contract parameter",
+    "primary_key": [
+      "debt_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "debt_id": "text",
+      "lender_name": "text",
+      "agreement_date": "date_iso",
+      "maturity_date": "date_iso",
+      "original_principal_usd": "decimal_usd_2dp",
+      "opening_principal_usd": "decimal_usd_2dp",
+      "annual_interest_rate": "decimal",
+      "monthly_principal_usd": "decimal_usd_2dp",
+      "principal_asof_usd": "decimal_usd_2dp",
+      "is_synthetic_rate": "boolean",
+      "as_of_date": "date_iso"
+    },
+    "nullable": {
+      "debt_id": false,
+      "lender_name": false,
+      "agreement_date": false,
+      "maturity_date": false,
+      "original_principal_usd": false,
+      "opening_principal_usd": false,
+      "annual_interest_rate": false,
+      "monthly_principal_usd": false,
+      "principal_asof_usd": false,
+      "is_synthetic_rate": false,
+      "as_of_date": false
+    },
+    "physical_files": [
+      "sources/finance/debt_register.csv"
+    ]
+  },
+  "finance/debt_service": {
+    "fields": [
+      "debt_service_id",
+      "debt_id",
+      "payment_date",
+      "principal_usd",
+      "interest_usd",
+      "total_payment_usd",
+      "closing_principal_usd",
+      "bank_transaction_id",
+      "journal_id"
+    ],
+    "grain": "One actual loan repayment",
+    "primary_key": [
+      "debt_service_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "debt_service_id": "text",
+      "debt_id": "text",
+      "payment_date": "date_iso",
+      "principal_usd": "decimal_usd_2dp",
+      "interest_usd": "decimal_usd_2dp",
+      "total_payment_usd": "decimal_usd_2dp",
+      "closing_principal_usd": "decimal_usd_2dp",
+      "bank_transaction_id": "text",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "debt_service_id": false,
+      "debt_id": false,
+      "payment_date": false,
+      "principal_usd": false,
+      "interest_usd": false,
+      "total_payment_usd": false,
+      "closing_principal_usd": false,
+      "bank_transaction_id": false,
+      "journal_id": false
+    },
+    "physical_files": [
+      "sources/finance/debt_service.csv"
+    ]
+  },
+  "finance/debt_schedule": {
+    "fields": [
+      "debt_schedule_id",
+      "debt_id",
+      "scheduled_payment_date",
+      "scheduled_principal_usd",
+      "scheduled_interest_usd",
+      "scheduled_total_usd",
+      "known_asof_date",
+      "status"
+    ],
+    "grain": "One future contractual debt payment, not an actual",
+    "primary_key": [
+      "debt_schedule_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "debt_schedule_id": "text",
+      "debt_id": "text",
+      "scheduled_payment_date": "date_iso",
+      "scheduled_principal_usd": "decimal_usd_2dp",
+      "scheduled_interest_usd": "decimal_usd_2dp",
+      "scheduled_total_usd": "decimal_usd_2dp",
+      "known_asof_date": "date_iso",
+      "status": "text"
+    },
+    "nullable": {
+      "debt_schedule_id": false,
+      "debt_id": false,
+      "scheduled_payment_date": false,
+      "scheduled_principal_usd": false,
+      "scheduled_interest_usd": false,
+      "scheduled_total_usd": false,
+      "known_asof_date": false,
+      "status": false
+    },
+    "physical_files": [
+      "sources/finance/debt_schedule.csv"
+    ]
+  },
+  "finance/owner_distributions": {
+    "fields": [
+      "distribution_id",
+      "distribution_date",
+      "amount_usd",
+      "bank_transaction_id",
+      "journal_id",
+      "policy"
+    ],
+    "grain": "One actual owner distribution; financing only",
+    "primary_key": [
+      "distribution_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "distribution_id": "text",
+      "distribution_date": "date_iso",
+      "amount_usd": "decimal_usd_2dp",
+      "bank_transaction_id": "text",
+      "journal_id": "text",
+      "policy": "text"
+    },
+    "nullable": {
+      "distribution_id": false,
+      "distribution_date": false,
+      "amount_usd": false,
+      "bank_transaction_id": false,
+      "journal_id": false,
+      "policy": false
+    },
+    "physical_files": [
+      "sources/finance/owner_distributions.csv"
+    ]
+  },
+  "finance/prepaid_amortization": {
+    "fields": [
+      "amortization_id",
+      "service_month",
+      "asset_account_id",
+      "expense_account_id",
+      "amount_usd",
+      "source_bill_id",
+      "journal_id"
+    ],
+    "grain": "One monthly release of paid insurance asset",
+    "primary_key": [
+      "amortization_id"
+    ],
+    "notes": "",
+    "partition_column": "",
+    "types": {
+      "amortization_id": "text",
+      "service_month": "month_iso",
+      "asset_account_id": "text",
+      "expense_account_id": "text",
+      "amount_usd": "decimal_usd_2dp",
+      "source_bill_id": "text",
+      "journal_id": "text"
+    },
+    "nullable": {
+      "amortization_id": false,
+      "service_month": false,
+      "asset_account_id": false,
+      "expense_account_id": false,
+      "amount_usd": false,
+      "source_bill_id": false,
+      "journal_id": false
+    },
+    "physical_files": [
+      "sources/finance/prepaid_amortization.csv"
+    ]
+  }
+}

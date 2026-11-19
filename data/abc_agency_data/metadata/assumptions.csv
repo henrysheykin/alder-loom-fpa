@@ -1,0 +1,31 @@
+﻿assumption_id,topic,assumption,basis
+A01,Scope,"All business entities, prices, staff, events and contacts are fictional.",Synthetic model design
+A02,Cutoff,"Actual window 2024-11-01 to 2026-10-31; snapshot immutable at 2026-10-31. Future due/term/plan dates allowed, future actuals absent.",User specification
+A03,Currency,"USD only; no FX, processor/card settlement, intercompany or multiple bank accounts.",Simplification
+A04,Media,"All media funded directly by client; no pass-through, media resale, client-funds cash/liability or agency ad spend.",User core policy
+A05,Billing extracts,"Platform monthly statements aggregate daily spend, not literal native platform invoices or observed client payments.",Simplification
+A06,Attribution,Meta and Google platform-attributed conversions/values can overlap; no deduplicated client sales table.,Source concept
+A07,Fees,"Flat minimums, 6%/7% spend fees, fixed project prices and 185/200/225 hourly role cards are invented commercial assumptions.",Synthetic negotiated prices
+A08,Retainer earning,Monthly service earned evenly within month; one approval/recognition on month-end for reporting. No incremental billing for excess retainer hours without signed amendment.,Simplified revenue policy
+A09,Fixed earning,Three independent priced deliverables; point-in-time recognition only on actual acceptance; not percentage-of-completion.,Simplified distinct-deliverable SOW design
+A10,Hourly earning,Approved time entries only; effective role rate; round each entry to cents. Submitted October work consumes cost but earns no fee.,Case rule
+A11,Contract value,"Fixed signed minimum is lifetime value, not monthly revenue; hourly quote and ceiling are not committed minimum; variable media upside excluded from firm minimum.",Case rule
+A12,Payroll tax,Employer tax 8%; employee withholding 22–25%; no state-specific limits/wage bases or statutory calculation.,"Synthetic assumptions, not legal rates"
+A13,Benefits,"Employer benefit USD350/employee/month, no employee benefit deductions. Included in one modeled provider funding debit.",Simplification; not real Gusto funding specification
+A14,Salary,Semimonthly annual salary/24; hires on month-start and departures on month-end; 4% January reviews for existing staff.,Synthetic compensation rules
+A15,Payroll cash,"Funding two calendar days after earned end, rolled forward to weekday; providers are modeled as remitting included tax and benefits.","Synthetic funding rule, not Gusto SLA"
+A16,Capacity,"Weekdays 8 paid hours, no overtime; selected company holidays plus approved paid leave. Not a comprehensive federal/state holiday calendar.",Simplification
+A17,Allocation,Project/internal/leave hours allocate complete earned employer cost with largest remainder. Secondary view only; no duplicate GL expense.,Case accounting rule
+A18,Contractors,"Six freelance suppliers; accepted work earned month-end, invoice following month3, net30, partials on selected bills. Rates invented.",Synthetic work-order terms
+A19,Operating AP,Recurring service bills posted service month-end; insurance prepaid annually and amortized. All assumed contract prices.,Simplification
+A20,Taxes,"No sales/use tax, corporate income tax or owners personal income-tax calculation. This omission is a scope choice, not an exemption/legal conclusion.",Simplification
+A21,Debt,"Opening USD120000 term principal; 9% annual interest on beginning monthly principal, USD2500 monthly principal. Not a market loan quotation.",Synthetic contract terms
+A22,Equipment,"Gross USD120000, opening accumulated depreciation USD40000, USD2000 monthly straight-line; no in-period capex/disposals.",Synthetic fixed-asset policy
+A23,Distributions,"Quarterly up to USD200000, retaining USD420000 cash at decision time. Not a required future commitment.",Synthetic owner policy
+A24,Budget,Original FY November–October plans approved 2024-10-15 and 2025-10-15; contain new-business assumptions without future signed-contract IDs; actual scope/churn not retrofitted.,Immutable original budget
+A25,Bank dates,External ACH receipts/vendor/payroll funding use weekdays. Same-bank loan/distribution book transfers may post on calendar dates. No bank fee model.,Synthetic bank simplification
+A26,Prepaid renewal,CLI-002 Nov2026-Jan2027 quarterly invoice issued Oct15 after signed renewal and paid Oct22; deferred at cutoff.,Explicit economic event
+A27,Opening deposit,"First fixed-project SOW signed Oct16 2024; its initial deposit invoice is issued Nov1, inside the window.",Explicit opening boundary choice
+A28,Forecast horizon,"Future invoice dates, collection assumptions, recurring obligations and debt schedules are inputs only. No future actual revenue/payments are created.",User specification
+A29,Rounding,Money ROUND_HALF_UP to cents; raw allocation uses largest remainder. Hours quarter-hour employee entries; freelancer orders whole hours.,Model arithmetic
+A30,Reconciliation,Validation checks synthetic internal consistency; neither financial audit nor accounting-standard compliance certification.,Scope of evidence

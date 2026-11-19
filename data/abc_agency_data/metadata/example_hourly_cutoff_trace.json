@@ -1,0 +1,180 @@
+{
+  "classification": "illustrative_copies_do_not_load_as_facts",
+  "explanation": "October approved hourly earning is an unbilled asset at cutoff; submitted time is excluded. November invoice is schedule only.",
+  "records": [
+    {
+      "logical_table": "timekeeping/timesheets",
+      "matched_total": 4,
+      "copied_rows": [
+        {
+          "time_entry_id": "TIME-0025514",
+          "employee_id": "EMP-016",
+          "role": "Analytics Lead",
+          "project_id": "PRJ-H-001",
+          "task_id": "TSK-ANALYTICS",
+          "client_id": "CLI-001",
+          "contract_id": "CON-H-001",
+          "work_date": "2026-10-19",
+          "hours": "2.5",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-10-21",
+          "billing_treatment": "approved_hours_times_rate",
+          "rate_card_id": "RATE-02-2",
+          "billable_rate_usd": "236.25",
+          "is_scope_rework": "False"
+        },
+        {
+          "time_entry_id": "TIME-0025875",
+          "employee_id": "EMP-022",
+          "role": "Analytics Specialist",
+          "project_id": "PRJ-H-001",
+          "task_id": "TSK-ANALYTICS",
+          "client_id": "CLI-001",
+          "contract_id": "CON-H-001",
+          "work_date": "2026-10-07",
+          "hours": "3.5",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-10-09",
+          "billing_treatment": "approved_hours_times_rate",
+          "rate_card_id": "RATE-03-2",
+          "billable_rate_usd": "210.00",
+          "is_scope_rework": "False"
+        },
+        {
+          "time_entry_id": "TIME-0025911",
+          "employee_id": "EMP-022",
+          "role": "Analytics Specialist",
+          "project_id": "PRJ-H-001",
+          "task_id": "TSK-ANALYTICS",
+          "client_id": "CLI-001",
+          "contract_id": "CON-H-001",
+          "work_date": "2026-10-23",
+          "hours": "6.25",
+          "billable": "True",
+          "approval_status": "approved",
+          "approved_date": "2026-10-25",
+          "billing_treatment": "approved_hours_times_rate",
+          "rate_card_id": "RATE-03-2",
+          "billable_rate_usd": "210.00",
+          "is_scope_rework": "False"
+        },
+        {
+          "time_entry_id": "TIME-0025922",
+          "employee_id": "EMP-022",
+          "role": "Analytics Specialist",
+          "project_id": "PRJ-H-001",
+          "task_id": "TSK-ANALYTICS",
+          "client_id": "CLI-001",
+          "contract_id": "CON-H-001",
+          "work_date": "2026-10-29",
+          "hours": "3.25",
+          "billable": "True",
+          "approval_status": "submitted",
+          "approved_date": "",
+          "billing_treatment": "approved_hours_times_rate",
+          "rate_card_id": "RATE-03-2",
+          "billable_rate_usd": "210.00",
+          "is_scope_rework": "False"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "timekeeping/timesheets",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "time_entry_id": "TIME-0025922",
+          "employee_id": "EMP-022",
+          "role": "Analytics Specialist",
+          "project_id": "PRJ-H-001",
+          "task_id": "TSK-ANALYTICS",
+          "client_id": "CLI-001",
+          "contract_id": "CON-H-001",
+          "work_date": "2026-10-29",
+          "hours": "3.25",
+          "billable": "True",
+          "approval_status": "submitted",
+          "approved_date": "",
+          "billing_treatment": "approved_hours_times_rate",
+          "rate_card_id": "RATE-03-2",
+          "billable_rate_usd": "210.00",
+          "is_scope_rework": "False"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "delivery/service_obligations",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "service_id": "SVC-CON-H-001-2026-10",
+          "contract_id": "CON-H-001",
+          "client_id": "CLI-001",
+          "project_id": "PRJ-H-001",
+          "service_type": "hourly",
+          "service_month": "2026-10",
+          "service_start_date": "2026-10-01",
+          "service_end_date": "2026-10-31",
+          "planned_approval_date": "2026-10-31",
+          "actual_approved_date": "2026-10-31",
+          "agreed_minimum_fee_usd": "0.00",
+          "approved_fee_usd": "2638.13",
+          "approved_hours": "12.25",
+          "rate_card_basis": "effective_role_rate",
+          "recognition_status": "approved",
+          "record_scope": "in_period"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "delivery/recognition_events",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "recognition_id": "REV-SVC-CON-H-001-2026-10",
+          "service_id": "SVC-CON-H-001-2026-10",
+          "contract_id": "CON-H-001",
+          "client_id": "CLI-001",
+          "project_id": "PRJ-H-001",
+          "recognition_date": "2026-10-31",
+          "service_month": "2026-10",
+          "recognition_type": "hourly",
+          "revenue_account_id": "4030",
+          "recognized_fee_usd": "2638.13",
+          "earned_from_deferred_usd": "0.00",
+          "earned_to_unbilled_usd": "2638.13",
+          "credit_note_id": "",
+          "journal_id": "JRN-003895"
+        }
+      ],
+      "sample_limited": false
+    },
+    {
+      "logical_table": "contracts/billing_schedule",
+      "matched_total": 1,
+      "copied_rows": [
+        {
+          "schedule_line_id": "SCH-SVC-CON-H-001-2026-10",
+          "planned_invoice_group_id": "INV-CON-H-001-2026-10",
+          "contract_id": "CON-H-001",
+          "client_id": "CLI-001",
+          "service_id": "SVC-CON-H-001-2026-10",
+          "scheduled_invoice_date": "2026-11-05",
+          "scheduled_due_date": "2026-12-05",
+          "scheduled_amount_usd": "2638.13",
+          "amount_basis": "approved_hours_earned_fee",
+          "known_date": "2026-10-31",
+          "actual_invoice_line_id": "",
+          "status_asof": "scheduled",
+          "as_of_date": "2026-10-31"
+        }
+      ],
+      "sample_limited": false
+    }
+  ]
+}

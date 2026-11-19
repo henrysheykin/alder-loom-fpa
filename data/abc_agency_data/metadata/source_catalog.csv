@@ -1,0 +1,13 @@
+﻿source_system,table_count,physical_csv_count,row_count,description,extract_semantics,snapshot_date
+hubspot,6,6,2726,"Modeled CRM companies, qualification, won/lost/open deals and observed historical pipeline snapshots. Not actual revenue.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+contracts,8,8,2168,"Signed SOWs, amendments, monthly commercial terms, milestone acceptance terms, hourly cards and billing schedule.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+timekeeping,7,53,42142,"Employee daily capacity, paid time off, frozen assignments and actual time; not a billing ledger.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+gusto,6,6,8366,"Modeled salary earnings, provider funding and secondary project/overhead allocation. Synthetic tax/benefit assumptions.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+freelancers,6,6,1004,"Accepted deliverables and hours, earned costs, received invoices and links to QB AP.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+meta_ads,5,28,26703,"Client-owned, client-funded Meta-style campaign metrics and monthly analytical statements.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+google_ads,5,28,26703,"Client-owned, client-funded Google-style campaign metrics; cost_micros retained.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+delivery,4,4,2707,"Approved earned-fee events, service-level opening assets/liabilities and contract roll-forwards.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+quickbooks,17,40,20677,"Modeled accounting documents, AR/AP, double-entry journals, GL and monthly trial balance.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+bank,3,26,1053,"Agency bank actuals only, running balances and 24 statements. No client media cash.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+planning,8,8,1428,"Immutable original budgets, capacity plans and cutoff-known commitments/collection assumptions.",synthetic_modeled_extract_not_native_API_export,2026-10-31
+finance,5,5,80,"Loan agreement, actual repayments, future contractual schedule, owner distributions and insurance amortization.",synthetic_modeled_extract_not_native_API_export,2026-10-31

@@ -1,0 +1,2 @@
+﻿debt_id,lender_name,agreement_date,maturity_date,original_principal_usd,opening_principal_usd,annual_interest_rate,monthly_principal_usd,principal_asof_usd,is_synthetic_rate,as_of_date
+DEBT-001,Fictional Harbor Federal Bank,2023-11-01,2028-10-25,150000.00,120000.00,0.09,2500.00,60000.00,True,2026-10-31

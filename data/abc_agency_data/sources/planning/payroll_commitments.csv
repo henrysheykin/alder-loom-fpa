@@ -1,0 +1,2 @@
+﻿payroll_commitment_id,payroll_run_id,earned_end_date,scheduled_funding_date,net_pay_usd,withholding_plus_employer_tax_usd,benefits_usd,total_funding_usd,overlap_liability_accounts,as_of_date
+PCOM-PAY-2026-10-31,PAY-2026-10-31,2026-10-31,2026-11-02,66205.13,27149.29,3850.00,97204.42,2100|2110|2120,2026-10-31

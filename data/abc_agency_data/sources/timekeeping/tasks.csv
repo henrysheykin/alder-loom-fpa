@@ -1,0 +1,8 @@
+﻿task_id,task_name,is_billable,scope_class
+TSK-STRATEGY,Strategy and account management,True,in_scope
+TSK-OPTIMIZE,Campaign optimization,True,in_scope
+TSK-CREATIVE,Creative production,True,in_scope
+TSK-ANALYTICS,Analytics and measurement,True,in_scope
+TSK-REWORK,Unpriced extra creative revisions,True,scope_creep
+TSK-ADMIN,Administration and internal meetings,False,non_billable
+TSK-TRAIN,Training and business development,False,non_billable

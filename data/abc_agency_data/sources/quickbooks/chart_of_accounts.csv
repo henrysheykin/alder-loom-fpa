@@ -1,0 +1,36 @@
+﻿account_id,account_name,account_type,financial_statement,normal_balance,cash_flow_class
+1000,Operating bank,asset,BS,debit,cash
+1100,Accounts receivable,asset,BS,debit,working_capital
+1150,Unbilled earned fees,asset,BS,debit,working_capital
+1200,Prepaid insurance,asset,BS,debit,working_capital
+1500,Equipment at cost,asset,BS,debit,investing
+1590,Accumulated depreciation,contra_asset,BS,credit,non_cash
+2000,Accounts payable,liability,BS,credit,working_capital
+2100,Payroll net payable,liability,BS,credit,working_capital
+2110,Payroll withholding and employer tax payable,liability,BS,credit,working_capital
+2120,Payroll benefits payable,liability,BS,credit,working_capital
+2200,Accrued contractor services,liability,BS,credit,working_capital
+2300,Deferred fee revenue,liability,BS,credit,working_capital
+2500,Term loan,liability,BS,credit,financing
+3000,Members equity and opening retained earnings,equity,BS,credit,financing
+3100,Owner distributions,equity,BS,debit,financing
+4000,Flat retainer fee revenue,revenue,PL,credit,operating
+4010,Spend-based management fee revenue,revenue,PL,credit,operating
+4020,Approved fixed-project fee revenue,revenue,PL,credit,operating
+4030,Approved hourly service revenue,revenue,PL,credit,operating
+4090,Fee concessions,contra_revenue,PL,debit,operating
+5000,Delivery salaries,cost_of_services,PL,debit,operating
+5001,Delivery employer payroll taxes,cost_of_services,PL,debit,operating
+5002,Delivery employer benefits,cost_of_services,PL,debit,operating
+5010,Accepted freelance delivery services,cost_of_services,PL,debit,operating
+6000,Operations salaries,operating_expense,PL,debit,operating
+6001,Operations employer payroll taxes,operating_expense,PL,debit,operating
+6002,Operations employer benefits,operating_expense,PL,debit,operating
+6100,Office rent,operating_expense,PL,debit,operating
+6110,Agency SaaS,operating_expense,PL,debit,operating
+6120,Business insurance,operating_expense,PL,debit,operating
+6130,Accounting and professional fees,operating_expense,PL,debit,operating
+6140,Travel and client meetings,operating_expense,PL,debit,operating
+6150,Training,operating_expense,PL,debit,operating
+6300,Depreciation,operating_expense,PL,debit,non_cash
+6400,Debt interest,interest_expense,PL,debit,operating

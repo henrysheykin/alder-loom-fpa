@@ -1,0 +1,8 @@
+﻿opening_service_balance_id,service_id,contract_id,client_id,balance_date,deferred_revenue_usd,unbilled_revenue_usd,explanation
+OSB-SVC-CON-R-002-1-2024-11,SVC-CON-R-002-1-2024-11,CON-R-002-1,CLI-002,2024-10-31,12000.00,0.00,Paid quarterly retainer before window; pre-period cash is in opening bank
+OSB-SVC-CON-R-004-1-2024-11,SVC-CON-R-004-1-2024-11,CON-R-004-1,CLI-004,2024-10-31,14000.00,0.00,"Prebilled November service, unpaid at opening; matching opening AR"
+OSB-SVC-CON-R-008-1-2024-11,SVC-CON-R-008-1-2024-11,CON-R-008-1,CLI-008,2024-10-31,15000.00,0.00,"Prebilled November service, unpaid at opening; matching opening AR"
+OSB-SVC-CON-R-009-1-2024-11,SVC-CON-R-009-1-2024-11,CON-R-009-1,CLI-009,2024-10-31,13000.00,0.00,"Prebilled November service, unpaid at opening; matching opening AR"
+OSB-SVC-CON-R-002-1-2024-12,SVC-CON-R-002-1-2024-12,CON-R-002-1,CLI-002,2024-10-31,12000.00,0.00,Paid quarterly retainer before window; pre-period cash is in opening bank
+OSB-SVC-CON-R-002-1-2025-01,SVC-CON-R-002-1-2025-01,CON-R-002-1,CLI-002,2024-10-31,12000.00,0.00,Paid quarterly retainer before window; pre-period cash is in opening bank
+OSB-SVC-OPEN-H-001,SVC-OPEN-H-001,CON-H-001,CLI-001,2024-10-31,0.00,6000.00,Approved October analytics earned before window; invoiced on November 5

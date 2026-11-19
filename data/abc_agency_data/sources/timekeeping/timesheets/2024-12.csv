@@ -1,0 +1,923 @@
+﻿time_entry_id,employee_id,role,project_id,task_id,client_id,contract_id,work_date,hours,billable,approval_status,approved_date,billing_treatment,rate_card_id,billable_rate_usd,is_scope_rework
+TIME-0000832,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-02,8,False,approved,2024-12-03,not_billable,,,False
+TIME-0000833,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,8,False,approved,2024-12-04,not_billable,,,False
+TIME-0000834,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-04,8,False,approved,2024-12-05,not_billable,,,False
+TIME-0000835,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-05,8,False,approved,2024-12-06,not_billable,,,False
+TIME-0000836,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-06,8,False,approved,2024-12-07,not_billable,,,False
+TIME-0000837,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,8,False,approved,2024-12-10,not_billable,,,False
+TIME-0000838,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,8,False,approved,2024-12-11,not_billable,,,False
+TIME-0000839,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,8,False,approved,2024-12-12,not_billable,,,False
+TIME-0000840,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,8,False,approved,2024-12-13,not_billable,,,False
+TIME-0000841,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,8,False,approved,2024-12-14,not_billable,,,False
+TIME-0000842,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,8,False,approved,2024-12-17,not_billable,,,False
+TIME-0000843,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,8,False,approved,2024-12-18,not_billable,,,False
+TIME-0000844,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-18,8,False,approved,2024-12-19,not_billable,,,False
+TIME-0000845,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,8,False,approved,2024-12-20,not_billable,,,False
+TIME-0000846,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,8,False,approved,2024-12-21,not_billable,,,False
+TIME-0000847,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,8,False,approved,2024-12-24,not_billable,,,False
+TIME-0000848,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,8,False,approved,2024-12-25,not_billable,,,False
+TIME-0000849,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,8,False,approved,2024-12-27,not_billable,,,False
+TIME-0000850,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-27,8,False,approved,2024-12-28,not_billable,,,False
+TIME-0000851,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,8,False,approved,2024-12-31,not_billable,,,False
+TIME-0000852,EMP-001,Managing Partner,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-31,8,False,approved,2024-12-31,not_billable,,,False
+TIME-0000853,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,8,False,approved,2024-12-03,not_billable,,,False
+TIME-0000854,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-03,8,False,approved,2024-12-04,not_billable,,,False
+TIME-0000855,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,8,False,approved,2024-12-05,not_billable,,,False
+TIME-0000856,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,8,False,approved,2024-12-06,not_billable,,,False
+TIME-0000857,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-06,8,False,approved,2024-12-07,not_billable,,,False
+TIME-0000858,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-09,8,False,approved,2024-12-10,not_billable,,,False
+TIME-0000859,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,8,False,approved,2024-12-11,not_billable,,,False
+TIME-0000860,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,8,False,approved,2024-12-12,not_billable,,,False
+TIME-0000861,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,8,False,approved,2024-12-13,not_billable,,,False
+TIME-0000862,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-13,8,False,approved,2024-12-14,not_billable,,,False
+TIME-0000863,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-16,8,False,approved,2024-12-17,not_billable,,,False
+TIME-0000864,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,8,False,approved,2024-12-18,not_billable,,,False
+TIME-0000865,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,8,False,approved,2024-12-19,not_billable,,,False
+TIME-0000866,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,8,False,approved,2024-12-20,not_billable,,,False
+TIME-0000867,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,8,False,approved,2024-12-21,not_billable,,,False
+TIME-0000868,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,8,False,approved,2024-12-24,not_billable,,,False
+TIME-0000869,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,8,False,approved,2024-12-25,not_billable,,,False
+TIME-0000870,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,8,False,approved,2024-12-27,not_billable,,,False
+TIME-0000871,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-27,8,False,approved,2024-12-28,not_billable,,,False
+TIME-0000872,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,8,False,approved,2024-12-31,not_billable,,,False
+TIME-0000873,EMP-002,Finance and Operations Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,8,False,approved,2024-12-31,not_billable,,,False
+TIME-0000874,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,8,False,approved,2024-12-03,not_billable,,,False
+TIME-0000875,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,8,False,approved,2024-12-04,not_billable,,,False
+TIME-0000876,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,8,False,approved,2024-12-05,not_billable,,,False
+TIME-0000877,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,8,False,approved,2024-12-06,not_billable,,,False
+TIME-0000878,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,8,False,approved,2024-12-10,not_billable,,,False
+TIME-0000879,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,8,False,approved,2024-12-11,not_billable,,,False
+TIME-0000880,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,8,False,approved,2024-12-12,not_billable,,,False
+TIME-0000881,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,8,False,approved,2024-12-14,not_billable,,,False
+TIME-0000882,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-16,8,False,approved,2024-12-17,not_billable,,,False
+TIME-0000883,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,8,False,approved,2024-12-18,not_billable,,,False
+TIME-0000884,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,8,False,approved,2024-12-19,not_billable,,,False
+TIME-0000885,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,8,False,approved,2024-12-20,not_billable,,,False
+TIME-0000886,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,8,False,approved,2024-12-21,not_billable,,,False
+TIME-0000887,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,8,False,approved,2024-12-24,not_billable,,,False
+TIME-0000888,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,8,False,approved,2024-12-25,not_billable,,,False
+TIME-0000889,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-26,8,False,approved,2024-12-27,not_billable,,,False
+TIME-0000890,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,8,False,approved,2024-12-28,not_billable,,,False
+TIME-0000891,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,8,False,approved,2024-12-31,not_billable,,,False
+TIME-0000892,EMP-003,Business Development Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,8,False,approved,2024-12-31,not_billable,,,False
+TIME-0000893,EMP-004,Paid Media Lead,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-02,3.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0000894,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-02,2.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0000895,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,2,False,approved,2024-12-03,not_billable,,,False
+TIME-0000896,EMP-004,Paid Media Lead,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-03,5.75,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0000897,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-03,2.25,False,approved,2024-12-04,not_billable,,,False
+TIME-0000898,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-04,6.5,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0000899,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,1.5,False,approved,2024-12-05,not_billable,,,False
+TIME-0000900,EMP-004,Paid Media Lead,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-05,4,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0000901,EMP-004,Paid Media Lead,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-05,2.75,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0000902,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,1.25,False,approved,2024-12-06,not_billable,,,False
+TIME-0000903,EMP-004,Paid Media Lead,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-06,4.25,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0000904,EMP-004,Paid Media Lead,PRJ-H-001,TSK-OPTIMIZE,CLI-001,CON-H-001,2024-12-06,3,True,approved,2024-12-08,approved_hours_times_rate,RATE-11-1,225.00,False
+TIME-0000905,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-06,0.75,False,approved,2024-12-07,not_billable,,,False
+TIME-0000906,EMP-004,Paid Media Lead,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-09,3.5,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0000907,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-09,2.25,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0000908,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,2.25,False,approved,2024-12-10,not_billable,,,False
+TIME-0000909,EMP-004,Paid Media Lead,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-10,4.25,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0000910,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-10,3,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0000911,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,0.75,False,approved,2024-12-11,not_billable,,,False
+TIME-0000912,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-11,6,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0000913,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-11,2,False,approved,2024-12-12,not_billable,,,False
+TIME-0000914,EMP-004,Paid Media Lead,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-12,3.5,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0000915,EMP-004,Paid Media Lead,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-12,2.25,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0000916,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,2.25,False,approved,2024-12-13,not_billable,,,False
+TIME-0000917,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-13,4,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0000918,EMP-004,Paid Media Lead,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-13,2.75,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0000919,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,1.25,False,approved,2024-12-14,not_billable,,,False
+TIME-0000920,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-16,7,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0000921,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-16,1,False,approved,2024-12-17,not_billable,,,False
+TIME-0000922,EMP-004,Paid Media Lead,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-17,3.5,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0000923,EMP-004,Paid Media Lead,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-17,2.5,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0000924,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,2,False,approved,2024-12-18,not_billable,,,False
+TIME-0000925,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-18,4,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0000926,EMP-004,Paid Media Lead,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-18,2.5,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0000927,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,1.5,False,approved,2024-12-19,not_billable,,,False
+TIME-0000928,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-19,3.5,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0000929,EMP-004,Paid Media Lead,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-19,2.25,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0000930,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-19,2.25,False,approved,2024-12-20,not_billable,,,False
+TIME-0000931,EMP-004,Paid Media Lead,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-20,5.75,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0000932,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,2.25,False,approved,2024-12-21,not_billable,,,False
+TIME-0000933,EMP-004,Paid Media Lead,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-23,3.75,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0000934,EMP-004,Paid Media Lead,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-23,2.5,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0000935,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,1.75,False,approved,2024-12-24,not_billable,,,False
+TIME-0000936,EMP-004,Paid Media Lead,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-24,3.25,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0000937,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-24,0.75,False,approved,2024-12-25,not_billable,,,False
+TIME-0000938,EMP-004,Paid Media Lead,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-26,4.25,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0000939,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-26,3,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0000940,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,0.75,False,approved,2024-12-27,not_billable,,,False
+TIME-0000941,EMP-004,Paid Media Lead,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-27,6.75,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0000942,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,1.25,False,approved,2024-12-28,not_billable,,,False
+TIME-0000943,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-30,4,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0000944,EMP-004,Paid Media Lead,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-30,2.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0000945,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,1.5,False,approved,2024-12-31,not_billable,,,False
+TIME-0000946,EMP-004,Paid Media Lead,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-31,3.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0000947,EMP-004,Paid Media Lead,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-31,2.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0000948,EMP-004,Paid Media Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,2,False,approved,2024-12-31,not_billable,,,False
+TIME-0000949,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-02,3.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0000950,EMP-005,Paid Media Strategist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-02,2.25,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0000951,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-02,2.25,False,approved,2024-12-03,not_billable,,,False
+TIME-0000952,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-03,4,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0000953,EMP-005,Paid Media Strategist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-03,2.75,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0000954,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,1.25,False,approved,2024-12-04,not_billable,,,False
+TIME-0000955,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-04,6.5,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0000956,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,1.5,False,approved,2024-12-05,not_billable,,,False
+TIME-0000957,EMP-005,Paid Media Strategist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-05,4.25,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0000958,EMP-005,Paid Media Strategist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-05,3,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0000959,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,0.75,False,approved,2024-12-06,not_billable,,,False
+TIME-0000960,EMP-005,Paid Media Strategist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-06,4,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0000961,EMP-005,Paid Media Strategist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-06,2.5,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0000962,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-06,1.5,False,approved,2024-12-07,not_billable,,,False
+TIME-0000963,EMP-005,Paid Media Strategist,PRJ-R-011-1,TSK-OPTIMIZE,CLI-011,CON-R-011-1,2024-12-09,4.25,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0000964,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-09,2.75,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0000965,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,1,False,approved,2024-12-10,not_billable,,,False
+TIME-0000966,EMP-005,Paid Media Strategist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-10,4.25,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0000967,EMP-005,Paid Media Strategist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-10,3,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0000968,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,0.75,False,approved,2024-12-11,not_billable,,,False
+TIME-0000969,EMP-005,Paid Media Strategist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-11,3.5,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0000970,EMP-005,Paid Media Strategist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-11,2.5,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0000971,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-11,2,False,approved,2024-12-12,not_billable,,,False
+TIME-0000972,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-12,4,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0000973,EMP-005,Paid Media Strategist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-12,2.75,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0000974,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1.25,False,approved,2024-12-13,not_billable,,,False
+TIME-0000975,EMP-005,Paid Media Strategist,PRJ-R-011-1,TSK-OPTIMIZE,CLI-011,CON-R-011-1,2024-12-13,3.5,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0000976,EMP-005,Paid Media Strategist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-13,2.5,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0000977,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,2,False,approved,2024-12-14,not_billable,,,False
+TIME-0000978,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-16,3.5,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0000979,EMP-005,Paid Media Strategist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-16,2.5,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0000980,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,2,False,approved,2024-12-17,not_billable,,,False
+TIME-0000981,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-17,3.5,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0000982,EMP-005,Paid Media Strategist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-17,2.5,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0000983,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,2,False,approved,2024-12-18,not_billable,,,False
+TIME-0000984,EMP-005,Paid Media Strategist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-18,6.5,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0000985,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-18,1.5,False,approved,2024-12-19,not_billable,,,False
+TIME-0000986,EMP-005,Paid Media Strategist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-19,4.5,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0000987,EMP-005,Paid Media Strategist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-19,3,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0000988,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,0.5,False,approved,2024-12-20,not_billable,,,False
+TIME-0000989,EMP-005,Paid Media Strategist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-20,6.75,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0000990,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,1.25,False,approved,2024-12-21,not_billable,,,False
+TIME-0000991,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-23,4.25,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0000992,EMP-005,Paid Media Strategist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-23,3,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0000993,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,0.75,False,approved,2024-12-24,not_billable,,,False
+TIME-0000994,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-24,6.25,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0000995,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,1.75,False,approved,2024-12-25,not_billable,,,False
+TIME-0000996,EMP-005,Paid Media Strategist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-26,4,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0000997,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-26,2.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0000998,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,1.5,False,approved,2024-12-27,not_billable,,,False
+TIME-0000999,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-27,4.25,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001000,EMP-005,Paid Media Strategist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-27,2.75,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001001,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-27,1,False,approved,2024-12-28,not_billable,,,False
+TIME-0001002,EMP-005,Paid Media Strategist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-30,6.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001003,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,1.5,False,approved,2024-12-31,not_billable,,,False
+TIME-0001004,EMP-005,Paid Media Strategist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-31,3.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001005,EMP-005,Paid Media Strategist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-31,2.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001006,EMP-005,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,1.75,False,approved,2024-12-31,not_billable,,,False
+TIME-0001007,EMP-006,Paid Media Strategist,PRJ-R-006-1,TSK-OPTIMIZE,CLI-006,CON-R-006-1,2024-12-02,4.25,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001008,EMP-006,Paid Media Strategist,PRJ-R-003-1,TSK-OPTIMIZE,CLI-003,CON-R-003-1,2024-12-02,3,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001009,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,0.75,False,approved,2024-12-03,not_billable,,,False
+TIME-0001010,EMP-006,Paid Media Strategist,PRJ-R-006-1,TSK-OPTIMIZE,CLI-006,CON-R-006-1,2024-12-03,4.25,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001011,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-03,2.75,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001012,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-03,1,False,approved,2024-12-04,not_billable,,,False
+TIME-0001013,EMP-006,Paid Media Strategist,PRJ-R-006-1,TSK-OPTIMIZE,CLI-006,CON-R-006-1,2024-12-04,3.5,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001014,EMP-006,Paid Media Strategist,PRJ-R-003-1,TSK-OPTIMIZE,CLI-003,CON-R-003-1,2024-12-04,2.5,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001015,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,2,False,approved,2024-12-05,not_billable,,,False
+TIME-0001016,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-05,4.25,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001017,EMP-006,Paid Media Strategist,PRJ-R-012-1,TSK-OPTIMIZE,CLI-012,CON-R-012-1,2024-12-05,3,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001018,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,0.75,False,approved,2024-12-06,not_billable,,,False
+TIME-0001019,EMP-006,Paid Media Strategist,PRJ-R-003-1,TSK-OPTIMIZE,CLI-003,CON-R-003-1,2024-12-06,4,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001020,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-06,2.5,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001021,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-06,1.5,False,approved,2024-12-07,not_billable,,,False
+TIME-0001022,EMP-006,Paid Media Strategist,PRJ-R-003-1,TSK-OPTIMIZE,CLI-003,CON-R-003-1,2024-12-09,4,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001023,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-09,2.5,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001024,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-09,1.5,False,approved,2024-12-10,not_billable,,,False
+TIME-0001025,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-10,3.75,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001026,EMP-006,Paid Media Strategist,PRJ-R-012-1,TSK-OPTIMIZE,CLI-012,CON-R-012-1,2024-12-10,2.5,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001027,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-10,1.75,False,approved,2024-12-11,not_billable,,,False
+TIME-0001028,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-11,3.5,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001029,EMP-006,Paid Media Strategist,PRJ-R-006-1,TSK-OPTIMIZE,CLI-006,CON-R-006-1,2024-12-11,2.25,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001030,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,2.25,False,approved,2024-12-12,not_billable,,,False
+TIME-0001031,EMP-006,Paid Media Strategist,PRJ-R-006-1,TSK-OPTIMIZE,CLI-006,CON-R-006-1,2024-12-12,7,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001032,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1,False,approved,2024-12-13,not_billable,,,False
+TIME-0001033,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-13,3.5,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001034,EMP-006,Paid Media Strategist,PRJ-R-012-1,TSK-OPTIMIZE,CLI-012,CON-R-012-1,2024-12-13,2.25,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001035,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-13,2.25,False,approved,2024-12-14,not_billable,,,False
+TIME-0001036,EMP-006,Paid Media Strategist,PRJ-R-006-1,TSK-OPTIMIZE,CLI-006,CON-R-006-1,2024-12-16,4.25,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001037,EMP-006,Paid Media Strategist,PRJ-R-003-1,TSK-OPTIMIZE,CLI-003,CON-R-003-1,2024-12-16,3,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001038,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-16,0.75,False,approved,2024-12-17,not_billable,,,False
+TIME-0001039,EMP-006,Paid Media Strategist,PRJ-R-003-1,TSK-OPTIMIZE,CLI-003,CON-R-003-1,2024-12-17,3.5,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001040,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-17,2.5,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001041,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-17,2,False,approved,2024-12-18,not_billable,,,False
+TIME-0001042,EMP-006,Paid Media Strategist,PRJ-R-003-1,TSK-OPTIMIZE,CLI-003,CON-R-003-1,2024-12-18,3.5,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001043,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-18,2.5,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001044,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,2,False,approved,2024-12-19,not_billable,,,False
+TIME-0001045,EMP-006,Paid Media Strategist,PRJ-R-012-1,TSK-OPTIMIZE,CLI-012,CON-R-012-1,2024-12-19,3.75,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001046,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-19,2.5,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001047,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,1.75,False,approved,2024-12-20,not_billable,,,False
+TIME-0001048,EMP-006,Paid Media Strategist,PRJ-R-003-1,TSK-OPTIMIZE,CLI-003,CON-R-003-1,2024-12-20,4,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001049,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-20,2.5,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001050,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,1.5,False,approved,2024-12-21,not_billable,,,False
+TIME-0001051,EMP-006,Paid Media Strategist,PRJ-R-006-1,TSK-OPTIMIZE,CLI-006,CON-R-006-1,2024-12-23,6,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001052,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,2,False,approved,2024-12-24,not_billable,,,False
+TIME-0001053,EMP-006,Paid Media Strategist,PRJ-R-006-1,TSK-OPTIMIZE,CLI-006,CON-R-006-1,2024-12-24,4.25,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001054,EMP-006,Paid Media Strategist,PRJ-R-012-1,TSK-OPTIMIZE,CLI-012,CON-R-012-1,2024-12-24,3,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001055,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-24,0.75,False,approved,2024-12-25,not_billable,,,False
+TIME-0001056,EMP-006,Paid Media Strategist,PRJ-R-003-1,TSK-OPTIMIZE,CLI-003,CON-R-003-1,2024-12-26,3.75,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001057,EMP-006,Paid Media Strategist,PRJ-R-012-1,TSK-OPTIMIZE,CLI-012,CON-R-012-1,2024-12-26,2.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001058,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-26,1.75,False,approved,2024-12-27,not_billable,,,False
+TIME-0001059,EMP-006,Paid Media Strategist,PRJ-R-006-1,TSK-OPTIMIZE,CLI-006,CON-R-006-1,2024-12-27,5.75,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001060,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,2.25,False,approved,2024-12-28,not_billable,,,False
+TIME-0001061,EMP-006,Paid Media Strategist,PRJ-R-009-1,TSK-OPTIMIZE,CLI-009,CON-R-009-1,2024-12-30,7.25,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001062,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-30,0.75,False,approved,2024-12-31,not_billable,,,False
+TIME-0001063,EMP-006,Paid Media Strategist,PRJ-R-012-1,TSK-OPTIMIZE,CLI-012,CON-R-012-1,2024-12-31,7,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001064,EMP-006,Paid Media Strategist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,1,False,approved,2024-12-31,not_billable,,,False
+TIME-0001065,EMP-007,Paid Media Specialist,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-02,3.75,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001066,EMP-007,Paid Media Specialist,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-02,2.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001067,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,1.75,False,approved,2024-12-03,not_billable,,,False
+TIME-0001068,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-03,4.25,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001069,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-03,3,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001070,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,0.75,False,approved,2024-12-04,not_billable,,,False
+TIME-0001071,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-04,3.5,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001072,EMP-007,Paid Media Specialist,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-04,2.5,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001073,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,2,False,approved,2024-12-05,not_billable,,,False
+TIME-0001074,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-05,4,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001075,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-05,2.75,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001076,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,1.25,False,approved,2024-12-06,not_billable,,,False
+TIME-0001077,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-06,3.75,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001078,EMP-007,Paid Media Specialist,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-06,2.5,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001079,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-06,1.75,False,approved,2024-12-07,not_billable,,,False
+TIME-0001080,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-09,3.5,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001081,EMP-007,Paid Media Specialist,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-09,2.5,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001082,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,2,False,approved,2024-12-10,not_billable,,,False
+TIME-0001083,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-10,4,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001084,EMP-007,Paid Media Specialist,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-10,2.5,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001085,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,1.5,False,approved,2024-12-11,not_billable,,,False
+TIME-0001086,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-11,4,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001087,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-11,2.75,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001088,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,1.25,False,approved,2024-12-12,not_billable,,,False
+TIME-0001089,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-12,4.25,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001090,EMP-007,Paid Media Specialist,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-12,3,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001091,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,0.75,False,approved,2024-12-13,not_billable,,,False
+TIME-0001092,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-13,4,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001093,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-13,2.75,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001094,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-13,1.25,False,approved,2024-12-14,not_billable,,,False
+TIME-0001095,EMP-007,Paid Media Specialist,PRJ-H-010,TSK-OPTIMIZE,CLI-010,CON-H-010,2024-12-16,4,True,approved,2024-12-18,approved_hours_times_rate,RATE-12-1,200.00,False
+TIME-0001096,EMP-007,Paid Media Specialist,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-16,2.5,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001097,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,1.5,False,approved,2024-12-17,not_billable,,,False
+TIME-0001098,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-17,4.25,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001099,EMP-007,Paid Media Specialist,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-17,3,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001100,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,0.75,False,approved,2024-12-18,not_billable,,,False
+TIME-0001101,EMP-007,Paid Media Specialist,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-18,4.25,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001102,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-18,2.75,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001103,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,1,False,approved,2024-12-19,not_billable,,,False
+TIME-0001104,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-19,6.25,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001105,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,1.75,False,approved,2024-12-20,not_billable,,,False
+TIME-0001106,EMP-007,Paid Media Specialist,PRJ-R-004-1,TSK-OPTIMIZE,CLI-004,CON-R-004-1,2024-12-20,3.5,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001107,EMP-007,Paid Media Specialist,PRJ-R-010-1,TSK-OPTIMIZE,CLI-010,CON-R-010-1,2024-12-20,2.5,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001108,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-20,2,False,approved,2024-12-21,not_billable,,,False
+TIME-0001109,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-23,6,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001110,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-23,2,False,approved,2024-12-24,not_billable,,,False
+TIME-0001111,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-24,6.25,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001112,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,1.75,False,approved,2024-12-25,not_billable,,,False
+TIME-0001113,EMP-007,Paid Media Specialist,PRJ-H-010,TSK-OPTIMIZE,CLI-010,CON-H-010,2024-12-26,4,True,approved,2024-12-28,approved_hours_times_rate,RATE-12-1,200.00,False
+TIME-0001114,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-26,2.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001115,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,1.5,False,approved,2024-12-27,not_billable,,,False
+TIME-0001116,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-27,3.5,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001117,EMP-007,Paid Media Specialist,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-27,2.5,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001118,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,2,False,approved,2024-12-28,not_billable,,,False
+TIME-0001119,EMP-007,Paid Media Specialist,PRJ-R-013-1,TSK-OPTIMIZE,CLI-013,CON-R-013-1,2024-12-30,3.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001120,EMP-007,Paid Media Specialist,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-30,2.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001121,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,1.75,False,approved,2024-12-31,not_billable,,,False
+TIME-0001122,EMP-007,Paid Media Specialist,PRJ-R-007-1,TSK-OPTIMIZE,CLI-007,CON-R-007-1,2024-12-31,3.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001123,EMP-007,Paid Media Specialist,PRJ-R-001-1,TSK-OPTIMIZE,CLI-001,CON-R-001-1,2024-12-31,2.25,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001124,EMP-007,Paid Media Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-31,2.25,False,approved,2024-12-31,not_billable,,,False
+TIME-0001125,EMP-008,Paid Media Specialist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-02,4.25,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001126,EMP-008,Paid Media Specialist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-02,2.75,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001127,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,1,False,approved,2024-12-03,not_billable,,,False
+TIME-0001128,EMP-008,Paid Media Specialist,PRJ-R-011-1,TSK-OPTIMIZE,CLI-011,CON-R-011-1,2024-12-03,4,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001129,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-03,2.5,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001130,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-03,1.5,False,approved,2024-12-04,not_billable,,,False
+TIME-0001131,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-04,4,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001132,EMP-008,Paid Media Specialist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-04,2.5,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001133,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,1.5,False,approved,2024-12-05,not_billable,,,False
+TIME-0001134,EMP-008,Paid Media Specialist,PRJ-R-011-1,TSK-OPTIMIZE,CLI-011,CON-R-011-1,2024-12-05,4.25,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001135,EMP-008,Paid Media Specialist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-05,2.75,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001136,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,1,False,approved,2024-12-06,not_billable,,,False
+TIME-0001137,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-09,3.5,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001138,EMP-008,Paid Media Specialist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-09,2.25,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001139,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,2.25,False,approved,2024-12-10,not_billable,,,False
+TIME-0001140,EMP-008,Paid Media Specialist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-10,4.25,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001141,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-10,3,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001142,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-10,0.75,False,approved,2024-12-11,not_billable,,,False
+TIME-0001143,EMP-008,Paid Media Specialist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-11,4.25,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001144,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-11,2.75,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001145,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,1,False,approved,2024-12-12,not_billable,,,False
+TIME-0001146,EMP-008,Paid Media Specialist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-12,7.25,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001147,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,0.75,False,approved,2024-12-13,not_billable,,,False
+TIME-0001148,EMP-008,Paid Media Specialist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-13,6.25,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001149,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,1.75,False,approved,2024-12-14,not_billable,,,False
+TIME-0001150,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-16,3.75,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001151,EMP-008,Paid Media Specialist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-16,2.5,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001152,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,1.75,False,approved,2024-12-17,not_billable,,,False
+TIME-0001153,EMP-008,Paid Media Specialist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-17,3.75,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001154,EMP-008,Paid Media Specialist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-17,2.5,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001155,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,1.75,False,approved,2024-12-18,not_billable,,,False
+TIME-0001156,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-18,3.75,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001157,EMP-008,Paid Media Specialist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-18,2.5,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001158,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,1.75,False,approved,2024-12-19,not_billable,,,False
+TIME-0001159,EMP-008,Paid Media Specialist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-19,4,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001160,EMP-008,Paid Media Specialist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-19,2.75,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001161,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,1.25,False,approved,2024-12-20,not_billable,,,False
+TIME-0001162,EMP-008,Paid Media Specialist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-20,3.5,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001163,EMP-008,Paid Media Specialist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-20,2.5,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001164,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-20,2,False,approved,2024-12-21,not_billable,,,False
+TIME-0001165,EMP-008,Paid Media Specialist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-23,3.5,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001166,EMP-008,Paid Media Specialist,PRJ-R-008-1,TSK-OPTIMIZE,CLI-008,CON-R-008-1,2024-12-23,2.25,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001167,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-23,2.25,False,approved,2024-12-24,not_billable,,,False
+TIME-0001168,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-24,6.75,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001169,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,1.25,False,approved,2024-12-25,not_billable,,,False
+TIME-0001170,EMP-008,Paid Media Specialist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-26,4.25,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001171,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-26,2.75,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001172,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,1,False,approved,2024-12-27,not_billable,,,False
+TIME-0001173,EMP-008,Paid Media Specialist,PRJ-R-002-1,TSK-OPTIMIZE,CLI-002,CON-R-002-1,2024-12-27,4,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001174,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-27,2.5,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001175,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-27,1.5,False,approved,2024-12-28,not_billable,,,False
+TIME-0001176,EMP-008,Paid Media Specialist,PRJ-R-005-1,TSK-OPTIMIZE,CLI-005,CON-R-005-1,2024-12-30,4.25,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001177,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-30,2.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001178,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,1,False,approved,2024-12-31,not_billable,,,False
+TIME-0001179,EMP-008,Paid Media Specialist,PRJ-R-011-1,TSK-OPTIMIZE,CLI-011,CON-R-011-1,2024-12-31,4.25,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001180,EMP-008,Paid Media Specialist,PRJ-R-014-1,TSK-OPTIMIZE,CLI-014,CON-R-014-1,2024-12-31,2.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001181,EMP-008,Paid Media Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,1,False,approved,2024-12-31,not_billable,,,False
+TIME-0001182,EMP-009,Client Services Lead,PRJ-F-002,TSK-STRATEGY,CLI-006,CON-F-002,2024-12-02,4.25,True,approved,2024-12-04,included_in_fixed_fee,,,False
+TIME-0001183,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-02,3,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001184,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-02,0.75,False,approved,2024-12-03,not_billable,,,False
+TIME-0001185,EMP-009,Client Services Lead,PRJ-R-006-1,TSK-STRATEGY,CLI-006,CON-R-006-1,2024-12-03,4.25,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001186,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-03,3,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001187,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,0.75,False,approved,2024-12-04,not_billable,,,False
+TIME-0001188,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-04,6,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001189,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,2,False,approved,2024-12-05,not_billable,,,False
+TIME-0001190,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-05,3.5,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001191,EMP-009,Client Services Lead,PRJ-R-006-1,TSK-STRATEGY,CLI-006,CON-R-006-1,2024-12-05,2.5,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001192,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,2,False,approved,2024-12-06,not_billable,,,False
+TIME-0001193,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-06,3.75,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001194,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-06,2.5,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001195,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-06,1.75,False,approved,2024-12-07,not_billable,,,False
+TIME-0001196,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-09,4,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001197,EMP-009,Client Services Lead,PRJ-R-006-1,TSK-STRATEGY,CLI-006,CON-R-006-1,2024-12-09,2.75,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001198,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,1.25,False,approved,2024-12-10,not_billable,,,False
+TIME-0001199,EMP-009,Client Services Lead,PRJ-R-006-1,TSK-STRATEGY,CLI-006,CON-R-006-1,2024-12-10,4.25,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001200,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-10,2.75,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001201,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,1,False,approved,2024-12-11,not_billable,,,False
+TIME-0001202,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-11,6.5,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001203,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,1.5,False,approved,2024-12-12,not_billable,,,False
+TIME-0001204,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-12,4,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001205,EMP-009,Client Services Lead,PRJ-F-002,TSK-STRATEGY,CLI-006,CON-F-002,2024-12-12,2.5,True,approved,2024-12-14,included_in_fixed_fee,,,False
+TIME-0001206,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1.5,False,approved,2024-12-13,not_billable,,,False
+TIME-0001207,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-13,3.75,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001208,EMP-009,Client Services Lead,PRJ-R-012-1,TSK-STRATEGY,CLI-012,CON-R-012-1,2024-12-13,2.5,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001209,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-13,1.75,False,approved,2024-12-14,not_billable,,,False
+TIME-0001210,EMP-009,Client Services Lead,PRJ-R-006-1,TSK-STRATEGY,CLI-006,CON-R-006-1,2024-12-16,4.25,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001211,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-16,2.75,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001212,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,1,False,approved,2024-12-17,not_billable,,,False
+TIME-0001213,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-17,4.25,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001214,EMP-009,Client Services Lead,PRJ-R-012-1,TSK-STRATEGY,CLI-012,CON-R-012-1,2024-12-17,3,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001215,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,0.75,False,approved,2024-12-18,not_billable,,,False
+TIME-0001216,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-18,4.25,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001217,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-18,3,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001218,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-18,0.75,False,approved,2024-12-19,not_billable,,,False
+TIME-0001219,EMP-009,Client Services Lead,PRJ-R-006-1,TSK-STRATEGY,CLI-006,CON-R-006-1,2024-12-19,3.75,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001220,EMP-009,Client Services Lead,PRJ-F-002,TSK-STRATEGY,CLI-006,CON-F-002,2024-12-19,2.5,True,approved,2024-12-21,included_in_fixed_fee,,,False
+TIME-0001221,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,1.75,False,approved,2024-12-20,not_billable,,,False
+TIME-0001222,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-20,7.25,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001223,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,0.75,False,approved,2024-12-21,not_billable,,,False
+TIME-0001224,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-23,6.75,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001225,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,1.25,False,approved,2024-12-24,not_billable,,,False
+TIME-0001226,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-24,4.25,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001227,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-24,2.75,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001228,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,1,False,approved,2024-12-25,not_billable,,,False
+TIME-0001229,EMP-009,Client Services Lead,PRJ-R-006-1,TSK-STRATEGY,CLI-006,CON-R-006-1,2024-12-26,3.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001230,EMP-009,Client Services Lead,PRJ-R-003-1,TSK-STRATEGY,CLI-003,CON-R-003-1,2024-12-26,2.25,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001231,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,2.25,False,approved,2024-12-27,not_billable,,,False
+TIME-0001232,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-27,3.5,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001233,EMP-009,Client Services Lead,PRJ-F-001,TSK-STRATEGY,CLI-003,CON-F-001,2024-12-27,2.5,True,approved,2024-12-29,included_in_fixed_fee,,,False
+TIME-0001234,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,2,False,approved,2024-12-28,not_billable,,,False
+TIME-0001235,EMP-009,Client Services Lead,PRJ-F-002,TSK-STRATEGY,CLI-006,CON-F-002,2024-12-30,4,True,approved,2024-12-31,included_in_fixed_fee,,,False
+TIME-0001236,EMP-009,Client Services Lead,PRJ-R-009-1,TSK-STRATEGY,CLI-009,CON-R-009-1,2024-12-30,2.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001237,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,1.25,False,approved,2024-12-31,not_billable,,,False
+TIME-0001238,EMP-009,Client Services Lead,PRJ-R-012-1,TSK-STRATEGY,CLI-012,CON-R-012-1,2024-12-31,3.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001239,EMP-009,Client Services Lead,PRJ-F-002,TSK-STRATEGY,CLI-006,CON-F-002,2024-12-31,2.5,True,approved,2024-12-31,included_in_fixed_fee,,,False
+TIME-0001240,EMP-009,Client Services Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-31,2,False,approved,2024-12-31,not_billable,,,False
+TIME-0001241,EMP-010,Account Manager,PRJ-R-007-1,TSK-STRATEGY,CLI-007,CON-R-007-1,2024-12-02,3.75,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001242,EMP-010,Account Manager,PRJ-R-010-1,TSK-STRATEGY,CLI-010,CON-R-010-1,2024-12-02,2.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001243,EMP-010,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-02,1.75,False,approved,2024-12-03,not_billable,,,False
+TIME-0001244,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-03,4.25,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001245,EMP-010,Account Manager,PRJ-R-007-1,TSK-STRATEGY,CLI-007,CON-R-007-1,2024-12-03,3,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001246,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,0.75,False,approved,2024-12-04,not_billable,,,False
+TIME-0001247,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-04,6.75,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001248,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,1.25,False,approved,2024-12-05,not_billable,,,False
+TIME-0001249,EMP-010,Account Manager,PRJ-R-004-1,TSK-STRATEGY,CLI-004,CON-R-004-1,2024-12-05,7.25,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001250,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,0.75,False,approved,2024-12-06,not_billable,,,False
+TIME-0001251,EMP-010,Account Manager,PRJ-R-004-1,TSK-STRATEGY,CLI-004,CON-R-004-1,2024-12-06,7,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001252,EMP-010,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-06,1,False,approved,2024-12-07,not_billable,,,False
+TIME-0001253,EMP-010,Account Manager,PRJ-R-013-1,TSK-STRATEGY,CLI-013,CON-R-013-1,2024-12-09,2,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001254,EMP-010,Account Manager,PRJ-R-010-1,TSK-STRATEGY,CLI-010,CON-R-010-1,2024-12-09,1.5,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001255,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,0.5,False,approved,2024-12-10,not_billable,,,False
+TIME-0001256,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-10,4.25,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001257,EMP-010,Account Manager,PRJ-R-007-1,TSK-STRATEGY,CLI-007,CON-R-007-1,2024-12-10,3,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001258,EMP-010,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-10,0.75,False,approved,2024-12-11,not_billable,,,False
+TIME-0001259,EMP-010,Account Manager,PRJ-R-007-1,TSK-STRATEGY,CLI-007,CON-R-007-1,2024-12-11,4.25,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001260,EMP-010,Account Manager,PRJ-R-010-1,TSK-STRATEGY,CLI-010,CON-R-010-1,2024-12-11,2.75,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001261,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,1,False,approved,2024-12-12,not_billable,,,False
+TIME-0001262,EMP-010,Account Manager,PRJ-R-010-1,TSK-STRATEGY,CLI-010,CON-R-010-1,2024-12-12,6.5,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001263,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1.5,False,approved,2024-12-13,not_billable,,,False
+TIME-0001264,EMP-010,Account Manager,PRJ-R-004-1,TSK-STRATEGY,CLI-004,CON-R-004-1,2024-12-13,4.25,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001265,EMP-010,Account Manager,PRJ-R-010-1,TSK-STRATEGY,CLI-010,CON-R-010-1,2024-12-13,2.75,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001266,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,1,False,approved,2024-12-14,not_billable,,,False
+TIME-0001267,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-16,3.5,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001268,EMP-010,Account Manager,PRJ-R-004-1,TSK-STRATEGY,CLI-004,CON-R-004-1,2024-12-16,2.5,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001269,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,2,False,approved,2024-12-17,not_billable,,,False
+TIME-0001270,EMP-010,Account Manager,PRJ-R-013-1,TSK-STRATEGY,CLI-013,CON-R-013-1,2024-12-17,6.75,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001271,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,1.25,False,approved,2024-12-18,not_billable,,,False
+TIME-0001272,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-18,3.5,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001273,EMP-010,Account Manager,PRJ-R-013-1,TSK-STRATEGY,CLI-013,CON-R-013-1,2024-12-18,2.25,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001274,EMP-010,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-18,2.25,False,approved,2024-12-19,not_billable,,,False
+TIME-0001275,EMP-010,Account Manager,PRJ-R-007-1,TSK-STRATEGY,CLI-007,CON-R-007-1,2024-12-19,4,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001276,EMP-010,Account Manager,PRJ-R-013-1,TSK-STRATEGY,CLI-013,CON-R-013-1,2024-12-19,2.5,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001277,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,1.5,False,approved,2024-12-20,not_billable,,,False
+TIME-0001278,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-20,3.75,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001279,EMP-010,Account Manager,PRJ-R-007-1,TSK-STRATEGY,CLI-007,CON-R-007-1,2024-12-20,2.5,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001280,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,1.75,False,approved,2024-12-21,not_billable,,,False
+TIME-0001281,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-23,3.75,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001282,EMP-010,Account Manager,PRJ-R-004-1,TSK-STRATEGY,CLI-004,CON-R-004-1,2024-12-23,2.5,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001283,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,1.75,False,approved,2024-12-24,not_billable,,,False
+TIME-0001284,EMP-010,Account Manager,PRJ-R-004-1,TSK-STRATEGY,CLI-004,CON-R-004-1,2024-12-24,3.75,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001285,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-24,2.5,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001286,EMP-010,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-24,1.75,False,approved,2024-12-25,not_billable,,,False
+TIME-0001287,EMP-010,Account Manager,PRJ-R-004-1,TSK-STRATEGY,CLI-004,CON-R-004-1,2024-12-26,6.75,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001288,EMP-010,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-26,1.25,False,approved,2024-12-27,not_billable,,,False
+TIME-0001289,EMP-010,Account Manager,PRJ-R-007-1,TSK-STRATEGY,CLI-007,CON-R-007-1,2024-12-27,3.5,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001290,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-27,2.5,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001291,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,2,False,approved,2024-12-28,not_billable,,,False
+TIME-0001292,EMP-010,Account Manager,PRJ-R-001-1,TSK-STRATEGY,CLI-001,CON-R-001-1,2024-12-30,7,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001293,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,1,False,approved,2024-12-31,not_billable,,,False
+TIME-0001294,EMP-010,Account Manager,PRJ-R-004-1,TSK-STRATEGY,CLI-004,CON-R-004-1,2024-12-31,4.25,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001295,EMP-010,Account Manager,PRJ-R-007-1,TSK-STRATEGY,CLI-007,CON-R-007-1,2024-12-31,3,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001296,EMP-010,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,0.75,False,approved,2024-12-31,not_billable,,,False
+TIME-0001297,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-02,6.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001298,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,1.5,False,approved,2024-12-03,not_billable,,,False
+TIME-0001299,EMP-011,Account Manager,PRJ-R-014-1,TSK-STRATEGY,CLI-014,CON-R-014-1,2024-12-03,3.75,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001300,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-03,2.5,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001301,EMP-011,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-03,1.75,False,approved,2024-12-04,not_billable,,,False
+TIME-0001302,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-04,4.25,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001303,EMP-011,Account Manager,PRJ-R-014-1,TSK-STRATEGY,CLI-014,CON-R-014-1,2024-12-04,3,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001304,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,0.75,False,approved,2024-12-05,not_billable,,,False
+TIME-0001305,EMP-011,Account Manager,PRJ-R-002-1,TSK-STRATEGY,CLI-002,CON-R-002-1,2024-12-05,5.75,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001306,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,2.25,False,approved,2024-12-06,not_billable,,,False
+TIME-0001307,EMP-011,Account Manager,PRJ-R-014-1,TSK-STRATEGY,CLI-014,CON-R-014-1,2024-12-06,4,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001308,EMP-011,Account Manager,PRJ-R-008-1,TSK-STRATEGY,CLI-008,CON-R-008-1,2024-12-06,2.5,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001309,EMP-011,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-06,1.5,False,approved,2024-12-07,not_billable,,,False
+TIME-0001310,EMP-011,Account Manager,PRJ-R-002-1,TSK-STRATEGY,CLI-002,CON-R-002-1,2024-12-09,6,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001311,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,2,False,approved,2024-12-10,not_billable,,,False
+TIME-0001312,EMP-011,Account Manager,PRJ-R-011-1,TSK-STRATEGY,CLI-011,CON-R-011-1,2024-12-10,6.5,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001313,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,1.5,False,approved,2024-12-11,not_billable,,,False
+TIME-0001314,EMP-011,Account Manager,PRJ-R-002-1,TSK-STRATEGY,CLI-002,CON-R-002-1,2024-12-11,4.25,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001315,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-11,3,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001316,EMP-011,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-11,0.75,False,approved,2024-12-12,not_billable,,,False
+TIME-0001317,EMP-011,Account Manager,PRJ-R-011-1,TSK-STRATEGY,CLI-011,CON-R-011-1,2024-12-12,3.5,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001318,EMP-011,Account Manager,PRJ-R-002-1,TSK-STRATEGY,CLI-002,CON-R-002-1,2024-12-12,2.25,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001319,EMP-011,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-12,2.25,False,approved,2024-12-13,not_billable,,,False
+TIME-0001320,EMP-011,Account Manager,PRJ-R-008-1,TSK-STRATEGY,CLI-008,CON-R-008-1,2024-12-13,4,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001321,EMP-011,Account Manager,PRJ-R-014-1,TSK-STRATEGY,CLI-014,CON-R-014-1,2024-12-13,2.5,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001322,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,1.5,False,approved,2024-12-14,not_billable,,,False
+TIME-0001323,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-16,4.25,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001324,EMP-011,Account Manager,PRJ-R-008-1,TSK-STRATEGY,CLI-008,CON-R-008-1,2024-12-16,3,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001325,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,0.75,False,approved,2024-12-17,not_billable,,,False
+TIME-0001326,EMP-011,Account Manager,PRJ-R-002-1,TSK-STRATEGY,CLI-002,CON-R-002-1,2024-12-17,4,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001327,EMP-011,Account Manager,PRJ-R-008-1,TSK-STRATEGY,CLI-008,CON-R-008-1,2024-12-17,2.5,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001328,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,1.5,False,approved,2024-12-18,not_billable,,,False
+TIME-0001329,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-18,1.75,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001330,EMP-011,Account Manager,PRJ-R-002-1,TSK-STRATEGY,CLI-002,CON-R-002-1,2024-12-18,1.25,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001331,EMP-011,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-18,1,False,approved,2024-12-19,not_billable,,,False
+TIME-0001332,EMP-011,Account Manager,PRJ-R-014-1,TSK-STRATEGY,CLI-014,CON-R-014-1,2024-12-19,4,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001333,EMP-011,Account Manager,PRJ-R-011-1,TSK-STRATEGY,CLI-011,CON-R-011-1,2024-12-19,2.5,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001334,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,1.5,False,approved,2024-12-20,not_billable,,,False
+TIME-0001335,EMP-011,Account Manager,PRJ-R-002-1,TSK-STRATEGY,CLI-002,CON-R-002-1,2024-12-20,4,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001336,EMP-011,Account Manager,PRJ-R-011-1,TSK-STRATEGY,CLI-011,CON-R-011-1,2024-12-20,2.5,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001337,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,1.5,False,approved,2024-12-21,not_billable,,,False
+TIME-0001338,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-23,4.5,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001339,EMP-011,Account Manager,PRJ-R-002-1,TSK-STRATEGY,CLI-002,CON-R-002-1,2024-12-23,3,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001340,EMP-011,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-23,0.5,False,approved,2024-12-24,not_billable,,,False
+TIME-0001341,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-24,4,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001342,EMP-011,Account Manager,PRJ-R-008-1,TSK-STRATEGY,CLI-008,CON-R-008-1,2024-12-24,2.75,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001343,EMP-011,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-24,1.25,False,approved,2024-12-25,not_billable,,,False
+TIME-0001344,EMP-011,Account Manager,PRJ-R-014-1,TSK-STRATEGY,CLI-014,CON-R-014-1,2024-12-26,4.25,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001345,EMP-011,Account Manager,PRJ-R-011-1,TSK-STRATEGY,CLI-011,CON-R-011-1,2024-12-26,2.75,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001346,EMP-011,Account Manager,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-26,1,False,approved,2024-12-27,not_billable,,,False
+TIME-0001347,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-27,7,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001348,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,1,False,approved,2024-12-28,not_billable,,,False
+TIME-0001349,EMP-011,Account Manager,PRJ-R-014-1,TSK-STRATEGY,CLI-014,CON-R-014-1,2024-12-30,6.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001350,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,1.25,False,approved,2024-12-31,not_billable,,,False
+TIME-0001351,EMP-011,Account Manager,PRJ-R-005-1,TSK-STRATEGY,CLI-005,CON-R-005-1,2024-12-31,4,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001352,EMP-011,Account Manager,PRJ-R-002-1,TSK-STRATEGY,CLI-002,CON-R-002-1,2024-12-31,2.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001353,EMP-011,Account Manager,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,1.5,False,approved,2024-12-31,not_billable,,,False
+TIME-0001354,EMP-012,Creative Lead,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-02,4.5,True,approved,2024-12-04,included_in_fixed_fee,,,False
+TIME-0001355,EMP-012,Creative Lead,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-02,3,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001356,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,0.5,False,approved,2024-12-03,not_billable,,,False
+TIME-0001357,EMP-012,Creative Lead,PRJ-R-003-1,TSK-CREATIVE,CLI-003,CON-R-003-1,2024-12-03,4,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001358,EMP-012,Creative Lead,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-03,2.5,True,approved,2024-12-05,included_in_fixed_fee,,,False
+TIME-0001359,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,1.5,False,approved,2024-12-04,not_billable,,,False
+TIME-0001360,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-04,4.25,True,approved,2024-12-06,included_in_fixed_fee,,,False
+TIME-0001361,EMP-012,Creative Lead,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-04,3,True,approved,2024-12-06,included_in_fixed_fee,,,False
+TIME-0001362,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-04,0.75,False,approved,2024-12-05,not_billable,,,False
+TIME-0001363,EMP-012,Creative Lead,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-05,3.5,True,approved,2024-12-07,included_in_fixed_fee,,,False
+TIME-0001364,EMP-012,Creative Lead,PRJ-R-006-1,TSK-CREATIVE,CLI-006,CON-R-006-1,2024-12-05,2.5,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001365,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,2,False,approved,2024-12-06,not_billable,,,False
+TIME-0001366,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-06,4.25,True,approved,2024-12-08,included_in_fixed_fee,,,False
+TIME-0001367,EMP-012,Creative Lead,PRJ-R-006-1,TSK-CREATIVE,CLI-006,CON-R-006-1,2024-12-06,3,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001368,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-06,0.75,False,approved,2024-12-07,not_billable,,,False
+TIME-0001369,EMP-012,Creative Lead,PRJ-R-003-1,TSK-CREATIVE,CLI-003,CON-R-003-1,2024-12-09,6.25,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001370,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,1.75,False,approved,2024-12-10,not_billable,,,False
+TIME-0001371,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-10,6,True,approved,2024-12-12,included_in_fixed_fee,,,False
+TIME-0001372,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-10,2,False,approved,2024-12-11,not_billable,,,False
+TIME-0001373,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-11,6.75,True,approved,2024-12-13,included_in_fixed_fee,,,False
+TIME-0001374,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,1.25,False,approved,2024-12-12,not_billable,,,False
+TIME-0001375,EMP-012,Creative Lead,PRJ-R-003-1,TSK-CREATIVE,CLI-003,CON-R-003-1,2024-12-12,4.25,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001376,EMP-012,Creative Lead,PRJ-R-006-1,TSK-CREATIVE,CLI-006,CON-R-006-1,2024-12-12,2.75,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001377,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1,False,approved,2024-12-13,not_billable,,,False
+TIME-0001378,EMP-012,Creative Lead,PRJ-R-012-1,TSK-CREATIVE,CLI-012,CON-R-012-1,2024-12-13,4.25,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001379,EMP-012,Creative Lead,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-13,2.75,True,approved,2024-12-15,included_in_fixed_fee,,,False
+TIME-0001380,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,1,False,approved,2024-12-14,not_billable,,,False
+TIME-0001381,EMP-012,Creative Lead,PRJ-R-003-1,TSK-CREATIVE,CLI-003,CON-R-003-1,2024-12-16,4,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001382,EMP-012,Creative Lead,PRJ-R-012-1,TSK-CREATIVE,CLI-012,CON-R-012-1,2024-12-16,2.5,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001383,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-16,1.5,False,approved,2024-12-17,not_billable,,,False
+TIME-0001384,EMP-012,Creative Lead,PRJ-R-012-1,TSK-CREATIVE,CLI-012,CON-R-012-1,2024-12-17,4,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001385,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-17,2.75,True,approved,2024-12-19,included_in_fixed_fee,,,False
+TIME-0001386,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,1.25,False,approved,2024-12-18,not_billable,,,False
+TIME-0001387,EMP-012,Creative Lead,PRJ-R-003-1,TSK-CREATIVE,CLI-003,CON-R-003-1,2024-12-18,4.25,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001388,EMP-012,Creative Lead,PRJ-R-006-1,TSK-CREATIVE,CLI-006,CON-R-006-1,2024-12-18,3,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001389,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,0.75,False,approved,2024-12-19,not_billable,,,False
+TIME-0001390,EMP-012,Creative Lead,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-19,3.75,True,approved,2024-12-21,included_in_fixed_fee,,,False
+TIME-0001391,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-19,2.5,True,approved,2024-12-21,included_in_fixed_fee,,,False
+TIME-0001392,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,1.75,False,approved,2024-12-20,not_billable,,,False
+TIME-0001393,EMP-012,Creative Lead,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-20,4.5,True,approved,2024-12-22,included_in_fixed_fee,,,False
+TIME-0001394,EMP-012,Creative Lead,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-20,3,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001395,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-20,0.5,False,approved,2024-12-21,not_billable,,,False
+TIME-0001396,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-23,6.5,True,approved,2024-12-25,included_in_fixed_fee,,,False
+TIME-0001397,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,1.5,False,approved,2024-12-24,not_billable,,,False
+TIME-0001398,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-24,3.75,True,approved,2024-12-26,included_in_fixed_fee,,,False
+TIME-0001399,EMP-012,Creative Lead,PRJ-R-012-1,TSK-CREATIVE,CLI-012,CON-R-012-1,2024-12-24,2.5,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001400,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-24,1.75,False,approved,2024-12-25,not_billable,,,False
+TIME-0001401,EMP-012,Creative Lead,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-26,6,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001402,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,2,False,approved,2024-12-27,not_billable,,,False
+TIME-0001403,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-30,4.25,True,approved,2024-12-31,included_in_fixed_fee,,,False
+TIME-0001404,EMP-012,Creative Lead,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-30,3,True,approved,2024-12-31,included_in_fixed_fee,,,False
+TIME-0001405,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,0.75,False,approved,2024-12-31,not_billable,,,False
+TIME-0001406,EMP-012,Creative Lead,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-31,3.5,True,approved,2024-12-31,included_in_fixed_fee,,,False
+TIME-0001407,EMP-012,Creative Lead,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-31,2.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001408,EMP-012,Creative Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,2,False,approved,2024-12-31,not_billable,,,False
+TIME-0001409,EMP-013,Designer,PRJ-R-007-1,TSK-CREATIVE,CLI-007,CON-R-007-1,2024-12-02,7.25,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001410,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,0.75,False,approved,2024-12-03,not_billable,,,False
+TIME-0001411,EMP-013,Designer,PRJ-R-004-1,TSK-CREATIVE,CLI-004,CON-R-004-1,2024-12-03,6.25,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001412,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,1.75,False,approved,2024-12-04,not_billable,,,False
+TIME-0001413,EMP-013,Designer,PRJ-R-001-1,TSK-CREATIVE,CLI-001,CON-R-001-1,2024-12-04,4.25,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001414,EMP-013,Designer,PRJ-R-004-1,TSK-CREATIVE,CLI-004,CON-R-004-1,2024-12-04,3,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001415,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,0.75,False,approved,2024-12-05,not_billable,,,False
+TIME-0001416,EMP-013,Designer,PRJ-R-004-1,TSK-CREATIVE,CLI-004,CON-R-004-1,2024-12-05,6.25,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001417,EMP-013,Designer,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-05,1.75,False,approved,2024-12-06,not_billable,,,False
+TIME-0001418,EMP-013,Designer,PRJ-R-007-1,TSK-CREATIVE,CLI-007,CON-R-007-1,2024-12-06,3.5,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001419,EMP-013,Designer,PRJ-R-001-1,TSK-CREATIVE,CLI-001,CON-R-001-1,2024-12-06,2.5,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001420,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-06,2,False,approved,2024-12-07,not_billable,,,False
+TIME-0001421,EMP-013,Designer,PRJ-R-010-1,TSK-CREATIVE,CLI-010,CON-R-010-1,2024-12-09,4.25,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001422,EMP-013,Designer,PRJ-R-001-1,TSK-CREATIVE,CLI-001,CON-R-001-1,2024-12-09,3,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001423,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,0.75,False,approved,2024-12-10,not_billable,,,False
+TIME-0001424,EMP-013,Designer,PRJ-R-004-1,TSK-CREATIVE,CLI-004,CON-R-004-1,2024-12-10,4.25,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001425,EMP-013,Designer,PRJ-R-013-1,TSK-CREATIVE,CLI-013,CON-R-013-1,2024-12-10,3,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001426,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,0.75,False,approved,2024-12-11,not_billable,,,False
+TIME-0001427,EMP-013,Designer,PRJ-R-013-1,TSK-CREATIVE,CLI-013,CON-R-013-1,2024-12-11,4,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001428,EMP-013,Designer,PRJ-R-010-1,TSK-CREATIVE,CLI-010,CON-R-010-1,2024-12-11,2.75,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001429,EMP-013,Designer,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-11,1.25,False,approved,2024-12-12,not_billable,,,False
+TIME-0001430,EMP-013,Designer,PRJ-R-010-1,TSK-CREATIVE,CLI-010,CON-R-010-1,2024-12-12,3.75,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001431,EMP-013,Designer,PRJ-R-013-1,TSK-CREATIVE,CLI-013,CON-R-013-1,2024-12-12,2.5,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001432,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1.75,False,approved,2024-12-13,not_billable,,,False
+TIME-0001433,EMP-013,Designer,PRJ-R-007-1,TSK-CREATIVE,CLI-007,CON-R-007-1,2024-12-16,3.75,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001434,EMP-013,Designer,PRJ-R-004-1,TSK-CREATIVE,CLI-004,CON-R-004-1,2024-12-16,2.5,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001435,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,1.75,False,approved,2024-12-17,not_billable,,,False
+TIME-0001436,EMP-013,Designer,PRJ-R-013-1,TSK-CREATIVE,CLI-013,CON-R-013-1,2024-12-17,6.25,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001437,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,1.75,False,approved,2024-12-18,not_billable,,,False
+TIME-0001438,EMP-013,Designer,PRJ-R-010-1,TSK-CREATIVE,CLI-010,CON-R-010-1,2024-12-18,4,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001439,EMP-013,Designer,PRJ-R-004-1,TSK-CREATIVE,CLI-004,CON-R-004-1,2024-12-18,2.75,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001440,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,1.25,False,approved,2024-12-19,not_billable,,,False
+TIME-0001441,EMP-013,Designer,PRJ-R-007-1,TSK-CREATIVE,CLI-007,CON-R-007-1,2024-12-19,4.5,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001442,EMP-013,Designer,PRJ-R-013-1,TSK-CREATIVE,CLI-013,CON-R-013-1,2024-12-19,3,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001443,EMP-013,Designer,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-19,0.5,False,approved,2024-12-20,not_billable,,,False
+TIME-0001444,EMP-013,Designer,PRJ-R-010-1,TSK-CREATIVE,CLI-010,CON-R-010-1,2024-12-20,3.75,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001445,EMP-013,Designer,PRJ-R-001-1,TSK-CREATIVE,CLI-001,CON-R-001-1,2024-12-20,2.5,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001446,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,1.75,False,approved,2024-12-21,not_billable,,,False
+TIME-0001447,EMP-013,Designer,PRJ-R-013-1,TSK-CREATIVE,CLI-013,CON-R-013-1,2024-12-23,4,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001448,EMP-013,Designer,PRJ-R-007-1,TSK-CREATIVE,CLI-007,CON-R-007-1,2024-12-23,2.75,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001449,EMP-013,Designer,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-23,1.25,False,approved,2024-12-24,not_billable,,,False
+TIME-0001450,EMP-013,Designer,PRJ-R-013-1,TSK-CREATIVE,CLI-013,CON-R-013-1,2024-12-24,4.25,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001451,EMP-013,Designer,PRJ-R-004-1,TSK-CREATIVE,CLI-004,CON-R-004-1,2024-12-24,2.75,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001452,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,1,False,approved,2024-12-25,not_billable,,,False
+TIME-0001453,EMP-013,Designer,PRJ-R-001-1,TSK-CREATIVE,CLI-001,CON-R-001-1,2024-12-26,3.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001454,EMP-013,Designer,PRJ-R-007-1,TSK-CREATIVE,CLI-007,CON-R-007-1,2024-12-26,2.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001455,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,2,False,approved,2024-12-27,not_billable,,,False
+TIME-0001456,EMP-013,Designer,PRJ-R-004-1,TSK-CREATIVE,CLI-004,CON-R-004-1,2024-12-27,3.5,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001457,EMP-013,Designer,PRJ-R-007-1,TSK-CREATIVE,CLI-007,CON-R-007-1,2024-12-27,2.25,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001458,EMP-013,Designer,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-27,2.25,False,approved,2024-12-28,not_billable,,,False
+TIME-0001459,EMP-013,Designer,PRJ-R-013-1,TSK-CREATIVE,CLI-013,CON-R-013-1,2024-12-30,6,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001460,EMP-013,Designer,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-30,2,False,approved,2024-12-31,not_billable,,,False
+TIME-0001461,EMP-013,Designer,PRJ-R-013-1,TSK-CREATIVE,CLI-013,CON-R-013-1,2024-12-31,3.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001462,EMP-013,Designer,PRJ-R-010-1,TSK-CREATIVE,CLI-010,CON-R-010-1,2024-12-31,2.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001463,EMP-013,Designer,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,1.75,False,approved,2024-12-31,not_billable,,,False
+TIME-0001464,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-02,3.75,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001465,EMP-014,Video Editor,PRJ-R-005-1,TSK-CREATIVE,CLI-005,CON-R-005-1,2024-12-02,2.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001466,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,1.75,False,approved,2024-12-03,not_billable,,,False
+TIME-0001467,EMP-014,Video Editor,PRJ-R-005-1,TSK-CREATIVE,CLI-005,CON-R-005-1,2024-12-03,4.25,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001468,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-03,2.75,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001469,EMP-014,Video Editor,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-03,1,False,approved,2024-12-04,not_billable,,,False
+TIME-0001470,EMP-014,Video Editor,PRJ-R-008-1,TSK-CREATIVE,CLI-008,CON-R-008-1,2024-12-04,3.75,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001471,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-04,2.5,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001472,EMP-014,Video Editor,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-04,1.75,False,approved,2024-12-05,not_billable,,,False
+TIME-0001473,EMP-014,Video Editor,PRJ-R-011-1,TSK-CREATIVE,CLI-011,CON-R-011-1,2024-12-05,4.25,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001474,EMP-014,Video Editor,PRJ-R-005-1,TSK-CREATIVE,CLI-005,CON-R-005-1,2024-12-05,3,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001475,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,0.75,False,approved,2024-12-06,not_billable,,,False
+TIME-0001476,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-06,7,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001477,EMP-014,Video Editor,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-06,1,False,approved,2024-12-07,not_billable,,,False
+TIME-0001478,EMP-014,Video Editor,PRJ-R-008-1,TSK-CREATIVE,CLI-008,CON-R-008-1,2024-12-09,4.25,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001479,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-09,2.75,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001480,EMP-014,Video Editor,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-09,1,False,approved,2024-12-10,not_billable,,,False
+TIME-0001481,EMP-014,Video Editor,PRJ-R-011-1,TSK-CREATIVE,CLI-011,CON-R-011-1,2024-12-10,3.5,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001482,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-10,2.25,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001483,EMP-014,Video Editor,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-10,2.25,False,approved,2024-12-11,not_billable,,,False
+TIME-0001484,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-11,4,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001485,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-11,2.75,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001486,EMP-014,Video Editor,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-11,1.25,False,approved,2024-12-12,not_billable,,,False
+TIME-0001487,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-12,4,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001488,EMP-014,Video Editor,PRJ-R-011-1,TSK-CREATIVE,CLI-011,CON-R-011-1,2024-12-12,2.5,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001489,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1.5,False,approved,2024-12-13,not_billable,,,False
+TIME-0001490,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-13,4.25,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001491,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-13,2.75,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001492,EMP-014,Video Editor,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-13,1,False,approved,2024-12-14,not_billable,,,False
+TIME-0001493,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-16,4,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001494,EMP-014,Video Editor,PRJ-R-005-1,TSK-CREATIVE,CLI-005,CON-R-005-1,2024-12-16,2.5,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001495,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,1.5,False,approved,2024-12-17,not_billable,,,False
+TIME-0001496,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-17,4,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001497,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-17,2.75,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001498,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,1.25,False,approved,2024-12-18,not_billable,,,False
+TIME-0001499,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-18,6.5,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001500,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,1.5,False,approved,2024-12-19,not_billable,,,False
+TIME-0001501,EMP-014,Video Editor,PRJ-R-008-1,TSK-CREATIVE,CLI-008,CON-R-008-1,2024-12-19,6.25,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001502,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,1.75,False,approved,2024-12-20,not_billable,,,False
+TIME-0001503,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-20,4.25,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001504,EMP-014,Video Editor,PRJ-R-008-1,TSK-CREATIVE,CLI-008,CON-R-008-1,2024-12-20,3,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001505,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,0.75,False,approved,2024-12-21,not_billable,,,False
+TIME-0001506,EMP-014,Video Editor,PRJ-R-011-1,TSK-CREATIVE,CLI-011,CON-R-011-1,2024-12-23,3.5,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001507,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-23,2.5,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001508,EMP-014,Video Editor,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-23,2,False,approved,2024-12-24,not_billable,,,False
+TIME-0001509,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-24,3.5,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001510,EMP-014,Video Editor,PRJ-R-011-1,TSK-CREATIVE,CLI-011,CON-R-011-1,2024-12-24,2.5,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001511,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,2,False,approved,2024-12-25,not_billable,,,False
+TIME-0001512,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-26,3.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001513,EMP-014,Video Editor,PRJ-R-008-1,TSK-CREATIVE,CLI-008,CON-R-008-1,2024-12-26,2.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001514,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,2,False,approved,2024-12-27,not_billable,,,False
+TIME-0001515,EMP-014,Video Editor,PRJ-R-014-1,TSK-CREATIVE,CLI-014,CON-R-014-1,2024-12-27,3.25,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001516,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,0.75,False,approved,2024-12-28,not_billable,,,False
+TIME-0001517,EMP-014,Video Editor,PRJ-R-005-1,TSK-CREATIVE,CLI-005,CON-R-005-1,2024-12-30,4.25,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001518,EMP-014,Video Editor,PRJ-R-002-1,TSK-CREATIVE,CLI-002,CON-R-002-1,2024-12-30,3,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001519,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,0.75,False,approved,2024-12-31,not_billable,,,False
+TIME-0001520,EMP-014,Video Editor,PRJ-R-008-1,TSK-CREATIVE,CLI-008,CON-R-008-1,2024-12-31,3.5,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001521,EMP-014,Video Editor,PRJ-H-008,TSK-CREATIVE,CLI-008,CON-H-008,2024-12-31,2.5,True,approved,2024-12-31,approved_hours_times_rate,RATE-14-1,185.00,False
+TIME-0001522,EMP-014,Video Editor,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,2,False,approved,2024-12-31,not_billable,,,False
+TIME-0001523,EMP-015,Copywriter,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-02,6.75,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001524,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,1.25,False,approved,2024-12-03,not_billable,,,False
+TIME-0001525,EMP-015,Copywriter,PRJ-R-012-1,TSK-CREATIVE,CLI-012,CON-R-012-1,2024-12-03,3.75,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001526,EMP-015,Copywriter,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-03,2.5,True,approved,2024-12-05,included_in_fixed_fee,,,False
+TIME-0001527,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,1.75,False,approved,2024-12-04,not_billable,,,False
+TIME-0001528,EMP-015,Copywriter,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-04,3.5,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001529,EMP-015,Copywriter,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-04,2.5,True,approved,2024-12-06,included_in_fixed_fee,,,False
+TIME-0001530,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-04,2,False,approved,2024-12-05,not_billable,,,False
+TIME-0001531,EMP-015,Copywriter,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-05,4.25,True,approved,2024-12-07,included_in_fixed_fee,,,False
+TIME-0001532,EMP-015,Copywriter,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-05,2.75,True,approved,2024-12-07,included_in_fixed_fee,,,False
+TIME-0001533,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-05,1,False,approved,2024-12-06,not_billable,,,False
+TIME-0001534,EMP-015,Copywriter,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-06,4,True,approved,2024-12-08,included_in_fixed_fee,,,False
+TIME-0001535,EMP-015,Copywriter,PRJ-R-012-1,TSK-CREATIVE,CLI-012,CON-R-012-1,2024-12-06,2.75,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001536,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-06,1.25,False,approved,2024-12-07,not_billable,,,False
+TIME-0001537,EMP-015,Copywriter,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-09,3.5,True,approved,2024-12-11,included_in_fixed_fee,,,False
+TIME-0001538,EMP-015,Copywriter,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-09,2.25,True,approved,2024-12-11,included_in_fixed_fee,,,False
+TIME-0001539,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,2.25,False,approved,2024-12-10,not_billable,,,False
+TIME-0001540,EMP-015,Copywriter,PRJ-R-003-1,TSK-CREATIVE,CLI-003,CON-R-003-1,2024-12-10,6.75,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001541,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,1.25,False,approved,2024-12-11,not_billable,,,False
+TIME-0001542,EMP-015,Copywriter,PRJ-R-012-1,TSK-CREATIVE,CLI-012,CON-R-012-1,2024-12-11,3.5,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001543,EMP-015,Copywriter,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-11,2.25,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001544,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,2.25,False,approved,2024-12-12,not_billable,,,False
+TIME-0001545,EMP-015,Copywriter,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-12,4,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001546,EMP-015,Copywriter,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-12,2.75,True,approved,2024-12-14,included_in_fixed_fee,,,False
+TIME-0001547,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1.25,False,approved,2024-12-13,not_billable,,,False
+TIME-0001548,EMP-015,Copywriter,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-13,4,True,approved,2024-12-15,included_in_fixed_fee,,,False
+TIME-0001549,EMP-015,Copywriter,PRJ-R-006-1,TSK-CREATIVE,CLI-006,CON-R-006-1,2024-12-13,2.5,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001550,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,1.5,False,approved,2024-12-14,not_billable,,,False
+TIME-0001551,EMP-015,Copywriter,PRJ-R-003-1,TSK-CREATIVE,CLI-003,CON-R-003-1,2024-12-16,6.25,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001552,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,1.75,False,approved,2024-12-17,not_billable,,,False
+TIME-0001553,EMP-015,Copywriter,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-17,4,True,approved,2024-12-19,included_in_fixed_fee,,,False
+TIME-0001554,EMP-015,Copywriter,PRJ-R-003-1,TSK-CREATIVE,CLI-003,CON-R-003-1,2024-12-17,2.5,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001555,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-17,1.5,False,approved,2024-12-18,not_billable,,,False
+TIME-0001556,EMP-015,Copywriter,PRJ-R-006-1,TSK-CREATIVE,CLI-006,CON-R-006-1,2024-12-18,3.5,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001557,EMP-015,Copywriter,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-18,2.25,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001558,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,2.25,False,approved,2024-12-19,not_billable,,,False
+TIME-0001559,EMP-015,Copywriter,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-19,3.5,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001560,EMP-015,Copywriter,PRJ-F-002,TSK-CREATIVE,CLI-006,CON-F-002,2024-12-19,2.25,True,approved,2024-12-21,included_in_fixed_fee,,,False
+TIME-0001561,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,2.25,False,approved,2024-12-20,not_billable,,,False
+TIME-0001562,EMP-015,Copywriter,PRJ-R-006-1,TSK-CREATIVE,CLI-006,CON-R-006-1,2024-12-20,6.75,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001563,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,1.25,False,approved,2024-12-21,not_billable,,,False
+TIME-0001564,EMP-015,Copywriter,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-23,5.75,True,approved,2024-12-25,included_in_fixed_fee,,,False
+TIME-0001565,EMP-015,Copywriter,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-23,2.25,False,approved,2024-12-24,not_billable,,,False
+TIME-0001566,EMP-015,Copywriter,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-24,6,True,approved,2024-12-26,included_in_fixed_fee,,,False
+TIME-0001567,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,2,False,approved,2024-12-25,not_billable,,,False
+TIME-0001568,EMP-015,Copywriter,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-26,3.75,True,approved,2024-12-28,included_in_fixed_fee,,,False
+TIME-0001569,EMP-015,Copywriter,PRJ-R-009-1,TSK-CREATIVE,CLI-009,CON-R-009-1,2024-12-26,2.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001570,EMP-015,Copywriter,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-26,1.75,False,approved,2024-12-27,not_billable,,,False
+TIME-0001571,EMP-015,Copywriter,PRJ-R-006-1,TSK-CREATIVE,CLI-006,CON-R-006-1,2024-12-27,6.75,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001572,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,1.25,False,approved,2024-12-28,not_billable,,,False
+TIME-0001573,EMP-015,Copywriter,PRJ-R-003-1,TSK-CREATIVE,CLI-003,CON-R-003-1,2024-12-31,4,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001574,EMP-015,Copywriter,PRJ-F-001,TSK-CREATIVE,CLI-003,CON-F-001,2024-12-31,2.75,True,approved,2024-12-31,included_in_fixed_fee,,,False
+TIME-0001575,EMP-015,Copywriter,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,1.25,False,approved,2024-12-31,not_billable,,,False
+TIME-0001576,EMP-016,Analytics Lead,PRJ-R-013-1,TSK-ANALYTICS,CLI-013,CON-R-013-1,2024-12-02,4.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001577,EMP-016,Analytics Lead,PRJ-H-004,TSK-ANALYTICS,CLI-004,CON-H-004,2024-12-02,3,True,approved,2024-12-04,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001578,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-02,0.5,False,approved,2024-12-03,not_billable,,,False
+TIME-0001579,EMP-016,Analytics Lead,PRJ-H-001,TSK-ANALYTICS,CLI-001,CON-H-001,2024-12-03,3.75,True,approved,2024-12-05,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001580,EMP-016,Analytics Lead,PRJ-R-013-1,TSK-ANALYTICS,CLI-013,CON-R-013-1,2024-12-03,2.5,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001581,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,1.75,False,approved,2024-12-04,not_billable,,,False
+TIME-0001582,EMP-016,Analytics Lead,PRJ-R-007-1,TSK-ANALYTICS,CLI-007,CON-R-007-1,2024-12-06,3.5,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001583,EMP-016,Analytics Lead,PRJ-R-010-1,TSK-ANALYTICS,CLI-010,CON-R-010-1,2024-12-06,2.25,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001584,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-06,2.25,False,approved,2024-12-07,not_billable,,,False
+TIME-0001585,EMP-016,Analytics Lead,PRJ-R-013-1,TSK-ANALYTICS,CLI-013,CON-R-013-1,2024-12-09,4.25,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001586,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-09,2.75,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001587,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-09,1,False,approved,2024-12-10,not_billable,,,False
+TIME-0001588,EMP-016,Analytics Lead,PRJ-R-010-1,TSK-ANALYTICS,CLI-010,CON-R-010-1,2024-12-10,4,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001589,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-10,2.5,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001590,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,1.5,False,approved,2024-12-11,not_billable,,,False
+TIME-0001591,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-11,4.25,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001592,EMP-016,Analytics Lead,PRJ-H-004,TSK-ANALYTICS,CLI-004,CON-H-004,2024-12-11,3,True,approved,2024-12-13,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001593,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,0.75,False,approved,2024-12-12,not_billable,,,False
+TIME-0001594,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-12,1.75,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001595,EMP-016,Analytics Lead,PRJ-H-001,TSK-ANALYTICS,CLI-001,CON-H-001,2024-12-12,1.25,True,approved,2024-12-14,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001596,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1,False,approved,2024-12-13,not_billable,,,False
+TIME-0001597,EMP-016,Analytics Lead,PRJ-H-004,TSK-ANALYTICS,CLI-004,CON-H-004,2024-12-13,4.25,True,approved,2024-12-15,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001598,EMP-016,Analytics Lead,PRJ-H-001,TSK-ANALYTICS,CLI-001,CON-H-001,2024-12-13,2.75,True,approved,2024-12-15,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001599,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,1,False,approved,2024-12-14,not_billable,,,False
+TIME-0001600,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-16,3.75,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001601,EMP-016,Analytics Lead,PRJ-H-001,TSK-ANALYTICS,CLI-001,CON-H-001,2024-12-16,2.5,True,approved,2024-12-18,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001602,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,1.75,False,approved,2024-12-17,not_billable,,,False
+TIME-0001603,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-17,5.75,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001604,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-17,2.25,False,approved,2024-12-18,not_billable,,,False
+TIME-0001605,EMP-016,Analytics Lead,PRJ-H-010,TSK-ANALYTICS,CLI-010,CON-H-010,2024-12-18,3.75,True,approved,2024-12-20,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001606,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-18,2.5,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001607,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,1.75,False,approved,2024-12-19,not_billable,,,False
+TIME-0001608,EMP-016,Analytics Lead,PRJ-R-013-1,TSK-ANALYTICS,CLI-013,CON-R-013-1,2024-12-19,4.25,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001609,EMP-016,Analytics Lead,PRJ-R-007-1,TSK-ANALYTICS,CLI-007,CON-R-007-1,2024-12-19,3,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001610,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-19,0.75,False,approved,2024-12-20,not_billable,,,False
+TIME-0001611,EMP-016,Analytics Lead,PRJ-R-013-1,TSK-ANALYTICS,CLI-013,CON-R-013-1,2024-12-20,3.75,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001612,EMP-016,Analytics Lead,PRJ-H-001,TSK-ANALYTICS,CLI-001,CON-H-001,2024-12-20,2.5,True,approved,2024-12-22,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001613,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,1.75,False,approved,2024-12-21,not_billable,,,False
+TIME-0001614,EMP-016,Analytics Lead,PRJ-R-007-1,TSK-ANALYTICS,CLI-007,CON-R-007-1,2024-12-23,4.25,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001615,EMP-016,Analytics Lead,PRJ-R-013-1,TSK-ANALYTICS,CLI-013,CON-R-013-1,2024-12-23,2.75,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001616,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,1,False,approved,2024-12-24,not_billable,,,False
+TIME-0001617,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-24,3.75,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001618,EMP-016,Analytics Lead,PRJ-R-001-1,TSK-ANALYTICS,CLI-001,CON-R-001-1,2024-12-24,2.5,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001619,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,1.75,False,approved,2024-12-25,not_billable,,,False
+TIME-0001620,EMP-016,Analytics Lead,PRJ-R-010-1,TSK-ANALYTICS,CLI-010,CON-R-010-1,2024-12-26,4,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001621,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-26,2.75,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001622,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,1.25,False,approved,2024-12-27,not_billable,,,False
+TIME-0001623,EMP-016,Analytics Lead,PRJ-R-013-1,TSK-ANALYTICS,CLI-013,CON-R-013-1,2024-12-27,6.5,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001624,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,1.5,False,approved,2024-12-28,not_billable,,,False
+TIME-0001625,EMP-016,Analytics Lead,PRJ-R-004-1,TSK-ANALYTICS,CLI-004,CON-R-004-1,2024-12-30,4,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001626,EMP-016,Analytics Lead,PRJ-H-010,TSK-ANALYTICS,CLI-010,CON-H-010,2024-12-30,2.75,True,approved,2024-12-31,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001627,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,1.25,False,approved,2024-12-31,not_billable,,,False
+TIME-0001628,EMP-016,Analytics Lead,PRJ-R-010-1,TSK-ANALYTICS,CLI-010,CON-R-010-1,2024-12-31,3.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001629,EMP-016,Analytics Lead,PRJ-H-001,TSK-ANALYTICS,CLI-001,CON-H-001,2024-12-31,2.5,True,approved,2024-12-31,approved_hours_times_rate,RATE-02-1,225.00,False
+TIME-0001630,EMP-016,Analytics Lead,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,1.75,False,approved,2024-12-31,not_billable,,,False
+TIME-0001631,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-02,3.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001632,EMP-017,Analytics Specialist,PRJ-R-005-1,TSK-ANALYTICS,CLI-005,CON-R-005-1,2024-12-02,2.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001633,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,2,False,approved,2024-12-03,not_billable,,,False
+TIME-0001634,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-03,3.5,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001635,EMP-017,Analytics Specialist,PRJ-R-014-1,TSK-ANALYTICS,CLI-014,CON-R-014-1,2024-12-03,2.5,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001636,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,2,False,approved,2024-12-04,not_billable,,,False
+TIME-0001637,EMP-017,Analytics Specialist,PRJ-R-014-1,TSK-ANALYTICS,CLI-014,CON-R-014-1,2024-12-04,4,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001638,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-04,2.75,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001639,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-04,1.25,False,approved,2024-12-05,not_billable,,,False
+TIME-0001640,EMP-017,Analytics Specialist,PRJ-R-002-1,TSK-ANALYTICS,CLI-002,CON-R-002-1,2024-12-05,4.25,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001641,EMP-017,Analytics Specialist,PRJ-R-014-1,TSK-ANALYTICS,CLI-014,CON-R-014-1,2024-12-05,3,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001642,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-05,0.75,False,approved,2024-12-06,not_billable,,,False
+TIME-0001643,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-06,4.25,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001644,EMP-017,Analytics Specialist,PRJ-R-014-1,TSK-ANALYTICS,CLI-014,CON-R-014-1,2024-12-06,3,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001645,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-06,0.75,False,approved,2024-12-07,not_billable,,,False
+TIME-0001646,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-09,4,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001647,EMP-017,Analytics Specialist,PRJ-R-011-1,TSK-ANALYTICS,CLI-011,CON-R-011-1,2024-12-09,2.75,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001648,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,1.25,False,approved,2024-12-10,not_billable,,,False
+TIME-0001649,EMP-017,Analytics Specialist,PRJ-H-008,TSK-ANALYTICS,CLI-008,CON-H-008,2024-12-10,4.25,True,approved,2024-12-12,approved_hours_times_rate,RATE-03-1,200.00,False
+TIME-0001650,EMP-017,Analytics Specialist,PRJ-R-011-1,TSK-ANALYTICS,CLI-011,CON-R-011-1,2024-12-10,3,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001651,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-10,0.75,False,approved,2024-12-11,not_billable,,,False
+TIME-0001652,EMP-017,Analytics Specialist,PRJ-R-011-1,TSK-ANALYTICS,CLI-011,CON-R-011-1,2024-12-11,4,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001653,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-11,2.75,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001654,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,1.25,False,approved,2024-12-12,not_billable,,,False
+TIME-0001655,EMP-017,Analytics Specialist,PRJ-R-014-1,TSK-ANALYTICS,CLI-014,CON-R-014-1,2024-12-12,3.5,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001656,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-12,2.5,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001657,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,2,False,approved,2024-12-13,not_billable,,,False
+TIME-0001658,EMP-017,Analytics Specialist,PRJ-H-008,TSK-ANALYTICS,CLI-008,CON-H-008,2024-12-13,3.5,True,approved,2024-12-15,approved_hours_times_rate,RATE-03-1,200.00,False
+TIME-0001659,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-13,2.25,True,approved,2024-12-15,included_in_retainer,,,False
+TIME-0001660,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-13,2.25,False,approved,2024-12-14,not_billable,,,False
+TIME-0001661,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-16,4,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001662,EMP-017,Analytics Specialist,PRJ-R-002-1,TSK-ANALYTICS,CLI-002,CON-R-002-1,2024-12-16,2.75,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001663,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,1.25,False,approved,2024-12-17,not_billable,,,False
+TIME-0001664,EMP-017,Analytics Specialist,PRJ-R-005-1,TSK-ANALYTICS,CLI-005,CON-R-005-1,2024-12-17,4,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001665,EMP-017,Analytics Specialist,PRJ-R-011-1,TSK-ANALYTICS,CLI-011,CON-R-011-1,2024-12-17,2.75,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001666,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-17,1.25,False,approved,2024-12-18,not_billable,,,False
+TIME-0001667,EMP-017,Analytics Specialist,PRJ-R-011-1,TSK-ANALYTICS,CLI-011,CON-R-011-1,2024-12-18,4,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001668,EMP-017,Analytics Specialist,PRJ-R-002-1,TSK-ANALYTICS,CLI-002,CON-R-002-1,2024-12-18,2.75,True,approved,2024-12-20,included_in_retainer,,,False
+TIME-0001669,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-18,1.25,False,approved,2024-12-19,not_billable,,,False
+TIME-0001670,EMP-017,Analytics Specialist,PRJ-R-011-1,TSK-ANALYTICS,CLI-011,CON-R-011-1,2024-12-19,4.5,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001671,EMP-017,Analytics Specialist,PRJ-R-002-1,TSK-ANALYTICS,CLI-002,CON-R-002-1,2024-12-19,3,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001672,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-19,0.5,False,approved,2024-12-20,not_billable,,,False
+TIME-0001673,EMP-017,Analytics Specialist,PRJ-R-005-1,TSK-ANALYTICS,CLI-005,CON-R-005-1,2024-12-20,4,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001674,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-20,2.75,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001675,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-20,1.25,False,approved,2024-12-21,not_billable,,,False
+TIME-0001676,EMP-017,Analytics Specialist,PRJ-R-002-1,TSK-ANALYTICS,CLI-002,CON-R-002-1,2024-12-23,4.25,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001677,EMP-017,Analytics Specialist,PRJ-R-011-1,TSK-ANALYTICS,CLI-011,CON-R-011-1,2024-12-23,3,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001678,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-23,0.75,False,approved,2024-12-24,not_billable,,,False
+TIME-0001679,EMP-017,Analytics Specialist,PRJ-R-005-1,TSK-ANALYTICS,CLI-005,CON-R-005-1,2024-12-24,3.75,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001680,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-24,2.5,True,approved,2024-12-26,included_in_retainer,,,False
+TIME-0001681,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-24,1.75,False,approved,2024-12-25,not_billable,,,False
+TIME-0001682,EMP-017,Analytics Specialist,PRJ-R-014-1,TSK-ANALYTICS,CLI-014,CON-R-014-1,2024-12-26,3.5,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001683,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-26,2.25,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001684,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,2.25,False,approved,2024-12-27,not_billable,,,False
+TIME-0001685,EMP-017,Analytics Specialist,PRJ-R-008-1,TSK-ANALYTICS,CLI-008,CON-R-008-1,2024-12-27,4.25,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001686,EMP-017,Analytics Specialist,PRJ-R-002-1,TSK-ANALYTICS,CLI-002,CON-R-002-1,2024-12-27,2.75,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001687,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,1,False,approved,2024-12-28,not_billable,,,False
+TIME-0001688,EMP-017,Analytics Specialist,PRJ-R-014-1,TSK-ANALYTICS,CLI-014,CON-R-014-1,2024-12-30,4,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001689,EMP-017,Analytics Specialist,PRJ-H-008,TSK-ANALYTICS,CLI-008,CON-H-008,2024-12-30,2.75,True,approved,2024-12-31,approved_hours_times_rate,RATE-03-1,200.00,False
+TIME-0001690,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,1.25,False,approved,2024-12-31,not_billable,,,False
+TIME-0001691,EMP-017,Analytics Specialist,PRJ-R-014-1,TSK-ANALYTICS,CLI-014,CON-R-014-1,2024-12-31,4,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001692,EMP-017,Analytics Specialist,PRJ-R-002-1,TSK-ANALYTICS,CLI-002,CON-R-002-1,2024-12-31,2.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001693,EMP-017,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,1.25,False,approved,2024-12-31,not_billable,,,False
+TIME-0001694,EMP-018,Analytics Specialist,PRJ-R-009-1,TSK-ANALYTICS,CLI-009,CON-R-009-1,2024-12-02,3.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001695,EMP-018,Analytics Specialist,PRJ-R-003-1,TSK-ANALYTICS,CLI-003,CON-R-003-1,2024-12-02,2.5,True,approved,2024-12-04,included_in_retainer,,,False
+TIME-0001696,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-02,2,False,approved,2024-12-03,not_billable,,,False
+TIME-0001697,EMP-018,Analytics Specialist,PRJ-R-003-1,TSK-ANALYTICS,CLI-003,CON-R-003-1,2024-12-03,3.75,True,approved,2024-12-05,included_in_retainer,,,False
+TIME-0001698,EMP-018,Analytics Specialist,PRJ-F-001,TSK-ANALYTICS,CLI-003,CON-F-001,2024-12-03,2.5,True,approved,2024-12-05,included_in_fixed_fee,,,False
+TIME-0001699,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-03,1.75,False,approved,2024-12-04,not_billable,,,False
+TIME-0001700,EMP-018,Analytics Specialist,PRJ-R-006-1,TSK-ANALYTICS,CLI-006,CON-R-006-1,2024-12-04,4.25,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001701,EMP-018,Analytics Specialist,PRJ-R-012-1,TSK-ANALYTICS,CLI-012,CON-R-012-1,2024-12-04,3,True,approved,2024-12-06,included_in_retainer,,,False
+TIME-0001702,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-04,0.75,False,approved,2024-12-05,not_billable,,,False
+TIME-0001703,EMP-018,Analytics Specialist,PRJ-R-009-1,TSK-ANALYTICS,CLI-009,CON-R-009-1,2024-12-05,4,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001704,EMP-018,Analytics Specialist,PRJ-R-012-1,TSK-ANALYTICS,CLI-012,CON-R-012-1,2024-12-05,2.5,True,approved,2024-12-07,included_in_retainer,,,False
+TIME-0001705,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-05,1.5,False,approved,2024-12-06,not_billable,,,False
+TIME-0001706,EMP-018,Analytics Specialist,PRJ-F-001,TSK-ANALYTICS,CLI-003,CON-F-001,2024-12-06,3.75,True,approved,2024-12-08,included_in_fixed_fee,,,False
+TIME-0001707,EMP-018,Analytics Specialist,PRJ-R-009-1,TSK-ANALYTICS,CLI-009,CON-R-009-1,2024-12-06,2.5,True,approved,2024-12-08,included_in_retainer,,,False
+TIME-0001708,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-06,1.75,False,approved,2024-12-07,not_billable,,,False
+TIME-0001709,EMP-018,Analytics Specialist,PRJ-R-009-1,TSK-ANALYTICS,CLI-009,CON-R-009-1,2024-12-09,3.75,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001710,EMP-018,Analytics Specialist,PRJ-R-012-1,TSK-ANALYTICS,CLI-012,CON-R-012-1,2024-12-09,2.5,True,approved,2024-12-11,included_in_retainer,,,False
+TIME-0001711,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-09,1.75,False,approved,2024-12-10,not_billable,,,False
+TIME-0001712,EMP-018,Analytics Specialist,PRJ-H-003,TSK-ANALYTICS,CLI-003,CON-H-003,2024-12-10,4.5,True,approved,2024-12-12,approved_hours_times_rate,RATE-03-1,200.00,False
+TIME-0001713,EMP-018,Analytics Specialist,PRJ-R-003-1,TSK-ANALYTICS,CLI-003,CON-R-003-1,2024-12-10,3,True,approved,2024-12-12,included_in_retainer,,,False
+TIME-0001714,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-10,0.5,False,approved,2024-12-11,not_billable,,,False
+TIME-0001715,EMP-018,Analytics Specialist,PRJ-R-006-1,TSK-ANALYTICS,CLI-006,CON-R-006-1,2024-12-11,4,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001716,EMP-018,Analytics Specialist,PRJ-R-003-1,TSK-ANALYTICS,CLI-003,CON-R-003-1,2024-12-11,2.75,True,approved,2024-12-13,included_in_retainer,,,False
+TIME-0001717,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-11,1.25,False,approved,2024-12-12,not_billable,,,False
+TIME-0001718,EMP-018,Analytics Specialist,PRJ-H-003,TSK-ANALYTICS,CLI-003,CON-H-003,2024-12-12,4,True,approved,2024-12-14,approved_hours_times_rate,RATE-03-1,200.00,False
+TIME-0001719,EMP-018,Analytics Specialist,PRJ-R-009-1,TSK-ANALYTICS,CLI-009,CON-R-009-1,2024-12-12,2.5,True,approved,2024-12-14,included_in_retainer,,,False
+TIME-0001720,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-12,1.5,False,approved,2024-12-13,not_billable,,,False
+TIME-0001721,EMP-018,Analytics Specialist,PRJ-F-001,TSK-ANALYTICS,CLI-003,CON-F-001,2024-12-13,7.5,True,approved,2024-12-15,included_in_fixed_fee,,,False
+TIME-0001722,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-13,0.5,False,approved,2024-12-14,not_billable,,,False
+TIME-0001723,EMP-018,Analytics Specialist,PRJ-F-001,TSK-ANALYTICS,CLI-003,CON-F-001,2024-12-16,4.25,True,approved,2024-12-18,included_in_fixed_fee,,,False
+TIME-0001724,EMP-018,Analytics Specialist,PRJ-R-003-1,TSK-ANALYTICS,CLI-003,CON-R-003-1,2024-12-16,3,True,approved,2024-12-18,included_in_retainer,,,False
+TIME-0001725,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-16,0.75,False,approved,2024-12-17,not_billable,,,False
+TIME-0001726,EMP-018,Analytics Specialist,PRJ-R-012-1,TSK-ANALYTICS,CLI-012,CON-R-012-1,2024-12-17,4.25,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001727,EMP-018,Analytics Specialist,PRJ-R-009-1,TSK-ANALYTICS,CLI-009,CON-R-009-1,2024-12-17,3,True,approved,2024-12-19,included_in_retainer,,,False
+TIME-0001728,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-17,0.75,False,approved,2024-12-18,not_billable,,,False
+TIME-0001729,EMP-018,Analytics Specialist,PRJ-F-001,TSK-ANALYTICS,CLI-003,CON-F-001,2024-12-18,6.25,True,approved,2024-12-20,included_in_fixed_fee,,,False
+TIME-0001730,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-18,1.75,False,approved,2024-12-19,not_billable,,,False
+TIME-0001731,EMP-018,Analytics Specialist,PRJ-H-003,TSK-ANALYTICS,CLI-003,CON-H-003,2024-12-19,4.25,True,approved,2024-12-21,approved_hours_times_rate,RATE-03-1,200.00,False
+TIME-0001732,EMP-018,Analytics Specialist,PRJ-R-006-1,TSK-ANALYTICS,CLI-006,CON-R-006-1,2024-12-19,2.75,True,approved,2024-12-21,included_in_retainer,,,False
+TIME-0001733,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-19,1,False,approved,2024-12-20,not_billable,,,False
+TIME-0001734,EMP-018,Analytics Specialist,PRJ-F-002,TSK-ANALYTICS,CLI-006,CON-F-002,2024-12-20,4.25,True,approved,2024-12-22,included_in_fixed_fee,,,False
+TIME-0001735,EMP-018,Analytics Specialist,PRJ-R-006-1,TSK-ANALYTICS,CLI-006,CON-R-006-1,2024-12-20,3,True,approved,2024-12-22,included_in_retainer,,,False
+TIME-0001736,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-20,0.75,False,approved,2024-12-21,not_billable,,,False
+TIME-0001737,EMP-018,Analytics Specialist,PRJ-F-001,TSK-ANALYTICS,CLI-003,CON-F-001,2024-12-23,4,True,approved,2024-12-25,included_in_fixed_fee,,,False
+TIME-0001738,EMP-018,Analytics Specialist,PRJ-R-003-1,TSK-ANALYTICS,CLI-003,CON-R-003-1,2024-12-23,2.5,True,approved,2024-12-25,included_in_retainer,,,False
+TIME-0001739,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-TRAIN,,,2024-12-23,1.5,False,approved,2024-12-24,not_billable,,,False
+TIME-0001740,EMP-018,Analytics Specialist,PRJ-H-003,TSK-ANALYTICS,CLI-003,CON-H-003,2024-12-24,4.5,True,approved,2024-12-26,approved_hours_times_rate,RATE-03-1,200.00,False
+TIME-0001741,EMP-018,Analytics Specialist,PRJ-F-002,TSK-ANALYTICS,CLI-006,CON-F-002,2024-12-24,3,True,approved,2024-12-26,included_in_fixed_fee,,,False
+TIME-0001742,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-24,0.5,False,approved,2024-12-25,not_billable,,,False
+TIME-0001743,EMP-018,Analytics Specialist,PRJ-F-001,TSK-ANALYTICS,CLI-003,CON-F-001,2024-12-26,4.25,True,approved,2024-12-28,included_in_fixed_fee,,,False
+TIME-0001744,EMP-018,Analytics Specialist,PRJ-R-012-1,TSK-ANALYTICS,CLI-012,CON-R-012-1,2024-12-26,3,True,approved,2024-12-28,included_in_retainer,,,False
+TIME-0001745,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-26,0.75,False,approved,2024-12-27,not_billable,,,False
+TIME-0001746,EMP-018,Analytics Specialist,PRJ-F-001,TSK-ANALYTICS,CLI-003,CON-F-001,2024-12-27,3.75,True,approved,2024-12-29,included_in_fixed_fee,,,False
+TIME-0001747,EMP-018,Analytics Specialist,PRJ-R-003-1,TSK-ANALYTICS,CLI-003,CON-R-003-1,2024-12-27,2.5,True,approved,2024-12-29,included_in_retainer,,,False
+TIME-0001748,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-27,1.75,False,approved,2024-12-28,not_billable,,,False
+TIME-0001749,EMP-018,Analytics Specialist,PRJ-R-009-1,TSK-ANALYTICS,CLI-009,CON-R-009-1,2024-12-30,6,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001750,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-30,2,False,approved,2024-12-31,not_billable,,,False
+TIME-0001751,EMP-018,Analytics Specialist,PRJ-R-006-1,TSK-ANALYTICS,CLI-006,CON-R-006-1,2024-12-31,3.75,True,approved,2024-12-31,included_in_retainer,,,False
+TIME-0001752,EMP-018,Analytics Specialist,PRJ-F-001,TSK-ANALYTICS,CLI-003,CON-F-001,2024-12-31,2.5,True,approved,2024-12-31,included_in_fixed_fee,,,False
+TIME-0001753,EMP-018,Analytics Specialist,PRJ-INTERNAL,TSK-ADMIN,,,2024-12-31,1.75,False,approved,2024-12-31,not_billable,,,False
