@@ -1,0 +1,439 @@
+﻿crm_account_id,account_name,billing_customer_id,lead_id,created_date,owner_id
+crmacc_00000001,Assisted account 0003,cus_000003,lead_00000003,2024-06-30,owner_1
+crmacc_00000002,Assisted account 0004,cus_000004,lead_00000004,2024-07-31,owner_2
+crmacc_00000003,Assisted account 0006,cus_000006,lead_00000006,2024-04-30,owner_1
+crmacc_00000004,Assisted account 0009,cus_000009,lead_00000009,2024-07-31,owner_1
+crmacc_00000005,Assisted account 0010,cus_000010,lead_00000010,2024-08-30,owner_2
+crmacc_00000006,Assisted account 0012,cus_000012,lead_00000012,2024-05-30,owner_1
+crmacc_00000007,Assisted account 0019,cus_000019,lead_00000019,2024-07-31,owner_2
+crmacc_00000008,Assisted account 0028,cus_000028,lead_00000028,2024-06-30,owner_2
+crmacc_00000009,Assisted account 0029,cus_000029,lead_00000029,2024-07-31,owner_3
+crmacc_00000010,Assisted account 0036,cus_000036,lead_00000036,2024-04-30,owner_1
+crmacc_00000011,Assisted account 0039,cus_000039,lead_00000039,2024-07-31,owner_1
+crmacc_00000012,Assisted account 0040,cus_000040,lead_00000040,2024-08-30,owner_2
+crmacc_00000013,Assisted account 0047,cus_000047,lead_00000047,2024-05-30,owner_3
+crmacc_00000014,Assisted account 0050,cus_000050,lead_00000050,2024-08-30,owner_3
+crmacc_00000015,Assisted account 0052,cus_000052,lead_00000052,2024-05-30,owner_2
+crmacc_00000016,Assisted account 0053,cus_000053,lead_00000053,2024-06-30,owner_3
+crmacc_00000017,Assisted account 0056,cus_000056,lead_00000056,2024-04-30,owner_3
+crmacc_00000018,Assisted account 0064,cus_000064,lead_00000064,2024-07-31,owner_2
+crmacc_00000019,Assisted account 0067,cus_000067,lead_00000067,2024-05-30,owner_2
+crmacc_00000020,Assisted account 0071,cus_000071,lead_00000071,2024-04-30,owner_3
+crmacc_00000021,Assisted account 0073,cus_000073,lead_00000073,2024-06-30,owner_2
+crmacc_00000022,Assisted account 0078,cus_000078,lead_00000078,2024-06-30,owner_1
+crmacc_00000023,Assisted account 0084,cus_000084,lead_00000084,2024-07-31,owner_1
+crmacc_00000024,Assisted account 0094,cus_000094,lead_00000094,2024-07-31,owner_2
+crmacc_00000025,Assisted account 0108,cus_000108,lead_00000108,2024-06-30,owner_1
+crmacc_00000026,Assisted account 0113,cus_000113,lead_00000113,2024-06-30,owner_3
+crmacc_00000027,Assisted account 0117,cus_000117,lead_00000117,2024-05-30,owner_1
+crmacc_00000028,Assisted account 0118,cus_000118,lead_00000118,2024-06-30,owner_2
+crmacc_00000029,Assisted account 0121,cus_000121,lead_00000121,2024-04-30,owner_2
+crmacc_00000030,Assisted account 0125,cus_000125,lead_00000125,2024-08-30,owner_3
+crmacc_00000031,Assisted account 0126,cus_000126,lead_00000126,2024-04-30,owner_1
+crmacc_00000032,Assisted account 0128,cus_000128,lead_00000128,2024-06-30,owner_3
+crmacc_00000033,Assisted account 0134,cus_000134,lead_00000134,2024-07-31,owner_3
+crmacc_00000034,Assisted account 0136,cus_000136,lead_00000136,2024-04-30,owner_2
+crmacc_00000035,Assisted account 0148,cus_000148,lead_00000148,2024-06-30,owner_2
+crmacc_00000036,Assisted account 0154,cus_000154,lead_00000154,2024-07-31,owner_2
+crmacc_00000037,Assisted account 0156,cus_000156,lead_00000156,2024-04-30,owner_1
+crmacc_00000038,Assisted account 0160,cus_000160,lead_00000160,2024-08-30,owner_2
+crmacc_00000039,Assisted account 0167,cus_000167,lead_00000167,2024-05-30,owner_3
+crmacc_00000040,Assisted account 0168,cus_000168,lead_00000168,2024-06-30,owner_1
+crmacc_00000041,Assisted account 0169,cus_000169,lead_00000169,2024-07-31,owner_2
+crmacc_00000042,Assisted account 0172,cus_000172,lead_00000172,2024-05-30,owner_2
+crmacc_00000043,Assisted account 0173,cus_000173,lead_00000173,2024-06-30,owner_3
+crmacc_00000044,Assisted account 0175,cus_000175,lead_00000175,2024-08-30,owner_2
+crmacc_00000045,Assisted account 0176,cus_000176,lead_00000176,2024-04-30,owner_3
+crmacc_00000046,Assisted account 0177,cus_000177,lead_00000177,2024-05-30,owner_1
+crmacc_00000047,Assisted account 0181,cus_000181,lead_00000181,2024-04-30,owner_2
+crmacc_00000048,Assisted account 0183,cus_000183,lead_00000183,2024-06-30,owner_1
+crmacc_00000049,Assisted account 0185,cus_000185,lead_00000185,2024-08-30,owner_3
+crmacc_00000050,Assisted account 0188,cus_000188,lead_00000188,2024-06-30,owner_3
+crmacc_00000051,Assisted account 0189,cus_000189,lead_00000189,2024-07-31,owner_1
+crmacc_00000052,Assisted account 0197,cus_000197,lead_00000197,2024-05-30,owner_3
+crmacc_00000053,Assisted account 0198,cus_000198,lead_00000198,2024-06-30,owner_1
+crmacc_00000054,Assisted account 0203,cus_000203,lead_00000203,2024-06-30,owner_3
+crmacc_00000055,Assisted account 0210,cus_000210,lead_00000210,2024-08-30,owner_1
+crmacc_00000056,Assisted account 0211,cus_000211,lead_00000211,2024-04-30,owner_2
+crmacc_00000057,Assisted account 0228,cus_000228,lead_00000228,2024-06-30,owner_1
+crmacc_00000058,Assisted account 0229,cus_000229,lead_00000229,2024-07-31,owner_2
+crmacc_00000059,Assisted account 0230,cus_000230,lead_00000230,2024-08-30,owner_3
+crmacc_00000060,Assisted account 0234,cus_000234,lead_00000234,2024-07-31,owner_1
+crmacc_00000061,Assisted account 0238,cus_000238,lead_00000238,2024-06-30,owner_2
+crmacc_00000062,Assisted account 0242,cus_000242,lead_00000242,2024-05-30,owner_3
+crmacc_00000063,Assisted account 0247,cus_000247,lead_00000247,2024-05-30,owner_2
+crmacc_00000064,Assisted account 0248,cus_000248,lead_00000248,2024-06-30,owner_3
+crmacc_00000065,Assisted account 0251,cus_000251,lead_00000251,2024-04-30,owner_3
+crmacc_00000066,Assisted account 0255,cus_000255,lead_00000255,2024-08-30,owner_1
+crmacc_00000067,Assisted account 0260,cus_000260,lead_00000260,2024-08-30,owner_3
+crmacc_00000068,Assisted account 0262,cus_000262,lead_00000262,2024-05-30,owner_2
+crmacc_00000069,Assisted account 0263,cus_000263,lead_00000263,2024-06-30,owner_3
+crmacc_00000070,Assisted account 0266,cus_000266,lead_00000266,2024-04-30,owner_3
+crmacc_00000071,Assisted account 0278,cus_000278,lead_00000278,2024-06-30,owner_3
+crmacc_00000072,Assisted account 0282,cus_000282,lead_00000282,2024-05-30,owner_1
+crmacc_00000073,Assisted account 0289,cus_000289,lead_00000289,2024-07-31,owner_2
+crmacc_00000074,Assisted account 0298,cus_000298,lead_00000298,2024-06-30,owner_2
+crmacc_00000075,Assisted account 0302,cus_000302,lead_00000302,2024-05-30,owner_3
+crmacc_00000076,Assisted account 0306,cus_000306,lead_00000306,2024-04-30,owner_1
+crmacc_00000077,Assisted account 0307,cus_000307,lead_00000307,2024-05-30,owner_2
+crmacc_00000078,Assisted account 0309,cus_000309,lead_00000309,2024-07-31,owner_1
+crmacc_00000079,Assisted account 0310,cus_000310,lead_00000310,2024-08-30,owner_2
+crmacc_00000080,Assisted account 0314,cus_000314,lead_00000314,2024-07-31,owner_3
+crmacc_00000081,Assisted account 0315,cus_000315,lead_00000315,2024-08-30,owner_1
+crmacc_00000082,Assisted account 0324,cus_000324,lead_00000324,2024-10-08,owner_1
+crmacc_00000083,Assisted account 0333,cus_000333,lead_00000333,2024-10-14,owner_1
+crmacc_00000084,Assisted account 0334,cus_000334,lead_00000334,2024-10-11,owner_2
+crmacc_00000085,Assisted account 0343,cus_000343,lead_00000343,2024-10-18,owner_2
+crmacc_00000086,Assisted account 0366,cus_000366,lead_00000366,2024-11-06,owner_1
+crmacc_00000087,Assisted account 0367,cus_000367,lead_00000367,2024-11-17,owner_2
+crmacc_00000088,Assisted account 0372,cus_000372,lead_00000372,2024-11-01,owner_1
+crmacc_00000089,Assisted account 0381,cus_000381,lead_00000381,2024-11-21,owner_1
+crmacc_00000090,Assisted account 0384,cus_000384,lead_00000384,2024-10-31,owner_1
+crmacc_00000091,Assisted account 0385,cus_000385,lead_00000385,2024-11-22,owner_2
+crmacc_00000092,Assisted account 0415,cus_000415,lead_00000415,2024-12-07,owner_2
+crmacc_00000093,Assisted account 0419,cus_000419,lead_00000419,2024-12-14,owner_3
+crmacc_00000094,Assisted account 0423,cus_000423,lead_00000423,2024-12-14,owner_1
+crmacc_00000095,Assisted account 0427,cus_000427,lead_00000427,2024-12-06,owner_2
+crmacc_00000096,Assisted account 0430,cus_000430,lead_00000430,2024-12-18,owner_2
+crmacc_00000097,Assisted account 0431,cus_000431,lead_00000431,2024-12-11,owner_3
+crmacc_00000098,Assisted account 0462,cus_000462,lead_00000462,2025-01-11,owner_1
+crmacc_00000099,Assisted account 0463,cus_000463,lead_00000463,2025-01-15,owner_2
+crmacc_00000100,Assisted account 0468,cus_000468,lead_00000468,2025-01-07,owner_1
+crmacc_00000101,Assisted account 0470,cus_000470,lead_00000470,2025-01-22,owner_3
+crmacc_00000102,Assisted account 0474,cus_000474,lead_00000474,2025-01-19,owner_1
+crmacc_00000103,Assisted account 0482,cus_000482,lead_00000482,2025-01-05,owner_3
+crmacc_00000104,Assisted account 0486,cus_000486,lead_00000486,2025-01-16,owner_1
+crmacc_00000105,Assisted account 0492,cus_000492,lead_00000492,2025-01-07,owner_1
+crmacc_00000106,Assisted account 0522,cus_000522,lead_00000522,2025-02-16,owner_1
+crmacc_00000107,Assisted account 0532,cus_000532,lead_00000532,2025-02-07,owner_2
+crmacc_00000108,Assisted account 0534,cus_000534,lead_00000534,2025-02-06,owner_1
+crmacc_00000109,Assisted account 0536,cus_000536,lead_00000536,2025-02-13,owner_3
+crmacc_00000110,Assisted account 0539,cus_000539,lead_00000539,2025-02-05,owner_3
+crmacc_00000111,Assisted account 0549,cus_000549,lead_00000549,2025-02-10,owner_1
+crmacc_00000112,Assisted account 0550,cus_000550,lead_00000550,2025-02-06,owner_2
+crmacc_00000113,Assisted account 0590,cus_000590,lead_00000590,2025-03-08,owner_3
+crmacc_00000114,Assisted account 0592,cus_000592,lead_00000592,2025-03-11,owner_2
+crmacc_00000115,Assisted account 0595,cus_000595,lead_00000595,2025-03-06,owner_2
+crmacc_00000116,Assisted account 0596,cus_000596,lead_00000596,2025-03-02,owner_3
+crmacc_00000117,Assisted account 0600,cus_000600,lead_00000600,2025-03-20,owner_1
+crmacc_00000118,Assisted account 0634,cus_000634,lead_00000634,2025-04-03,owner_2
+crmacc_00000119,Assisted account 0636,cus_000636,lead_00000636,2025-04-10,owner_1
+crmacc_00000120,Assisted account 0639,cus_000639,lead_00000639,2025-04-21,owner_1
+crmacc_00000121,Assisted account 0648,cus_000648,lead_00000648,2025-04-14,owner_1
+crmacc_00000122,Assisted account 0659,cus_000659,lead_00000659,2025-04-12,owner_3
+crmacc_00000123,Assisted account 0663,cus_000663,lead_00000663,2025-04-17,owner_1
+crmacc_00000124,Assisted account 0699,cus_000699,lead_00000699,2025-05-13,owner_1
+crmacc_00000125,Assisted account 0704,cus_000704,lead_00000704,2025-05-01,owner_3
+crmacc_00000126,Assisted account 0719,cus_000719,lead_00000719,2025-05-21,owner_3
+crmacc_00000127,Assisted account 0720,cus_000720,lead_00000720,2025-05-20,owner_1
+crmacc_00000128,Assisted account 0722,cus_000722,lead_00000722,2025-05-05,owner_3
+crmacc_00000129,Assisted account 0724,cus_000724,lead_00000724,2025-05-16,owner_2
+crmacc_00000130,Assisted account 0757,cus_000757,lead_00000757,2025-06-10,owner_2
+crmacc_00000131,Assisted account 0764,cus_000764,lead_00000764,2025-06-12,owner_3
+crmacc_00000132,Assisted account 0766,cus_000766,lead_00000766,2025-06-12,owner_2
+crmacc_00000133,Assisted account 0767,cus_000767,lead_00000767,2025-06-11,owner_3
+crmacc_00000134,Assisted account 0770,cus_000770,lead_00000770,2025-06-16,owner_3
+crmacc_00000135,Assisted account 0771,cus_000771,lead_00000771,2025-06-20,owner_1
+crmacc_00000136,Assisted account 0772,cus_000772,lead_00000772,2025-06-11,owner_2
+crmacc_00000137,Assisted account 0779,cus_000779,lead_00000779,2025-06-15,owner_3
+crmacc_00000138,Assisted account 0810,cus_000810,lead_00000810,2025-07-15,owner_1
+crmacc_00000139,Assisted account 0813,cus_000813,lead_00000813,2025-07-14,owner_1
+crmacc_00000140,Assisted account 0819,cus_000819,lead_00000819,2025-07-01,owner_1
+crmacc_00000141,Assisted account 0825,cus_000825,lead_00000825,2025-07-08,owner_1
+crmacc_00000142,Assisted account 0864,cus_000864,lead_00000864,2025-08-20,owner_1
+crmacc_00000143,Assisted account 0873,cus_000873,lead_00000873,2025-08-01,owner_1
+crmacc_00000144,Assisted account 0874,cus_000874,lead_00000874,2025-08-09,owner_2
+crmacc_00000145,Assisted account 0875,cus_000875,lead_00000875,2025-08-06,owner_3
+crmacc_00000146,Assisted account 0877,cus_000877,lead_00000877,2025-08-21,owner_2
+crmacc_00000147,Assisted account 0879,cus_000879,lead_00000879,2025-08-09,owner_1
+crmacc_00000148,Assisted account 0884,cus_000884,lead_00000884,2025-08-20,owner_3
+crmacc_00000149,Assisted account 0886,cus_000886,lead_00000886,2025-08-14,owner_2
+crmacc_00000150,Assisted account 0890,cus_000890,lead_00000890,2025-08-16,owner_3
+crmacc_00000151,Assisted account 0891,cus_000891,lead_00000891,2025-07-31,owner_1
+crmacc_00000152,Assisted account 0894,cus_000894,lead_00000894,2025-08-07,owner_1
+crmacc_00000153,Assisted account 0898,cus_000898,lead_00000898,2025-08-01,owner_2
+crmacc_00000154,Assisted account 0900,cus_000900,lead_00000900,2025-08-22,owner_1
+crmacc_00000155,Assisted account 0941,cus_000941,lead_00000941,2025-09-01,owner_3
+crmacc_00000156,Assisted account 0946,cus_000946,lead_00000946,2025-08-30,owner_2
+crmacc_00000157,Assisted account 0952,cus_000952,lead_00000952,2025-09-13,owner_2
+crmacc_00000158,Assisted account 0955,cus_000955,lead_00000955,2025-09-08,owner_2
+crmacc_00000159,Assisted account 0966,cus_000966,lead_00000966,2025-09-07,owner_1
+crmacc_00000160,Assisted account 0970,cus_000970,lead_00000970,2025-09-13,owner_2
+crmacc_00000161,Assisted account 1008,cus_001008,lead_00001008,2025-10-21,owner_1
+crmacc_00000162,Assisted account 1014,cus_001014,lead_00001014,2025-10-07,owner_1
+crmacc_00000163,Assisted account 1021,cus_001021,lead_00001021,2025-10-08,owner_2
+crmacc_00000164,Assisted account 1023,cus_001023,lead_00001023,2025-10-16,owner_1
+crmacc_00000165,Assisted account 1026,cus_001026,lead_00001026,2025-10-13,owner_1
+crmacc_00000166,Assisted account 1027,cus_001027,lead_00001027,2025-10-18,owner_2
+crmacc_00000167,Assisted account 1028,cus_001028,lead_00001028,2025-09-30,owner_3
+crmacc_00000168,Assisted account 1029,cus_001029,lead_00001029,2025-10-18,owner_1
+crmacc_00000169,Assisted account 1037,cus_001037,lead_00001037,2025-10-17,owner_3
+crmacc_00000170,Assisted account 1043,cus_001043,lead_00001043,2025-10-13,owner_3
+crmacc_00000171,Assisted account 1044,cus_001044,lead_00001044,2025-10-03,owner_1
+crmacc_00000172,Assisted account 1079,cus_001079,lead_00001079,2025-10-31,owner_3
+crmacc_00000173,Assisted account 1080,cus_001080,lead_00001080,2025-11-10,owner_1
+crmacc_00000174,Assisted account 1088,cus_001088,lead_00001088,2025-11-20,owner_3
+crmacc_00000175,Assisted account 1090,cus_001090,lead_00001090,2025-11-18,owner_2
+crmacc_00000176,Assisted account 1091,cus_001091,lead_00001091,2025-11-14,owner_3
+crmacc_00000177,Assisted account 1092,cus_001092,lead_00001092,2025-11-11,owner_1
+crmacc_00000178,Assisted account 1095,cus_001095,lead_00001095,2025-11-05,owner_1
+crmacc_00000179,Assisted account 1096,cus_001096,lead_00001096,2025-11-19,owner_2
+crmacc_00000180,Assisted account 1100,cus_001100,lead_00001100,2025-11-11,owner_3
+crmacc_00000181,Assisted account 1101,cus_001101,lead_00001101,2025-11-06,owner_1
+crmacc_00000182,Assisted account 1111,cus_001111,lead_00001111,2025-11-11,owner_2
+crmacc_00000183,Assisted account 1112,cus_001112,lead_00001112,2025-11-03,owner_3
+crmacc_00000184,Assisted account 1144,cus_001144,lead_00001144,2025-12-19,owner_2
+crmacc_00000185,Assisted account 1149,cus_001149,lead_00001149,2025-12-17,owner_1
+crmacc_00000186,Assisted account 1154,cus_001154,lead_00001154,2025-12-02,owner_3
+crmacc_00000187,Assisted account 1158,cus_001158,lead_00001158,2025-12-02,owner_1
+crmacc_00000188,Assisted account 1171,cus_001171,lead_00001171,2025-12-22,owner_2
+crmacc_00000189,Assisted account 1183,cus_001183,lead_00001183,2025-12-22,owner_2
+crmacc_00000190,Assisted account 1223,cus_001223,lead_00001223,2026-01-21,owner_3
+crmacc_00000191,Assisted account 1224,cus_001224,lead_00001224,2026-01-18,owner_1
+crmacc_00000192,Assisted account 1228,cus_001228,lead_00001228,2026-01-20,owner_2
+crmacc_00000193,Assisted account 1231,cus_001231,lead_00001231,2026-01-09,owner_2
+crmacc_00000194,Assisted account 1255,cus_001255,lead_00001255,2026-01-20,owner_2
+crmacc_00000195,Assisted account 1258,cus_001258,lead_00001258,2026-01-23,owner_2
+crmacc_00000196,Assisted account 1297,cus_001297,lead_00001297,2026-02-07,owner_2
+crmacc_00000197,Assisted account 1299,cus_001299,lead_00001299,2026-02-02,owner_1
+crmacc_00000198,Assisted account 1304,cus_001304,lead_00001304,2026-02-04,owner_3
+crmacc_00000199,Assisted account 1307,cus_001307,lead_00001307,2026-02-20,owner_3
+crmacc_00000200,Assisted account 1312,cus_001312,lead_00001312,2026-02-05,owner_2
+crmacc_00000201,Assisted account 1313,cus_001313,lead_00001313,2026-01-29,owner_3
+crmacc_00000202,Assisted account 1314,cus_001314,lead_00001314,2026-02-07,owner_1
+crmacc_00000203,Assisted account 1316,cus_001316,lead_00001316,2026-02-09,owner_3
+crmacc_00000204,Assisted account 1319,cus_001319,lead_00001319,2026-02-07,owner_3
+crmacc_00000205,Assisted account 1320,cus_001320,lead_00001320,2026-01-28,owner_1
+crmacc_00000206,Assisted account 1327,cus_001327,lead_00001327,2026-02-14,owner_2
+crmacc_00000207,Assisted account 1330,cus_001330,lead_00001330,2026-02-06,owner_2
+crmacc_00000208,Assisted account 1370,cus_001370,lead_00001370,2026-03-20,owner_3
+crmacc_00000209,Assisted account 1376,cus_001376,lead_00001376,2026-03-06,owner_3
+crmacc_00000210,Assisted account 1383,cus_001383,lead_00001383,2026-03-06,owner_1
+crmacc_00000211,Assisted account 1387,cus_001387,lead_00001387,2026-03-09,owner_2
+crmacc_00000212,Assisted account 1398,cus_001398,lead_00001398,2026-03-15,owner_1
+crmacc_00000213,Assisted account 1399,cus_001399,lead_00001399,2026-03-07,owner_2
+crmacc_00000214,Assisted account 1404,cus_001404,lead_00001404,2026-03-11,owner_1
+crmacc_00000215,Assisted account 1405,cus_001405,lead_00001405,2026-03-17,owner_2
+crmacc_00000216,Assisted account 1406,cus_001406,lead_00001406,2026-03-11,owner_3
+crmacc_00000217,Assisted account 1410,cus_001410,lead_00001410,2026-03-06,owner_1
+crmacc_00000218,Assisted account 1448,cus_001448,lead_00001448,2026-04-10,owner_3
+crmacc_00000219,Assisted account 1451,cus_001451,lead_00001451,2026-04-16,owner_3
+crmacc_00000220,Assisted account 1458,cus_001458,lead_00001458,2026-04-14,owner_1
+crmacc_00000221,Assisted account 1465,cus_001465,lead_00001465,2026-04-02,owner_2
+crmacc_00000222,Assisted account 1476,cus_001476,lead_00001476,2026-04-12,owner_1
+crmacc_00000223,Assisted account 1477,cus_001477,lead_00001477,2026-04-17,owner_2
+crmacc_00000224,Assisted account 1478,cus_001478,lead_00001478,2026-04-19,owner_3
+crmacc_00000225,Assisted account 1482,cus_001482,lead_00001482,2026-04-20,owner_1
+crmacc_00000226,Assisted account 1486,cus_001486,lead_00001486,2026-04-07,owner_2
+crmacc_00000227,Assisted account 1488,cus_001488,lead_00001488,2026-04-17,owner_1
+crmacc_00000228,Assisted account 1490,cus_001490,lead_00001490,2026-04-17,owner_3
+crmacc_00000229,Assisted account 1531,cus_001531,lead_00001531,2026-05-02,owner_2
+crmacc_00000230,Assisted account 1534,cus_001534,lead_00001534,2026-05-06,owner_2
+crmacc_00000231,Assisted account 1539,cus_001539,lead_00001539,2026-05-17,owner_1
+crmacc_00000232,Assisted account 1542,cus_001542,lead_00001542,2026-05-22,owner_1
+crmacc_00000233,Assisted account 1544,cus_001544,lead_00001544,2026-05-18,owner_3
+crmacc_00000234,Assisted account 1545,cus_001545,lead_00001545,2026-05-23,owner_1
+crmacc_00000235,Assisted account 1546,cus_001546,lead_00001546,2026-05-15,owner_2
+crmacc_00000236,Assisted account 1549,cus_001549,lead_00001549,2026-05-04,owner_2
+crmacc_00000237,Assisted account 1553,cus_001553,lead_00001553,2026-05-07,owner_3
+crmacc_00000238,Assisted account 1554,cus_001554,lead_00001554,2026-05-09,owner_1
+crmacc_00000239,Assisted account 1556,cus_001556,lead_00001556,2026-05-09,owner_3
+crmacc_00000240,Assisted account 1559,cus_001559,lead_00001559,2026-04-30,owner_3
+crmacc_00000241,Assisted account 1560,cus_001560,lead_00001560,2026-05-16,owner_1
+crmacc_00000242,Assisted account 1616,cus_001616,lead_00001616,2026-06-13,owner_3
+crmacc_00000243,Assisted account 1617,cus_001617,lead_00001617,2026-06-07,owner_1
+crmacc_00000244,Assisted account 1618,cus_001618,lead_00001618,2026-06-08,owner_2
+crmacc_00000245,Assisted account 1624,cus_001624,lead_00001624,2026-06-03,owner_2
+crmacc_00000246,Assisted account 1626,cus_001626,lead_00001626,2026-05-30,owner_1
+crmacc_00000247,Assisted account 1627,cus_001627,lead_00001627,2026-06-16,owner_2
+crmacc_00000248,Assisted account 1631,cus_001631,lead_00001631,2026-06-11,owner_3
+crmacc_00000249,Assisted account 1633,cus_001633,lead_00001633,2026-06-18,owner_2
+crmacc_00000250,Assisted account 1642,cus_001642,lead_00001642,2026-06-14,owner_2
+crmacc_00000251,Assisted account 1649,cus_001649,lead_00001649,2026-06-19,owner_3
+crmacc_00000252,Assisted account 1650,cus_001650,lead_00001650,2026-05-30,owner_1
+crmacc_00000253,Assisted account 1651,cus_001651,lead_00001651,2026-06-11,owner_2
+crmacc_00000254,Assisted account 1691,cus_001691,lead_00001691,2026-07-09,owner_3
+crmacc_00000255,Assisted account 1692,cus_001692,lead_00001692,2026-07-23,owner_1
+crmacc_00000256,Assisted account 1697,cus_001697,lead_00001697,2026-07-01,owner_3
+crmacc_00000257,Assisted account 1700,cus_001700,lead_00001700,2026-07-06,owner_3
+crmacc_00000258,Assisted account 1703,cus_001703,lead_00001703,2026-07-23,owner_3
+crmacc_00000259,Assisted account 1705,cus_001705,lead_00001705,2026-07-09,owner_2
+crmacc_00000260,Assisted account 1708,cus_001708,lead_00001708,2026-07-10,owner_2
+crmacc_00000261,Assisted account 1713,cus_001713,lead_00001713,2026-07-03,owner_1
+crmacc_00000262,Assisted account 1716,cus_001716,lead_00001716,2026-07-07,owner_1
+crmacc_00000263,Assisted account 1717,cus_001717,lead_00001717,2026-07-15,owner_2
+crmacc_00000264,Assisted account 1721,cus_001721,lead_00001721,2026-07-15,owner_3
+crmacc_00000265,Assisted account 1724,cus_001724,lead_00001724,2026-07-06,owner_3
+crmacc_00000266,Assisted account 1766,cus_001766,lead_00001766,2026-08-19,owner_3
+crmacc_00000267,Assisted account 1769,cus_001769,lead_00001769,2026-08-10,owner_3
+crmacc_00000268,Assisted account 1771,cus_001771,lead_00001771,2026-08-09,owner_2
+crmacc_00000269,Assisted account 1775,cus_001775,lead_00001775,2026-08-09,owner_3
+crmacc_00000270,Assisted account 1776,cus_001776,lead_00001776,2026-08-22,owner_1
+crmacc_00000271,Assisted account 1782,cus_001782,lead_00001782,2026-08-08,owner_1
+crmacc_00000272,Assisted account 1784,cus_001784,lead_00001784,2026-08-23,owner_3
+crmacc_00000273,Assisted account 1786,cus_001786,lead_00001786,2026-08-01,owner_2
+crmacc_00000274,Assisted account 1789,cus_001789,lead_00001789,2026-08-23,owner_2
+crmacc_00000275,Assisted account 1790,cus_001790,lead_00001790,2026-08-14,owner_3
+crmacc_00000276,Assisted account 1792,cus_001792,lead_00001792,2026-08-22,owner_2
+crmacc_00000277,Assisted account 1794,cus_001794,lead_00001794,2026-08-07,owner_1
+crmacc_00000278,Assisted account 1798,cus_001798,lead_00001798,2026-08-21,owner_2
+crmacc_00000279,Assisted account 1799,cus_001799,lead_00001799,2026-08-13,owner_3
+crmacc_00000280,Assisted account 1802,cus_001802,lead_00001802,2026-08-11,owner_3
+crmacc_00000281,Assisted account 1805,cus_001805,lead_00001805,2026-07-31,owner_3
+crmacc_00000282,Assisted account 1809,cus_001809,lead_00001809,2026-08-17,owner_1
+crmacc_00000283,Assisted account 1816,cus_001816,lead_00001816,2026-08-20,owner_2
+crmacc_00000284,Assisted account 1877,cus_001877,lead_00001877,2026-09-04,owner_3
+crmacc_00000285,Assisted account 1881,cus_001881,lead_00001881,2026-09-22,owner_1
+crmacc_00000286,Assisted account 1891,cus_001891,lead_00001891,2026-09-03,owner_2
+crmacc_00000287,Assisted account 1892,cus_001892,lead_00001892,2026-09-04,owner_3
+crmacc_00000288,Assisted account 1894,cus_001894,lead_00001894,2026-09-09,owner_2
+crmacc_00000289,Assisted account 1900,cus_001900,lead_00001900,2026-09-04,owner_2
+crmacc_00000290,Assisted account 1901,cus_001901,lead_00001901,2026-09-17,owner_3
+crmacc_00000291,Assisted account 1904,cus_001904,lead_00001904,2026-08-31,owner_3
+crmacc_00000292,Assisted account 1911,cus_001911,lead_00001911,2026-09-21,owner_1
+crmacc_00000293,Assisted account 1983,cus_001983,lead_00001983,2026-09-28,owner_1
+crmacc_00000294,Prospective workflow team 0000,,,2026-09-22,owner_1
+crmacc_00000295,Prospective workflow team 0001,,,2026-09-11,owner_2
+crmacc_00000296,Prospective workflow team 0002,,,2026-10-10,owner_3
+crmacc_00000297,Prospective workflow team 0003,,,2026-09-26,owner_1
+crmacc_00000298,Prospective workflow team 0004,,,2026-09-02,owner_2
+crmacc_00000299,Prospective workflow team 0005,,,2026-08-17,owner_3
+crmacc_00000300,Prospective workflow team 0006,,,2026-09-07,owner_1
+crmacc_00000301,Prospective workflow team 0007,,,2026-08-13,owner_2
+crmacc_00000302,Prospective workflow team 0008,,,2026-10-16,owner_3
+crmacc_00000303,Prospective workflow team 0009,,,2026-09-08,owner_1
+crmacc_00000304,Prospective workflow team 0010,,,2026-10-16,owner_2
+crmacc_00000305,Prospective workflow team 0011,,,2026-08-06,owner_3
+crmacc_00000306,Prospective workflow team 0012,,,2026-10-10,owner_1
+crmacc_00000307,Prospective workflow team 0013,,,2026-10-17,owner_2
+crmacc_00000308,Prospective workflow team 0014,,,2026-09-13,owner_3
+crmacc_00000309,Prospective workflow team 0015,,,2026-09-26,owner_1
+crmacc_00000310,Prospective workflow team 0016,,,2026-08-12,owner_2
+crmacc_00000311,Prospective workflow team 0017,,,2026-08-08,owner_3
+crmacc_00000312,Prospective workflow team 0018,,,2026-10-17,owner_1
+crmacc_00000313,Prospective workflow team 0019,,,2026-08-18,owner_2
+crmacc_00000314,Prospective workflow team 0020,,,2026-08-21,owner_3
+crmacc_00000315,Prospective workflow team 0021,,,2026-10-18,owner_1
+crmacc_00000316,Prospective workflow team 0022,,,2026-08-11,owner_2
+crmacc_00000317,Prospective workflow team 0023,,,2026-10-17,owner_3
+crmacc_00000318,Prospective workflow team 0024,,,2026-10-15,owner_1
+crmacc_00000319,Prospective workflow team 0025,,,2026-10-15,owner_2
+crmacc_00000320,Prospective workflow team 0026,,,2026-09-27,owner_3
+crmacc_00000321,Prospective workflow team 0027,,,2026-08-29,owner_1
+crmacc_00000322,Prospective workflow team 0028,,,2026-09-02,owner_2
+crmacc_00000323,Prospective workflow team 0029,,,2026-09-23,owner_3
+crmacc_00000324,Prospective workflow team 0030,,,2026-09-25,owner_1
+crmacc_00000325,Prospective workflow team 0031,,,2026-10-17,owner_2
+crmacc_00000326,Prospective workflow team 0032,,,2026-09-30,owner_3
+crmacc_00000327,Prospective workflow team 0033,,,2026-09-02,owner_1
+crmacc_00000328,Prospective workflow team 0034,,,2026-09-05,owner_2
+crmacc_00000329,Prospective workflow team 0035,,,2026-10-20,owner_3
+crmacc_00000330,Prospective workflow team 0036,,,2026-09-24,owner_1
+crmacc_00000331,Prospective workflow team 0037,,,2026-09-01,owner_2
+crmacc_00000332,Prospective workflow team 0038,,,2026-09-12,owner_3
+crmacc_00000333,Prospective workflow team 0039,,,2026-10-19,owner_1
+crmacc_00000334,Prospective workflow team 0040,,,2026-10-05,owner_2
+crmacc_00000335,Prospective workflow team 0041,,,2026-09-08,owner_3
+crmacc_00000336,Prospective workflow team 0042,,,2026-09-26,owner_1
+crmacc_00000337,Prospective workflow team 0043,,,2026-10-21,owner_2
+crmacc_00000338,Prospective workflow team 0044,,,2026-08-25,owner_3
+crmacc_00000339,Prospective workflow team 0045,,,2026-09-03,owner_1
+crmacc_00000340,Prospective workflow team 0046,,,2026-10-11,owner_2
+crmacc_00000341,Prospective workflow team 0047,,,2026-09-15,owner_3
+crmacc_00000342,Prospective workflow team 0048,,,2026-10-17,owner_1
+crmacc_00000343,Prospective workflow team 0049,,,2026-09-02,owner_2
+crmacc_00000344,Prospective workflow team 0050,,,2026-08-10,owner_3
+crmacc_00000345,Prospective workflow team 0051,,,2026-10-11,owner_1
+crmacc_00000346,Prospective workflow team 0052,,,2026-09-28,owner_2
+crmacc_00000347,Prospective workflow team 0053,,,2026-08-10,owner_3
+crmacc_00000348,Prospective workflow team 0054,,,2026-09-08,owner_1
+crmacc_00000349,Prospective workflow team 0055,,,2026-09-15,owner_2
+crmacc_00000350,Prospective workflow team 0056,,,2026-10-14,owner_3
+crmacc_00000351,Prospective workflow team 0057,,,2026-09-05,owner_1
+crmacc_00000352,Prospective workflow team 0058,,,2026-09-19,owner_2
+crmacc_00000353,Prospective workflow team 0059,,,2026-09-21,owner_3
+crmacc_00000354,Prospective workflow team 0060,,,2026-09-16,owner_1
+crmacc_00000355,Prospective workflow team 0061,,,2026-08-05,owner_2
+crmacc_00000356,Prospective workflow team 0062,,,2026-08-14,owner_3
+crmacc_00000357,Prospective workflow team 0063,,,2026-08-20,owner_1
+crmacc_00000358,Prospective workflow team 0064,,,2026-10-03,owner_2
+crmacc_00000359,Prospective workflow team 0065,,,2025-05-12,owner_3
+crmacc_00000360,Prospective workflow team 0066,,,2025-03-04,owner_1
+crmacc_00000361,Prospective workflow team 0067,,,2025-01-19,owner_2
+crmacc_00000362,Prospective workflow team 0068,,,2024-12-07,owner_3
+crmacc_00000363,Prospective workflow team 0069,,,2025-03-03,owner_1
+crmacc_00000364,Prospective workflow team 0070,,,2025-07-06,owner_2
+crmacc_00000365,Prospective workflow team 0071,,,2025-11-11,owner_3
+crmacc_00000366,Prospective workflow team 0072,,,2025-05-02,owner_1
+crmacc_00000367,Prospective workflow team 0073,,,2025-04-09,owner_2
+crmacc_00000368,Prospective workflow team 0074,,,2026-02-10,owner_3
+crmacc_00000369,Prospective workflow team 0075,,,2025-12-10,owner_1
+crmacc_00000370,Prospective workflow team 0076,,,2026-05-07,owner_2
+crmacc_00000371,Prospective workflow team 0077,,,2025-06-27,owner_3
+crmacc_00000372,Prospective workflow team 0078,,,2026-03-10,owner_1
+crmacc_00000373,Prospective workflow team 0079,,,2024-12-31,owner_2
+crmacc_00000374,Prospective workflow team 0080,,,2025-10-25,owner_3
+crmacc_00000375,Prospective workflow team 0081,,,2025-06-06,owner_1
+crmacc_00000376,Prospective workflow team 0082,,,2025-01-25,owner_2
+crmacc_00000377,Prospective workflow team 0083,,,2025-06-27,owner_3
+crmacc_00000378,Prospective workflow team 0084,,,2025-09-18,owner_1
+crmacc_00000379,Prospective workflow team 0085,,,2025-07-08,owner_2
+crmacc_00000380,Prospective workflow team 0086,,,2025-01-13,owner_3
+crmacc_00000381,Prospective workflow team 0087,,,2026-08-01,owner_1
+crmacc_00000382,Prospective workflow team 0088,,,2025-08-16,owner_2
+crmacc_00000383,Prospective workflow team 0089,,,2025-12-07,owner_3
+crmacc_00000384,Prospective workflow team 0090,,,2025-11-27,owner_1
+crmacc_00000385,Prospective workflow team 0091,,,2025-06-10,owner_2
+crmacc_00000386,Prospective workflow team 0092,,,2026-05-09,owner_3
+crmacc_00000387,Prospective workflow team 0093,,,2025-09-05,owner_1
+crmacc_00000388,Prospective workflow team 0094,,,2026-01-09,owner_2
+crmacc_00000389,Prospective workflow team 0095,,,2025-12-19,owner_3
+crmacc_00000390,Prospective workflow team 0096,,,2024-12-19,owner_1
+crmacc_00000391,Prospective workflow team 0097,,,2026-07-02,owner_2
+crmacc_00000392,Prospective workflow team 0098,,,2024-11-25,owner_3
+crmacc_00000393,Prospective workflow team 0099,,,2025-01-05,owner_1
+crmacc_00000394,Prospective workflow team 0100,,,2025-08-18,owner_2
+crmacc_00000395,Prospective workflow team 0101,,,2025-09-20,owner_3
+crmacc_00000396,Prospective workflow team 0102,,,2025-08-24,owner_1
+crmacc_00000397,Prospective workflow team 0103,,,2026-06-28,owner_2
+crmacc_00000398,Prospective workflow team 0104,,,2025-06-07,owner_3
+crmacc_00000399,Prospective workflow team 0105,,,2026-05-24,owner_1
+crmacc_00000400,Prospective workflow team 0106,,,2025-11-08,owner_2
+crmacc_00000401,Prospective workflow team 0107,,,2025-01-26,owner_3
+crmacc_00000402,Prospective workflow team 0108,,,2025-05-13,owner_1
+crmacc_00000403,Prospective workflow team 0109,,,2026-01-13,owner_2
+crmacc_00000404,Prospective workflow team 0110,,,2026-01-06,owner_3
+crmacc_00000405,Prospective workflow team 0111,,,2026-01-24,owner_1
+crmacc_00000406,Prospective workflow team 0112,,,2026-07-02,owner_2
+crmacc_00000407,Prospective workflow team 0113,,,2026-02-11,owner_3
+crmacc_00000408,Prospective workflow team 0114,,,2025-12-29,owner_1
+crmacc_00000409,Prospective workflow team 0115,,,2025-02-16,owner_2
+crmacc_00000410,Prospective workflow team 0116,,,2026-02-23,owner_3
+crmacc_00000411,Prospective workflow team 0117,,,2026-03-22,owner_1
+crmacc_00000412,Prospective workflow team 0118,,,2025-10-11,owner_2
+crmacc_00000413,Prospective workflow team 0119,,,2026-01-17,owner_3
+crmacc_00000414,Prospective workflow team 0120,,,2025-08-22,owner_1
+crmacc_00000415,Prospective workflow team 0121,,,2026-04-23,owner_2
+crmacc_00000416,Prospective workflow team 0122,,,2026-04-24,owner_3
+crmacc_00000417,Prospective workflow team 0123,,,2025-10-06,owner_1
+crmacc_00000418,Prospective workflow team 0124,,,2026-03-14,owner_2
+crmacc_00000419,Prospective workflow team 0125,,,2024-11-02,owner_3
+crmacc_00000420,Prospective workflow team 0126,,,2025-09-15,owner_1
+crmacc_00000421,Prospective workflow team 0127,,,2025-08-28,owner_2
+crmacc_00000422,Prospective workflow team 0128,,,2025-02-26,owner_3
+crmacc_00000423,Prospective workflow team 0129,,,2026-07-13,owner_1
+crmacc_00000424,Prospective workflow team 0130,,,2024-12-12,owner_2
+crmacc_00000425,Prospective workflow team 0131,,,2024-11-14,owner_3
+crmacc_00000426,Prospective workflow team 0132,,,2025-05-23,owner_1
+crmacc_00000427,Prospective workflow team 0133,,,2025-03-17,owner_2
+crmacc_00000428,Prospective workflow team 0134,,,2024-12-01,owner_3
+crmacc_00000429,Prospective workflow team 0135,,,2025-05-23,owner_1
+crmacc_00000430,Prospective workflow team 0136,,,2026-06-08,owner_2
+crmacc_00000431,Prospective workflow team 0137,,,2026-05-04,owner_3
+crmacc_00000432,Prospective workflow team 0138,,,2024-11-15,owner_1
+crmacc_00000433,Prospective workflow team 0139,,,2024-12-10,owner_2
+crmacc_00000434,Prospective workflow team 0140,,,2025-09-19,owner_3
+crmacc_00000435,Prospective workflow team 0141,,,2025-05-01,owner_1
+crmacc_00000436,Prospective workflow team 0142,,,2024-12-29,owner_2
+crmacc_00000437,Prospective workflow team 0143,,,2025-08-29,owner_3
+crmacc_00000438,Prospective workflow team 0144,,,2025-02-02,owner_1

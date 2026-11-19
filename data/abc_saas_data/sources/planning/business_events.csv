@@ -1,0 +1,10 @@
+﻿business_event_id,event_date,event_title,source_table,source_reference,description
+be_00000001,2025-03-01,Engineering capacity expansion,gusto/employees,emp_0017,First incremental engineering hire against a slower original hiring plan.
+be_00000002,2025-09-01,Annual billing adoption,stripe_billing/subscription_events,monthly_to_annual,Voluntary monthly-to-annual conversion starts; future mix changes cash timing.
+be_00000003,2025-09-10,Seed extension,finance/equity_funding,equity_extension,"USD1.6m equity contribution; financing, not revenue."
+be_00000004,2026-04-01,New-customer price increase,stripe_billing/prices,v2,New seat prices; existing contracts retain legacy prices until migration/renewal.
+be_00000005,2026-06-01,Engineering tools expansion,procurement/vendor_contract_amount_history,contract_rdtools,20 percent developer tool price/capacity increase.
+be_00000006,2026-07-01,Legacy migration and wage adjustment,stripe_billing/subscription_history,catalog_version,Eligible renewals move to v2; every seventh customer remains grandfathered. Engineering market salary adjustment.
+be_00000007,2026-07-12,Workflow reliability incident,product_analytics/organization_daily_activity,2026-07-12,Three-day activity decline; goodwill credit notes on July18; elevated July-August churn.
+be_00000008,2026-08-01,High availability cloud step-up,aws/daily_resource_cost,2026-08,32 percent modeled cloud architecture cost step-up.
+be_00000009,2026-10-26,Won contract with future service start,contracts/contracts,future_signed_commitment,"Signed future November15 start creates bookings without October MRR, invoice, earned revenue or cash."

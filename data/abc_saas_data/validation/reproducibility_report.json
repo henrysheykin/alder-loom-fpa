@@ -1,0 +1,10 @@
+{
+  "method": "Fresh separate deterministic generation, byte-level SHA256 comparison to delivered source manifest",
+  "seed": 20261031,
+  "source_csv_files_compared": 147,
+  "identical_source_files": 147,
+  "differences": [],
+  "delivered_validator_identical_to_validated_script": true,
+  "generator_sha256": "67329b37e2f987b86fb5aa6770f0fb3bd2e8e71e8009c61db37ea03bc8048f3e",
+  "validator_sha256": "3376d63476c6fb6d8697f120f78171d01cf436d5d061932aecab76e60f2fcde0"
+}

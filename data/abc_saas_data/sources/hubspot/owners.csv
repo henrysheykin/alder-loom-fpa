@@ -1,0 +1,4 @@
+﻿owner_id,employee_id,owner_name,email
+owner_1,emp_0008,Sales owner 1,sales.owner.1@example.com
+owner_2,emp_0009,Sales owner 2,sales.owner.2@example.com
+owner_3,emp_0010,Sales owner 3,sales.owner.3@example.com

@@ -12,7 +12,7 @@ presented as a real client's results.
 - `forecasts/cash/*.json` — user-saved forecast versions (immutable; never edit or delete, create new ones)
 - `config/data_schedule.json` — data collection and job schedule (Central Time); scheduled tasks follow it
 - `app/`, `middleware.ts`, `lib/` — Next.js site deployed by Vercel from `main`
-- Links are separate per company on one domain: ABC Inc. at `/ecommerce` (alias of `/dashboard`), ABC Agency at `/agency`. Do not merge them into one page.
+- Links are separate per company on one domain: ABC Inc. at `/ecommerce` (alias of `/dashboard`), ABC Agency at `/agency`, ABC SaaS at `/saas`. Do not merge them into one page.
 
 ## Second company: ABC Agency (marketing agency)
 Raw source files use the placeholder name "Signal Harbor Performance"; the pipeline renames it to **ABC Agency** on output. Same demo/synthetic rules apply.
@@ -22,6 +22,14 @@ Raw source files use the placeholder name "Signal Harbor Performance"; the pipel
 - Refresh: `npm run refresh:agency` (or `python3 -I pipeline/agency/build_datamart.py data/abc_agency_data data/output/agency`), then the same rule: any FAIL → stop and report; all PASS → copy, commit, push.
 - Claude artifact: https://claude.ai/artifact/HpX2eZAkqMic74pd78N8bw — publish `private/agency/dashboard.html` as `index.html` and `private/agency/datamart.json` as `datamart.json`.
 - Agency commentary rules: fee revenue (earned on service approval), client media spend (client-paid, not agency money), contract value, invoices and cash are different metrics — never add them. Meta and Google attributed values overlap. Gusto project allocations re-cut payroll already in the GL. Cite client/contract IDs (CLI-…, CON-…, FREE-…).
+
+## Third company: ABC SaaS (B2B subscription software)
+Raw source files use the placeholder name "RelayNest Workflow, Inc."; the pipeline renames it to **ABC SaaS** on output. Same demo/synthetic rules apply.
+- `data/abc_saas_data/` — raw package (16 simulated systems, 78 tables, docs, metadata, validation control totals). `product_analytics/user_daily_activity` (112 MB) is not stored in the repo; no dashboard metric needs it.
+- `pipeline/saas/build_datamart.py` — standard-library Python, integer cents; writes `data/output/saas/datamart.json` + `reconciliation_report.csv` (169 checks, incl. 38 metrics × 24 months vs `validation/monthly_control_totals.csv`, GL/TB/bank/revenue-schedule tie-outs, PK/FK).
+- `private/saas/dashboard.html`, `private/saas/datamart.json` — served at `/saas` and `/api/data/saas`.
+- Refresh: `npm run refresh:saas`; any FAIL → stop and report; all PASS → copy, commit, push.
+- SaaS commentary rules: MRR comes from subscription status/price history, not invoices, cash or revenue. Bookings, billings, recognized revenue, captured cash and bank receipts are different metrics — never add them. Deferred revenue never creates a second future receipt. Equity funding is not revenue. Cite subscription/contract/invoice/requisition IDs.
 
 ## Data refresh procedure (ABC Inc.)
 1. `pip install pandas --break-system-packages -q` if pandas is missing.

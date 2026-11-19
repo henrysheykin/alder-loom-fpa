@@ -1,0 +1,4 @@
+﻿product_id,plan_name,unit,minimum_seats,usage_addons_enabled
+prod_starter,Starter,billable_seat,3,False
+prod_team,Team,billable_seat,5,False
+prod_scale,Scale,billable_seat,10,False

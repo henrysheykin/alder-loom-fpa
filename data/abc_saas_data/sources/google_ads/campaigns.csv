@@ -1,0 +1,4 @@
+﻿campaign_id,campaign_name,platform,objective,start_date,end_date
+google_nonbrand,RelayNest nonbrand,google_ads,trial_signups,2024-01-01,
+google_brand,RelayNest brand,google_ads,trial_signups,2024-01-01,
+google_retargeting,RelayNest retargeting,google_ads,trial_signups,2024-01-01,

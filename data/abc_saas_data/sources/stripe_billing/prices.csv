@@ -1,0 +1,13 @@
+﻿price_id,product_id,plan_name,catalog_version,effective_from,effective_to,recurring_interval,interval_count,normalization_months,unit_amount,annual_discount_fraction,currency
+price_starter_month_v1,prod_starter,Starter,v1,2024-01-01,2026-04-01,month,1,1,18.00,0,USD
+price_starter_year_v1,prod_starter,Starter,v1,2024-01-01,2026-04-01,year,1,12,180.00,0.166666666667,USD
+price_starter_month_v2,prod_starter,Starter,v2,2026-04-01,,month,1,1,20.00,0,USD
+price_starter_year_v2,prod_starter,Starter,v2,2026-04-01,,year,1,12,200.00,0.166666666667,USD
+price_team_month_v1,prod_team,Team,v1,2024-01-01,2026-04-01,month,1,1,32.00,0,USD
+price_team_year_v1,prod_team,Team,v1,2024-01-01,2026-04-01,year,1,12,320.00,0.166666666667,USD
+price_team_month_v2,prod_team,Team,v2,2026-04-01,,month,1,1,36.00,0,USD
+price_team_year_v2,prod_team,Team,v2,2026-04-01,,year,1,12,360.00,0.166666666667,USD
+price_scale_month_v1,prod_scale,Scale,v1,2024-01-01,2026-04-01,month,1,1,52.00,0,USD
+price_scale_year_v1,prod_scale,Scale,v1,2024-01-01,2026-04-01,year,1,12,520.00,0.166666666667,USD
+price_scale_month_v2,prod_scale,Scale,v2,2026-04-01,,month,1,1,58.00,0,USD
+price_scale_year_v2,prod_scale,Scale,v2,2026-04-01,,year,1,12,580.00,0.166666666667,USD

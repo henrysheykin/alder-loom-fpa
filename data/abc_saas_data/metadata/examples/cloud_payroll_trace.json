@@ -1,0 +1,166 @@
+{
+  "illustrative_copies_only": true,
+  "not_additional_facts": true,
+  "explanation_ru": "Cloud allocations и payroll allocations являются детализацией исходного расхода; не добавляйте их повторно к AP/GL. В примере cloud показаны несколько строк, полный состав — в CSV.",
+  "cloud_invoice": {
+    "cloud_invoice_id": "cloudinv_00000024",
+    "billing_month": "2026-10",
+    "issue_date": "2026-10-31",
+    "due_date": "2026-11-20",
+    "amount": "32788.40",
+    "vendor_bill_id": "bill_00000108",
+    "currency": "USD"
+  },
+  "cloud_allocation_illustrative_rows": [
+    {
+      "cloud_allocation_id": "ca_00068315",
+      "billing_month": "2026-10",
+      "cloud_invoice_id": "cloudinv_00000024",
+      "resource_id": "res_prod_compute",
+      "organization_id": "",
+      "allocation_bucket": "shared",
+      "workflow_weight": "0",
+      "allocated_cost": "4426.43",
+      "account_code": "5000"
+    },
+    {
+      "cloud_allocation_id": "ca_00069400",
+      "billing_month": "2026-10",
+      "cloud_invoice_id": "cloudinv_00000024",
+      "resource_id": "res_prod_database",
+      "organization_id": "",
+      "allocation_bucket": "shared",
+      "workflow_weight": "0",
+      "allocated_cost": "2360.77",
+      "account_code": "5000"
+    },
+    {
+      "cloud_allocation_id": "ca_00070485",
+      "billing_month": "2026-10",
+      "cloud_invoice_id": "cloudinv_00000024",
+      "resource_id": "res_prod_storage",
+      "organization_id": "",
+      "allocation_bucket": "shared",
+      "workflow_weight": "0",
+      "allocated_cost": "786.92",
+      "account_code": "5000"
+    },
+    {
+      "cloud_allocation_id": "ca_00071570",
+      "billing_month": "2026-10",
+      "cloud_invoice_id": "cloudinv_00000024",
+      "resource_id": "res_prod_network",
+      "organization_id": "",
+      "allocation_bucket": "shared",
+      "workflow_weight": "0",
+      "allocated_cost": "786.92",
+      "account_code": "5000"
+    },
+    {
+      "cloud_allocation_id": "ca_00071571",
+      "billing_month": "2026-10",
+      "cloud_invoice_id": "cloudinv_00000024",
+      "resource_id": "res_dev_compute",
+      "organization_id": "",
+      "allocation_bucket": "shared",
+      "workflow_weight": "0",
+      "allocated_cost": "3606.72",
+      "account_code": "6010"
+    },
+    {
+      "cloud_allocation_id": "ca_00071572",
+      "billing_month": "2026-10",
+      "cloud_invoice_id": "cloudinv_00000024",
+      "resource_id": "res_dev_observability",
+      "organization_id": "",
+      "allocation_bucket": "shared",
+      "workflow_weight": "0",
+      "allocated_cost": "1311.54",
+      "account_code": "6010"
+    },
+    {
+      "cloud_allocation_id": "ca_00067231",
+      "billing_month": "2026-10",
+      "cloud_invoice_id": "cloudinv_00000024",
+      "resource_id": "res_prod_compute",
+      "organization_id": "org_000001",
+      "allocation_bucket": "tenant",
+      "workflow_weight": "294",
+      "allocated_cost": "9.05",
+      "account_code": "5000"
+    },
+    {
+      "cloud_allocation_id": "ca_00067232",
+      "billing_month": "2026-10",
+      "cloud_invoice_id": "cloudinv_00000024",
+      "resource_id": "res_prod_compute",
+      "organization_id": "org_000002",
+      "allocation_bucket": "tenant",
+      "workflow_weight": "246",
+      "allocated_cost": "7.58",
+      "account_code": "5000"
+    },
+    {
+      "cloud_allocation_id": "ca_00067233",
+      "billing_month": "2026-10",
+      "cloud_invoice_id": "cloudinv_00000024",
+      "resource_id": "res_prod_compute",
+      "organization_id": "org_000003",
+      "allocation_bucket": "tenant",
+      "workflow_weight": "452",
+      "allocated_cost": "13.92",
+      "account_code": "5000"
+    }
+  ],
+  "payroll_employee_period": {
+    "payroll_line_id": "payline_00001005",
+    "payroll_run_id": "payrun_00000049",
+    "employee_id": "emp_0027",
+    "department": "Customer Success/Support",
+    "period_start": "2026-10-16",
+    "period_end_exclusive": "2026-11-01",
+    "earned_posting_date": "2026-10-31",
+    "active_earned_days": "16",
+    "gross_pay": "4215.06",
+    "employee_withholding": "927.31",
+    "net_pay": "3287.75",
+    "employer_tax": "345.63",
+    "employer_cost": "4560.69",
+    "currency": "USD",
+    "record_scope": "observation_period"
+  },
+  "payroll_allocations": [
+    {
+      "payroll_allocation_id": "pa_00001199",
+      "payroll_line_id": "payline_00001005",
+      "account_code": "5010",
+      "allocation_weight_percent": "80",
+      "allocated_employer_cost": "3648.55",
+      "expense_class": "COGS"
+    },
+    {
+      "payroll_allocation_id": "pa_00001200",
+      "payroll_line_id": "payline_00001005",
+      "account_code": "6200",
+      "allocation_weight_percent": "20",
+      "allocated_employer_cost": "912.14",
+      "expense_class": "OPEX"
+    }
+  ],
+  "payroll_run": [
+    {
+      "payroll_run_id": "payrun_00000049",
+      "period_start": "2026-10-16",
+      "period_end_exclusive": "2026-11-01",
+      "earned_posting_date": "2026-10-31",
+      "gross_pay": "145696.75",
+      "employee_withholding": "32053.27",
+      "net_pay": "113643.48",
+      "employer_tax": "11947.12",
+      "funding_amount": "157643.87",
+      "expected_funding_date": "2026-11-03",
+      "actual_funding_date": "",
+      "record_scope": "observation_period"
+    }
+  ]
+}

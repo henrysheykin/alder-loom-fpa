@@ -1,0 +1,7 @@
+﻿resource_id,service_name,environment,account_code,allocation_policy
+res_prod_compute,Compute,production,5000,70pct_tenant_workflows_30pct_shared
+res_prod_database,Database,production,5000,70pct_tenant_workflows_30pct_shared
+res_prod_storage,Object storage,production,5000,70pct_tenant_workflows_30pct_shared
+res_prod_network,Data transfer,production,5000,70pct_tenant_workflows_30pct_shared
+res_dev_compute,Development compute,development,6010,100pct_shared_development
+res_dev_observability,Observability,development,6010,100pct_shared_development

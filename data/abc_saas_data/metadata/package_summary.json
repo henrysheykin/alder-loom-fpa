@@ -1,0 +1,14 @@
+{
+  "company": "RelayNest Workflow, Inc.",
+  "synthetic": true,
+  "actual_start": "2024-11-01",
+  "cutoff": "2026-10-31",
+  "source_systems": 16,
+  "logical_tables": 78,
+  "source_csv_files": 147,
+  "source_rows": 2732768,
+  "dictionary_fields": 673,
+  "validation_check_groups": 322,
+  "evaluated_conditions": 25921383,
+  "validation_failures": 0
+}

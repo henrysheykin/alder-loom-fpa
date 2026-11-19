@@ -1,0 +1,19 @@
+{
+  "company_name": "RelayNest Workflow, Inc.",
+  "product_name": "RelayNest",
+  "country": "US",
+  "currency": "USD",
+  "actual_start": "2024-11-01",
+  "cutoff": "2026-10-31",
+  "period_end_exclusive": "2026-11-01",
+  "synthetic": true,
+  "seed": 20261031,
+  "end_exclusive_dates": true,
+  "mrr_grace_days": 21,
+  "mrr_rounding": "HALF_UP per subscription in cents after annual normalization",
+  "sales_tax_rate": "0.0000",
+  "employer_payroll_tax_model": "0.082",
+  "employee_withholding_model": "0.22",
+  "processor_fee_model": "0.029 * captured_amount + 0.30 USD, no refund fee; fictional",
+  "generated_by": "deterministic economic event model; not live source systems"
+}

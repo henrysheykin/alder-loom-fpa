@@ -1,0 +1,18 @@
+flowchart LR
+  Product[Organizations and active users] --> Customers[Billing customers]
+  Customers --> Hist[Subscription and item histories]
+  CRM[CRM won contracts] --> Terms[Signed service terms and amendments]
+  Hist --> Terms
+  Terms --> Billing[Invoices and credit notes]
+  Billing --> Earned[Earned and future unearned schedules]
+  Billing --> Charges[Successful captures and refunds]
+  Charges --> Processor[Processor balance and payout batches]
+  Processor --> Bank[Actual bank receipts]
+  Earned --> GL[Double-entry GL]
+  Bank --> GL
+  Payroll[Earned payroll and funding] --> GL
+  Cloud[Cloud usage and source bills] --> AP[Vendor bills and payments]
+  Ads[Own marketing spend and source bills] --> AP
+  Vendors[Supplier contracts and prepaid services] --> AP
+  AP --> GL
+  Budget[Original approved budget] -. compare .-> GL

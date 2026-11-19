@@ -1,0 +1,14 @@
+﻿vendor_id,vendor_name,category,contact_email,payment_terms_days,currency
+ven_benefits,Harbor Health Benefits Model,employee_benefits,ven_benefits@example.com,15,USD
+ven_equipment,Maple Device Supply,equipment,ven_equipment@example.com,10,USD
+ven_meta,Modeled Meta Ads,advertising,ven_meta@example.com,15,USD
+ven_google,Modeled Google Ads,advertising,ven_google@example.com,15,USD
+ven_cloud,Modeled Cloud Infrastructure,cloud,ven_cloud@example.com,20,USD
+ven_office,Juniper Office Collective,rent,ven_office@example.com,15,USD
+ven_rdtools,BuildStack Developer Tools,engineering_software,ven_rdtools@example.com,15,USD
+ven_supporttools,SupportBridge Platform,support_software,ven_supporttools@example.com,15,USD
+ven_crmtools,SalesHarbor Workspace,sales_software,ven_crmtools@example.com,15,USD
+ven_admin,OfficeLedger Software,admin_software,ven_admin@example.com,15,USD
+ven_professional,Pine Accounting Counsel,professional_services,ven_professional@example.com,15,USD
+ven_insurance,Cedar Model Insurance,insurance,ven_insurance@example.com,15,USD
+ven_security,SecureBuild Compliance Suite,engineering_software,ven_security@example.com,15,USD

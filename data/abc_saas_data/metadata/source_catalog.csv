@@ -1,0 +1,17 @@
+﻿source_system,modeled_system,description,logical_tables,physical_csv_files,row_count,authority_and_double_counting_policy,native_export_claim
+stripe_billing,Stripe Billing-style,"Customers, effective prices, versioned subscriptions, trials, invoices, credits and dunning",14,14,91204,Primary commercial/billing events; not accounting revenue or bank cash,False
+stripe_payments,Stripe Payments/Balance-style,"Successful captures, failed intents, refunds, balance transactions and payouts",5,5,37115,Processor settlement and customer cash; not earned revenue,False
+contracts,Signed-order and subscription term register,Committed service terms and dated amendments,2,2,22923,Bookings policy; not MRR or expected CRM pipeline,False
+revenue_accounting,Revenue subledger-style,Invoice-line and credit-line performance obligation schedules,2,2,30303,Schedules including future unearned amounts; actuals only where status actual_earned,False
+product_analytics,PostHog/Amplitude-style,"Organizations, assigned seats, users, onboarding and daily activity",6,52,2316743,Product usage; purchased seats differ from active users; no usage-billed add-ons,False
+hubspot,HubSpot-style CRM,"Assisted accounts, owners, opportunities and stage history",5,5,2610,Won signature links to contracts; open pipeline is expectation only,False
+aws,AWS-style modeled provider billing,"Daily cloud costs, monthly invoices, resource pools and tenant/shared allocations",4,4,75982,Source cost; allocations and AP copies do not create more expense,False
+gusto,Gusto-style payroll,"Employees, effective salaries, earned payroll, allocations and actual funding",6,6,2404,Earned employer cost versus actual bank funding; model tax assumptions,False
+quickbooks,QuickBooks-style accounting,"Opening TB, double-entry GL, AP, accounting mirrors, prepayments and fixed assets",14,37,143189,Authoritative actual financial statements; multiple source representations are not additive,False
+bank,Modeled US operating-bank statement,"Opening cash, posted statement and monthly cash balances",3,3,429,Actual bank cash only; process payouts in transit excluded,False
+meta_ads,Meta Ads-style own marketing,"Campaigns, daily spend, platform attribution and monthly bills",3,3,2217,Platform trial claims may overlap with Google claims; no accounting revenue attribution,False
+google_ads,Google Ads-style own marketing,"Campaigns, daily spend, micros, platform attribution and monthly bills",3,3,2217,USD micros / 1e6; platform claims not deduplicated across platforms,False
+marketing,First-party acquisition tracking,Captured leads and observable first/assisting touches,2,2,4660,Known links only; unmatched leads and privacy gaps remain explicit,False
+procurement,Supplier agreements register,Effective recurring vendor contracts and price histories,2,2,18,Future committed cycles; do not duplicate existing AP,False
+planning,Original approved planning register,"Immutable monthly budget, FTE plan, open requisitions and known obligations",6,6,752,Plans and commitment copies are not actual hires/payments/expenses,False
+finance,Treasury equity register,Seed and seed-extension funding,1,1,2,"Financing, not revenue or MRR",False

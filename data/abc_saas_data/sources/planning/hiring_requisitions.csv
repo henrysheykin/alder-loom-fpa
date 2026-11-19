@@ -1,0 +1,4 @@
+﻿requisition_id,requested_date,department,role,planned_annual_salary,expected_start_date,status,approval_status,actual_employee_id,snapshot_date
+req_001,2026-10-12,Engineering/R&D,Platform reliability engineer,160000.00,2026-12-01,open_not_hired,management_plan,,2026-10-31
+req_002,2026-10-12,Customer Success/Support,Support specialist,95000.00,2026-12-15,open_not_hired,management_plan,,2026-10-31
+req_003,2026-10-12,Sales & Marketing,Account executive,120000.00,2027-01-04,open_not_hired,management_plan,,2026-10-31

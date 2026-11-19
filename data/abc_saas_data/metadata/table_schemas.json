@@ -1,0 +1,2806 @@
+{
+  "quickbooks/chart_of_accounts": {
+    "grain": "One GL account",
+    "primary_key": "account_code",
+    "notes": "",
+    "partition_column": "",
+    "fields": [
+      "account_code",
+      "account_name",
+      "account_type",
+      "statement",
+      "department"
+    ],
+    "physical_files": [
+      "sources/quickbooks/chart_of_accounts.csv"
+    ],
+    "types": {
+      "account_code": "text",
+      "account_name": "text",
+      "account_type": "text",
+      "statement": "text",
+      "department": "text"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "stripe_billing/products": {
+    "grain": "One workflow software plan",
+    "primary_key": "product_id",
+    "notes": "",
+    "partition_column": "",
+    "fields": [
+      "product_id",
+      "plan_name",
+      "unit",
+      "minimum_seats",
+      "usage_addons_enabled"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/products.csv"
+    ],
+    "types": {
+      "product_id": "text",
+      "plan_name": "text",
+      "unit": "text",
+      "minimum_seats": "integer",
+      "usage_addons_enabled": "boolean"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "stripe_billing/prices": {
+    "grain": "One effective catalog price per plan, interval and version",
+    "primary_key": "price_id",
+    "notes": "Annual discount baked into annual unit amount; recurring contract discount is additional. Effective-to controls NEW contracts, not validity of legacy subscriptions.",
+    "partition_column": "",
+    "fields": [
+      "price_id",
+      "product_id",
+      "plan_name",
+      "catalog_version",
+      "effective_from",
+      "effective_to",
+      "recurring_interval",
+      "interval_count",
+      "normalization_months",
+      "unit_amount",
+      "annual_discount_fraction",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/prices.csv"
+    ],
+    "types": {
+      "price_id": "text",
+      "product_id": "text",
+      "plan_name": "text",
+      "catalog_version": "text",
+      "effective_from": "iso_date",
+      "effective_to": "iso_date",
+      "recurring_interval": "text",
+      "interval_count": "integer",
+      "normalization_months": "integer",
+      "unit_amount": "decimal_usd",
+      "annual_discount_fraction": "decimal_fraction",
+      "currency": "text"
+    },
+    "nullable_fields": [
+      "effective_to"
+    ],
+    "signs": {
+      "unit_amount": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "stripe_billing/customers": {
+    "grain": "One billing customer including free trial accounts",
+    "primary_key": "billing_customer_id",
+    "notes": "Customer and organization are 1:1; contacts are synthetic example.com.",
+    "partition_column": "",
+    "fields": [
+      "billing_customer_id",
+      "organization_id",
+      "company_name",
+      "email",
+      "created_date",
+      "country",
+      "state_code",
+      "sales_motion",
+      "acquisition_channel",
+      "acquisition_campaign_id",
+      "tracking_quality",
+      "opening_customer",
+      "tax_policy_id"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/customers.csv"
+    ],
+    "types": {
+      "billing_customer_id": "text",
+      "organization_id": "text",
+      "company_name": "text",
+      "email": "text",
+      "created_date": "iso_date",
+      "country": "text",
+      "state_code": "text",
+      "sales_motion": "text",
+      "acquisition_channel": "text",
+      "acquisition_campaign_id": "text",
+      "tracking_quality": "text",
+      "opening_customer": "boolean",
+      "tax_policy_id": "text"
+    },
+    "nullable_fields": [
+      "acquisition_campaign_id"
+    ],
+    "signs": {}
+  },
+  "stripe_billing/trials": {
+    "grain": "One free trial episode",
+    "primary_key": "trial_id",
+    "notes": "Scheduled trial end may exceed cutoff; actual end cannot.",
+    "partition_column": "",
+    "fields": [
+      "trial_id",
+      "subscription_id",
+      "billing_customer_id",
+      "trial_start",
+      "scheduled_trial_end",
+      "actual_trial_end",
+      "paid_activation_date",
+      "outcome",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/trials.csv"
+    ],
+    "types": {
+      "trial_id": "text",
+      "subscription_id": "text",
+      "billing_customer_id": "text",
+      "trial_start": "iso_date",
+      "scheduled_trial_end": "iso_date",
+      "actual_trial_end": "iso_date",
+      "paid_activation_date": "iso_date",
+      "outcome": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [
+      "actual_trial_end",
+      "paid_activation_date"
+    ],
+    "signs": {}
+  },
+  "stripe_billing/subscriptions": {
+    "grain": "One current subscription snapshot at cutoff",
+    "primary_key": "subscription_id",
+    "notes": "Use history for historical MRR, never this snapshot alone.",
+    "partition_column": "",
+    "fields": [
+      "subscription_id",
+      "billing_customer_id",
+      "subscription_item_id",
+      "snapshot_date",
+      "current_version_id",
+      "status",
+      "cancel_at_period_end",
+      "cancellation_effective_date",
+      "current_period_start",
+      "current_period_end_exclusive"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/subscriptions.csv"
+    ],
+    "types": {
+      "subscription_id": "text",
+      "billing_customer_id": "text",
+      "subscription_item_id": "text",
+      "snapshot_date": "iso_date",
+      "current_version_id": "text",
+      "status": "text",
+      "cancel_at_period_end": "boolean",
+      "cancellation_effective_date": "iso_date",
+      "current_period_start": "iso_date",
+      "current_period_end_exclusive": "iso_date"
+    },
+    "nullable_fields": [
+      "cancellation_effective_date"
+    ],
+    "signs": {}
+  },
+  "stripe_billing/subscription_history": {
+    "grain": "One effective interval of subscription status and commercial settings",
+    "primary_key": "subscription_version_id",
+    "notes": "Effective-from inclusive; effective-to exclusive; blank end remains current. No MRR summary is stored here.",
+    "partition_column": "",
+    "fields": [
+      "subscription_version_id",
+      "subscription_id",
+      "billing_customer_id",
+      "effective_from",
+      "effective_to",
+      "change_reason",
+      "status",
+      "plan_name",
+      "billing_interval",
+      "catalog_version",
+      "quantity",
+      "recurring_discount_bps",
+      "period_start",
+      "period_end_exclusive",
+      "cancel_at_period_end",
+      "cancellation_effective_date",
+      "grace_end_date"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/subscription_history.csv"
+    ],
+    "types": {
+      "subscription_version_id": "text",
+      "subscription_id": "text",
+      "billing_customer_id": "text",
+      "effective_from": "iso_date",
+      "effective_to": "iso_date",
+      "change_reason": "text",
+      "status": "text",
+      "plan_name": "text",
+      "billing_interval": "text",
+      "catalog_version": "text",
+      "quantity": "integer",
+      "recurring_discount_bps": "integer",
+      "period_start": "iso_date",
+      "period_end_exclusive": "iso_date",
+      "cancel_at_period_end": "boolean",
+      "cancellation_effective_date": "iso_date",
+      "grace_end_date": "iso_date"
+    },
+    "nullable_fields": [
+      "cancellation_effective_date",
+      "effective_to",
+      "grace_end_date"
+    ],
+    "signs": {}
+  },
+  "stripe_billing/subscription_item_history": {
+    "grain": "One billable item per subscription version",
+    "primary_key": "item_version_id",
+    "notes": "One core seat-based item. Trial quantities do not generate MRR.",
+    "partition_column": "",
+    "fields": [
+      "item_version_id",
+      "subscription_version_id",
+      "subscription_item_id",
+      "subscription_id",
+      "price_id",
+      "quantity",
+      "recurring_discount_bps",
+      "effective_from",
+      "effective_to"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/subscription_item_history.csv"
+    ],
+    "types": {
+      "item_version_id": "text",
+      "subscription_version_id": "text",
+      "subscription_item_id": "text",
+      "subscription_id": "text",
+      "price_id": "text",
+      "quantity": "integer",
+      "recurring_discount_bps": "integer",
+      "effective_from": "iso_date",
+      "effective_to": "iso_date"
+    },
+    "nullable_fields": [
+      "effective_to"
+    ],
+    "signs": {}
+  },
+  "stripe_billing/subscription_events": {
+    "grain": "One observed lifecycle event",
+    "primary_key": "event_id",
+    "notes": "Events have occurred by cutoff; scheduled future dates remain properties.",
+    "partition_column": "",
+    "fields": [
+      "event_id",
+      "event_date",
+      "event_type",
+      "subscription_id",
+      "billing_customer_id",
+      "subscription_version_id",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/subscription_events.csv"
+    ],
+    "types": {
+      "event_id": "text",
+      "event_date": "iso_date",
+      "event_type": "text",
+      "subscription_id": "text",
+      "billing_customer_id": "text",
+      "subscription_version_id": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "stripe_billing/invoices": {
+    "grain": "One finalized invoice, before subsequent credit notes",
+    "primary_key": "invoice_id",
+    "notes": "Original total immutable. Tax zero under model assumption. Accounting copy is not another sale.",
+    "partition_column": "",
+    "fields": [
+      "invoice_id",
+      "billing_customer_id",
+      "subscription_id",
+      "contract_id",
+      "issue_date",
+      "due_date",
+      "currency",
+      "subtotal",
+      "recurring_discount_amount",
+      "tax_amount",
+      "total",
+      "amount_paid",
+      "ar_credit_applied",
+      "written_off",
+      "amount_remaining",
+      "status_as_of_cutoff",
+      "record_scope",
+      "collection_terms"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/invoices.csv"
+    ],
+    "types": {
+      "invoice_id": "text",
+      "billing_customer_id": "text",
+      "subscription_id": "text",
+      "contract_id": "text",
+      "issue_date": "iso_date",
+      "due_date": "iso_date",
+      "currency": "text",
+      "subtotal": "decimal_usd",
+      "recurring_discount_amount": "decimal_usd",
+      "tax_amount": "decimal_usd",
+      "total": "decimal_usd",
+      "amount_paid": "decimal_usd",
+      "ar_credit_applied": "decimal_usd",
+      "written_off": "decimal_usd",
+      "amount_remaining": "decimal_usd",
+      "status_as_of_cutoff": "text",
+      "record_scope": "text",
+      "collection_terms": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "subtotal": "Positive face amount unless table/column explicitly defines a signed movement",
+      "recurring_discount_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "tax_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "total": "Positive face amount unless table/column explicitly defines a signed movement",
+      "amount_paid": "Positive face amount unless table/column explicitly defines a signed movement",
+      "ar_credit_applied": "Positive face amount unless table/column explicitly defines a signed movement",
+      "written_off": "Positive face amount unless table/column explicitly defines a signed movement",
+      "amount_remaining": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "stripe_billing/invoice_lines": {
+    "grain": "One positive service charge or net positive proration invoice line",
+    "primary_key": "invoice_line_id",
+    "notes": "Net proration expressed as a consolidated difference, not an exact native Stripe API structure.",
+    "partition_column": "",
+    "fields": [
+      "invoice_line_id",
+      "invoice_id",
+      "subscription_id",
+      "subscription_item_id",
+      "contract_id",
+      "price_id",
+      "line_type",
+      "quantity",
+      "unit_amount",
+      "recurring_discount_bps",
+      "gross_amount",
+      "discount_amount",
+      "net_amount",
+      "tax_amount",
+      "service_start",
+      "service_end_exclusive",
+      "old_version_id",
+      "new_version_id",
+      "proration_base_difference",
+      "full_period_start",
+      "full_period_end_exclusive",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/invoice_lines.csv"
+    ],
+    "types": {
+      "invoice_line_id": "text",
+      "invoice_id": "text",
+      "subscription_id": "text",
+      "subscription_item_id": "text",
+      "contract_id": "text",
+      "price_id": "text",
+      "line_type": "text",
+      "quantity": "integer",
+      "unit_amount": "decimal_usd",
+      "recurring_discount_bps": "integer",
+      "gross_amount": "decimal_usd",
+      "discount_amount": "decimal_usd",
+      "net_amount": "decimal_usd",
+      "tax_amount": "decimal_usd",
+      "service_start": "iso_date",
+      "service_end_exclusive": "iso_date",
+      "old_version_id": "text",
+      "new_version_id": "text",
+      "proration_base_difference": "decimal_usd",
+      "full_period_start": "iso_date",
+      "full_period_end_exclusive": "iso_date",
+      "record_scope": "text"
+    },
+    "nullable_fields": [
+      "old_version_id"
+    ],
+    "signs": {
+      "unit_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "gross_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "discount_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "net_amount": "Signed; positive increases economic value, negative reduces it",
+      "tax_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "proration_base_difference": "Signed; positive increases economic value, negative reduces it"
+    }
+  },
+  "stripe_billing/credit_notes": {
+    "grain": "One issued customer credit note",
+    "primary_key": "credit_note_id",
+    "notes": "Positive face amount; split into AR reduction and refund payable.",
+    "partition_column": "",
+    "fields": [
+      "credit_note_id",
+      "invoice_id",
+      "billing_customer_id",
+      "subscription_id",
+      "issue_date",
+      "reason",
+      "credit_amount",
+      "ar_credit_amount",
+      "refund_credit_amount",
+      "currency",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/credit_notes.csv"
+    ],
+    "types": {
+      "credit_note_id": "text",
+      "invoice_id": "text",
+      "billing_customer_id": "text",
+      "subscription_id": "text",
+      "issue_date": "iso_date",
+      "reason": "text",
+      "credit_amount": "decimal_usd",
+      "ar_credit_amount": "decimal_usd",
+      "refund_credit_amount": "decimal_usd",
+      "currency": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "credit_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "ar_credit_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "refund_credit_amount": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "stripe_billing/credit_note_lines": {
+    "grain": "One signed negative credit service line",
+    "primary_key": "credit_note_line_id",
+    "notes": "Contractions and unused-service credits ratable; goodwill incident credits immediate.",
+    "partition_column": "",
+    "fields": [
+      "credit_note_line_id",
+      "credit_note_id",
+      "invoice_id",
+      "contract_id",
+      "subscription_id",
+      "plan_name",
+      "line_type",
+      "net_amount",
+      "service_start",
+      "service_end_exclusive",
+      "old_version_id",
+      "new_version_id",
+      "proration_base_difference",
+      "full_period_start",
+      "full_period_end_exclusive",
+      "recognition_method",
+      "allocation_basis_invoice_line_id",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/credit_note_lines.csv"
+    ],
+    "types": {
+      "credit_note_line_id": "text",
+      "credit_note_id": "text",
+      "invoice_id": "text",
+      "contract_id": "text",
+      "subscription_id": "text",
+      "plan_name": "text",
+      "line_type": "text",
+      "net_amount": "decimal_usd",
+      "service_start": "iso_date",
+      "service_end_exclusive": "iso_date",
+      "old_version_id": "text",
+      "new_version_id": "text",
+      "proration_base_difference": "decimal_usd",
+      "full_period_start": "iso_date",
+      "full_period_end_exclusive": "iso_date",
+      "recognition_method": "text",
+      "allocation_basis_invoice_line_id": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [
+      "allocation_basis_invoice_line_id",
+      "new_version_id",
+      "old_version_id"
+    ],
+    "signs": {
+      "net_amount": "Signed; positive increases economic value, negative reduces it",
+      "proration_base_difference": "Signed; positive increases economic value, negative reduces it"
+    }
+  },
+  "stripe_billing/payment_attempts": {
+    "grain": "One actual collection attempt",
+    "primary_key": "attempt_id",
+    "notes": "Failed attempt captures zero cash. Future retries are not actual attempts.",
+    "partition_column": "",
+    "fields": [
+      "attempt_id",
+      "invoice_id",
+      "attempt_date",
+      "attempted_amount",
+      "status",
+      "failure_code",
+      "captured_amount",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/payment_attempts.csv"
+    ],
+    "types": {
+      "attempt_id": "text",
+      "invoice_id": "text",
+      "attempt_date": "iso_date",
+      "attempted_amount": "decimal_usd",
+      "status": "text",
+      "failure_code": "text",
+      "captured_amount": "decimal_usd",
+      "record_scope": "text"
+    },
+    "nullable_fields": [
+      "failure_code"
+    ],
+    "signs": {
+      "attempted_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "captured_amount": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "stripe_billing/writeoffs": {
+    "grain": "One observed writeoff of earned but uncollected service",
+    "primary_key": "writeoff_id",
+    "notes": "Bad debt expense, not refund or negative MRR.",
+    "partition_column": "",
+    "fields": [
+      "writeoff_id",
+      "invoice_id",
+      "writeoff_date",
+      "amount",
+      "reason",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_billing/writeoffs.csv"
+    ],
+    "types": {
+      "writeoff_id": "text",
+      "invoice_id": "text",
+      "writeoff_date": "iso_date",
+      "amount": "decimal_usd",
+      "reason": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "stripe_payments/payment_intents": {
+    "grain": "One modeled payment intent status observation",
+    "primary_key": "payment_intent_id",
+    "notes": "Simplified failed attempts get distinct intents. No future captures.",
+    "partition_column": "",
+    "fields": [
+      "payment_intent_id",
+      "invoice_id",
+      "created_date",
+      "status",
+      "amount",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/stripe_payments/payment_intents.csv"
+    ],
+    "types": {
+      "payment_intent_id": "text",
+      "invoice_id": "text",
+      "created_date": "iso_date",
+      "status": "text",
+      "amount": "decimal_usd",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "stripe_payments/charges": {
+    "grain": "One successful captured payment",
+    "primary_key": "charge_id",
+    "notes": "Customer cash precedes processor payout and earned revenue.",
+    "partition_column": "",
+    "fields": [
+      "charge_id",
+      "payment_intent_id",
+      "invoice_id",
+      "billing_customer_id",
+      "charge_date",
+      "amount",
+      "currency",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_payments/charges.csv"
+    ],
+    "types": {
+      "charge_id": "text",
+      "payment_intent_id": "text",
+      "invoice_id": "text",
+      "billing_customer_id": "text",
+      "charge_date": "iso_date",
+      "amount": "decimal_usd",
+      "currency": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "stripe_payments/refunds": {
+    "grain": "One successful cash refund against one charge",
+    "primary_key": "refund_id",
+    "notes": "Positive amount display. Balance transaction has negative signed amount.",
+    "partition_column": "",
+    "fields": [
+      "refund_id",
+      "charge_id",
+      "invoice_id",
+      "credit_note_id",
+      "refund_date",
+      "amount",
+      "status",
+      "currency",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_payments/refunds.csv"
+    ],
+    "types": {
+      "refund_id": "text",
+      "charge_id": "text",
+      "invoice_id": "text",
+      "credit_note_id": "text",
+      "refund_date": "iso_date",
+      "amount": "decimal_usd",
+      "status": "text",
+      "currency": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "stripe_payments/balance_transactions": {
+    "grain": "One charge/refund processor balance transaction",
+    "primary_key": "balance_transaction_id",
+    "notes": "amount minus positive fee equals net; payout rows held separately.",
+    "partition_column": "",
+    "fields": [
+      "balance_transaction_id",
+      "transaction_date",
+      "available_on",
+      "transaction_type",
+      "source_id",
+      "amount",
+      "fee",
+      "net",
+      "payout_id",
+      "currency",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_payments/balance_transactions.csv"
+    ],
+    "types": {
+      "balance_transaction_id": "text",
+      "transaction_date": "iso_date",
+      "available_on": "iso_date",
+      "transaction_type": "text",
+      "source_id": "text",
+      "amount": "decimal_usd",
+      "fee": "decimal_usd",
+      "net": "decimal_usd",
+      "payout_id": "text",
+      "currency": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [
+      "payout_id"
+    ],
+    "signs": {
+      "amount": "Signed: inflow/charge positive, outflow/refund negative",
+      "fee": "Positive face amount unless table/column explicitly defines a signed movement",
+      "net": "Signed amount minus positive processor fee"
+    }
+  },
+  "contracts/contracts": {
+    "grain": "One noncancelable initial/renewed service term or signed future contract",
+    "primary_key": "contract_id",
+    "notes": "Original term plus separately dated amendments; not an MRR table. Monthly bookings repeat for each newly committed month.",
+    "partition_column": "",
+    "fields": [
+      "contract_id",
+      "subscription_id",
+      "billing_customer_id",
+      "signed_date",
+      "service_start",
+      "service_end_exclusive",
+      "term_type",
+      "plan_name",
+      "billing_interval",
+      "quantity_at_signature",
+      "price_id",
+      "recurring_discount_bps",
+      "original_committed_amount",
+      "current_committed_amount",
+      "known_future_start",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/contracts/contracts.csv"
+    ],
+    "types": {
+      "contract_id": "text",
+      "subscription_id": "text",
+      "billing_customer_id": "text",
+      "signed_date": "iso_date",
+      "service_start": "iso_date",
+      "service_end_exclusive": "iso_date",
+      "term_type": "text",
+      "plan_name": "text",
+      "billing_interval": "text",
+      "quantity_at_signature": "integer",
+      "price_id": "text",
+      "recurring_discount_bps": "integer",
+      "original_committed_amount": "decimal_usd",
+      "current_committed_amount": "decimal_usd",
+      "known_future_start": "boolean",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "original_committed_amount": "Positive face amount unless table/column explicitly defines a signed movement",
+      "current_committed_amount": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "contracts/contract_events": {
+    "grain": "One observed signed commitment/amendment event",
+    "primary_key": "contract_event_id",
+    "notes": "Signed net contract value change, excluding tax and one-off goodwill credits.",
+    "partition_column": "",
+    "fields": [
+      "contract_event_id",
+      "contract_id",
+      "subscription_id",
+      "event_date",
+      "event_type",
+      "committed_value_change",
+      "source_document_id",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/contracts/contract_events.csv"
+    ],
+    "types": {
+      "contract_event_id": "text",
+      "contract_id": "text",
+      "subscription_id": "text",
+      "event_date": "iso_date",
+      "event_type": "text",
+      "committed_value_change": "decimal_usd",
+      "source_document_id": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "committed_value_change": "Signed; positive increases economic value, negative reduces it"
+    }
+  },
+  "revenue_accounting/revenue_schedule": {
+    "grain": "One line performance obligation allocated to one month",
+    "primary_key": "recognition_id",
+    "notes": "Future_unearned rows are contractual remaining schedules, not future actuals. End exclusive; cumulative daily allocation preserves cents.",
+    "partition_column": "",
+    "fields": [
+      "recognition_id",
+      "source_document_type",
+      "source_line_id",
+      "invoice_id",
+      "billing_customer_id",
+      "plan_name",
+      "service_start",
+      "service_end_exclusive",
+      "recognition_month",
+      "amount",
+      "schedule_status",
+      "actual_posting_date"
+    ],
+    "physical_files": [
+      "sources/revenue_accounting/revenue_schedule.csv"
+    ],
+    "types": {
+      "recognition_id": "text",
+      "source_document_type": "text",
+      "source_line_id": "text",
+      "invoice_id": "text",
+      "billing_customer_id": "text",
+      "plan_name": "text",
+      "service_start": "iso_date",
+      "service_end_exclusive": "iso_date",
+      "recognition_month": "iso_month",
+      "amount": "decimal_usd",
+      "schedule_status": "text",
+      "actual_posting_date": "iso_date"
+    },
+    "nullable_fields": [
+      "actual_posting_date"
+    ],
+    "signs": {
+      "amount": "Signed earned or future schedule: invoice positive, credit negative"
+    }
+  },
+  "quickbooks/client_invoices": {
+    "grain": "One accounting mirror of a Stripe invoice",
+    "primary_key": "accounting_invoice_id",
+    "notes": "Do not union with Stripe invoice as another sale.",
+    "partition_column": "",
+    "fields": [
+      "accounting_invoice_id",
+      "stripe_invoice_id",
+      "billing_customer_id",
+      "invoice_date",
+      "total",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/quickbooks/client_invoices.csv"
+    ],
+    "types": {
+      "accounting_invoice_id": "text",
+      "stripe_invoice_id": "text",
+      "billing_customer_id": "text",
+      "invoice_date": "iso_date",
+      "total": "decimal_usd",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "total": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "quickbooks/client_credit_notes": {
+    "grain": "One accounting mirror of a Stripe credit note",
+    "primary_key": "accounting_credit_note_id",
+    "notes": "Do not union with Stripe credit notes as another credit.",
+    "partition_column": "",
+    "fields": [
+      "accounting_credit_note_id",
+      "stripe_credit_note_id",
+      "stripe_invoice_id",
+      "credit_date",
+      "amount",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/quickbooks/client_credit_notes.csv"
+    ],
+    "types": {
+      "accounting_credit_note_id": "text",
+      "stripe_credit_note_id": "text",
+      "stripe_invoice_id": "text",
+      "credit_date": "iso_date",
+      "amount": "decimal_usd",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "quickbooks/customer_receipts": {
+    "grain": "One accounting application of successful charge",
+    "primary_key": "receipt_id",
+    "notes": "Same cash as Stripe charge; not incremental revenue.",
+    "partition_column": "",
+    "fields": [
+      "receipt_id",
+      "invoice_id",
+      "charge_id",
+      "receipt_date",
+      "amount",
+      "billing_customer_id",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/quickbooks/customer_receipts.csv"
+    ],
+    "types": {
+      "receipt_id": "text",
+      "invoice_id": "text",
+      "charge_id": "text",
+      "receipt_date": "iso_date",
+      "amount": "decimal_usd",
+      "billing_customer_id": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "stripe_payments/payouts": {
+    "grain": "One actual initiated processor payout",
+    "primary_key": "payout_id",
+    "notes": "Initiation debits processor balance and credits cash in transit; bank receipt is separate. Expected arrival may be future.",
+    "partition_column": "",
+    "fields": [
+      "payout_id",
+      "initiated_date",
+      "expected_arrival_date",
+      "actual_bank_receipt_date",
+      "amount",
+      "status",
+      "bank_transaction_id",
+      "currency",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/stripe_payments/payouts.csv"
+    ],
+    "types": {
+      "payout_id": "text",
+      "initiated_date": "iso_date",
+      "expected_arrival_date": "iso_date",
+      "actual_bank_receipt_date": "iso_date",
+      "amount": "decimal_usd",
+      "status": "text",
+      "bank_transaction_id": "text",
+      "currency": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [
+      "actual_bank_receipt_date",
+      "bank_transaction_id"
+    ],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "product_analytics/organizations": {
+    "grain": "One product tenant / organization",
+    "primary_key": "organization_id",
+    "notes": "1:1 billing customer mapping, including free trials.",
+    "partition_column": "",
+    "fields": [
+      "organization_id",
+      "billing_customer_id",
+      "subscription_id",
+      "created_date",
+      "industry",
+      "timezone",
+      "synthetic_company"
+    ],
+    "physical_files": [
+      "sources/product_analytics/organizations.csv"
+    ],
+    "types": {
+      "organization_id": "text",
+      "billing_customer_id": "text",
+      "subscription_id": "text",
+      "created_date": "iso_date",
+      "industry": "text",
+      "timezone": "text",
+      "synthetic_company": "boolean"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "product_analytics/users": {
+    "grain": "One synthetic product user",
+    "primary_key": "user_id",
+    "notes": "User identity persists through seat removal and reactivation.",
+    "partition_column": "",
+    "fields": [
+      "user_id",
+      "organization_id",
+      "created_date",
+      "email",
+      "user_role"
+    ],
+    "physical_files": [
+      "sources/product_analytics/users.csv"
+    ],
+    "types": {
+      "user_id": "text",
+      "organization_id": "text",
+      "created_date": "iso_date",
+      "email": "text",
+      "user_role": "text"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "product_analytics/seat_assignments_history": {
+    "grain": "One effective assigned seat/user interval",
+    "primary_key": "seat_assignment_id",
+    "notes": "Assigned users <= purchased seats when paid; unused purchased seats remain possible.",
+    "partition_column": "",
+    "fields": [
+      "seat_assignment_id",
+      "user_id",
+      "organization_id",
+      "subscription_version_id",
+      "assigned_from",
+      "assigned_to_exclusive",
+      "billable_role"
+    ],
+    "physical_files": [
+      "sources/product_analytics/seat_assignments_history.csv"
+    ],
+    "types": {
+      "seat_assignment_id": "text",
+      "user_id": "text",
+      "organization_id": "text",
+      "subscription_version_id": "text",
+      "assigned_from": "iso_date",
+      "assigned_to_exclusive": "iso_date",
+      "billable_role": "boolean"
+    },
+    "nullable_fields": [
+      "assigned_to_exclusive"
+    ],
+    "signs": {}
+  },
+  "product_analytics/onboarding_events": {
+    "grain": "One trial onboarding milestone event",
+    "primary_key": "onboarding_event_id",
+    "notes": "Workflow activation is a product milestone, distinct from paid activation.",
+    "partition_column": "",
+    "fields": [
+      "onboarding_event_id",
+      "organization_id",
+      "subscription_id",
+      "event_date",
+      "event_name",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/product_analytics/onboarding_events.csv"
+    ],
+    "types": {
+      "onboarding_event_id": "text",
+      "organization_id": "text",
+      "subscription_id": "text",
+      "event_date": "iso_date",
+      "event_name": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "product_analytics/organization_daily_activity": {
+    "grain": "One organization per active-service day",
+    "primary_key": "organization_day_id",
+    "notes": "Daily purchased/assigned/active counts differ. Service suspended or canceled accounts emit no usage.",
+    "partition_column": "activity_date",
+    "fields": [
+      "organization_day_id",
+      "activity_date",
+      "organization_id",
+      "subscription_id",
+      "service_status",
+      "purchased_billable_seats",
+      "assigned_users",
+      "active_users",
+      "logins",
+      "workflow_runs",
+      "automation_actions",
+      "export_actions"
+    ],
+    "physical_files": [
+      "sources/product_analytics/organization_daily_activity/2024-11.csv",
+      "sources/product_analytics/organization_daily_activity/2024-12.csv",
+      "sources/product_analytics/organization_daily_activity/2025-01.csv",
+      "sources/product_analytics/organization_daily_activity/2025-02.csv",
+      "sources/product_analytics/organization_daily_activity/2025-03.csv",
+      "sources/product_analytics/organization_daily_activity/2025-04.csv",
+      "sources/product_analytics/organization_daily_activity/2025-05.csv",
+      "sources/product_analytics/organization_daily_activity/2025-06.csv",
+      "sources/product_analytics/organization_daily_activity/2025-07.csv",
+      "sources/product_analytics/organization_daily_activity/2025-08.csv",
+      "sources/product_analytics/organization_daily_activity/2025-09.csv",
+      "sources/product_analytics/organization_daily_activity/2025-10.csv",
+      "sources/product_analytics/organization_daily_activity/2025-11.csv",
+      "sources/product_analytics/organization_daily_activity/2025-12.csv",
+      "sources/product_analytics/organization_daily_activity/2026-01.csv",
+      "sources/product_analytics/organization_daily_activity/2026-02.csv",
+      "sources/product_analytics/organization_daily_activity/2026-03.csv",
+      "sources/product_analytics/organization_daily_activity/2026-04.csv",
+      "sources/product_analytics/organization_daily_activity/2026-05.csv",
+      "sources/product_analytics/organization_daily_activity/2026-06.csv",
+      "sources/product_analytics/organization_daily_activity/2026-07.csv",
+      "sources/product_analytics/organization_daily_activity/2026-08.csv",
+      "sources/product_analytics/organization_daily_activity/2026-09.csv",
+      "sources/product_analytics/organization_daily_activity/2026-10.csv"
+    ],
+    "types": {
+      "organization_day_id": "text",
+      "activity_date": "iso_date",
+      "organization_id": "text",
+      "subscription_id": "text",
+      "service_status": "text",
+      "purchased_billable_seats": "integer",
+      "assigned_users": "integer",
+      "active_users": "integer",
+      "logins": "integer",
+      "workflow_runs": "integer",
+      "automation_actions": "integer",
+      "export_actions": "integer"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "product_analytics/user_daily_activity": {
+    "grain": "One actually active user per organization/day",
+    "primary_key": "user_day_id",
+    "notes": "Only users with real modeled daily activity; not every licensed or assigned seat logs in daily.",
+    "partition_column": "activity_date",
+    "fields": [
+      "user_day_id",
+      "activity_date",
+      "user_id",
+      "organization_id",
+      "logins",
+      "workflow_runs",
+      "automation_actions",
+      "export_actions"
+    ],
+    "physical_files": [
+      "sources/product_analytics/user_daily_activity/2024-11.csv",
+      "sources/product_analytics/user_daily_activity/2024-12.csv",
+      "sources/product_analytics/user_daily_activity/2025-01.csv",
+      "sources/product_analytics/user_daily_activity/2025-02.csv",
+      "sources/product_analytics/user_daily_activity/2025-03.csv",
+      "sources/product_analytics/user_daily_activity/2025-04.csv",
+      "sources/product_analytics/user_daily_activity/2025-05.csv",
+      "sources/product_analytics/user_daily_activity/2025-06.csv",
+      "sources/product_analytics/user_daily_activity/2025-07.csv",
+      "sources/product_analytics/user_daily_activity/2025-08.csv",
+      "sources/product_analytics/user_daily_activity/2025-09.csv",
+      "sources/product_analytics/user_daily_activity/2025-10.csv",
+      "sources/product_analytics/user_daily_activity/2025-11.csv",
+      "sources/product_analytics/user_daily_activity/2025-12.csv",
+      "sources/product_analytics/user_daily_activity/2026-01.csv",
+      "sources/product_analytics/user_daily_activity/2026-02.csv",
+      "sources/product_analytics/user_daily_activity/2026-03.csv",
+      "sources/product_analytics/user_daily_activity/2026-04.csv",
+      "sources/product_analytics/user_daily_activity/2026-05.csv",
+      "sources/product_analytics/user_daily_activity/2026-06.csv",
+      "sources/product_analytics/user_daily_activity/2026-07.csv",
+      "sources/product_analytics/user_daily_activity/2026-08.csv",
+      "sources/product_analytics/user_daily_activity/2026-09.csv",
+      "sources/product_analytics/user_daily_activity/2026-10.csv"
+    ],
+    "types": {
+      "user_day_id": "text",
+      "activity_date": "iso_date",
+      "user_id": "text",
+      "organization_id": "text",
+      "logins": "integer",
+      "workflow_runs": "integer",
+      "automation_actions": "integer",
+      "export_actions": "integer"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "quickbooks/vendors": {
+    "grain": "One modeled vendor",
+    "primary_key": "vendor_id",
+    "notes": "Cloud, ads, tools, insurance, benefits and equipment.",
+    "partition_column": "",
+    "fields": [
+      "vendor_id",
+      "vendor_name",
+      "category",
+      "contact_email",
+      "payment_terms_days",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/quickbooks/vendors.csv"
+    ],
+    "types": {
+      "vendor_id": "text",
+      "vendor_name": "text",
+      "category": "text",
+      "contact_email": "text",
+      "payment_terms_days": "integer",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "quickbooks/vendor_bills": {
+    "grain": "One AP bill",
+    "primary_key": "vendor_bill_id",
+    "notes": "Accounting representation of underlying source bill; count expense once. Future due dates allowed.",
+    "partition_column": "",
+    "fields": [
+      "vendor_bill_id",
+      "vendor_id",
+      "issue_date",
+      "due_date",
+      "service_start",
+      "service_end_exclusive",
+      "source_system",
+      "source_document_id",
+      "vendor_contract_id",
+      "total",
+      "amount_paid",
+      "amount_remaining",
+      "status",
+      "recognition_type",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/quickbooks/vendor_bills.csv"
+    ],
+    "types": {
+      "vendor_bill_id": "text",
+      "vendor_id": "text",
+      "issue_date": "iso_date",
+      "due_date": "iso_date",
+      "service_start": "iso_date",
+      "service_end_exclusive": "iso_date",
+      "source_system": "text",
+      "source_document_id": "text",
+      "vendor_contract_id": "text",
+      "total": "decimal_usd",
+      "amount_paid": "decimal_usd",
+      "amount_remaining": "decimal_usd",
+      "status": "text",
+      "recognition_type": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [
+      "vendor_contract_id"
+    ],
+    "signs": {
+      "total": "Positive face amount unless table/column explicitly defines a signed movement",
+      "amount_paid": "Positive face amount unless table/column explicitly defines a signed movement",
+      "amount_remaining": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "quickbooks/vendor_bill_lines": {
+    "grain": "One GL account allocation per AP bill",
+    "primary_key": "vendor_bill_line_id",
+    "notes": "Debit prepaid or fixed asset when applicable; not immediate expense.",
+    "partition_column": "",
+    "fields": [
+      "vendor_bill_line_id",
+      "vendor_bill_id",
+      "account_code",
+      "amount"
+    ],
+    "physical_files": [
+      "sources/quickbooks/vendor_bill_lines.csv"
+    ],
+    "types": {
+      "vendor_bill_line_id": "text",
+      "vendor_bill_id": "text",
+      "account_code": "text",
+      "amount": "decimal_usd"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "quickbooks/vendor_payments": {
+    "grain": "One actual AP payment application",
+    "primary_key": "vendor_payment_id",
+    "notes": "Only payments completed by cutoff.",
+    "partition_column": "",
+    "fields": [
+      "vendor_payment_id",
+      "vendor_bill_id",
+      "payment_date",
+      "amount",
+      "bank_transaction_id",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/quickbooks/vendor_payments.csv"
+    ],
+    "types": {
+      "vendor_payment_id": "text",
+      "vendor_bill_id": "text",
+      "payment_date": "iso_date",
+      "amount": "decimal_usd",
+      "bank_transaction_id": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "quickbooks/vendor_service_schedule": {
+    "grain": "One prepaid service allocation by month/account",
+    "primary_key": "vendor_schedule_id",
+    "notes": "Future schedules are remaining prepayments, not future actual expense.",
+    "partition_column": "",
+    "fields": [
+      "vendor_schedule_id",
+      "vendor_bill_id",
+      "account_code",
+      "service_start",
+      "service_end_exclusive",
+      "schedule_month",
+      "amount",
+      "schedule_status",
+      "actual_posting_date"
+    ],
+    "physical_files": [
+      "sources/quickbooks/vendor_service_schedule.csv"
+    ],
+    "types": {
+      "vendor_schedule_id": "text",
+      "vendor_bill_id": "text",
+      "account_code": "text",
+      "service_start": "iso_date",
+      "service_end_exclusive": "iso_date",
+      "schedule_month": "iso_month",
+      "amount": "decimal_usd",
+      "schedule_status": "text",
+      "actual_posting_date": "iso_date"
+    },
+    "nullable_fields": [
+      "actual_posting_date"
+    ],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "gusto/employees": {
+    "grain": "One employee with actual hire and departure dates",
+    "primary_key": "employee_id",
+    "notes": "Planned requisitions are stored separately.",
+    "partition_column": "",
+    "fields": [
+      "employee_id",
+      "employee_name",
+      "email",
+      "department",
+      "hire_date",
+      "termination_date",
+      "employment_type",
+      "status_as_of_cutoff"
+    ],
+    "physical_files": [
+      "sources/gusto/employees.csv"
+    ],
+    "types": {
+      "employee_id": "text",
+      "employee_name": "text",
+      "email": "text",
+      "department": "text",
+      "hire_date": "iso_date",
+      "termination_date": "iso_date",
+      "employment_type": "text",
+      "status_as_of_cutoff": "text"
+    },
+    "nullable_fields": [
+      "termination_date"
+    ],
+    "signs": {}
+  },
+  "gusto/salary_history": {
+    "grain": "One effective annual base salary interval",
+    "primary_key": "salary_history_id",
+    "notes": "All amounts fictional, USD per year.",
+    "partition_column": "",
+    "fields": [
+      "salary_history_id",
+      "employee_id",
+      "effective_from",
+      "effective_to",
+      "annual_salary",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/gusto/salary_history.csv"
+    ],
+    "types": {
+      "salary_history_id": "text",
+      "employee_id": "text",
+      "effective_from": "iso_date",
+      "effective_to": "iso_date",
+      "annual_salary": "decimal_usd",
+      "currency": "text"
+    },
+    "nullable_fields": [
+      "effective_to"
+    ],
+    "signs": {
+      "annual_salary": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "gusto/payroll_register": {
+    "grain": "One employee per semimonthly earned payroll period",
+    "primary_key": "payroll_line_id",
+    "notes": "Gross pay minus withholding equals net; employer tax is incremental expense.",
+    "partition_column": "",
+    "fields": [
+      "payroll_line_id",
+      "payroll_run_id",
+      "employee_id",
+      "department",
+      "period_start",
+      "period_end_exclusive",
+      "earned_posting_date",
+      "active_earned_days",
+      "gross_pay",
+      "employee_withholding",
+      "net_pay",
+      "employer_tax",
+      "employer_cost",
+      "currency",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/gusto/payroll_register.csv"
+    ],
+    "types": {
+      "payroll_line_id": "text",
+      "payroll_run_id": "text",
+      "employee_id": "text",
+      "department": "text",
+      "period_start": "iso_date",
+      "period_end_exclusive": "iso_date",
+      "earned_posting_date": "iso_date",
+      "active_earned_days": "integer",
+      "gross_pay": "decimal_usd",
+      "employee_withholding": "decimal_usd",
+      "net_pay": "decimal_usd",
+      "employer_tax": "decimal_usd",
+      "employer_cost": "decimal_usd",
+      "currency": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "gross_pay": "Positive face amount unless table/column explicitly defines a signed movement",
+      "employee_withholding": "Positive face amount unless table/column explicitly defines a signed movement",
+      "net_pay": "Positive face amount unless table/column explicitly defines a signed movement",
+      "employer_tax": "Positive face amount unless table/column explicitly defines a signed movement",
+      "employer_cost": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "gusto/payroll_allocations": {
+    "grain": "One payroll line allocated to one expense account",
+    "primary_key": "payroll_allocation_id",
+    "notes": "Includes gross plus employer tax; allocation is not new expense.",
+    "partition_column": "",
+    "fields": [
+      "payroll_allocation_id",
+      "payroll_line_id",
+      "account_code",
+      "allocation_weight_percent",
+      "allocated_employer_cost",
+      "expense_class"
+    ],
+    "physical_files": [
+      "sources/gusto/payroll_allocations.csv"
+    ],
+    "types": {
+      "payroll_allocation_id": "text",
+      "payroll_line_id": "text",
+      "account_code": "text",
+      "allocation_weight_percent": "integer",
+      "allocated_employer_cost": "decimal_usd",
+      "expense_class": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "allocated_employer_cost": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "gusto/payroll_runs": {
+    "grain": "One semimonthly payroll accrual",
+    "primary_key": "payroll_run_id",
+    "notes": "Expected funding can be after cutoff; actual funding blank until occurred.",
+    "partition_column": "",
+    "fields": [
+      "payroll_run_id",
+      "period_start",
+      "period_end_exclusive",
+      "earned_posting_date",
+      "gross_pay",
+      "employee_withholding",
+      "net_pay",
+      "employer_tax",
+      "funding_amount",
+      "expected_funding_date",
+      "actual_funding_date",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/gusto/payroll_runs.csv"
+    ],
+    "types": {
+      "payroll_run_id": "text",
+      "period_start": "iso_date",
+      "period_end_exclusive": "iso_date",
+      "earned_posting_date": "iso_date",
+      "gross_pay": "decimal_usd",
+      "employee_withholding": "decimal_usd",
+      "net_pay": "decimal_usd",
+      "employer_tax": "decimal_usd",
+      "funding_amount": "decimal_usd",
+      "expected_funding_date": "iso_date",
+      "actual_funding_date": "iso_date",
+      "record_scope": "text"
+    },
+    "nullable_fields": [
+      "actual_funding_date"
+    ],
+    "signs": {
+      "gross_pay": "Positive face amount unless table/column explicitly defines a signed movement",
+      "employee_withholding": "Positive face amount unless table/column explicitly defines a signed movement",
+      "net_pay": "Positive face amount unless table/column explicitly defines a signed movement",
+      "employer_tax": "Positive face amount unless table/column explicitly defines a signed movement",
+      "funding_amount": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "gusto/payroll_funding": {
+    "grain": "One actual consolidated processor funding debit",
+    "primary_key": "payroll_funding_id",
+    "notes": "Synthetic consolidated net-pay plus taxes debit; not a legal payroll computation.",
+    "partition_column": "",
+    "fields": [
+      "payroll_funding_id",
+      "payroll_run_id",
+      "funding_date",
+      "amount",
+      "bank_transaction_id",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/gusto/payroll_funding.csv"
+    ],
+    "types": {
+      "payroll_funding_id": "text",
+      "payroll_run_id": "text",
+      "funding_date": "iso_date",
+      "amount": "decimal_usd",
+      "bank_transaction_id": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "quickbooks/fixed_assets": {
+    "grain": "One depreciable equipment asset/group",
+    "primary_key": "asset_id",
+    "notes": "Opening group and employee laptops.",
+    "partition_column": "",
+    "fields": [
+      "asset_id",
+      "employee_id",
+      "acquisition_date",
+      "original_cost",
+      "opening_accumulated_depreciation",
+      "useful_life_months",
+      "residual_value",
+      "vendor_bill_id"
+    ],
+    "physical_files": [
+      "sources/quickbooks/fixed_assets.csv"
+    ],
+    "types": {
+      "asset_id": "text",
+      "employee_id": "text",
+      "acquisition_date": "iso_date",
+      "original_cost": "decimal_usd",
+      "opening_accumulated_depreciation": "decimal_usd",
+      "useful_life_months": "integer",
+      "residual_value": "decimal_usd",
+      "vendor_bill_id": "text"
+    },
+    "nullable_fields": [
+      "employee_id",
+      "vendor_bill_id"
+    ],
+    "signs": {
+      "original_cost": "Positive face amount unless table/column explicitly defines a signed movement",
+      "opening_accumulated_depreciation": "Positive face amount unless table/column explicitly defines a signed movement",
+      "residual_value": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "quickbooks/depreciation_schedule": {
+    "grain": "One actual monthly depreciation allocation",
+    "primary_key": "depreciation_id",
+    "notes": "No depreciation for future periods is posted.",
+    "partition_column": "",
+    "fields": [
+      "depreciation_id",
+      "asset_id",
+      "posting_date",
+      "amount"
+    ],
+    "physical_files": [
+      "sources/quickbooks/depreciation_schedule.csv"
+    ],
+    "types": {
+      "depreciation_id": "text",
+      "asset_id": "text",
+      "posting_date": "iso_date",
+      "amount": "decimal_usd"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "meta_ads/campaigns": {
+    "grain": "One own-company acquisition campaign",
+    "primary_key": "campaign_id",
+    "notes": "These campaigns market RelayNest itself.",
+    "partition_column": "",
+    "fields": [
+      "campaign_id",
+      "campaign_name",
+      "platform",
+      "objective",
+      "start_date",
+      "end_date"
+    ],
+    "physical_files": [
+      "sources/meta_ads/campaigns.csv"
+    ],
+    "types": {
+      "campaign_id": "text",
+      "campaign_name": "text",
+      "platform": "text",
+      "objective": "text",
+      "start_date": "iso_date",
+      "end_date": "iso_date"
+    },
+    "nullable_fields": [
+      "end_date"
+    ],
+    "signs": {}
+  },
+  "meta_ads/daily_campaign_metrics": {
+    "grain": "One campaign/day",
+    "primary_key": "campaign_day_id",
+    "notes": "Platform attributed trial claims overlap; do not add them across platforms or treat attributed values as accounting revenue.",
+    "partition_column": "",
+    "fields": [
+      "campaign_day_id",
+      "activity_date",
+      "campaign_id",
+      "impressions",
+      "clicks",
+      "spend",
+      "cost_micros",
+      "platform_attributed_trials",
+      "attribution_window",
+      "overlap_policy",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/meta_ads/daily_campaign_metrics.csv"
+    ],
+    "types": {
+      "campaign_day_id": "text",
+      "activity_date": "iso_date",
+      "campaign_id": "text",
+      "impressions": "integer",
+      "clicks": "integer",
+      "spend": "decimal_usd",
+      "cost_micros": "integer",
+      "platform_attributed_trials": "integer",
+      "attribution_window": "text",
+      "overlap_policy": "text",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "spend": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "meta_ads/monthly_billing": {
+    "grain": "One monthly advertising source invoice",
+    "primary_key": "ad_invoice_id",
+    "notes": "Same expense as daily spend and AP representation; not additional expense.",
+    "partition_column": "",
+    "fields": [
+      "ad_invoice_id",
+      "billing_month",
+      "issue_date",
+      "due_date",
+      "amount",
+      "vendor_bill_id",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/meta_ads/monthly_billing.csv"
+    ],
+    "types": {
+      "ad_invoice_id": "text",
+      "billing_month": "iso_month",
+      "issue_date": "iso_date",
+      "due_date": "iso_date",
+      "amount": "decimal_usd",
+      "vendor_bill_id": "text",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "google_ads/campaigns": {
+    "grain": "One own-company acquisition campaign",
+    "primary_key": "campaign_id",
+    "notes": "These campaigns market RelayNest itself.",
+    "partition_column": "",
+    "fields": [
+      "campaign_id",
+      "campaign_name",
+      "platform",
+      "objective",
+      "start_date",
+      "end_date"
+    ],
+    "physical_files": [
+      "sources/google_ads/campaigns.csv"
+    ],
+    "types": {
+      "campaign_id": "text",
+      "campaign_name": "text",
+      "platform": "text",
+      "objective": "text",
+      "start_date": "iso_date",
+      "end_date": "iso_date"
+    },
+    "nullable_fields": [
+      "end_date"
+    ],
+    "signs": {}
+  },
+  "google_ads/daily_campaign_metrics": {
+    "grain": "One campaign/day",
+    "primary_key": "campaign_day_id",
+    "notes": "Platform attributed trial claims overlap; do not add them across platforms or treat attributed values as accounting revenue.",
+    "partition_column": "",
+    "fields": [
+      "campaign_day_id",
+      "activity_date",
+      "campaign_id",
+      "impressions",
+      "clicks",
+      "spend",
+      "cost_micros",
+      "platform_attributed_trials",
+      "attribution_window",
+      "overlap_policy",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/google_ads/daily_campaign_metrics.csv"
+    ],
+    "types": {
+      "campaign_day_id": "text",
+      "activity_date": "iso_date",
+      "campaign_id": "text",
+      "impressions": "integer",
+      "clicks": "integer",
+      "spend": "decimal_usd",
+      "cost_micros": "integer",
+      "platform_attributed_trials": "integer",
+      "attribution_window": "text",
+      "overlap_policy": "text",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "spend": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "google_ads/monthly_billing": {
+    "grain": "One monthly advertising source invoice",
+    "primary_key": "ad_invoice_id",
+    "notes": "Same expense as daily spend and AP representation; not additional expense.",
+    "partition_column": "",
+    "fields": [
+      "ad_invoice_id",
+      "billing_month",
+      "issue_date",
+      "due_date",
+      "amount",
+      "vendor_bill_id",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/google_ads/monthly_billing.csv"
+    ],
+    "types": {
+      "ad_invoice_id": "text",
+      "billing_month": "iso_month",
+      "issue_date": "iso_date",
+      "due_date": "iso_date",
+      "amount": "decimal_usd",
+      "vendor_bill_id": "text",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "marketing/leads": {
+    "grain": "One captured marketing lead, not necessarily a trial",
+    "primary_key": "lead_id",
+    "notes": "Only some leads map to a product signup; precision is not fabricated for all leads.",
+    "partition_column": "",
+    "fields": [
+      "lead_id",
+      "created_date",
+      "email",
+      "declared_channel",
+      "first_known_campaign_id",
+      "billing_customer_id",
+      "organization_id",
+      "match_quality"
+    ],
+    "physical_files": [
+      "sources/marketing/leads.csv"
+    ],
+    "types": {
+      "lead_id": "text",
+      "created_date": "iso_date",
+      "email": "text",
+      "declared_channel": "text",
+      "first_known_campaign_id": "text",
+      "billing_customer_id": "text",
+      "organization_id": "text",
+      "match_quality": "text"
+    },
+    "nullable_fields": [
+      "billing_customer_id",
+      "first_known_campaign_id",
+      "organization_id"
+    ],
+    "signs": {}
+  },
+  "marketing/acquisition_touchpoints": {
+    "grain": "One observable acquisition touch linked to a lead",
+    "primary_key": "touchpoint_id",
+    "notes": "First-known touch is a separate lens from platform-reported view/click attribution.",
+    "partition_column": "",
+    "fields": [
+      "touchpoint_id",
+      "lead_id",
+      "touch_date",
+      "channel",
+      "campaign_id",
+      "billing_customer_id",
+      "touch_type"
+    ],
+    "physical_files": [
+      "sources/marketing/acquisition_touchpoints.csv"
+    ],
+    "types": {
+      "touchpoint_id": "text",
+      "lead_id": "text",
+      "touch_date": "iso_date",
+      "channel": "text",
+      "campaign_id": "text",
+      "billing_customer_id": "text",
+      "touch_type": "text"
+    },
+    "nullable_fields": [
+      "campaign_id"
+    ],
+    "signs": {}
+  },
+  "hubspot/owners": {
+    "grain": "One sales owner",
+    "primary_key": "owner_id",
+    "notes": "",
+    "partition_column": "",
+    "fields": [
+      "owner_id",
+      "employee_id",
+      "owner_name",
+      "email"
+    ],
+    "physical_files": [
+      "sources/hubspot/owners.csv"
+    ],
+    "types": {
+      "owner_id": "text",
+      "employee_id": "text",
+      "owner_name": "text",
+      "email": "text"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "hubspot/accounts": {
+    "grain": "One CRM sales account / prospect",
+    "primary_key": "crm_account_id",
+    "notes": "Self-serve customers need no CRM deal.",
+    "partition_column": "",
+    "fields": [
+      "crm_account_id",
+      "account_name",
+      "billing_customer_id",
+      "lead_id",
+      "created_date",
+      "owner_id"
+    ],
+    "physical_files": [
+      "sources/hubspot/accounts.csv"
+    ],
+    "types": {
+      "crm_account_id": "text",
+      "account_name": "text",
+      "billing_customer_id": "text",
+      "lead_id": "text",
+      "created_date": "iso_date",
+      "owner_id": "text"
+    },
+    "nullable_fields": [
+      "billing_customer_id",
+      "lead_id"
+    ],
+    "signs": {}
+  },
+  "hubspot/deals": {
+    "grain": "One assisted opportunity",
+    "primary_key": "deal_id",
+    "notes": "Expected pipeline is not contracted ARR, bookings, billings or revenue.",
+    "partition_column": "",
+    "fields": [
+      "deal_id",
+      "crm_account_id",
+      "owner_id",
+      "created_date",
+      "stage",
+      "expected_close_date",
+      "actual_close_date",
+      "expected_contract_value",
+      "contracted_arr_at_signature",
+      "subscription_id",
+      "contract_id",
+      "probability_percent",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/hubspot/deals.csv"
+    ],
+    "types": {
+      "deal_id": "text",
+      "crm_account_id": "text",
+      "owner_id": "text",
+      "created_date": "iso_date",
+      "stage": "text",
+      "expected_close_date": "iso_date",
+      "actual_close_date": "iso_date",
+      "expected_contract_value": "decimal_usd",
+      "contracted_arr_at_signature": "decimal_usd",
+      "subscription_id": "text",
+      "contract_id": "text",
+      "probability_percent": "integer",
+      "currency": "text"
+    },
+    "nullable_fields": [
+      "actual_close_date",
+      "contract_id",
+      "subscription_id"
+    ],
+    "signs": {
+      "expected_contract_value": "Positive face amount unless table/column explicitly defines a signed movement",
+      "contracted_arr_at_signature": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "hubspot/deal_stage_history": {
+    "grain": "One observed deal stage entry",
+    "primary_key": "stage_event_id",
+    "notes": "No future observed stage or actual close dates.",
+    "partition_column": "",
+    "fields": [
+      "stage_event_id",
+      "deal_id",
+      "entered_date",
+      "stage",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/hubspot/deal_stage_history.csv"
+    ],
+    "types": {
+      "stage_event_id": "text",
+      "deal_id": "text",
+      "entered_date": "iso_date",
+      "stage": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "hubspot/won_contract_mapping": {
+    "grain": "One won initial contract mapping",
+    "primary_key": "won_mapping_id",
+    "notes": "Signature may precede paid service and invoice, including known future start.",
+    "partition_column": "",
+    "fields": [
+      "won_mapping_id",
+      "deal_id",
+      "contract_id",
+      "subscription_id",
+      "billing_customer_id",
+      "signed_date",
+      "expected_service_start"
+    ],
+    "physical_files": [
+      "sources/hubspot/won_contract_mapping.csv"
+    ],
+    "types": {
+      "won_mapping_id": "text",
+      "deal_id": "text",
+      "contract_id": "text",
+      "subscription_id": "text",
+      "billing_customer_id": "text",
+      "signed_date": "iso_date",
+      "expected_service_start": "iso_date"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "aws/resources": {
+    "grain": "One modeled cloud resource cost pool",
+    "primary_key": "resource_id",
+    "notes": "Production to COGS; development to R&D OPEX.",
+    "partition_column": "",
+    "fields": [
+      "resource_id",
+      "service_name",
+      "environment",
+      "account_code",
+      "allocation_policy"
+    ],
+    "physical_files": [
+      "sources/aws/resources.csv"
+    ],
+    "types": {
+      "resource_id": "text",
+      "service_name": "text",
+      "environment": "text",
+      "account_code": "text",
+      "allocation_policy": "text"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "aws/daily_resource_cost": {
+    "grain": "One daily service/resource charge",
+    "primary_key": "resource_day_id",
+    "notes": "Modeled invoice charges, no advertised real AWS rates.",
+    "partition_column": "",
+    "fields": [
+      "resource_day_id",
+      "usage_date",
+      "resource_id",
+      "cloud_invoice_id",
+      "usage_quantity",
+      "usage_unit",
+      "cost",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/aws/daily_resource_cost.csv"
+    ],
+    "types": {
+      "resource_day_id": "text",
+      "usage_date": "iso_date",
+      "resource_id": "text",
+      "cloud_invoice_id": "text",
+      "usage_quantity": "integer",
+      "usage_unit": "text",
+      "cost": "decimal_usd",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "cost": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "aws/monthly_invoices": {
+    "grain": "One consolidated cloud provider invoice",
+    "primary_key": "cloud_invoice_id",
+    "notes": "Monthly invoice sums exactly to daily costs and AP bill.",
+    "partition_column": "",
+    "fields": [
+      "cloud_invoice_id",
+      "billing_month",
+      "issue_date",
+      "due_date",
+      "amount",
+      "vendor_bill_id",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/aws/monthly_invoices.csv"
+    ],
+    "types": {
+      "cloud_invoice_id": "text",
+      "billing_month": "iso_month",
+      "issue_date": "iso_date",
+      "due_date": "iso_date",
+      "amount": "decimal_usd",
+      "vendor_bill_id": "text",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "aws/monthly_cost_allocations": {
+    "grain": "One resource/month/tenant-or-shared allocation",
+    "primary_key": "cloud_allocation_id",
+    "notes": "Monthly workflow-run weights. Explicit shared bucket; allocations sum to source costs and are not additional expense.",
+    "partition_column": "",
+    "fields": [
+      "cloud_allocation_id",
+      "billing_month",
+      "cloud_invoice_id",
+      "resource_id",
+      "organization_id",
+      "allocation_bucket",
+      "workflow_weight",
+      "allocated_cost",
+      "account_code"
+    ],
+    "physical_files": [
+      "sources/aws/monthly_cost_allocations.csv"
+    ],
+    "types": {
+      "cloud_allocation_id": "text",
+      "billing_month": "iso_month",
+      "cloud_invoice_id": "text",
+      "resource_id": "text",
+      "organization_id": "text",
+      "allocation_bucket": "text",
+      "workflow_weight": "integer",
+      "allocated_cost": "decimal_usd",
+      "account_code": "text"
+    },
+    "nullable_fields": [
+      "organization_id"
+    ],
+    "signs": {
+      "allocated_cost": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "procurement/vendor_contracts": {
+    "grain": "One effective recurring supplier agreement",
+    "primary_key": "vendor_contract_id",
+    "notes": "Signed dates are actual; future service/payment terms are commitments, not actual expense or payment.",
+    "partition_column": "",
+    "fields": [
+      "vendor_contract_id",
+      "vendor_id",
+      "signed_date",
+      "effective_from",
+      "effective_to_exclusive",
+      "billing_interval",
+      "recurring_amount",
+      "expense_account",
+      "payment_terms_days",
+      "next_unbilled_issue_date",
+      "next_unbilled_due_date",
+      "auto_renew",
+      "notice_days",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/procurement/vendor_contracts.csv"
+    ],
+    "types": {
+      "vendor_contract_id": "text",
+      "vendor_id": "text",
+      "signed_date": "iso_date",
+      "effective_from": "iso_date",
+      "effective_to_exclusive": "iso_date",
+      "billing_interval": "text",
+      "recurring_amount": "decimal_usd",
+      "expense_account": "text",
+      "payment_terms_days": "integer",
+      "next_unbilled_issue_date": "iso_date",
+      "next_unbilled_due_date": "iso_date",
+      "auto_renew": "boolean",
+      "notice_days": "integer",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "recurring_amount": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "procurement/vendor_contract_amount_history": {
+    "grain": "One effective supplier recurring-price interval",
+    "primary_key": "vendor_contract_rate_id",
+    "notes": "Amount per billing interval; original terms and observed price changes are preserved.",
+    "partition_column": "",
+    "fields": [
+      "vendor_contract_rate_id",
+      "vendor_contract_id",
+      "effective_from",
+      "effective_to",
+      "recurring_amount"
+    ],
+    "physical_files": [
+      "sources/procurement/vendor_contract_amount_history.csv"
+    ],
+    "types": {
+      "vendor_contract_rate_id": "text",
+      "vendor_contract_id": "text",
+      "effective_from": "iso_date",
+      "effective_to": "iso_date",
+      "recurring_amount": "decimal_usd"
+    },
+    "nullable_fields": [
+      "effective_to"
+    ],
+    "signs": {
+      "recurring_amount": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "finance/equity_funding": {
+    "grain": "One actual equity contribution",
+    "primary_key": "equity_event_id",
+    "notes": "Equity funding is financing, never revenue or MRR.",
+    "partition_column": "",
+    "fields": [
+      "equity_event_id",
+      "funding_date",
+      "round_name",
+      "amount",
+      "instrument_type",
+      "bank_transaction_id",
+      "record_scope"
+    ],
+    "physical_files": [
+      "sources/finance/equity_funding.csv"
+    ],
+    "types": {
+      "equity_event_id": "text",
+      "funding_date": "iso_date",
+      "round_name": "text",
+      "amount": "decimal_usd",
+      "instrument_type": "text",
+      "bank_transaction_id": "text",
+      "record_scope": "text"
+    },
+    "nullable_fields": [
+      "bank_transaction_id"
+    ],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "planning/budget_versions": {
+    "grain": "One immutable originally approved budget version",
+    "primary_key": "budget_version_id",
+    "notes": "",
+    "partition_column": "",
+    "fields": [
+      "budget_version_id",
+      "version_type",
+      "approved_date",
+      "horizon_start",
+      "horizon_end",
+      "immutable",
+      "forecast_version"
+    ],
+    "physical_files": [
+      "sources/planning/budget_versions.csv"
+    ],
+    "types": {
+      "budget_version_id": "text",
+      "version_type": "text",
+      "approved_date": "iso_date",
+      "horizon_start": "iso_date",
+      "horizon_end": "iso_date",
+      "immutable": "boolean",
+      "forecast_version": "boolean"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "planning/original_monthly_budget": {
+    "grain": "One budget version/month/metric/account-or-plan/department",
+    "primary_key": "budget_line_id",
+    "notes": "Approved 2024-10-20 for all 24 months; original remains immutable and contains no actuals.",
+    "partition_column": "",
+    "fields": [
+      "budget_line_id",
+      "budget_version_id",
+      "budget_month",
+      "metric",
+      "account_code",
+      "plan_name",
+      "department",
+      "budget_amount",
+      "currency",
+      "approved_date"
+    ],
+    "physical_files": [
+      "sources/planning/original_monthly_budget.csv"
+    ],
+    "types": {
+      "budget_line_id": "text",
+      "budget_version_id": "text",
+      "budget_month": "iso_month",
+      "metric": "text",
+      "account_code": "text",
+      "plan_name": "text",
+      "department": "text",
+      "budget_amount": "decimal_usd",
+      "currency": "text",
+      "approved_date": "iso_date"
+    },
+    "nullable_fields": [
+      "plan_name"
+    ],
+    "signs": {
+      "budget_amount": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "planning/original_headcount_plan": {
+    "grain": "One original planned department headcount per month",
+    "primary_key": "headcount_plan_id",
+    "notes": "Plan is not employee hire history.",
+    "partition_column": "",
+    "fields": [
+      "headcount_plan_id",
+      "budget_version_id",
+      "budget_month",
+      "department",
+      "planned_fte",
+      "approved_date"
+    ],
+    "physical_files": [
+      "sources/planning/original_headcount_plan.csv"
+    ],
+    "types": {
+      "headcount_plan_id": "text",
+      "budget_version_id": "text",
+      "budget_month": "iso_month",
+      "department": "text",
+      "planned_fte": "integer",
+      "approved_date": "iso_date"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "planning/hiring_requisitions": {
+    "grain": "One unfilled future hiring request known at cutoff",
+    "primary_key": "requisition_id",
+    "notes": "Expected start is a plan, not actual hire.",
+    "partition_column": "",
+    "fields": [
+      "requisition_id",
+      "requested_date",
+      "department",
+      "role",
+      "planned_annual_salary",
+      "expected_start_date",
+      "status",
+      "approval_status",
+      "actual_employee_id",
+      "snapshot_date"
+    ],
+    "physical_files": [
+      "sources/planning/hiring_requisitions.csv"
+    ],
+    "types": {
+      "requisition_id": "text",
+      "requested_date": "iso_date",
+      "department": "text",
+      "role": "text",
+      "planned_annual_salary": "decimal_usd",
+      "expected_start_date": "iso_date",
+      "status": "text",
+      "approval_status": "text",
+      "actual_employee_id": "text",
+      "snapshot_date": "iso_date"
+    },
+    "nullable_fields": [
+      "actual_employee_id"
+    ],
+    "signs": {
+      "planned_annual_salary": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "planning/known_obligations": {
+    "grain": "One known obligation or future contracted cycle at cutoff",
+    "primary_key": "obligation_id",
+    "notes": "References underlying open AP, accrued payroll or a new unbilled vendor cycle. Do not add a register copy to the same underlying liability twice.",
+    "partition_column": "",
+    "fields": [
+      "obligation_id",
+      "snapshot_date",
+      "obligation_type",
+      "source_table",
+      "source_id",
+      "deduplication_key",
+      "expected_payment_date",
+      "amount",
+      "certainty",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/planning/known_obligations.csv"
+    ],
+    "types": {
+      "obligation_id": "text",
+      "snapshot_date": "iso_date",
+      "obligation_type": "text",
+      "source_table": "text",
+      "source_id": "text",
+      "deduplication_key": "text",
+      "expected_payment_date": "iso_date",
+      "amount": "decimal_usd",
+      "certainty": "text",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Positive face/cash/expense amount"
+    }
+  },
+  "planning/business_events": {
+    "grain": "One illustrative management explanation tied to actual source facts",
+    "primary_key": "business_event_id",
+    "notes": "Management context, not additional transactions.",
+    "partition_column": "",
+    "fields": [
+      "business_event_id",
+      "event_date",
+      "event_title",
+      "source_table",
+      "source_reference",
+      "description"
+    ],
+    "physical_files": [
+      "sources/planning/business_events.csv"
+    ],
+    "types": {
+      "business_event_id": "text",
+      "event_date": "iso_date",
+      "event_title": "text",
+      "source_table": "text",
+      "source_reference": "text",
+      "description": "text"
+    },
+    "nullable_fields": [],
+    "signs": {}
+  },
+  "quickbooks/opening_trial_balance": {
+    "grain": "One account opening signed balance at 2024-11-01",
+    "primary_key": "account_code",
+    "notes": "Debit minus credit; P&L opening balances closed to opening retained earnings. Never add opening balances as period transactions.",
+    "partition_column": "",
+    "fields": [
+      "account_code",
+      "balance_date",
+      "opening_debit",
+      "opening_credit",
+      "signed_balance",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/quickbooks/opening_trial_balance.csv"
+    ],
+    "types": {
+      "account_code": "text",
+      "balance_date": "iso_date",
+      "opening_debit": "decimal_usd",
+      "opening_credit": "decimal_usd",
+      "signed_balance": "decimal_usd",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "opening_debit": "Positive face amount unless table/column explicitly defines a signed movement",
+      "opening_credit": "Positive face amount unless table/column explicitly defines a signed movement",
+      "signed_balance": "Debit minus credit"
+    }
+  },
+  "quickbooks/general_ledger": {
+    "grain": "One actual double-entry journal distribution line",
+    "primary_key": "gl_line_id",
+    "notes": "24 monthly partitions. Debit and credit nonnegative. Actual revenue recognition dates <=2026-10-31.",
+    "partition_column": "posting_date",
+    "fields": [
+      "gl_line_id",
+      "journal_id",
+      "posting_date",
+      "source_event",
+      "source_id",
+      "account_code",
+      "debit",
+      "credit",
+      "customer_id",
+      "vendor_id",
+      "employee_id",
+      "department",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/quickbooks/general_ledger/2024-11.csv",
+      "sources/quickbooks/general_ledger/2024-12.csv",
+      "sources/quickbooks/general_ledger/2025-01.csv",
+      "sources/quickbooks/general_ledger/2025-02.csv",
+      "sources/quickbooks/general_ledger/2025-03.csv",
+      "sources/quickbooks/general_ledger/2025-04.csv",
+      "sources/quickbooks/general_ledger/2025-05.csv",
+      "sources/quickbooks/general_ledger/2025-06.csv",
+      "sources/quickbooks/general_ledger/2025-07.csv",
+      "sources/quickbooks/general_ledger/2025-08.csv",
+      "sources/quickbooks/general_ledger/2025-09.csv",
+      "sources/quickbooks/general_ledger/2025-10.csv",
+      "sources/quickbooks/general_ledger/2025-11.csv",
+      "sources/quickbooks/general_ledger/2025-12.csv",
+      "sources/quickbooks/general_ledger/2026-01.csv",
+      "sources/quickbooks/general_ledger/2026-02.csv",
+      "sources/quickbooks/general_ledger/2026-03.csv",
+      "sources/quickbooks/general_ledger/2026-04.csv",
+      "sources/quickbooks/general_ledger/2026-05.csv",
+      "sources/quickbooks/general_ledger/2026-06.csv",
+      "sources/quickbooks/general_ledger/2026-07.csv",
+      "sources/quickbooks/general_ledger/2026-08.csv",
+      "sources/quickbooks/general_ledger/2026-09.csv",
+      "sources/quickbooks/general_ledger/2026-10.csv"
+    ],
+    "types": {
+      "gl_line_id": "text",
+      "journal_id": "text",
+      "posting_date": "iso_date",
+      "source_event": "text",
+      "source_id": "text",
+      "account_code": "text",
+      "debit": "decimal_usd",
+      "credit": "decimal_usd",
+      "customer_id": "text",
+      "vendor_id": "text",
+      "employee_id": "text",
+      "department": "text",
+      "currency": "text"
+    },
+    "nullable_fields": [
+      "customer_id",
+      "department",
+      "employee_id",
+      "vendor_id"
+    ],
+    "signs": {
+      "debit": "Positive face amount unless table/column explicitly defines a signed movement",
+      "credit": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "quickbooks/monthly_trial_balance": {
+    "grain": "One account/month roll-forward",
+    "primary_key": "trial_balance_id",
+    "notes": "Opening signed plus period debits minus credits equals closing signed. P&L accounts accumulate without year-end closing journals.",
+    "partition_column": "",
+    "fields": [
+      "trial_balance_id",
+      "month",
+      "account_code",
+      "opening_signed_balance",
+      "period_debits",
+      "period_credits",
+      "closing_signed_balance",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/quickbooks/monthly_trial_balance.csv"
+    ],
+    "types": {
+      "trial_balance_id": "text",
+      "month": "iso_month",
+      "account_code": "text",
+      "opening_signed_balance": "decimal_usd",
+      "period_debits": "decimal_usd",
+      "period_credits": "decimal_usd",
+      "closing_signed_balance": "decimal_usd",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "opening_signed_balance": "Debit minus credit",
+      "period_debits": "Positive face amount unless table/column explicitly defines a signed movement",
+      "period_credits": "Positive face amount unless table/column explicitly defines a signed movement",
+      "closing_signed_balance": "Debit minus credit"
+    }
+  },
+  "bank/opening_balance": {
+    "grain": "One bank opening statement balance",
+    "primary_key": "bank_account_id",
+    "notes": "",
+    "partition_column": "",
+    "fields": [
+      "bank_account_id",
+      "balance_date",
+      "opening_balance",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/bank/opening_balance.csv"
+    ],
+    "types": {
+      "bank_account_id": "text",
+      "balance_date": "iso_date",
+      "opening_balance": "decimal_usd",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "opening_balance": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "bank/statement": {
+    "grain": "One actual posted bank transaction",
+    "primary_key": "bank_transaction_id",
+    "notes": "Positive inflow, negative outflow. No future actual bank movements.",
+    "partition_column": "",
+    "fields": [
+      "bank_transaction_id",
+      "posting_date",
+      "value_date",
+      "transaction_type",
+      "source_id",
+      "amount",
+      "currency",
+      "running_balance",
+      "bank_account_id"
+    ],
+    "physical_files": [
+      "sources/bank/statement.csv"
+    ],
+    "types": {
+      "bank_transaction_id": "text",
+      "posting_date": "iso_date",
+      "value_date": "iso_date",
+      "transaction_type": "text",
+      "source_id": "text",
+      "amount": "decimal_usd",
+      "currency": "text",
+      "running_balance": "decimal_usd",
+      "bank_account_id": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "amount": "Signed: inflow/charge positive, outflow/refund negative",
+      "running_balance": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "bank/monthly_balances": {
+    "grain": "One bank month statement roll-forward",
+    "primary_key": "bank_month_id",
+    "notes": "",
+    "partition_column": "",
+    "fields": [
+      "bank_month_id",
+      "month",
+      "opening_balance",
+      "cash_in",
+      "cash_out",
+      "closing_balance",
+      "currency"
+    ],
+    "physical_files": [
+      "sources/bank/monthly_balances.csv"
+    ],
+    "types": {
+      "bank_month_id": "text",
+      "month": "iso_month",
+      "opening_balance": "decimal_usd",
+      "cash_in": "decimal_usd",
+      "cash_out": "decimal_usd",
+      "closing_balance": "decimal_usd",
+      "currency": "text"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "opening_balance": "Positive face amount unless table/column explicitly defines a signed movement",
+      "cash_in": "Positive face amount unless table/column explicitly defines a signed movement",
+      "cash_out": "Positive face amount unless table/column explicitly defines a signed movement",
+      "closing_balance": "Positive face amount unless table/column explicitly defines a signed movement"
+    }
+  },
+  "revenue_accounting/contract_liability_snapshot": {
+    "grain": "One remaining unearned source line as of cutoff",
+    "primary_key": "liability_line_id",
+    "notes": "Remaining invoice/credit obligation, includes future service already billed; signed negative credits offset positive billed obligations.",
+    "partition_column": "",
+    "fields": [
+      "liability_line_id",
+      "snapshot_date",
+      "source_document_type",
+      "source_line_id",
+      "invoice_id",
+      "remaining_unearned_amount"
+    ],
+    "physical_files": [
+      "sources/revenue_accounting/contract_liability_snapshot.csv"
+    ],
+    "types": {
+      "liability_line_id": "text",
+      "snapshot_date": "iso_date",
+      "source_document_type": "text",
+      "source_line_id": "text",
+      "invoice_id": "text",
+      "remaining_unearned_amount": "decimal_usd"
+    },
+    "nullable_fields": [],
+    "signs": {
+      "remaining_unearned_amount": "Signed; positive increases economic value, negative reduces it"
+    }
+  }
+}

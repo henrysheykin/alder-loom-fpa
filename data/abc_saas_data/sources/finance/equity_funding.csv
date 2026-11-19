@@ -1,0 +1,3 @@
+﻿equity_event_id,funding_date,round_name,amount,instrument_type,bank_transaction_id,record_scope
+equity_open,2024-01-01,Seed,3000000.00,priced_equity,,opening_support
+equity_extension,2025-09-10,Seed extension,1600000.00,priced_equity,bank_00000420,observation_period

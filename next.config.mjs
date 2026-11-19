@@ -7,11 +7,13 @@ const nextConfig = {
     "/api/data": ["./private/datamart.json"],
     "/agency": ["./private/agency/dashboard.html"],
     "/api/data/agency": ["./private/agency/datamart.json"],
+    "/saas": ["./private/saas/dashboard.html"],
+    "/api/data/saas": ["./private/saas/datamart.json"],
   },
   outputFileTracingExcludes: {
     "*": ["./data/**", "./pipeline/**"],
   },
-  // One site, separate links per demo company: /ecommerce (ABC Inc., also /dashboard) and /agency (ABC Agency).
+  // One site, separate links per demo company: /ecommerce (ABC Inc., also /dashboard), /agency (ABC Agency) and /saas (ABC SaaS).
   async rewrites() {
     return [{ source: "/ecommerce", destination: "/dashboard" }];
   },

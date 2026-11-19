@@ -1,0 +1,36 @@
+﻿account_code,account_name,account_type,statement,department
+1000,Operating bank,asset,BS,G&A
+1010,Processor balance,asset,BS,G&A
+1020,Payouts in transit,asset,BS,G&A
+1100,Accounts receivable,asset,BS,G&A
+1300,Prepaid vendor services,asset,BS,G&A
+1500,Equipment cost,asset,BS,G&A
+1590,Accumulated depreciation,contra_asset,BS,G&A
+2000,Accounts payable,liability,BS,G&A
+2100,Payroll funding payable,liability,BS,G&A
+2200,Deferred subscription revenue,liability,BS,G&A
+2300,Refund payable,liability,BS,G&A
+3000,Paid-in equity,equity,BS,G&A
+3100,Opening retained earnings,equity,BS,G&A
+4000,Starter subscription revenue,revenue,PL,Revenue
+4010,Team subscription revenue,revenue,PL,Revenue
+4020,Scale subscription revenue,revenue,PL,Revenue
+5000,Production cloud,expense,PL,COGS
+5010,Support compensation,expense,PL,COGS
+5020,Support benefits and tools,expense,PL,COGS
+5030,Payment processing fees,expense,PL,COGS
+6000,Engineering compensation,expense,PL,Engineering/R&D
+6010,Development cloud,expense,PL,Engineering/R&D
+6020,Engineering tools and benefits,expense,PL,Engineering/R&D
+6100,Sales and marketing compensation,expense,PL,Sales & Marketing
+6110,Meta advertising,expense,PL,Sales & Marketing
+6120,Google advertising,expense,PL,Sales & Marketing
+6130,Sales tools and benefits,expense,PL,Sales & Marketing
+6200,Customer success compensation,expense,PL,Customer Success/Support
+6210,Customer success benefits,expense,PL,Customer Success/Support
+6300,G&A compensation,expense,PL,G&A
+6310,G&A benefits and software,expense,PL,G&A
+6320,Rent and professional services,expense,PL,G&A
+6330,Insurance,expense,PL,G&A
+6340,Depreciation,expense,PL,G&A
+6350,Bad debt expense,expense,PL,G&A

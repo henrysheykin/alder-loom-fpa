@@ -1,0 +1,28 @@
+﻿employee_id,employee_name,email,department,hire_date,termination_date,employment_type,status_as_of_cutoff
+emp_0001,Employee 01,employee.01@example.com,Engineering/R&D,2023-11-01,,full_time_salaried,active
+emp_0002,Employee 02,employee.02@example.com,Engineering/R&D,2023-11-01,,full_time_salaried,active
+emp_0003,Employee 03,employee.03@example.com,Engineering/R&D,2023-11-01,,full_time_salaried,active
+emp_0004,Employee 04,employee.04@example.com,Engineering/R&D,2023-11-01,,full_time_salaried,active
+emp_0005,Employee 05,employee.05@example.com,Engineering/R&D,2023-11-01,,full_time_salaried,active
+emp_0006,Employee 06,employee.06@example.com,Engineering/R&D,2023-11-01,,full_time_salaried,active
+emp_0007,Employee 07,employee.07@example.com,Engineering/R&D,2023-11-01,2026-06-15,full_time_salaried,terminated
+emp_0008,Employee 08,employee.08@example.com,Sales & Marketing,2023-11-01,,full_time_salaried,active
+emp_0009,Employee 09,employee.09@example.com,Sales & Marketing,2023-11-01,,full_time_salaried,active
+emp_0010,Employee 10,employee.10@example.com,Sales & Marketing,2023-11-01,,full_time_salaried,active
+emp_0011,Employee 11,employee.11@example.com,Sales & Marketing,2023-11-01,2026-08-31,full_time_salaried,terminated
+emp_0012,Employee 12,employee.12@example.com,Customer Success/Support,2023-11-01,,full_time_salaried,active
+emp_0013,Employee 13,employee.13@example.com,Customer Success/Support,2023-11-01,,full_time_salaried,active
+emp_0014,Employee 14,employee.14@example.com,Customer Success/Support,2023-11-01,,full_time_salaried,active
+emp_0015,Employee 15,employee.15@example.com,G&A,2023-11-01,,full_time_salaried,active
+emp_0016,Employee 16,employee.16@example.com,G&A,2023-11-01,,full_time_salaried,active
+emp_0017,Employee 17,employee.17@example.com,Engineering/R&D,2025-03-01,,full_time_salaried,active
+emp_0018,Employee 18,employee.18@example.com,Sales & Marketing,2025-04-01,,full_time_salaried,active
+emp_0019,Employee 19,employee.19@example.com,Engineering/R&D,2025-06-01,,full_time_salaried,active
+emp_0020,Employee 20,employee.20@example.com,Customer Success/Support,2025-09-01,,full_time_salaried,active
+emp_0021,Employee 21,employee.21@example.com,Engineering/R&D,2025-11-01,,full_time_salaried,active
+emp_0022,Employee 22,employee.22@example.com,Engineering/R&D,2026-01-01,,full_time_salaried,active
+emp_0023,Employee 23,employee.23@example.com,Customer Success/Support,2026-03-01,,full_time_salaried,active
+emp_0024,Employee 24,employee.24@example.com,Sales & Marketing,2026-04-01,,full_time_salaried,active
+emp_0025,Employee 25,employee.25@example.com,Engineering/R&D,2026-06-01,,full_time_salaried,active
+emp_0026,Employee 26,employee.26@example.com,G&A,2026-08-01,,full_time_salaried,active
+emp_0027,Employee 27,employee.27@example.com,Customer Success/Support,2026-09-01,,full_time_salaried,active

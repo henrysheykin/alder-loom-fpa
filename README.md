@@ -21,6 +21,7 @@ private/datamart.json  ──git push──►  GitHub  ──auto deploy──�
 One site, a separate link per demo company (nothing is shared between them except the AI chat proxy):
 - ABC Inc. (e-commerce): `/ecommerce` (old link `/dashboard` still works), data `/api/data`
 - ABC Agency (marketing agency): `/agency`, data `/api/data/agency`
+- ABC SaaS (B2B subscription software): `/saas`, data `/api/data/saas`
 
 ## Second company: ABC Agency — `/agency`
 A fictional performance-marketing agency (Meta & Google Ads management, creative, analytics), 24 months of synthetic data
@@ -29,6 +30,14 @@ delivery approvals, QuickBooks, bank, planning, debt). Pipeline: `pipeline/agenc
 Tabs: Company overview · P&L vs budget · Client profitability · Team & utilization · Scope & delivery · Receivables ·
 Retention & pipeline · 13-week cash (scenarios + drill-down) · Data sources · Data quality, plus the AI analyst.
 Refresh with `npm run refresh:agency`.
+
+## Third company: ABC SaaS — `/saas`
+A fictional B2B SaaS (seat-based Starter/Team/Scale plans, monthly and annual billing), 24 months of synthetic data from 16 simulated
+systems (Stripe Billing & Payments, contracts, revenue subledger, product analytics, HubSpot, AWS, Gusto, QuickBooks, bank, Meta/Google Ads,
+first-party tracking, procurement, planning, equity register). Pipeline: `pipeline/saas/build_datamart.py` (169 checks).
+Tabs: Business overview · MRR & retention (bridge, cohorts, price versions) · Revenue · billing · cash · Budget vs actual · Department spend ·
+Rolling forecast (driver sliders) · 13-week cash (scenarios + drill-down) · Data sources · Data quality, plus the AI analyst.
+Refresh with `npm run refresh:saas`.
 
 ## Dashboards (ABC Inc., `/dashboard`)
 - **Company overview** — L12M KPIs, revenue vs budget, margins, working capital, categories, channels, SKUs, suppliers
