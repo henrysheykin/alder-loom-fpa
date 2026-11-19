@@ -30,7 +30,8 @@ private/datamart.json  ──git push──►  GitHub  ──auto deploy──�
 2. **Settings → Environment Variables** (Production and Preview):
    | Name | Value |
    |---|---|
-   | `SITE_PASSWORD` | shared password for the demo |
+   | `REQUIRE_LOGIN` | optional; `true` puts the whole portal behind the password (default: public view, sign-in needed only to save versions) |
+   | `SITE_PASSWORD` | shared password for sign-in |
    | `SITE_USERS` | optional named logins: `anna:pass1,ivan:pass2` |
    | `AUTH_SECRET` | random 32+ characters (`openssl rand -hex 32`) |
    | `ANTHROPIC_API_KEY` | key from console.anthropic.com (AI analyst) |

@@ -1583,7 +1583,9 @@ async function ask(text) {
 // ---------------------------------------------------------------- boot
 async function boot() {
   setHdr();
-  if (!IN_CLAUDE) $("#signout").hidden = false;
+  if (!IN_CLAUDE) fetch("/api/me", { cache: "no-store" }).then(r => r.json()).then(j => { const so = $("#signout");
+    if (!j.user) { so.textContent = "Sign in"; so.href = "/login?next=/dashboard"; }
+    so.hidden = false; }).catch(() => {});
   try { const r = await fetch(IN_CLAUDE ? "datamart.json" : "/api/data", { cache: "no-store" }); if (r.status === 401) { location.href = "/login"; return; } M = await r.json(); } catch (e) { $("#main").prepend(el("div", { class: "card err", text: "Data file could not be loaded." })); return; }
   DS = Object.fromEntries(Object.entries(M.datasets));
   $("#asof").textContent = "Data as of " + M.meta.cutoff;
