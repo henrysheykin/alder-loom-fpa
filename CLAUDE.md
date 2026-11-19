@@ -12,7 +12,7 @@ presented as a real client's results.
 - `forecasts/cash/*.json` — user-saved forecast versions (immutable; never edit or delete, create new ones)
 - `config/data_schedule.json` — data collection and job schedule (Central Time); scheduled tasks follow it
 - `app/`, `middleware.ts`, `lib/` — Next.js site deployed by Vercel from `main`
-- Links are separate per company on one domain: ABC Inc. at `/ecommerce` (alias of `/dashboard`), ABC Agency at `/agency`, ABC SaaS at `/saas`, ABC Restaurants at `/restaurants`, ABC Hotels at `/hotels`. Do not merge them into one page.
+- Links are separate per company on one domain: ABC Inc. at `/ecommerce` (alias of `/dashboard`), ABC Agency at `/agency`, ABC SaaS at `/saas`, ABC Restaurants at `/restaurants`, ABC Hotels at `/hotels`, ABC Auto at `/auto`. Do not merge them into one page.
 
 ## Second company: ABC Agency (marketing agency)
 Raw source files use the placeholder name "Signal Harbor Performance"; the pipeline renames it to **ABC Agency** on output. Same demo/synthetic rules apply.
@@ -50,6 +50,16 @@ Raw source files use the placeholder name "Juniper Quay Hospitality"; the pipeli
 - Refresh: `npm run refresh:hotels`; any FAIL → stop and report; all PASS → commit, push.
 - Commentary rules: revenue = consumed nights and services by service date, net of discounts/credits, excluding lodging tax. On-the-books bookings, corporate invoices, gateway payouts and OTA net settlements are not revenue. Agency (Booking-style) commission is owed by the hotel; merchant (Expedia-style) revenue is gross with commission as expense. Sold occupancy uses available nights (physical − OOO − OOS); compute ADR/RevPAR from totals. COMPANY already includes CORP; CORP allocation (60:52:44 keys) is analytical and zero-sum. Cite property IDs (RAL, WIL, DUR, CORP), client IDs (CO-…) and cash-line IDs.
 - 13-week cash: opening = operating bank only; known balances from subledgers once; on-the-books stays net of held deposits; new bookings only fill capacity left after OTB (assumption version FC-2026-10-31-BASE). Demo assumption on the page: $2.0M cash floor.
+
+## Sixth company: ABC Auto (auto-repair shops)
+Raw source files use the placeholder name "Cedar Bend Auto Care LLC"; the pipeline renames it to **ABC Auto** on output. Same demo/synthetic rules apply.
+- Three general-repair shops LOC-01 North Creek, LOC-02 River West, LOC-03 Oak Junction (6 bays each, 18 bays) plus HQ; no vehicle sales; 24 months Nov 2024–Oct 2026, cutoff 2026-10-31, FY Nov–Oct.
+- `data/abc_auto_data/` — docs, metadata, validation control totals, reproducibility scripts in git. The 185 MB `sources/` (14 systems, 93 tables, 370 CSVs, 1.57M rows) is git-ignored: unpack `cedar_bend_auto_data_full.zip` there before a refresh.
+- `pipeline/auto/build_datamart.py` (stdlib, integer cents) → `data/output/auto/datamart.json`; 36 checks (GL = TB, 13 metrics × 24 months × company + 4 locations vs control totals, FY revenue/EBITDA/contribution and cutoff balances vs the company profile, margin bridge, AR/AP lists vs GL, bank, commitments dedup, package verifier). Exits with an error and writes nothing on any FAIL.
+- Page: `private/auto/dashboard.html` is assembled by `pipeline/auto/build_page.py` from the restaurants page shell plus `page_body.html`, `page_views.js`, `page_ai.js`; edit those parts, then rebuild. `pipeline/auto/render_check.py` screenshots every tab in headless Chrome and prints JS errors.
+- Refresh: `npm run refresh:auto`; any FAIL → stop and report; all PASS → commit, push.
+- Commentary rules: net revenue = labor + parts + shop fees + sublet − concessions, excluding sales tax, recognized at vehicle delivery. Free warranty comeback ROs have no invoice. Efficiency (book / clock of the same delivered ROs) may exceed 100%. Platform-claimed ad conversions overlap and are not revenue. Owner distributions are equity. Processor clearing and undeposited receipts are not new revenue. Cite LOC-01..03, HQ, RO-/INV-/BILL-/FLEET- IDs.
+- Cash reserve $450k comes from the synthetic owner-distribution policy; scenarios base / improved / stress are defined in the datamart meta.
 
 ## Data refresh procedure (ABC Inc.)
 1. `pip install pandas --break-system-packages -q` if pandas is missing.

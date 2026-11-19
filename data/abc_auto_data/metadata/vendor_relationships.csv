@@ -1,0 +1,8 @@
+﻿from_table,from_column,to_table,to_column,cardinality,note
+operating/vendors,vendor_id,metadata/vendor_master_mapping.csv,accounting_vendor_id,many_to_one,Polymorphic supplier or operating vendor; explicit master_table/master_id mapping.
+operating/recurring_contracts,vendor_id,metadata/vendor_master_mapping.csv,accounting_vendor_id,many_to_one,Polymorphic supplier or operating vendor; explicit master_table/master_id mapping.
+operating/sublet_services,vendor_id,metadata/vendor_master_mapping.csv,accounting_vendor_id,many_to_one,Polymorphic supplier or operating vendor; explicit master_table/master_id mapping.
+accounting/bills,vendor_id,metadata/vendor_master_mapping.csv,accounting_vendor_id,many_to_one,Polymorphic supplier or operating vendor; explicit master_table/master_id mapping.
+accounting/vendor_credits,vendor_id,metadata/vendor_master_mapping.csv,accounting_vendor_id,many_to_one,Polymorphic supplier or operating vendor; explicit master_table/master_id mapping.
+accounting/vendor_payments,vendor_id,metadata/vendor_master_mapping.csv,accounting_vendor_id,many_to_one,Polymorphic supplier or operating vendor; explicit master_table/master_id mapping.
+accounting/open_ap,vendor_id,metadata/vendor_master_mapping.csv,accounting_vendor_id,many_to_one,Polymorphic supplier or operating vendor; explicit master_table/master_id mapping.

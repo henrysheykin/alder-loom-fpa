@@ -11,3 +11,5 @@ __pycache__/
 data/abc_restaurants_data/sources/
 # ABC Hotels raw extracts (138 MB, 235 CSVs): keep outside git; unpack juniper_quay_hotels_24m_full.zip (folder juniper_quay_data) here to refresh
 data/abc_hotels_data/sources/
+# ABC Auto raw extracts (186 MB, 370 CSVs): keep outside git; unpack cedar_bend_auto_data_full.zip here to refresh
+data/abc_auto_data/sources/

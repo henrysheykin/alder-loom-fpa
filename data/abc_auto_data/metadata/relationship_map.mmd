@@ -1,0 +1,22 @@
+flowchart LR
+    CRM[Marketing leads] --> S[Appointments / quotes / approvals]
+    S --> RO[Repair orders / jobs / lines]
+    RO --> C[Physical segments / bay occupancy]
+    P[Supplier contracts / PO] --> R[Receipts / vendor bills]
+    R --> I[FIFO inventory]
+    I --> W[Issued parts + sublet WIP]
+    RO --> W
+    W --> D[Actual vehicle delivery]
+    D --> V[Customer invoices / COGS]
+    V --> AR[AR / payments / deposits]
+    AR --> PR[Card clearing / payouts]
+    PR --> B[Bank]
+    PAY[Attendance / earned payroll] --> G[Double-entry ledger / TB]
+    V --> G
+    R --> G
+    B --> G
+    BUD[Locked original budget] --> BV[Budget versus actual]
+    G --> BV
+    O[Open obligations / agreed bookings] --> CF[13-week cash forecast inputs]
+    AR --> CF
+    P --> CF

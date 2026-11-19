@@ -1,0 +1,329 @@
+<body>
+<div class="top" id="top">
+  <div class="top-row">
+    <div class="brand"><b>ABC Auto</b><span>FP&amp;A Studio</span></div>
+    <span class="demo">Demo company · Synthetic data</span>
+    <div class="meta">
+      <span class="pill" id="asof">Data as of —</span>
+      <span class="pill" id="reconPill"><span class="dot"></span><span>Checks —</span></span>
+      <button class="askbtn" id="askOpen" type="button">✦ Ask AI</button>
+      <a class="pill" id="signout" href="/api/logout" hidden style="color:inherit;text-decoration:none">Sign out</a>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Dashboards">
+    <button class="tab" role="tab" data-view="overview" aria-selected="true">Company overview</button>
+    <button class="tab" role="tab" data-view="month" aria-selected="false">Month review</button>
+    <button class="tab" role="tab" data-view="bva" aria-selected="false">P&amp;L vs budget</button>
+    <button class="tab" role="tab" data-view="shops" aria-selected="false">Shops</button>
+    <button class="tab" role="tab" data-view="mix" aria-selected="false">Service mix</button>
+    <button class="tab" role="tab" data-view="tech" aria-selected="false">Technicians &amp; bays</button>
+    <button class="tab" role="tab" data-view="parts" aria-selected="false">Parts &amp; warranty</button>
+    <button class="tab" role="tab" data-view="mkt" aria-selected="false">Marketing</button>
+    <button class="tab" role="tab" data-view="wc" aria-selected="false">AR, AP &amp; ROs</button>
+    <button class="tab" role="tab" data-view="cash" aria-selected="false">13-week cash</button>
+    <button class="tab" role="tab" data-view="sources" aria-selected="false">Data sources</button>
+    <button class="tab" role="tab" data-view="quality" aria-selected="false">Data quality</button>
+  </nav>
+</div>
+
+<div class="layout">
+<main id="main">
+
+<section class="view" id="v-overview">
+  <div class="section-title">
+    <div><h2>Company overview</h2><p>Three general auto-repair shops (North Creek, River West, Oak Junction; 6 bays each) and a shared office. No vehicle sales. FY2026 = Nov 2025 – Oct 2026, compared with FY2025 and the original budget approved 18 Oct 2024. Net revenue = labor, parts, shop-fee and sublet sales less customer concessions, excluding sales tax.</p></div>
+    <button class="ghost ai" data-ask="Give me a 5-bullet executive summary of ABC Auto for FY2026: why revenue grew but EBITDA margin fell, by driver, plus shops and cash. Use numbers and location IDs.">Summarize</button>
+  </div>
+  <div class="tiles" id="ovTiles"></div>
+  <div class="grid">
+    <div class="card c8">
+      <div class="card-head"><div><h3>Net revenue by month</h3><div class="sub">By shop vs original budget, USD</div></div>
+        <button class="ghost ai" data-ask="Explain the monthly net revenue trend by shop vs budget over 24 months.">Explain</button></div>
+      <div class="chart" id="chRev"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>North Creek</span><span><i style="background:var(--s3)"></i>River West</span><span><i style="background:var(--s4)"></i>Oak Junction</span><span><i class="dash" style="border-color:var(--ink-2)"></i>Budget</span></div>
+    </div>
+    <div class="card c4">
+      <div class="card-head"><div><h3>Margins</h3><div class="sub">% of net revenue, company</div></div></div>
+      <div class="chart" id="chRatios"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Contribution</span><span><i class="ln" style="background:var(--s3)"></i>EBITDA</span><span><i class="ln" style="background:var(--s2)"></i>Parts margin</span></div>
+    </div>
+    <div class="card c6">
+      <div class="card-head"><div><h3>Why EBITDA margin fell</h3><div class="sub">FY2025 → FY2026, points of net revenue by cost line</div></div>
+        <button class="ghost ai" data-ask="Decompose the EBITDA margin change from FY2025 to FY2026 into cost lines (parts COGS, technician labor, warranty, shop payroll, rent, marketing, fees). Which events in the case explain each?">Explain</button></div>
+      <div class="chart" id="chMarginBr"></div>
+      <div class="legend"><span><i style="background:var(--good)"></i>Helped margin</span><span><i style="background:var(--crit)"></i>Hurt margin</span><span><i style="background:var(--muted)"></i>Margin</span></div>
+    </div>
+    <div class="card c6">
+      <div class="card-head"><div><h3>Bank cash and owner distributions</h3><div class="sub">Month-end bank, quarterly owner sweeps, USD</div></div></div>
+      <div class="chart" id="chBank"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Bank cash</span><span><i style="background:var(--s2)"></i>Owner distributions</span><span><i class="dash" style="border-color:var(--crit)"></i>$450k reserve</span></div>
+    </div>
+    <div class="card c12">
+      <div class="card-head"><div><h3>Shops, FY2026</h3><div class="sub">Four-wall before HQ; HQ shown once. ARO = invoice net sales / delivered customer repair orders.</div></div></div>
+      <div class="tbl-wrap"><table id="tOv"></table></div>
+    </div>
+    <div class="card c12"><div class="card-head"><div><h3>What stands out</h3><div class="sub">Computed from the data on each build</div></div></div>
+      <div id="ovStories" style="display:grid;gap:8px"></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-month" hidden>
+  <div class="section-title">
+    <div><h2>Month review</h2><p>One month against its budget and the same month last year, by shop.</p></div>
+    <button class="ghost ai" id="monAsk">Explain this month</button>
+  </div>
+  <div class="card"><div class="controls"><select id="monSel" aria-label="Month"></select><span class="note" id="monLabel"></span></div></div>
+  <div class="tiles" id="monTiles"></div>
+  <div class="grid">
+    <div class="card c12"><div class="card-head"><div><h3>By location</h3><div class="sub" id="monSub"></div></div></div>
+      <div class="tbl-wrap"><table id="tMon"></table></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Net revenue: actual, budget, last year</h3><div class="sub">USD</div></div></div>
+      <div class="chart" id="chMon"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Actual</span><span><i style="background:var(--muted)"></i>Budget</span><span><i style="background:var(--s4)"></i>Same month last year</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>EBITDA bridge</h3><div class="sub">Company, budget to actual</div></div></div>
+      <div class="chart" id="chMonBr"></div>
+      <div class="legend"><span><i style="background:var(--good)"></i>Favorable</span><span><i style="background:var(--crit)"></i>Unfavorable</span><span><i style="background:var(--muted)"></i>Total</span></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-bva" hidden>
+  <div class="section-title">
+    <div><h2>P&amp;L vs budget</h2><p>Trial-balance period activity (not closing balances) against the original budget approved 18 Oct 2024. Expenses are positive; supplier warranty recoveries reduce cost.</p></div>
+    <button class="ghost ai" id="bvaAsk">Explain variances</button>
+  </div>
+  <div class="card"><div class="controls">
+    <div class="seg" role="group" aria-label="Scope" id="bvaScope">
+      <button type="button" data-s="month" aria-pressed="false">Month</button>
+      <button type="button" data-s="quarter" aria-pressed="false">Quarter</button>
+      <button type="button" data-s="fy" aria-pressed="true">Fiscal year</button>
+    </div>
+    <select id="bvaSel" aria-label="Period"></select>
+    <select id="bvaEnt" aria-label="Entity"><option value="COMPANY">Company</option><option value="LOC-01">North Creek LOC-01</option><option value="LOC-02">River West LOC-02</option><option value="LOC-03">Oak Junction LOC-03</option><option value="HQ">HQ</option></select>
+    <span class="note" id="bvaLabel"></span>
+  </div></div>
+  <div class="tiles" id="bvaTiles"></div>
+  <div class="grid">
+    <div class="card c8"><div class="card-head"><div><h3>Income statement</h3><div class="sub" id="bvaSub"></div></div></div>
+      <div class="tbl-wrap"><table id="tPnl"></table></div></div>
+    <div class="card c4"><div class="card-head"><div><h3>EBITDA bridge</h3><div class="sub">Budget to actual, profit impact</div></div></div>
+      <div class="chart tall" id="chBridge"></div>
+      <div class="legend"><span><i style="background:var(--good)"></i>Favorable</span><span><i style="background:var(--crit)"></i>Unfavorable</span><span><i style="background:var(--muted)"></i>Total</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Net revenue: actual vs budget</h3><div class="sub">Monthly, USD</div></div></div>
+      <div class="chart" id="chBvaRev"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Actual</span><span><i class="dash" style="border-color:var(--ink-2)"></i>Budget</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>EBITDA: actual vs budget</h3><div class="sub">Monthly, USD</div></div></div>
+      <div class="chart" id="chBvaPt"></div>
+      <div class="legend"><span><i style="background:var(--s3)"></i>Actual</span><span><i class="dash" style="border-color:var(--ink-2)"></i>Budget</span></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-shops" hidden>
+  <div class="section-title">
+    <div><h2>Shops</h2><p>Each shop before HQ costs. Contribution = net revenue − technician payroll, parts COGS, net warranty, stock loss and sublet cost.</p></div>
+    <button class="ghost ai" data-ask="Compare North Creek, River West and Oak Junction in FY2026: revenue growth, contribution and EBITDA margin, ARO, efficiency, utilization and comebacks. Which shop needs attention and why?">Compare</button>
+  </div>
+  <div class="card"><div class="controls">
+    <div class="seg" role="group" aria-label="Period" id="shPeriod">
+      <button type="button" data-p="fy26" aria-pressed="true">FY2026</button>
+      <button type="button" data-p="l3" aria-pressed="false">Last 3 months</button>
+      <button type="button" data-p="fy25" aria-pressed="false">FY2025</button>
+    </div><span class="note" id="shLabel"></span></div></div>
+  <div class="grid">
+    <div class="card c12"><div class="card-head"><div><h3>Shop P&amp;L and KPIs</h3><div class="sub" id="shSub"></div></div></div>
+      <div class="tbl-wrap"><table id="tSh"></table></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>EBITDA margin by month</h3><div class="sub">% of net revenue, before HQ</div></div></div>
+      <div class="chart" id="chShM"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>North Creek</span><span><i class="ln" style="background:var(--s3)"></i>River West</span><span><i class="ln" style="background:var(--s4)"></i>Oak Junction</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Average repair order (ARO)</h3><div class="sub">USD per delivered customer RO</div></div></div>
+      <div class="chart" id="chShA"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>North Creek</span><span><i class="ln" style="background:var(--s3)"></i>River West</span><span><i class="ln" style="background:var(--s4)"></i>Oak Junction</span></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>RO margin to P&amp;L contribution</h3><div class="sub" id="mbSub">Why delivered-RO margin differs from the ledger: idle/PTO labor, warranty, timing. Negative = reduces contribution.</div></div></div>
+      <div class="tbl-wrap"><table id="tMb"></table></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-mix" hidden>
+  <div class="section-title">
+    <div><h2>Service mix</h2><p>Delivered customer (non-warranty) repair orders by service, FY2026 vs FY2025. Labor menu rates rose in Jun 2025 and Mar 2026; the mix shifted to more expensive repairs from Apr 2026.</p></div>
+    <button class="ghost ai" data-ask="Which services grew or shrank in FY2026 vs FY2025 by RO count, net sales and ARO? How much of the ARO increase is mix vs price?">Explain</button>
+  </div>
+  <div class="card"><div class="controls">
+    <select id="mxEnt" aria-label="Shop"><option value="ALL">All shops</option><option value="LOC-01">North Creek LOC-01</option><option value="LOC-02">River West LOC-02</option><option value="LOC-03">Oak Junction LOC-03</option></select>
+    <span class="note">FY2026 vs FY2025</span></div></div>
+  <div class="grid">
+    <div class="card c7"><div class="card-head"><div><h3>Net sales by service</h3><div class="sub">USD</div></div></div>
+      <div class="chart tall" id="chMx"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>FY2026</span><span><i style="background:var(--s1);opacity:.35"></i>FY2025</span></div></div>
+    <div class="card c5"><div class="card-head"><div><h3>Customer ROs by month</h3><div class="sub">Retail vs fleet</div></div></div>
+      <div class="chart tall" id="chMxF"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Retail</span><span><i style="background:var(--s4)"></i>Fleet</span></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>All services</h3><div class="sub">Efficiency = billed book hours / actual clock of the same ROs (above 100% is normal)</div></div></div>
+      <div class="tbl-wrap"><table id="tMx"></table></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-tech" hidden>
+  <div class="section-title">
+    <div><h2>Technicians &amp; bays</h2><p>Utilization = technician job minutes / available minutes (warranty work included, PTO excluded). Bay utilization uses all 18 physical bays including unstaffed ones. A sixth technician joined North Creek (Feb 2026), River West (May 2026) and Oak Junction (Jul 2026).</p></div>
+    <button class="ghost ai" data-ask="Analyze technician productivity: utilization, efficiency, paid vs worked hours and the ramp of the sixth technicians by shop. How much capacity is idle and what is it worth?">Explain</button>
+  </div>
+  <div class="tiles" id="tcTiles"></div>
+  <div class="grid">
+    <div class="card c6"><div class="card-head"><div><h3>Technician utilization</h3><div class="sub">Worked / available minutes</div></div></div>
+      <div class="chart" id="chTcU"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>North Creek</span><span><i class="ln" style="background:var(--s3)"></i>River West</span><span><i class="ln" style="background:var(--s4)"></i>Oak Junction</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Efficiency</h3><div class="sub">Billed book hours / actual clock, delivered customer ROs</div></div></div>
+      <div class="chart" id="chTcE"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>North Creek</span><span><i class="ln" style="background:var(--s3)"></i>River West</span><span><i class="ln" style="background:var(--s4)"></i>Oak Junction</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Hours, company</h3><div class="sub">Paid, available, worked and billed, by month</div></div></div>
+      <div class="chart" id="chTcH"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s7)"></i>Paid</span><span><i class="ln" style="background:var(--s2)"></i>Available</span><span><i class="ln" style="background:var(--s1)"></i>Worked</span><span><i class="ln" style="background:var(--s3)"></i>Billed (book)</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Effective labor rate</h3><div class="sub">Labor net sales / billed book hours, USD</div></div></div>
+      <div class="chart" id="chTcR"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>North Creek</span><span><i class="ln" style="background:var(--s3)"></i>River West</span><span><i class="ln" style="background:var(--s4)"></i>Oak Junction</span></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>By shop</h3><div class="sub">FY2026 vs FY2025</div></div></div>
+      <div class="tbl-wrap"><table id="tTc"></table></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-parts" hidden>
+  <div class="section-title">
+    <div><h2>Parts &amp; warranty</h2><p>Parts margin = (parts sales − FIFO cost of delivered parts) / parts sales. Supplier costs rose ~9% in Jul 2025 while retail part prices rose ~4%. Comebacks are free corrective repair orders; supplier recoveries are booked separately.</p></div>
+    <button class="ghost ai" data-ask="Explain parts margin over 24 months and the Oak Junction warranty comeback spike from May 2026: counts, reasons, hours and cost, and what it did to contribution.">Explain</button>
+  </div>
+  <div class="tiles" id="ptTiles"></div>
+  <div class="grid">
+    <div class="card c6"><div class="card-head"><div><h3>Parts margin</h3><div class="sub">By shop, monthly</div></div></div>
+      <div class="chart" id="chPtM"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>North Creek</span><span><i class="ln" style="background:var(--s3)"></i>River West</span><span><i class="ln" style="background:var(--s4)"></i>Oak Junction</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Comebacks</h3><div class="sub">Free corrective ROs by reported month</div></div></div>
+      <div class="chart" id="chPtC"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>North Creek</span><span><i style="background:var(--s3)"></i>River West</span><span><i style="background:var(--s4)"></i>Oak Junction</span></div></div>
+    <div class="card c7"><div class="card-head"><div><h3>Parts and warranty by shop</h3><div class="sub">FY2026 vs FY2025</div></div></div>
+      <div class="tbl-wrap"><table id="tPt"></table></div></div>
+    <div class="card c5"><div class="card-head"><div><h3>Comebacks by reason</h3><div class="sub">FY2026</div></div></div>
+      <div class="tbl-wrap"><table id="tPtR"></table></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-mkt" hidden>
+  <div class="section-title">
+    <div><h2>Marketing</h2><p>Ad spend from daily platform data equals GL 6400. Platform-claimed conversions and values overlap and are not revenue. Leads include anonymous enquiries that never booked.</p></div>
+    <button class="ghost ai" data-ask="Is advertising paying back? Show spend, leads, booking rate and cost per booked lead by shop and channel, FY2026 vs FY2025. Note that platform claims overlap.">Explain</button>
+  </div>
+  <div class="tiles" id="mkTiles"></div>
+  <div class="grid">
+    <div class="card c6"><div class="card-head"><div><h3>Ad spend</h3><div class="sub">By shop, monthly, USD</div></div></div>
+      <div class="chart" id="chMkS"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>North Creek</span><span><i style="background:var(--s3)"></i>River West</span><span><i style="background:var(--s4)"></i>Oak Junction</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Leads and bookings</h3><div class="sub">Company, monthly</div></div></div>
+      <div class="chart" id="chMkL"></div>
+      <div class="legend"><span><i style="background:var(--s2)"></i>Leads not booked</span><span><i style="background:var(--s1)"></i>Booked leads</span></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>By shop and channel</h3><div class="sub">FY2026</div></div></div>
+      <div class="tbl-wrap"><table id="tMk"></table></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-wc" hidden>
+  <div class="section-title">
+    <div><h2>Receivables, payables and repair orders</h2><p>Open items at the 31 Oct 2026 cutoff tie to GL 1100 and 2000. Fleet accounts pay partly and late (Net30 is not day 30). Drill into any October repair order.</p></div>
+    <button class="ghost ai" data-ask="Review working capital at the cutoff: AR aging by fleet vs retail, the largest overdue fleet balances, AP by vendor and due date, and how DSO moved over 24 months.">Explain</button>
+  </div>
+  <div class="tiles" id="wcTiles"></div>
+  <div class="grid">
+    <div class="card c6"><div class="card-head"><div><h3>AR and AP, month-end</h3><div class="sub">USD</div></div></div>
+      <div class="chart" id="chWc"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Receivables</span><span><i class="ln" style="background:var(--s2)"></i>Payables</span><span><i class="ln" style="background:var(--s4)"></i>Inventory</span><span><i class="ln" style="background:var(--s7)"></i>Payroll payable</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>AR aging at cutoff</h3><div class="sub">Retail vs fleet, USD</div></div></div>
+      <div class="chart" id="chAge"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Retail</span><span><i style="background:var(--s4)"></i>Fleet</span></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Open AR by customer</h3><div class="sub">Fleet accounts and retail, USD</div></div></div>
+      <div class="tbl-wrap"><table id="tAr"></table></div></div>
+    <div class="card c6"><div class="card-head"><div><h3>Open AP by vendor</h3><div class="sub">USD</div></div></div>
+      <div class="tbl-wrap"><table id="tAp"></table></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>Repair orders delivered in October 2026</h3><div class="sub" id="roSub"></div></div></div>
+      <div class="controls" style="margin-bottom:8px"><input id="roQ" type="search" placeholder="Search RO, invoice, service, technician, fleet…" style="flex:1;min-width:220px;padding:7px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--panel);color:var(--ink)">
+        <select id="roLoc" aria-label="Shop"><option value="ALL">All shops</option><option value="LOC-01">North Creek</option><option value="LOC-02">River West</option><option value="LOC-03">Oak Junction</option></select></div>
+      <div class="tbl-wrap" style="max-height:440px;overflow:auto"><table id="tRo"></table></div></div>
+  </div>
+</section>
+
+<section class="view" id="v-cash" hidden>
+  <div class="section-title">
+    <div><h2>13-week cash forecast</h2><p id="cashIntro"></p></div>
+    <button class="ghost ai" data-ask="Walk me through the 13-week cash forecast in the current scenario: the low point and what drives it, payroll and fleet collection timing, and headroom over the $450k reserve. How much could the owner distribute at the end of the quarter?">Explain</button>
+  </div>
+  <div class="card"><div class="controls" style="gap:18px">
+    <div class="seg" role="group" aria-label="Scenario" id="scScen">
+      <button type="button" data-n="base" aria-pressed="true">Base</button>
+      <button type="button" data-n="improved" aria-pressed="false">Improved</button>
+      <button type="button" data-n="stress" aria-pressed="false">Stress</button>
+    </div>
+    <div class="slider"><label for="scSal">New sales, % of run rate <b id="scSalV">100%</b></label><input id="scSal" type="range" min="70" max="115" step="5" value="100"></div>
+    <div class="slider"><label for="scVen">Vendor payments, % of run rate <b id="scVenV">100%</b></label><input id="scVen" type="range" min="85" max="120" step="1" value="100"></div>
+    <div class="slider"><label for="scDel">Extra fleet delay <b id="scDelV">0 wk</b></label><input id="scDel" type="range" min="0" max="4" step="1" value="0"></div>
+    <label class="toggle">Reserve <select id="scFloor"><option value="300000">$300k</option><option value="450000" selected>$450k</option><option value="600000">$600k</option></select></label>
+  </div></div>
+  <div class="tiles" id="cashTiles"></div>
+  <div class="grid">
+    <div class="card c7"><div class="card-head"><div><h3>Closing cash by week</h3><div class="sub" id="cashChSub">USD</div></div></div>
+      <div class="chart" id="chCash"></div>
+      <div class="legend"><span><i class="ln" style="background:var(--s1)"></i>Current scenario</span><span><i class="ln" style="background:var(--s3)"></i>Improved</span><span><i class="ln" style="background:var(--s2)"></i>Stress</span><span><i class="dash" style="border-color:var(--crit)"></i>Reserve</span></div></div>
+    <div class="card c5"><div class="card-head"><div><h3>Known vs driver-based</h3><div class="sub">13-week totals, USD</div></div></div>
+      <div class="chart" id="chFlows"></div>
+      <div class="legend"><span><i style="background:var(--s1)"></i>Known (documents)</span><span><i style="background:var(--s4)"></i>Driver-based</span></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>Weekly cash flow</h3><div class="sub">USD · click any amount for its line items</div></div></div>
+      <div class="tbl-wrap"><table id="tCash"></table></div>
+      <div class="drill" id="drill" hidden></div></div>
+    <div class="card c12"><div class="card-head"><div><h3>Forecast rules</h3><div class="sub">Each obligation enters the forecast once</div></div></div>
+      <ul id="cashRules" class="note" style="margin:0;padding-left:18px;display:grid;gap:4px"></ul></div>
+  </div>
+</section>
+
+<section class="view" id="v-sources" hidden>
+  <div class="section-title">
+    <div><h2>Data sources</h2><p>Every simulated system that feeds the model, with table and record counts.</p></div>
+  </div>
+  <div class="demo-note">Demo: connections are simulated with synthetic extracts modeled on a shop-management system, scheduling, inventory and purchasing, billing, a card processor, payroll, QuickBooks-style accounting, the bank, ad platforms and planning files. No native API fidelity is claimed.</div>
+  <div class="tiles" id="srcTiles"></div>
+  <div class="src-grid" id="srcGrid"></div>
+  <div class="card" style="margin-top:14px"><div class="card-head"><div><h3>Business events in the case</h3><div class="sub">Designed events of the synthetic company</div></div></div>
+    <div class="tbl-wrap"><table id="tEv"></table></div></div>
+</section>
+
+<section class="view" id="v-quality" hidden>
+  <div class="section-title">
+    <div><h2>Data quality and reconciliations</h2><p>Every build re-reads the raw extracts, rebuilds the model in integer cents and runs these checks. The dashboard is published only when all pass.</p></div>
+  </div>
+  <div class="tiles" id="dqTiles"></div>
+  <div class="card"><div class="card-head"><div><h3>How a refresh works</h3></div></div>
+    <div class="flow">
+      <div class="st"><b>1 · New extracts</b>CSV exports from shop management, scheduling, inventory, purchasing, billing, card processor, payroll, ledger, bank, ads and planning.</div>
+      <div class="st"><b>2 · Build the model</b>Monthly partitions are joined by ID, child rows aggregated before joins, money kept in cents. P&amp;L uses period activity, not closing balances.</div>
+      <div class="st"><b>3 · Reconcile</b>GL = trial balance, 13 metrics × 24 months × company and 4 locations match the control totals, FY figures and cutoff balances match the company profile.</div>
+      <div class="st"><b>4 · Publish</b>The dashboard updates at the same link and the AI analyst answers from the refreshed data.</div>
+    </div></div>
+  <div class="card"><div class="card-head"><div><h3>Reconciliation checks</h3><div class="sub" id="dqSub"></div></div></div>
+    <div class="tbl-wrap"><table id="tDq"></table></div></div>
+</section>
+<div class="foot">ABC Auto is a fictional company. All figures are synthetic and generated for demonstration. Not results from a real client.</div>
+</main>
+
+<aside class="chat" id="chat" aria-label="AI analyst">
+  <div class="chat-head">
+    <div><h3>✦ AI analyst</h3><p>Answers from this dashboard's data and can draw new charts and tables.</p></div>
+    <button class="ghost x" id="askClose" type="button">Close</button>
+  </div>
+  <div class="msgs" id="msgs" aria-live="polite"></div>
+  <div class="composer">
+    <form id="chatForm">
+      <textarea id="q" rows="1" placeholder="Ask about margins, technicians, comebacks, AR, cash…" aria-label="Your question"></textarea>
+      <button class="send" id="sendBtn" type="submit">Ask</button>
+    </form>
+    <div class="hint">Answers in the language you write in.</div>
+  </div>
+</aside>
+</div>
+<div class="scrim" id="scrim"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>

@@ -1,0 +1,223 @@
+{
+  "status": "PASS",
+  "independence": "Standalone Python standard library; rereads physical CSV files plus manifest and schema; does not import or execute generator.",
+  "input_metadata_sha256": {
+    "table_schemas.json": "0c18d8d5d712379ae114108c4951b7876dbfe28718014ac414730aaa847779a7",
+    "file_manifest.csv": "3cd4389719177542e2324f7935854181a23b2fa9a6a585e2676c79d7146e06d9",
+    "relationships.csv": "e1be7cd5855a296aae3dc47809ba195a411ad6a5ee7c1c78c8f2f5ce7423a6d9",
+    "vendor_master_mapping.csv": "5bcd3f57b8c5e28bde3daa15e4beec406925809e8af348333b16bf4513dde581",
+    "vendor_relationships.csv": "e08e3e382121443b83ea434e24bd4fb5d352f398f2419c644f3f275420cd1d16"
+  },
+  "verifier_sha256": "b102d0d054b62c8e7945b7f6f51172fc6e93841fa764171b9b66dcd9d736d814",
+  "history_start": "2024-11-01",
+  "actual_cutoff": "2026-10-31",
+  "logical_tables": 93,
+  "source_csv_rows": 1566402,
+  "checks": 391,
+  "evaluated_assertions": 23771203,
+  "failed_checks": 0,
+  "failed_assertions": 0,
+  "company_control_months": 24,
+  "location_control_rows": 96,
+  "monetary_policy": "Decimal to integer cents; exact reconciliation. HALF_UP only for explicitly rounded line tax, line price, FIFO partial lot, payroll, depreciation and contractual interest. Book hours may exceed physical clock hours. Management allocations are not GL postings.",
+  "date_policy": {
+    "actual_fields": {
+      "shop/repair_orders": [
+        "opened_date",
+        "approved_date",
+        "actual_completion_date",
+        "actual_delivery_date",
+        "actual_invoice_date"
+      ],
+      "shop/jobs": [
+        "opened_date",
+        "actual_completion_date"
+      ],
+      "shop/status_events": [
+        "event_date"
+      ],
+      "shop/estimates": [
+        "estimate_date"
+      ],
+      "shop/approvals": [
+        "decision_date"
+      ],
+      "schedule/appointments": [
+        "booked_date",
+        "actual_dropoff_at",
+        "actual_pickup_at",
+        "cancelled_date"
+      ],
+      "schedule/technician_availability": [
+        "work_date"
+      ],
+      "schedule/job_segments": [
+        "actual_start_at",
+        "actual_end_at"
+      ],
+      "schedule/bay_occupancy": [
+        "actual_occupied_from",
+        "actual_released_at",
+        "occupied_through_snapshot_at"
+      ],
+      "inventory/movements": [
+        "movement_date"
+      ],
+      "inventory/reservations": [
+        "actual_issue_date"
+      ],
+      "purchasing/purchase_orders": [
+        "ordered_date",
+        "actual_closed_date"
+      ],
+      "purchasing/receipts": [
+        "receipt_date"
+      ],
+      "purchasing/supplier_returns": [
+        "return_date"
+      ],
+      "billing/invoices": [
+        "invoice_date"
+      ],
+      "billing/payments": [
+        "payment_date"
+      ],
+      "billing/payment_allocations": [
+        "allocation_date"
+      ],
+      "billing/deposits": [
+        "received_date",
+        "applied_date"
+      ],
+      "billing/deposit_events": [
+        "event_date"
+      ],
+      "billing/credit_notes": [
+        "credit_date"
+      ],
+      "warranty/comebacks": [
+        "reported_date"
+      ],
+      "warranty/supplier_recoveries": [
+        "recovery_date"
+      ],
+      "processor/balance_transactions": [
+        "transaction_date"
+      ],
+      "processor/payouts": [
+        "initiated_date",
+        "actual_bank_date"
+      ],
+      "payroll/attendance": [
+        "work_date"
+      ],
+      "payroll/runs": [
+        "earned_date",
+        "actual_funding_date"
+      ],
+      "payroll/funding": [
+        "actual_funding_date"
+      ],
+      "operating/depreciation": [
+        "depreciation_date"
+      ],
+      "operating/sublet_services": [
+        "actual_service_date"
+      ],
+      "finance/debt_schedule": [
+        "actual_payment_date"
+      ],
+      "finance/tax_register": [
+        "actual_remittance_date"
+      ],
+      "finance/owner_distributions": [
+        "distribution_date"
+      ],
+      "marketing/daily_performance": [
+        "performance_date"
+      ],
+      "marketing/billing": [
+        "bill_date"
+      ],
+      "marketing/leads": [
+        "lead_date"
+      ],
+      "accounting/general_ledger": [
+        "journal_date"
+      ],
+      "accounting/bills": [
+        "bill_date"
+      ],
+      "accounting/vendor_credits": [
+        "credit_date"
+      ],
+      "accounting/ap_allocations": [
+        "allocation_date"
+      ],
+      "accounting/vendor_payments": [
+        "payment_date"
+      ],
+      "bank/statement": [
+        "posted_date"
+      ]
+    },
+    "exceptions": "Master/employment/in-service/origination dates may predate history. Opening balances are 2024-10-31. Effective history dates may span cutoff. Due/expected/scheduled/contractual dates and forecast drivers may extend beyond cutoff; they are not actual events. Budget approval predates history."
+  },
+  "scenario_evidence": {
+    "delivered_customer_ro_cohorts": {
+      "first_12": {
+        "parts_sales": 338442507,
+        "parts_cogs": 181094716,
+        "book_milli": 31255400,
+        "clock_minutes": 1613923
+      },
+      "last_12": {
+        "parts_sales": 363484471,
+        "parts_cogs": 210192204,
+        "book_milli": 31091400,
+        "clock_minutes": 1782473
+      }
+    },
+    "new_hire_ramp": [
+      {
+        "employee_id": "EMP-1-T6",
+        "location_id": "LOC-01",
+        "hire_date": "2026-02-02",
+        "window_end": "2026-03-08",
+        "new_hire_clock_minutes": 5151,
+        "new_hire_available_minutes": 11880,
+        "tenured_peer_clock_minutes": 50279,
+        "tenured_peer_available_minutes": 60300
+      },
+      {
+        "employee_id": "EMP-2-T6",
+        "location_id": "LOC-02",
+        "hire_date": "2026-05-04",
+        "window_end": "2026-06-07",
+        "new_hire_clock_minutes": 7327,
+        "new_hire_available_minutes": 12420,
+        "tenured_peer_clock_minutes": 56297,
+        "tenured_peer_available_minutes": 62100
+      },
+      {
+        "employee_id": "EMP-3-T6",
+        "location_id": "LOC-03",
+        "hire_date": "2026-07-06",
+        "window_end": "2026-08-09",
+        "new_hire_clock_minutes": 6450,
+        "new_hire_available_minutes": 12660,
+        "tenured_peer_clock_minutes": 55849,
+        "tenured_peer_available_minutes": 63300
+      }
+    ],
+    "loc03_comeback_rate": {
+      "location_id": "LOC-03",
+      "before_202605_ro_count": 6654,
+      "before_202605_warranty_count": 97,
+      "from_202605_ro_count": 2070,
+      "from_202605_warranty_count": 129
+    },
+    "ratio_method": "Integer cross-products; no float/tolerance comparisons. Efficiency uses book hours and actual clock from the identical delivered non-warranty RO cohort. Parts margin uses customer parts revenue and its delivered historical FIFO costs."
+  },
+  "failures": []
+}

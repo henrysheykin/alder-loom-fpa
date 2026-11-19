@@ -1,0 +1,15 @@
+﻿accounting_vendor_id,master_table,master_id,vendor_type
+SUP-01,purchasing/suppliers,SUP-01,parts_supplier
+SUP-02,purchasing/suppliers,SUP-02,parts_supplier
+SUP-03,purchasing/suppliers,SUP-03,parts_supplier
+SUP-04,purchasing/suppliers,SUP-04,parts_supplier
+VEN-RENT,operating/vendors,VEN-RENT,operating_vendor
+VEN-UTIL,operating/vendors,VEN-UTIL,operating_vendor
+VEN-INS,operating/vendors,VEN-INS,operating_vendor
+VEN-SOFT,operating/vendors,VEN-SOFT,operating_vendor
+VEN-MAINT,operating/vendors,VEN-MAINT,operating_vendor
+VEN-WASTE,operating/vendors,VEN-WASTE,operating_vendor
+VEN-ALIGN,operating/vendors,VEN-ALIGN,operating_vendor
+VEN-EQUIP,operating/vendors,VEN-EQUIP,operating_vendor
+VEN-ADS-google,operating/vendors,VEN-ADS-google,operating_vendor
+VEN-ADS-meta,operating/vendors,VEN-ADS-meta,operating_vendor

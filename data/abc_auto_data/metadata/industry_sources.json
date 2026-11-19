@@ -1,0 +1,209 @@
+{
+  "schema_version": "1.0",
+  "accessed_date": "2026-11-19",
+  "scope": {
+    "country": "United States",
+    "business": "fully synthetic three-location general auto repair group",
+    "actuals_start": "2024-11-01",
+    "actuals_end": "2026-10-31",
+    "purpose": "Operational realism and explicit metric definitions for a demonstration dataset",
+    "status": "Research guidance; no real customer, employee, shop, invoice or account data",
+    "limitations": [
+      "Vendor documentation establishes specific product behavior, not a universal industry standard.",
+      "Current documentation accessed after the dataset cutoff is used to understand concepts, not to claim that every current feature existed throughout the historical period.",
+      "The numerical survey benchmarks below are 2025-vintage sample results, not a latest 2026 national estimate or an operating target.",
+      "No tax, payroll, payment processing fee, statutory rate or legal compliance claim is made. Such rates and terms in the demo must be clearly marked synthetic."
+    ]
+  },
+  "sources": [
+    {
+      "id": "S01",
+      "publisher": "Shopmonkey",
+      "title": "Request Customer Authorization",
+      "url": "https://support.shopmonkey.io/hc/en-us/articles/38743372579988-Request-Customer-Authorization",
+      "accessed_date": "2026-11-19",
+      "source_type": "official product documentation",
+      "updated_date_shown": "2025-11-25",
+      "facts": [
+        "Customers can approve or decline individual services on an estimate.",
+        "The shop can record authorization received through another channel, including phone, SMS or email.",
+        "An optional setting resets authorization after a service price increase while retaining authorization history."
+      ],
+      "design_implication": "Store estimate version and service-level authorization status, method and timestamp. Approval is a separate event from completed work and invoicing.",
+      "limitation": "This is Shopmonkey behavior; it does not establish jurisdictional authorization requirements."
+    },
+    {
+      "id": "S02",
+      "publisher": "Shopmonkey",
+      "title": "Convert Estimates to Invoices",
+      "url": "https://support.shopmonkey.io/hc/en-us/articles/38743626549780-Convert-Estimates-to-Invoices",
+      "accessed_date": "2026-11-19",
+      "source_type": "official product documentation",
+      "updated_date_shown": "2026-04-21",
+      "facts": [
+        "An estimate can be converted to an invoice that remains unpaid.",
+        "Automatic conversion after full payment is optional and can interact with checklist requirements."
+      ],
+      "design_implication": "Keep invoice status and payment status independent; permit fully or partly unpaid invoices and customer deposits before invoicing.",
+      "limitation": "The demo should define one explicit workflow policy rather than reproduce every configurable product option."
+    },
+    {
+      "id": "S03",
+      "publisher": "Tekmetric",
+      "title": "Technician Hours Report",
+      "url": "https://support.tekmetric.com/hc/en-us/articles/360059335793-Technician-Hours-Report",
+      "accessed_date": "2026-11-19",
+      "source_type": "official product documentation",
+      "facts": [
+        "Efficiency is billed hours divided by actual hours clocked on jobs, multiplied by 100.",
+        "Actual job-clock time is described as an efficiency tracking measure, not payroll time.",
+        "Report timing can follow job completion, repair-order completion, or posting/sending to accounts receivable; this is shop configurable."
+      ],
+      "design_implication": "Use separate billed, job-clock, attendance and paid hours. Persist completion and invoice timestamps so period attribution is explicit.",
+      "limitation": "Do not equate job-clock time with paid hours or assume all software reports use the same inclusion milestone."
+    },
+    {
+      "id": "S04",
+      "publisher": "Tekmetric",
+      "title": "Labor Guide",
+      "url": "https://support.tekmetric.com/hc/en-us/articles/360063488693-Labor-Guide",
+      "accessed_date": "2026-11-19",
+      "source_type": "official product documentation",
+      "facts": [
+        "Labor guides provide recommended times and parts as an estimating reference.",
+        "Tekmetric notes that required labor time can vary with region and technician experience, and vehicle specification affects the applicable estimate."
+      ],
+      "design_implication": "Generate book/estimated hours, customer-billed hours and actual job time independently but coherently. Do not copy proprietary labor-guide tables.",
+      "limitation": "A synthetic labor-time catalog is an invented demo assumption, not a vehicle-specific repair quote or licensed guide."
+    },
+    {
+      "id": "S05",
+      "publisher": "Shopmonkey",
+      "title": "Line Item Detail Report",
+      "url": "https://support.shopmonkey.io/hc/en-us/articles/44598617768340-Line-Item-Detail-Report",
+      "accessed_date": "2026-11-19",
+      "source_type": "official product documentation",
+      "updated_date_shown": "2026-05-14",
+      "facts": [
+        "The report distinguishes Estimate, Repair Order and Invoiced states, and separates invoice date from fully paid date.",
+        "Parts and tire cost/price fields are per unit; quantity is separate. Labor price is per hour and billed hours differ from clocked time.",
+        "A line subtotal reflects quantity or billed hours and line discount before tax; order-level adjustments need separate treatment."
+      ],
+      "design_implication": "Keep unit, quantity, unit cost, unit selling price and extended amounts explicit. Count distinct orders rather than line rows. Invoice revenue and customer collections need separate date views.",
+      "limitation": "The demo's normalized units and accounting policy are its own choices, not a claim to replicate the export format."
+    },
+    {
+      "id": "S06",
+      "publisher": "PartsTech",
+      "title": "PartsTech Seller Agreement",
+      "url": "https://partstech.com/seller-agreement/",
+      "accessed_date": "2026-11-19",
+      "source_type": "official platform agreement, used only for operating-model definitions",
+      "facts": [
+        "The agreement distinguishes a recognized wholesale credit account between supplier and buyer from cash customer transactions.",
+        "The platform connects inventory/price inquiries and electronic orders."
+      ],
+      "design_implication": "Treat the ordering platform separately from the supplier/vendor master and from payment method. Retain supplier account, purchase order, receipt and vendor invoice identifiers.",
+      "limitation": "No legal interpretation is provided. This source does not establish universal net days for repair shops; platform seller fees are not shop supplier payment terms."
+    },
+    {
+      "id": "S07",
+      "publisher": "AutoZone Commercial",
+      "title": "Support Programs & Services — Credit Program",
+      "url": "https://www.autozonepro.com/ui/landing/support-and-services",
+      "accessed_date": "2026-11-19",
+      "source_type": "official supplier public program page",
+      "retrieval_note": "Credit program body is present in the search-index extract; direct page extraction returned the public navigation shell.",
+      "facts": [
+        "The public Credit Program description lists daily, weekly and monthly billing cycles and a dedicated line of credit."
+      ],
+      "design_implication": "Store billing cycle and due date rules separately. Synthetic vendor terms such as COD, Net15 or Net30 must be labeled assumptions rather than attributed to AutoZone.",
+      "limitation": "A monthly billing cycle does not by itself mean invoice-date-plus-30-days. No specific customer's approval, limit or contracted terms are known."
+    },
+    {
+      "id": "S08",
+      "publisher": "Stripe",
+      "title": "Balances and settlement time",
+      "url": "https://docs.stripe.com/payments/balances",
+      "accessed_date": "2026-11-19",
+      "source_type": "official processor documentation",
+      "facts": [
+        "Payment funds can be pending before becoming available; a card charge appears pending after processor fees.",
+        "Available funds can then be used for payouts; refunds and disputes also affect the payments balance.",
+        "Settlement timing depends on country and payment method, and business days differ from calendar days."
+      ],
+      "design_implication": "Separate customer payment date, available date and payout/bank dates. Maintain processor clearing and fee/refund components rather than treating bank deposit as gross sales.",
+      "limitation": "Any lag, fee percentage or reserve in the synthetic demo is a stated assumption, not a promised Stripe rate or timeline."
+    },
+    {
+      "id": "S09",
+      "publisher": "Stripe",
+      "title": "Payout reconciliation report",
+      "url": "https://docs.stripe.com/reports/payout-reconciliation",
+      "accessed_date": "2026-11-19",
+      "source_type": "official processor documentation",
+      "facts": [
+        "Automatic payout reconciliation matches bank payouts with batches of underlying payments and other balance transactions, including refunds, disputes and fees.",
+        "The report groups payouts by estimated arrival date, which can differ from the bank posting date.",
+        "Unsettled transactions can remain in an ending balance; instant and manual payouts need different reconciliation approaches."
+      ],
+      "design_implication": "Create payout headers plus a transaction-to-payout bridge; retain residual clearing at month end and distinct bank posting dates.",
+      "limitation": "Use automatic batch payouts for the demo unless another explicitly documented synthetic reconciliation method is implemented."
+    },
+    {
+      "id": "S10",
+      "publisher": "PartsTech",
+      "title": "2025 PartsTech Report: State of General Auto Repair Shops in the U.S.",
+      "url": "https://partstech.com/resource/blog/2025-partstech-report-state-of-general-auto-repair-shops-in-the-u-s/",
+      "accessed_date": "2026-11-19",
+      "source_type": "first-party survey summary",
+      "published_date": "2025-02-06",
+      "sample_size": 752,
+      "facts": [
+        "The publisher reports a survey of 752 U.S. auto repair shops.",
+        "Published sample figures include 2.2 vehicles serviced per bay per day, 0.7 technicians per bay, and one service advisor per three bays."
+      ],
+      "design_implication": "These figures can serve as a coarse plausibility cross-check for invented shop capacity and staffing, with location-specific variation.",
+      "limitation": "Descriptive, self-reported 2025 survey sample from a commercial platform; no probability sampling or causal inference is established in the public summary. Do not label the figures a universal standard, a latest 2026 estimate, or a mandated target."
+    }
+  ],
+  "benchmark_context_only": [
+    {"metric": "vehicles_per_bay_per_day", "value": 2.2, "source_id": "S10", "vintage": "2025", "use": "capacity plausibility, not a target"},
+    {"metric": "technicians_per_bay", "value": 0.7, "source_id": "S10", "vintage": "2025", "use": "staffing plausibility, not a rule"},
+    {"metric": "service_advisors_per_bay", "value": 0.3333333333, "source_id": "S10", "vintage": "2025", "use": "one advisor per three bays; context only"}
+  ],
+  "recommended_demo_definitions": {
+    "status": "Explicit synthetic model conventions inferred from the sources; not claimed to be universal vendor definitions",
+    "book_hours": "Invented standard estimating time for the synthetic service catalog; no proprietary labor guide copied",
+    "billed_hours": "Hours sold to the customer on approved, invoiced labor lines",
+    "actual_job_hours": "Non-overlapping technician clock time assigned to repair work, including separately identified warranty/rework time",
+    "attendance_hours": "Actual on-site attendance clock, with unpaid breaks excluded",
+    "paid_hours": "Payroll-compensated time, with paid leave separately identified",
+    "available_production_hours": "Attendance less explicitly classified training, meetings and other planned non-production time; excludes leave",
+    "efficiency_pct": "100 * billed_hours / actual_job_hours; undefined when actual_job_hours is zero",
+    "utilization_pct": "100 * actual_job_hours / available_production_hours; denominator explicitly disclosed",
+    "overall_productivity_pct": "100 * billed_hours / available_production_hours; denominator explicitly disclosed",
+    "paid_hour_yield": "billed_hours / paid_hours; presented separately so paid leave cannot silently change the denominator",
+    "labor_revenue": "Sum of invoiced labor line extended selling amounts after applicable discounts, excluding synthetic sales tax",
+    "effective_labor_rate": "labor_revenue / billed_hours; undefined when billed_hours is zero",
+    "aro": "Net invoiced revenue excluding synthetic sales tax divided by distinct eligible invoiced repair orders; counter sales and zero-dollar warranty orders require an explicit inclusion policy",
+    "approval_rate": "Approved quoted service value / quoted service value for a declared estimate cohort and version; never substitute paid receipts for approved work",
+    "inventory_unit": "Explicit canonical unit per SKU, e.g. EA, QT, GAL or SET; purchasing pack size and conversion to canonical units must be stored",
+    "inventory_rollforward": "Opening units + receipts + inbound transfers + returns to stock - issues - outbound transfers - vendor returns - writeoffs = closing units, all in one SKU unit",
+    "supplier_terms": "Synthetic agreement per vendor/account with distinct invoice date, billing cycle, due date and payment date; no assumed universal Net30",
+    "processor_rollforward": "Opening clearing + captured customer funds - refunds - fee debits - dispute debits + explicit adjustments - payouts = ending clearing; use one consistent signed-balance convention",
+    "payout": "Transfer from processor balance to the bank; not a second revenue event"
+  },
+  "recommended_invariants": [
+    "Approved, completed and invoiced timestamps are distinct, and declines are retained without being recognized as revenue.",
+    "Part line totals reconcile quantity times unit amount, with discounts and rounding rules explicit.",
+    "Technician billed hours aggregate once from labor lines, with allocated hours summing to the line total if more than one technician participates.",
+    "Job clocks cannot overlap for one technician; paid leave is never presented as job time.",
+    "Zero denominators produce null or N/A, not zero, infinity or an invented ratio.",
+    "Inter-location inventory transfers preserve total group units and use matched source/destination records.",
+    "Vendor receipts, invoices, credits and payments remain separately linked; billing frequency does not overwrite invoice due dates.",
+    "Payout transaction bridges reconcile to payout net amounts, and bank postings reconcile to the transferred cash.",
+    "Cash collections and invoice revenue reconcile through beginning/end receivables, credits and deposits under the declared synthetic accounting policy.",
+    "At 2026-10-31 retain legitimate unpaid receivables, unpaid vendor invoices and unsettled processor clearing rather than forcing all balances to zero."
+  ]
+}

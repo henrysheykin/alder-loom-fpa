@@ -1,0 +1,309 @@
+{
+  "notice": "EXPLANATORY RECORD COPIES ONLY — do not add to source facts.",
+  "root_po_id": "PO-00000017",
+  "root_bill_id": "BILL-00000024",
+  "tables": {
+    "purchasing/purchase_orders": [
+      {
+        "po_id": "PO-00000017",
+        "location_id": "LOC-01",
+        "supplier_id": "SUP-04",
+        "terms_id": "TERM-4-0",
+        "ordered_date": "2024-11-14",
+        "expected_receipt_date": "2024-11-18",
+        "actual_closed_date": "2024-11-18",
+        "status": "received",
+        "total_ordered_usd": "2376.00",
+        "open_commitment_usd": "0.00",
+        "delay_reason": "",
+        "ro_id": "",
+        "currency": "USD"
+      }
+    ],
+    "purchasing/po_lines": [
+      {
+        "po_line_id": "POL-00000017",
+        "po_id": "PO-00000017",
+        "sku": "SENSOR",
+        "purchase_quantity": "33.000",
+        "purchase_unit": "each",
+        "base_units_per_purchase_unit": "1.000",
+        "ordered_base_quantity": "33.000",
+        "received_base_quantity": "33.000",
+        "open_base_quantity": "0.000",
+        "purchase_unit_cost_usd": "72.00",
+        "base_unit_cost_usd": "72.00",
+        "line_total_usd": "2376.00",
+        "price_id": "PRICE-SENSOR-0"
+      }
+    ],
+    "purchasing/receipts": [
+      {
+        "receipt_id": "RECEIPT-00000017",
+        "po_id": "PO-00000017",
+        "po_line_id": "POL-00000017",
+        "location_id": "LOC-01",
+        "sku": "SENSOR",
+        "receipt_date": "2024-11-18",
+        "received_purchase_quantity": "33.000",
+        "received_base_quantity": "33.000",
+        "landed_value_usd": "2376.00",
+        "bill_id": "BILL-00000024",
+        "lot_id": "RECEIPT-00000017",
+        "inspection_status": "accepted"
+      }
+    ],
+    "purchasing/supplier_returns": [
+      {
+        "supplier_return_id": "SUPRET-00000001",
+        "supplier_id": "SUP-04",
+        "location_id": "LOC-01",
+        "sku": "SENSOR",
+        "original_receipt_id": "RECEIPT-00000017",
+        "original_bill_id": "BILL-00000024",
+        "return_date": "2024-11-21",
+        "returned_base_quantity": "1.000",
+        "original_cost_usd": "72.00",
+        "vendor_credit_id": "VC-00000001",
+        "reason": "unopened_excess_return"
+      }
+    ],
+    "inventory/movements": [
+      {
+        "movement_id": "MOV-00001390",
+        "event_sequence": "1390",
+        "movement_date": "2024-11-18",
+        "location_id": "LOC-01",
+        "sku": "SENSOR",
+        "movement_type": "receipt",
+        "quantity_delta": "33.000",
+        "base_unit": "each",
+        "carrying_value_delta_usd": "2376.00",
+        "source_id": "RECEIPT-00000017",
+        "ro_id": "",
+        "lot_id": "RECEIPT-00000017",
+        "paired_movement_id": "",
+        "other_location_id": ""
+      },
+      {
+        "movement_id": "MOV-00001705",
+        "event_sequence": "1705",
+        "movement_date": "2024-11-21",
+        "location_id": "LOC-01",
+        "sku": "SENSOR",
+        "movement_type": "supplier_return",
+        "quantity_delta": "-1.000",
+        "base_unit": "each",
+        "carrying_value_delta_usd": "-72.00",
+        "source_id": "SUPRET-00000001",
+        "ro_id": "",
+        "lot_id": "RECEIPT-00000017",
+        "paired_movement_id": "",
+        "other_location_id": ""
+      }
+    ],
+    "accounting/bills": [
+      {
+        "bill_id": "BILL-00000024",
+        "vendor_id": "SUP-04",
+        "location_id": "LOC-01",
+        "bill_date": "2024-11-18",
+        "service_period": "2024-11",
+        "due_date": "2024-12-18",
+        "bill_type": "parts_receipt",
+        "source_id": "RECEIPT-00000017",
+        "po_id": "PO-00000017",
+        "ro_id": "",
+        "contract_id": "",
+        "net_usd": "2376.00",
+        "tax_usd": "0.00",
+        "total_usd": "2376.00",
+        "open_amount_usd": "0.00",
+        "status": "paid"
+      }
+    ],
+    "accounting/bill_lines": [
+      {
+        "bill_line_id": "BILLL-00000024",
+        "bill_id": "BILL-00000024",
+        "account_code": "1200",
+        "description": "parts_receipt",
+        "net_usd": "2376.00",
+        "tax_usd": "0.00",
+        "total_usd": "2376.00",
+        "ro_id": ""
+      }
+    ],
+    "accounting/vendor_credits": [
+      {
+        "vendor_credit_id": "VC-00000001",
+        "vendor_id": "SUP-04",
+        "location_id": "LOC-01",
+        "credit_date": "2024-11-21",
+        "bill_id": "BILL-00000024",
+        "source_type": "supplier_return",
+        "source_id": "SUPRET-00000001",
+        "ro_id": "",
+        "amount_usd": "72.00",
+        "offset_account_code": "1200"
+      }
+    ],
+    "accounting/ap_allocations": [
+      {
+        "ap_allocation_id": "APA-00000001",
+        "bill_id": "BILL-00000024",
+        "allocation_date": "2024-11-21",
+        "allocation_type": "vendor_credit",
+        "vendor_payment_id": "",
+        "vendor_credit_id": "VC-00000001",
+        "amount_usd": "72.00"
+      },
+      {
+        "ap_allocation_id": "APA-00000317",
+        "bill_id": "BILL-00000024",
+        "allocation_date": "2024-12-18",
+        "allocation_type": "cash_payment",
+        "vendor_payment_id": "VPAY-00000024",
+        "vendor_credit_id": "",
+        "amount_usd": "2304.00"
+      }
+    ],
+    "accounting/vendor_payments": [
+      {
+        "vendor_payment_id": "VPAY-00000024",
+        "vendor_id": "SUP-04",
+        "location_id": "LOC-01",
+        "payment_date": "2024-12-18",
+        "amount_usd": "2304.00",
+        "bank_transaction_id": "BANK-00004571",
+        "payment_method": "ACH"
+      }
+    ],
+    "bank/statement": [
+      {
+        "bank_transaction_id": "BANK-00004571",
+        "bank_account_id": "BANK-OPERATING-DEMO",
+        "posted_date": "2024-12-18",
+        "location_id": "LOC-01",
+        "transaction_type": "vendor_payment",
+        "source_id": "VPAY-00000024",
+        "counterparty": "SUP-04",
+        "statement_sequence": "316",
+        "amount_usd": "-2304.00",
+        "running_balance_usd": "1376695.46"
+      }
+    ],
+    "purchasing/statement_items": [
+      {
+        "statement_item_id": "STMTI-00000017",
+        "statement_id": "STMT-00000009",
+        "document_type": "bill",
+        "bill_id": "BILL-00000024",
+        "vendor_credit_id": "",
+        "document_date": "2024-11-18",
+        "signed_document_usd": "2376.00"
+      },
+      {
+        "statement_item_id": "STMTI-00001598",
+        "statement_id": "STMT-00000009",
+        "document_type": "credit",
+        "bill_id": "",
+        "vendor_credit_id": "VC-00000001",
+        "document_date": "2024-11-21",
+        "signed_document_usd": "-72.00"
+      }
+    ],
+    "accounting/general_ledger": [
+      {
+        "journal_line_id": "JL-00002666",
+        "journal_id": "J-00001330",
+        "journal_date": "2024-11-18",
+        "location_id": "LOC-01",
+        "account_code": "1200",
+        "debit_usd": "2376.00",
+        "credit_usd": "0.00",
+        "source_system": "accounting",
+        "source_type": "vendor_bill",
+        "source_id": "BILL-00000024",
+        "memo": "parts_receipt; RECEIPT-00000017"
+      },
+      {
+        "journal_line_id": "JL-00002667",
+        "journal_id": "J-00001330",
+        "journal_date": "2024-11-18",
+        "location_id": "LOC-01",
+        "account_code": "2000",
+        "debit_usd": "0.00",
+        "credit_usd": "2376.00",
+        "source_system": "accounting",
+        "source_type": "vendor_bill",
+        "source_id": "BILL-00000024",
+        "memo": "parts_receipt; RECEIPT-00000017"
+      },
+      {
+        "journal_line_id": "JL-00003307",
+        "journal_id": "J-00001649",
+        "journal_date": "2024-11-21",
+        "location_id": "LOC-01",
+        "account_code": "2000",
+        "debit_usd": "72.00",
+        "credit_usd": "0.00",
+        "source_system": "accounting",
+        "source_type": "vendor_credit",
+        "source_id": "VC-00000001",
+        "memo": "supplier_return"
+      },
+      {
+        "journal_line_id": "JL-00003308",
+        "journal_id": "J-00001649",
+        "journal_date": "2024-11-21",
+        "location_id": "LOC-01",
+        "account_code": "1200",
+        "debit_usd": "0.00",
+        "credit_usd": "72.00",
+        "source_system": "accounting",
+        "source_type": "vendor_credit",
+        "source_id": "VC-00000001",
+        "memo": "supplier_return"
+      },
+      {
+        "journal_line_id": "JL-00399737",
+        "journal_id": "J-00144153",
+        "journal_date": "2024-12-18",
+        "location_id": "LOC-01",
+        "account_code": "2000",
+        "debit_usd": "2304.00",
+        "credit_usd": "0.00",
+        "source_system": "accounting",
+        "source_type": "vendor_payment",
+        "source_id": "VPAY-00000024",
+        "memo": ""
+      },
+      {
+        "journal_line_id": "JL-00399738",
+        "journal_id": "J-00144153",
+        "journal_date": "2024-12-18",
+        "location_id": "LOC-01",
+        "account_code": "1000",
+        "debit_usd": "0.00",
+        "credit_usd": "2304.00",
+        "source_system": "accounting",
+        "source_type": "vendor_payment",
+        "source_id": "VPAY-00000024",
+        "memo": ""
+      }
+    ],
+    "purchasing/supplier_statements": [
+      {
+        "statement_id": "STMT-00000009",
+        "supplier_id": "SUP-04",
+        "location_id": "LOC-01",
+        "statement_month": "2024-11",
+        "statement_date": "2024-11-30",
+        "net_documents_usd": "7776.00",
+        "is_summary_only": "True",
+        "posting_status": "Do not post; bills/credits already in AP"
+      }
+    ]
+  }
+}

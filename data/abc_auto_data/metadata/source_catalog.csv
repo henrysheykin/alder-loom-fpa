@@ -1,0 +1,15 @@
+﻿source_system,logical_tables,row_count,description,extract_type,actual_cutoff
+shop,14,512504,"Shopmonkey/Tekmetric-inspired custom extracts: approvals, RO, jobs, menu and history.",custom_flat_synthetic_csv,2026-10-31
+schedule,6,123690,Appointment and physical capacity event extracts; no native API fidelity claimed.,custom_flat_synthetic_csv,2026-10-31
+inventory,9,173893,"Perpetual FIFO stock, reservations, parts/sublet WIP and counts.",custom_flat_synthetic_csv,2026-10-31
+purchasing,10,7241,"Supplier agreements, prices, PO/receipts/returns and statement summaries.",custom_flat_synthetic_csv,2026-10-31
+billing,10,206453,"Customer invoices, actual receipts, deposits, allocations, credits and AR.",custom_flat_synthetic_csv,2026-10-31
+warranty,2,718,Free comeback work and separately recognized supplier recoveries.,custom_flat_synthetic_csv,2026-10-31
+processor,2,22195,"Synthetic card clearing and payout/bank settlement, 2.7% + $0.25 assumed.",custom_flat_synthetic_csv,2026-10-31
+payroll,7,43951,Earned attendance-based compensation and actual funding; allocations are analytical.,custom_flat_synthetic_csv,2026-10-31
+operating,5,929,"Assets, straight-line depreciation, recurring contracts and outsourced work.",custom_flat_synthetic_csv,2026-10-31
+finance,4,176,Debt contractual schedule and synthetic sales tax remittances.,custom_flat_synthetic_csv,2026-10-31
+marketing,4,43008,Google/Meta-style spend and separate observed leads; claims may overlap.,custom_flat_synthetic_csv,2026-10-31
+accounting,11,421607,"QuickBooks-inspired custom chart, double-entry ledger, bills, AP and TB.",custom_flat_synthetic_csv,2026-10-31
+bank,3,7368,One fictional bank account with actual posting sequence and monthly statements.,custom_flat_synthetic_csv,2026-10-31
+planning,6,2669,"Locked original approved budget, future demand/obligations and forecast inputs.",custom_flat_synthetic_csv,2026-10-31

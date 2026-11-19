@@ -24,6 +24,7 @@ One site, a separate link per demo company (nothing is shared between them excep
 - ABC SaaS (B2B subscription software): `/saas`, data `/api/data/saas`
 - ABC Restaurants (restaurant group): `/restaurants`, data `/api/data/restaurants`
 - ABC Hotels (three-property hotel operator): `/hotels`, data `/api/data/hotels`
+- ABC Auto (auto-repair shops): `/auto`, data `/api/data/auto`
 
 ## Second company: ABC Agency — `/agency`
 A fictional performance-marketing agency (Meta & Google Ads management, creative, analytics), 24 months of synthetic data
@@ -108,3 +109,9 @@ npm install && npm run dev   # http://localhost:3000
 - The Claude API key exists only as a server environment variable.
 - `noindex` headers and robots.txt keep the portal out of search engines.
 - For production use, replace the shared password with SSO (e.g. Clerk, Auth0, or Vercel's own protection).
+
+## Sixth company: ABC Auto — `/auto`
+A fictional chain of three general auto-repair shops (North Creek, River West, Oak Junction; 18 bays) plus a shared office, no vehicle sales,
+Nov 2024–Oct 2026 synthetic data. Pipeline: `pipeline/auto/` (36 checks, incl. 1,560 control-total comparisons). Tabs: Company overview · Month review ·
+P&L vs budget · Shops · Service mix · Technicians & bays · Parts & warranty · Marketing · AR, AP & ROs · 13-week cash (base / improved / stress) ·
+Data sources · Data quality, plus the AI analyst. Refresh with `npm run refresh:auto`.
